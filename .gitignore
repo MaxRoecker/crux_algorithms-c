@@ -1,3 +1,9 @@
+# Binaries
+bin/*
+
+# Env configurations
+.vscode/*
+
 # Prerequisites
 *.d
 
