@@ -15,7 +15,11 @@ core_types_dependencies	=
 
 core_errors_module				= $(core_package)/errors.c
 core_errors_object				= $(BIN)/core_errors.o
-core_errors_dependencies	= core_types $(core_types_dependencies)
+core_errors_dependencies	= core_types
+
+core_results_module				= $(core_package)/results.c
+core_results_object				= $(BIN)/core_results.o
+core_results_dependencies	= core_errors
 
 
 init-bin:
