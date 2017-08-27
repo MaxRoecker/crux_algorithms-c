@@ -9,9 +9,13 @@ LFLAGS	= -lm -ltap -ltalloc -Wl,--gc-sections
 core_package		= $(SRC)/core
 
 # Modules
+core_types_module				= $(core_package)/types.c
+core_types_object				= $(BIN)/core_types.o
+core_types_dependencies	= 
+
 core_errors_module				= $(core_package)/errors.c
 core_errors_object				= $(BIN)/core_errors.o
-core_errors_dependencies	= 
+core_errors_dependencies	= core_types $(core_types_dependencies)
 
 
 init-bin:
