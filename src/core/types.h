@@ -26,15 +26,20 @@
  *
  */
 
-#define IU08_MIN 0
-#define IU16_MIN 0
-#define IU32_MIN 0
-#define IU64_MIN 0
+#define IU08_MIN (0u)
+#define IU16_MIN (0u)
+#define IU32_MIN (0u)
+#define IU64_MIN (0u)
 
 #define IU08_MAX (UINT8_MAX)
 #define IU16_MAX (UINT16_MAX)
 #define IU32_MAX (UINT32_MAX)
 #define IU64_MAX (UINT64_MAX)
+
+#define IU08_FMT PRIu8
+#define IU16_FMT PRIu16
+#define IU32_FMT PRIu32
+#define IU64_FMT PRIu64
 
 typedef uint8_t     iu08;
 typedef uint16_t    iu16;
@@ -52,6 +57,11 @@ typedef uint64_t    iu64;
 #define IS16_MIN (INT16_MIN)
 #define IS32_MIN (INT32_MIN)
 #define IS64_MIN (INT64_MIN)
+
+#define IS08_FMT PRId8
+#define IS16_FMT PRId16
+#define IS32_FMT PRId32
+#define IS64_FMT PRId64
 
 typedef int8_t      is08;
 typedef int16_t     is16;
@@ -71,6 +81,10 @@ typedef int64_t     is64;
 #define FLP1_EPSILON (FLT_EPSILON)
 #define FLP2_EPSILON (DBL_EPSILON)
 #define FLP4_EPSILON (LDBL_EPSILON)
+
+#define FLP1_FMT "f"
+#define FLP2_FMT "lf"
+#define FLP4_FMT "Lf"
 
 typedef float       flp1;
 typedef double      flp2;
