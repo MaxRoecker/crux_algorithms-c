@@ -30,6 +30,7 @@ typedef struct CRUX__ErrorStruct {
 
 /**
  * @brief Checks if the errors are equals.
+ *
  * @param[in] one       A error.
  * @param[in] another   A error.
  * @return true if the an error is equals to another error, false otherwise.
@@ -39,8 +40,10 @@ bool CRUX__error_equals (
     const CRUX__Error *const one,
     const CRUX__Error *const another);
 
+
 /**
  * @brief Serialize the error into a string.
+ *
  * @param[in] error     A error.
  * @return a null terminated string of the error.
  *
@@ -68,16 +71,18 @@ typedef struct CRUX__OccurrenceStruct {
   struct CRUX__OccurrenceStruct *cause; /**< The cause of the occurrence */
   CRUX__Error *error; /**< The error of the occurrence */
   char *info;         /**< Information about the occurrence */
-  char *filepath;     /**< The file path where the occurrence happened*/
+  char *filepath;     /**< The file path where the occurrence happened */
   iu32 line;          /**< The file line where the occurrence happend */
 } CRUX__Occurrence;
 
+
 /**
  * @brief Create a new occurrence and push it on the occurrences stack.
+ *
  * @param[in] occurrences The occurrences stack address.
  * @param[in] error       The error of the occurrence.
  * @param[in] info        Information about the occurrence.
- * @param[in] filepath    The file path where the occurrence happened
+ * @param[in] filepath    The file path where the occurrence happened.
  * @param[in] line        The file line where the occurrence happend.
  *
  */
@@ -88,8 +93,10 @@ void CRUX__occurrences_push (
     const char *const filepath,
     const iu32 line);
 
+
 /**
  * @brief Pop an occurrence of the error stack.
+ *
  * @param[in] occurrences The occurrences stack address.
  * @return The occurrence popped.
  *
@@ -99,7 +106,8 @@ CRUX__Occurrence * CRUX__occurrences_pop (
 
 /**
  * @brief Prints a stacktrace of an error stack into a stream file.
- * @param[in] stream the stream file.
+ *
+ * @param[in] stream      The stream file.
  * @param[in] occurrences The occurrences stack address.
  *
  */
@@ -109,6 +117,7 @@ void CRUX__occurrences_print (
 
 /**
  * @brief Cleans the error stack, deleting all the occurrences.
+ *
  * @param[in] occurrences The occurrences stack address.
  *
  */
