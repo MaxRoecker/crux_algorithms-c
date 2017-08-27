@@ -7,8 +7,6 @@
 #include <talloc.h>
 #include "./types.h"
 
-#define CRUX__MAX_STRINGIFIED_LENGTH IU32_MAX
-
 /**
  * ---------------------------------------------------------------------------
  * @file   errors.h
