@@ -9,9 +9,9 @@ Computer Science.
 
 ### Roadmap ###
 
-* Sequence structures;
+* Sequence structures:
   * Arrays;
-  * Linked lists;
+  * Linked lists.
 
 
 ### Dependencies ###
