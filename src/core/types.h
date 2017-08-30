@@ -69,6 +69,16 @@ typedef int32_t     is32;
 typedef int64_t     is64;
 
 
+#define INT_PRECISION(value)  _Generic(value, \
+  iu08 : 8, \
+  iu16 : 16, \
+  iu32 : 32, \
+  iu64 : 64, \
+  is08 : 7, \
+  is16 : 15, \
+  is32 : 31, \
+  is64 : 63)
+
 
 #define FLP1_MAX (FLT_MAX)
 #define FLP2_MAX (DBL_MAX)
@@ -89,3 +99,4 @@ typedef int64_t     is64;
 typedef float       flp1;
 typedef double      flp2;
 typedef long double flp4;
+
