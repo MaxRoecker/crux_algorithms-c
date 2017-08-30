@@ -203,8 +203,28 @@ void CRUX__flp4_format_tests () {
   talloc_free(ctx);
 }
 
+void CRUX__int_precision_tests () {
+  // 8
+  const iu08 unsigned_integer_08 = IU08_MAX;
+  const iu16 unsigned_integer_16 = IU16_MAX;
+  const iu32 unsigned_integer_32 = IU32_MAX;
+  const iu64 unsigned_integer_64 = IU64_MAX;
+  const is08 signed_integer_08 = IS08_MAX;
+  const is16 signed_integer_16 = IS16_MAX;
+  const is32 signed_integer_32 = IS32_MAX;
+  const is64 signed_integer_64 = IS64_MAX;
+  ok((INT_PRECISION(unsigned_integer_08) == 8), "Must has precision equals to %d.", 8);
+  ok((INT_PRECISION(unsigned_integer_16) == 16), "Must has precision equals to %d.", 6);
+  ok((INT_PRECISION(unsigned_integer_32) == 32), "Must has precision equals to %d.", 2);
+  ok((INT_PRECISION(unsigned_integer_64) == 64), "Must has precision equals to %d.", 4);
+  ok((INT_PRECISION(signed_integer_08) == 7), "Must has precision equals to %d.", 7);
+  ok((INT_PRECISION(signed_integer_16) == 15), "Must has precision equals to %d.", 5);
+  ok((INT_PRECISION(signed_integer_32) == 31), "Must has precision equals to %d.", 1);
+  ok((INT_PRECISION(signed_integer_64) == 63), "Must has precision equals to %d.", 3);
+}
+
 int main () {
-  plan(33);
+  plan(41);
   CRUX__iu08_format_tests();
   CRUX__iu16_format_tests();
   CRUX__iu32_format_tests();
@@ -216,6 +236,7 @@ int main () {
   CRUX__flp1_format_tests();
   CRUX__flp2_format_tests();
   CRUX__flp4_format_tests();
+  CRUX__int_precision_tests();
   done_testing();
   return EXIT_SUCCESS;
 }
