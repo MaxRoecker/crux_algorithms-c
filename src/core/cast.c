@@ -7,6 +7,7 @@ static const CRUX__Error CRUX__ERROR__INTEGER_CAST = {
 
 
 
+
 CRUX__ResultIU08 CRUX__cast_iu08_iu16 (const iu16 value) {
   iu08 casted = 0;
   const CRUX__Occurrence *occurrences = NULL;
@@ -609,18 +610,7 @@ CRUX__ResultIS08 CRUX__cast_is08_is64 (const is64 value) {
 CRUX__ResultIS16 CRUX__cast_is16_iu08 (const iu08 value) {
   is16 casted = 0;
   const CRUX__Occurrence *occurrences = NULL;
-  if (value > ((iu08) IS16_MAX)) {
-    const CRUX__Error *const error = &CRUX__ERROR__INTEGER_CAST;
-    const char *const info_fmt = 
-      "Cast %"IU08_FMT" (iu08) into a is16 resulted in lost data.";
-    const char *const info = talloc_asprintf(NULL, info_fmt, value);
-    const char *const filepath = __FILE__;
-    const iu32 line = __LINE__ + 4;
-    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
-    talloc_free((void *) info);
-  } else {
-    casted = (is16) value;
-  }
+  casted = (is16) value;
   CRUX__ResultIS16 result = {.occ = occurrences, .value = casted};
   return result;
 }
@@ -731,18 +721,7 @@ CRUX__ResultIS16 CRUX__cast_is16_is64 (const is64 value) {
 CRUX__ResultIS32 CRUX__cast_is32_iu08 (const iu08 value) {
   is32 casted = 0;
   const CRUX__Occurrence *occurrences = NULL;
-  if (value > ((iu08) IS32_MAX)) {
-    const CRUX__Error *const error = &CRUX__ERROR__INTEGER_CAST;
-    const char *const info_fmt = 
-      "Cast %"IU08_FMT" (iu08) into a is32 resulted in lost data.";
-    const char *const info = talloc_asprintf(NULL, info_fmt, value);
-    const char *const filepath = __FILE__;
-    const iu32 line = __LINE__ + 4;
-    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
-    talloc_free((void *) info);
-  } else {
-    casted = (is32) value;
-  }
+  casted = (is32) value;
   CRUX__ResultIS32 result = {.occ = occurrences, .value = casted};
   return result;
 }
@@ -750,18 +729,7 @@ CRUX__ResultIS32 CRUX__cast_is32_iu08 (const iu08 value) {
 CRUX__ResultIS32 CRUX__cast_is32_iu16 (const iu16 value) {
   is32 casted = 0;
   const CRUX__Occurrence *occurrences = NULL;
-  if (value > ((iu16) IS32_MAX)) {
-    const CRUX__Error *const error = &CRUX__ERROR__INTEGER_CAST;
-    const char *const info_fmt = 
-      "Cast %"IU16_FMT" (iu16) into a is32 resulted in lost data.";
-    const char *const info = talloc_asprintf(NULL, info_fmt, value);
-    const char *const filepath = __FILE__;
-    const iu32 line = __LINE__ + 4;
-    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
-    talloc_free((void *) info);
-  } else {
-    casted = (is32) value;
-  }
+  casted = (is32) value;
   CRUX__ResultIS32 result = {.occ = occurrences, .value = casted};
   return result;
 }
@@ -842,18 +810,7 @@ CRUX__ResultIS32 CRUX__cast_is32_is64 (const is64 value) {
 CRUX__ResultIS64 CRUX__cast_is64_iu08 (const iu08 value) {
   is64 casted = 0;
   const CRUX__Occurrence *occurrences = NULL;
-  if (value > ((iu08) IS64_MAX)) {
-    const CRUX__Error *const error = &CRUX__ERROR__INTEGER_CAST;
-    const char *const info_fmt = 
-      "Cast %"IU08_FMT" (iu08) into a is64 resulted in lost data.";
-    const char *const info = talloc_asprintf(NULL, info_fmt, value);
-    const char *const filepath = __FILE__;
-    const iu32 line = __LINE__ + 4;
-    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
-    talloc_free((void *) info);
-  } else {
-    casted = (is64) value;
-  }
+  casted = (is64) value;
   CRUX__ResultIS64 result = {.occ = occurrences, .value = casted};
   return result;
 }
@@ -861,18 +818,7 @@ CRUX__ResultIS64 CRUX__cast_is64_iu08 (const iu08 value) {
 CRUX__ResultIS64 CRUX__cast_is64_iu16 (const iu16 value) {
   is64 casted = 0;
   const CRUX__Occurrence *occurrences = NULL;
-  if (value > ((iu16) IS64_MAX)) {
-    const CRUX__Error *const error = &CRUX__ERROR__INTEGER_CAST;
-    const char *const info_fmt = 
-      "Cast %"IU16_FMT" (iu16) into a is64 resulted in lost data.";
-    const char *const info = talloc_asprintf(NULL, info_fmt, value);
-    const char *const filepath = __FILE__;
-    const iu32 line = __LINE__ + 4;
-    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
-    talloc_free((void *) info);
-  } else {
-    casted = (is64) value;
-  }
+  casted = (is64) value;
   CRUX__ResultIS64 result = {.occ = occurrences, .value = casted};
   return result;
 }
@@ -880,18 +826,7 @@ CRUX__ResultIS64 CRUX__cast_is64_iu16 (const iu16 value) {
 CRUX__ResultIS64 CRUX__cast_is64_iu32 (const iu32 value) {
   is64 casted = 0;
   const CRUX__Occurrence *occurrences = NULL;
-  if (value > ((iu32) IS64_MAX)) {
-    const CRUX__Error *const error = &CRUX__ERROR__INTEGER_CAST;
-    const char *const info_fmt = 
-      "Cast %"IU32_FMT" (iu32) into a is64 resulted in lost data.";
-    const char *const info = talloc_asprintf(NULL, info_fmt, value);
-    const char *const filepath = __FILE__;
-    const iu32 line = __LINE__ + 4;
-    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
-    talloc_free((void *) info);
-  } else {
-    casted = (is64) value;
-  }
+  casted = (is64) value;
   CRUX__ResultIS64 result = {.occ = occurrences, .value = casted};
   return result;
 }
