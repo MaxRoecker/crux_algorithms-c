@@ -223,8 +223,30 @@ void CRUX__int_precision_tests () {
   ok((INT_PRECISION(signed_integer_64) == 63), "Must has precision equals to %d.", 3);
 }
 
+void CRUX__trunc_tests () {
+  // 9
+  const flp1 zero_1 = 0.0F;
+  const flp1 pos_1 = 1.5F;
+  const flp1 neg_1 = -1.5F;
+  ok((CRUX__trunc_flp1(zero_1) == 0.0F), "Must be equals to 0.0.");
+  ok((CRUX__trunc_flp1(pos_1) == 1.0F), "Must be equals to 1.0.");
+  ok((CRUX__trunc_flp1(neg_1) == -1.0F), "Must be equals to -1.0.");
+  const flp2 zero_2 = 0.0;
+  const flp2 pos_2 = 1.5;
+  const flp2 neg_2 = -1.5;
+  ok((CRUX__trunc_flp2(zero_2) == 0.0), "Must be equals to 0.0.");
+  ok((CRUX__trunc_flp2(pos_2) == 1.0), "Must be equals to 1.0.");
+  ok((CRUX__trunc_flp2(neg_2) == -1.0), "Must be equals to -1.0.");
+  const flp4 zero_4 = 0.0L;
+  const flp4 pos_4 = 1.5L;
+  const flp4 neg_4 = -1.5L;
+  ok((CRUX__trunc_flp4(zero_4) == 0.0L), "Must be equals to 0.0.");
+  ok((CRUX__trunc_flp4(pos_4) == 1.0L), "Must be equals to 1.0.");
+  ok((CRUX__trunc_flp4(neg_4) == -1.0L), "Must be equals to -1.0.");
+}
+
 int main () {
-  plan(41);
+  plan(50);
   CRUX__iu08_format_tests();
   CRUX__iu16_format_tests();
   CRUX__iu32_format_tests();
@@ -237,6 +259,7 @@ int main () {
   CRUX__flp2_format_tests();
   CRUX__flp4_format_tests();
   CRUX__int_precision_tests();
+  CRUX__trunc_tests();
   done_testing();
   return EXIT_SUCCESS;
 }
