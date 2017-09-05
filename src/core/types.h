@@ -1,12 +1,3 @@
-#pragma once
-
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <inttypes.h>
-#include <float.h>
-#include <limits.h>
-
 /**
  * ---------------------------------------------------------------------------
  * @file   types.h
@@ -26,6 +17,14 @@
  * @li flp4: floating point with extended precision.
  *
  */
+#pragma once
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <inttypes.h>
+#include <float.h>
+#include <limits.h>
+
 
 #define IU08_MIN (0u)
 #define IU16_MIN (0u)

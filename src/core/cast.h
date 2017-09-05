@@ -1,16 +1,13 @@
-#pragma once
-
-#include "./results.h"
-
 /**
  * ---------------------------------------------------------------------------
  * @file   cast.h
  * @brief  Standard functions to cast types into other.
  *
  */
-
+#pragma once
+#include <math.h>
+#include "./results.h"
 #define CRUX__CORE_ERROR_CODE__INTEGER_CAST 0x00000100
-
 
 
 /**

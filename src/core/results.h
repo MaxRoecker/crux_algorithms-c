@@ -1,13 +1,11 @@
-#pragma once
-
-#include "./errors.h"
-
 /**
  * ---------------------------------------------------------------------------
  * @file   results.h
  * @brief  Result of operations with possible errors.
  *
  */
+#pragma once
+#include "./errors.h"
 
 /**
  * @struct CRUX__ResultVoid

@@ -1,18 +1,16 @@
-#pragma once
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
-#include <string.h>
-#include <talloc.h>
-#include "./types.h"
-
 /**
  * ---------------------------------------------------------------------------
  * @file   errors.h
  * @brief  Default functions to handle errors.
  * 
  */
+#pragma once
+#include <stdlib.h>
+#include <stdio.h>
+#include <assert.h>
+#include <string.h>
+#include <talloc.h>
+#include "./types.h"
 
 
 /**
