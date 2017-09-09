@@ -49,6 +49,11 @@ typedef uint64_t iu64;
 #define IU32_FMT PRIu32
 #define IU64_FMT PRIu64
 
+#define AS_IU08(integer) ((is08) UINT8_C(integer))
+#define AS_IU16(integer) ((is16) UINT16_C(integer))
+#define AS_IU32(integer) ((is32) UINT32_C(integer))
+#define AS_IU64(integer) ((is64) UINT64_C(integer))
+
 
 
 
@@ -71,6 +76,11 @@ typedef int64_t is64;
 #define IS16_FMT PRId16
 #define IS32_FMT PRId32
 #define IS64_FMT PRId64
+
+#define AS_IS08(integer) ((is08) INT8_C(integer))
+#define AS_IS16(integer) ((is16) INT16_C(integer))
+#define AS_IS32(integer) ((is32) INT32_C(integer))
+#define AS_IS64(integer) ((is64) INT64_C(integer))
 
 
 
@@ -102,6 +112,10 @@ typedef long double flp4;
 #define FLP1_FMT "f"
 #define FLP2_FMT "lf"
 #define FLP4_FMT "Lf"
+
+#define AS_FLP1(integer) integer ## .0f
+#define AS_FLP2(integer) integer ## .0
+#define AS_FLP4(integer) integer ## .0l
 
 
 
