@@ -117,10 +117,14 @@ typedef long double flp4;
 #define AS_FLP2(integer) integer ## .0
 #define AS_FLP4(integer) integer ## .0l
 
+#define FLP1_MANTISSA_BITS (FLT_MANT_DIG)
+#define FLP2_MANTISSA_BITS (DBL_MANT_DIG)
+#define FLP4_MANTISSA_BITS (LDBL_MANT_DIG)
 
 
 
-#define INT_PRECISION(value)  _Generic(value, \
+
+#define INT_PRECISION(value) _Generic(value,  \
   iu08 : 8,                                   \
   iu16 : 16,                                  \
   iu32 : 32,                                  \
@@ -128,7 +132,12 @@ typedef long double flp4;
   is08 : 7,                                   \
   is16 : 15,                                  \
   is32 : 31,                                  \
-  is64 : 63)
+  is64 : 63,                                  \
+  flp1 : FLP1_MANTISSA_BITS,                  \
+  flp2 : FLP2_MANTISSA_BITS,                  \
+  flp4 : FLP4_MANTISSA_BITS,                  \
+  default: 0)
+
 
 #define FLP_TRUNC(value) _Generic(value,  \
   flp1 : ((flp1) truncf(value)),          \
