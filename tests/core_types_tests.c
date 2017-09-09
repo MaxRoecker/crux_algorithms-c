@@ -203,8 +203,34 @@ void CRUX__flp4_format_tests () {
   talloc_free(ctx);
 }
 
+void CRUX__as_tests () {
+  // 11
+  const iu08 unsigned_integer_08 = AS_IU08(8);
+  const iu16 unsigned_integer_16 = AS_IU16(16);
+  const iu32 unsigned_integer_32 = AS_IU32(32);
+  const iu64 unsigned_integer_64 = AS_IU64(64);
+  const is08 signed_integer_08 = AS_IS08(8);
+  const is16 signed_integer_16 = AS_IS16(16);
+  const is32 signed_integer_32 = AS_IS32(32);
+  const is64 signed_integer_64 = AS_IS64(64);
+  const flp1 floating_point_1 = AS_FLP1(1);
+  const flp2 floating_point_2 = AS_FLP2(2);
+  const flp4 floating_point_4 = AS_FLP4(4);
+  ok((unsigned_integer_08 == 8u), "Must be equals.");
+  ok((unsigned_integer_16 == 16u), "Must be equals.");
+  ok((unsigned_integer_32 == 32u), "Must be equals.");
+  ok((unsigned_integer_64 == 64ul), "Must be equals.");
+  ok((signed_integer_08 == 8), "Must be equals.");
+  ok((signed_integer_16 == 16), "Must be equals.");
+  ok((signed_integer_32 == 32), "Must be equals.");
+  ok((signed_integer_64 == 64l), "Must be equals.");
+  ok((floating_point_1 == 1.0f), "Must be equals.");
+  ok((floating_point_2 == 2.0), "Must be equals.");
+  ok((floating_point_4 == 4.0l), "Must be equals.");
+}
+
 void CRUX__int_precision_tests () {
-  // 8
+  // 11
   const iu08 unsigned_integer_08 = IU08_MAX;
   const iu16 unsigned_integer_16 = IU16_MAX;
   const iu32 unsigned_integer_32 = IU32_MAX;
@@ -213,6 +239,9 @@ void CRUX__int_precision_tests () {
   const is16 signed_integer_16 = IS16_MAX;
   const is32 signed_integer_32 = IS32_MAX;
   const is64 signed_integer_64 = IS64_MAX;
+  const flp1 floating_point_1 = FLP1_MAX_POSITIVE;
+  const flp2 floating_point_2 = FLP2_MAX_POSITIVE;
+  const flp4 floating_point_4 = FLP4_MAX_POSITIVE;
   ok((INT_PRECISION(unsigned_integer_08) == 8), "Must has precision equals to %d.", 8);
   ok((INT_PRECISION(unsigned_integer_16) == 16), "Must has precision equals to %d.", 6);
   ok((INT_PRECISION(unsigned_integer_32) == 32), "Must has precision equals to %d.", 2);
@@ -221,32 +250,35 @@ void CRUX__int_precision_tests () {
   ok((INT_PRECISION(signed_integer_16) == 15), "Must has precision equals to %d.", 5);
   ok((INT_PRECISION(signed_integer_32) == 31), "Must has precision equals to %d.", 1);
   ok((INT_PRECISION(signed_integer_64) == 63), "Must has precision equals to %d.", 3);
+  ok((INT_PRECISION(floating_point_1) == FLP1_MANTISSA_BITS), "Must has precision equals to %d.", FLP1_MANTISSA_BITS);
+  ok((INT_PRECISION(floating_point_2) == FLP2_MANTISSA_BITS), "Must has precision equals to %d.", FLP2_MANTISSA_BITS);
+  ok((INT_PRECISION(floating_point_4) == FLP4_MANTISSA_BITS), "Must has precision equals to %d.", FLP4_MANTISSA_BITS);
 }
 
 void CRUX__trunc_tests () {
   // 9
-  const flp1 zero_1 = 0.0F;
-  const flp1 pos_1 = 1.5F;
-  const flp1 neg_1 = -1.5F;
-  ok((CRUX__trunc_flp1(zero_1) == 0.0F), "Must be equals to 0.0.");
-  ok((CRUX__trunc_flp1(pos_1) == 1.0F), "Must be equals to 1.0.");
-  ok((CRUX__trunc_flp1(neg_1) == -1.0F), "Must be equals to -1.0.");
+  const flp1 zero_1 = 0.0f;
+  const flp1 pos_1 = 1.5f;
+  const flp1 neg_1 = -1.5f;
+  ok((FLP_TRUNC(zero_1) == 0.0f), "Must be equals to 0.0.");
+  ok((FLP_TRUNC(pos_1) == 1.0f), "Must be equals to 1.0.");
+  ok((FLP_TRUNC(neg_1) == -1.0f), "Must be equals to -1.0.");
   const flp2 zero_2 = 0.0;
   const flp2 pos_2 = 1.5;
   const flp2 neg_2 = -1.5;
-  ok((CRUX__trunc_flp2(zero_2) == 0.0), "Must be equals to 0.0.");
-  ok((CRUX__trunc_flp2(pos_2) == 1.0), "Must be equals to 1.0.");
-  ok((CRUX__trunc_flp2(neg_2) == -1.0), "Must be equals to -1.0.");
-  const flp4 zero_4 = 0.0L;
-  const flp4 pos_4 = 1.5L;
-  const flp4 neg_4 = -1.5L;
-  ok((CRUX__trunc_flp4(zero_4) == 0.0L), "Must be equals to 0.0.");
-  ok((CRUX__trunc_flp4(pos_4) == 1.0L), "Must be equals to 1.0.");
-  ok((CRUX__trunc_flp4(neg_4) == -1.0L), "Must be equals to -1.0.");
+  ok((FLP_TRUNC(zero_2) == 0.0), "Must be equals to 0.0.");
+  ok((FLP_TRUNC(pos_2) == 1.0), "Must be equals to 1.0.");
+  ok((FLP_TRUNC(neg_2) == -1.0), "Must be equals to -1.0.");
+  const flp4 zero_4 = 0.0l;
+  const flp4 pos_4 = 1.5l;
+  const flp4 neg_4 = -1.5l;
+  ok((FLP_TRUNC(zero_4) == 0.0l), "Must be equals to 0.0.");
+  ok((FLP_TRUNC(pos_4) == 1.0l), "Must be equals to 1.0.");
+  ok((FLP_TRUNC(neg_4) == -1.0l), "Must be equals to -1.0.");
 }
 
 int main () {
-  plan(50);
+  plan(64);
   CRUX__iu08_format_tests();
   CRUX__iu16_format_tests();
   CRUX__iu32_format_tests();
@@ -258,6 +290,7 @@ int main () {
   CRUX__flp1_format_tests();
   CRUX__flp2_format_tests();
   CRUX__flp4_format_tests();
+  CRUX__as_tests();
   CRUX__int_precision_tests();
   CRUX__trunc_tests();
   done_testing();
