@@ -113,9 +113,9 @@ typedef long double flp4;
 #define FLP2_FMT "lf"
 #define FLP4_FMT "Lf"
 
-#define AS_FLP1(integer) integer ## .0f
-#define AS_FLP2(integer) integer ## .0
-#define AS_FLP4(integer) integer ## .0l
+#define INT_AS_FLP1(integer) integer ## .0f
+#define INT_AS_FLP2(integer) integer ## .0
+#define INT_AS_FLP4(integer) integer ## .0l
 
 #define FLP1_MANTISSA_BITS (FLT_MANT_DIG)
 #define FLP2_MANTISSA_BITS (DBL_MANT_DIG)
