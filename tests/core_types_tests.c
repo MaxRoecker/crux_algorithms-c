@@ -204,7 +204,7 @@ void CRUX__flp4_format_tests () {
 }
 
 void CRUX__as_tests () {
-  // 11
+  // 14
   const iu08 unsigned_integer_08 = AS_IU08(8);
   const iu16 unsigned_integer_16 = AS_IU16(16);
   const iu32 unsigned_integer_32 = AS_IU32(32);
@@ -213,9 +213,12 @@ void CRUX__as_tests () {
   const is16 signed_integer_16 = AS_IS16(16);
   const is32 signed_integer_32 = AS_IS32(32);
   const is64 signed_integer_64 = AS_IS64(64);
-  const flp1 floating_point_1 = AS_FLP1(1);
-  const flp2 floating_point_2 = AS_FLP2(2);
-  const flp4 floating_point_4 = AS_FLP4(4);
+  const flp1 int_floating_point_1 = INT_AS_FLP1(1);
+  const flp2 int_floating_point_2 = INT_AS_FLP2(2);
+  const flp4 int_floating_point_4 = INT_AS_FLP4(4);
+  const flp1 floating_point_1 = AS_FLP1(1.5);
+  const flp2 floating_point_2 = AS_FLP2(2.5);
+  const flp4 floating_point_4 = AS_FLP4(4.5);
   ok((unsigned_integer_08 == 8u), "Must be equals.");
   ok((unsigned_integer_16 == 16u), "Must be equals.");
   ok((unsigned_integer_32 == 32u), "Must be equals.");
@@ -224,9 +227,12 @@ void CRUX__as_tests () {
   ok((signed_integer_16 == 16), "Must be equals.");
   ok((signed_integer_32 == 32), "Must be equals.");
   ok((signed_integer_64 == 64l), "Must be equals.");
-  ok((floating_point_1 == 1.0f), "Must be equals.");
-  ok((floating_point_2 == 2.0), "Must be equals.");
-  ok((floating_point_4 == 4.0l), "Must be equals.");
+  ok((int_floating_point_1 == 1.0f), "Must be equals.");
+  ok((int_floating_point_2 == 2.0), "Must be equals.");
+  ok((int_floating_point_4 == 4.0l), "Must be equals.");
+  ok((floating_point_1 == 1.5f), "Must be equals.");
+  ok((floating_point_2 == 2.5), "Must be equals.");
+  ok((floating_point_4 == 4.5l), "Must be equals.");
 }
 
 void CRUX__int_precision_tests () {
@@ -278,7 +284,7 @@ void CRUX__trunc_tests () {
 }
 
 int main () {
-  plan(64);
+  plan(67);
   CRUX__iu08_format_tests();
   CRUX__iu16_format_tests();
   CRUX__iu32_format_tests();
