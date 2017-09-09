@@ -110,30 +110,9 @@ typedef double      flp2;
 typedef long double flp4;
 
 
-/**
- * @brief Rounds a flp1 towards zero to the nearest integer value.
- *
- * @param[in] value  A number that will be truncated.
- * @return the truncated flp1 value.
- *
- */
-flp1 CRUX__trunc_flp1 (const flp1 value);
 
-/**
- * @brief Rounds a flp2 towards zero to the nearest integer value.
- *
- * @param[in] value  A number that will be truncated.
- * @return the truncated flp2 value.
- *
- */
-flp2 CRUX__trunc_flp2 (const flp2 value);
-
-/**
- * @brief Rounds a flp2 towards zero to the nearest integer value.
- *
- * @param[in] value  A number that will be truncated.
- * @return the truncated flp2 value.
- *
- */
-flp4 CRUX__trunc_flp4 (const flp4 value);
-
+#define FLP_TRUNC(value) _Generic(value,  \
+  flp1 : ((flp1) truncf(value)),          \
+  flp2 : ((flp2) trunc(value)),           \
+  flp4 : ((flp4) truncl(value)),          \
+  default: trunc(value))
