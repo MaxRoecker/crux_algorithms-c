@@ -27,6 +27,13 @@
 #include <math.h>
 
 
+
+
+typedef uint8_t iu08;
+typedef uint16_t iu16;
+typedef uint32_t iu32;
+typedef uint64_t iu64;
+
 #define IU08_MIN (0u)
 #define IU16_MIN (0u)
 #define IU32_MIN (0u)
@@ -42,12 +49,13 @@
 #define IU32_FMT PRIu32
 #define IU64_FMT PRIu64
 
-typedef uint8_t     iu08;
-typedef uint16_t    iu16;
-typedef uint32_t    iu32;
-typedef uint64_t    iu64;
 
 
+
+typedef int8_t is08;
+typedef int16_t is16;
+typedef int32_t is32;
+typedef int64_t is64;
 
 #define IS08_MAX (INT8_MAX)
 #define IS16_MAX (INT16_MAX)
@@ -64,22 +72,12 @@ typedef uint64_t    iu64;
 #define IS32_FMT PRId32
 #define IS64_FMT PRId64
 
-typedef int8_t      is08;
-typedef int16_t     is16;
-typedef int32_t     is32;
-typedef int64_t     is64;
 
 
-#define INT_PRECISION(value)  _Generic(value, \
-  iu08 : 8, \
-  iu16 : 16, \
-  iu32 : 32, \
-  iu64 : 64, \
-  is08 : 7, \
-  is16 : 15, \
-  is32 : 31, \
-  is64 : 63)
 
+typedef float flp1;
+typedef double flp2;
+typedef long double flp4;
 
 #define FLP1_MAX_POSITIVE (FLT_MAX)
 #define FLP2_MAX_POSITIVE (DBL_MAX)
@@ -105,11 +103,18 @@ typedef int64_t     is64;
 #define FLP2_FMT "lf"
 #define FLP4_FMT "Lf"
 
-typedef float       flp1;
-typedef double      flp2;
-typedef long double flp4;
 
 
+
+#define INT_PRECISION(value)  _Generic(value, \
+  iu08 : 8,                                   \
+  iu16 : 16,                                  \
+  iu32 : 32,                                  \
+  iu64 : 64,                                  \
+  is08 : 7,                                   \
+  is16 : 15,                                  \
+  is32 : 31,                                  \
+  is64 : 63)
 
 #define FLP_TRUNC(value) _Generic(value,  \
   flp1 : ((flp1) truncf(value)),          \
