@@ -49,10 +49,10 @@ typedef uint64_t iu64;
 #define IU32_FMT PRIu32
 #define IU64_FMT PRIu64
 
-#define AS_IU08(integer) ((is08) UINT8_C(integer))
-#define AS_IU16(integer) ((is16) UINT16_C(integer))
-#define AS_IU32(integer) ((is32) UINT32_C(integer))
-#define AS_IU64(integer) ((is64) UINT64_C(integer))
+#define AS_IU08(integer) ((iu08) UINT8_C(integer))
+#define AS_IU16(integer) ((iu16) UINT16_C(integer))
+#define AS_IU32(integer) ((iu32) UINT32_C(integer))
+#define AS_IU64(integer) ((iu64) UINT64_C(integer))
 
 
 
