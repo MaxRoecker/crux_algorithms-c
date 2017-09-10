@@ -253,9 +253,9 @@ void CRUX__int_precision_tests () {
   ok((INT_PRECISION(unsigned_integer_32) == 32), "Must has precision equals to %d.", 2);
   ok((INT_PRECISION(unsigned_integer_64) == 64), "Must has precision equals to %d.", 4);
   ok((INT_PRECISION(signed_integer_08) == 7), "Must has precision equals to %d.", 7);
-  ok((INT_PRECISION(signed_integer_16) == 15), "Must has precision equals to %d.", 5);
-  ok((INT_PRECISION(signed_integer_32) == 31), "Must has precision equals to %d.", 1);
-  ok((INT_PRECISION(signed_integer_64) == 63), "Must has precision equals to %d.", 3);
+  ok((INT_PRECISION(signed_integer_16) == 15), "Must has precision equals to %d.", 15);
+  ok((INT_PRECISION(signed_integer_32) == 31), "Must has precision equals to %d.", 31);
+  ok((INT_PRECISION(signed_integer_64) == 63), "Must has precision equals to %d.", 63);
   ok((INT_PRECISION(floating_point_1) == FLP1_MANTISSA_BITS), "Must has precision equals to %d.", FLP1_MANTISSA_BITS);
   ok((INT_PRECISION(floating_point_2) == FLP2_MANTISSA_BITS), "Must has precision equals to %d.", FLP2_MANTISSA_BITS);
   ok((INT_PRECISION(floating_point_4) == FLP4_MANTISSA_BITS), "Must has precision equals to %d.", FLP4_MANTISSA_BITS);
