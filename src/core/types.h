@@ -173,6 +173,7 @@ typedef long double flp4;
   flp4 : FLP4_INT_PRECISION,                  \
   default: 0)
 
+
 #define FMT(value) _Generic(value,  \
   iu08 : IU08_FMT,                  \
   iu16 : IU16_FMT,                  \
