@@ -178,6 +178,36 @@ typedef long double FLP4;
   default: 0)
 
 
+#define MAX(value) _Generic(value,  \
+  IU08 : IU08_MAX,                  \
+  IU16 : IU16_MAX,                  \
+  IU32 : IU32_MAX,                  \
+  IU64 : IU64_MAX,                  \
+  IS08 : IS08_MAX,                  \
+  IS16 : IS16_MAX,                  \
+  IS32 : IS32_MAX,                  \
+  IS64 : IS64_MAX,                  \
+  FLP1 : FLP1_MAX,                  \
+  FLP2 : FLP2_MAX,                  \
+  FLP4 : FLP4_MAX,                  \
+  default: 0)
+
+
+#define MIN(value) _Generic(value,  \
+  IU08 : IU08_MIN,                  \
+  IU16 : IU16_MIN,                  \
+  IU32 : IU32_MIN,                  \
+  IU64 : IU64_MIN,                  \
+  IS08 : IS08_MIN,                  \
+  IS16 : IS16_MIN,                  \
+  IS32 : IS32_MIN,                  \
+  IS64 : IS64_MIN,                  \
+  FLP1 : FLP1_MIN,                  \
+  FLP2 : FLP2_MIN,                  \
+  FLP4 : FLP4_MIN,                  \
+  default: 0)
+
+
 #define FMT(value) _Generic(value,  \
   IU08 : IU08_FMT,                  \
   IU16 : IU16_FMT,                  \
