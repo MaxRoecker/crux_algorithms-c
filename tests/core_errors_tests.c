@@ -49,7 +49,7 @@ void CRUX__occurrences_stack_push_pop_clean_tests () {
   const CRUX__Error *occurrence0_error = &error_0;
   const char *const occurrence0_info = "I don't know anymore information";
   const char *const occurrence0_filepath = __FILE__;
-  const iu32 occurrence0_line = __LINE__;
+  const IU32 occurrence0_line = __LINE__;
   CRUX__occurrences_push(
     &occurrences,
     occurrence0_error,
@@ -60,7 +60,7 @@ void CRUX__occurrences_stack_push_pop_clean_tests () {
   const CRUX__Error *occurrence1_error = &error_1;
   const char *const occurrence1_info = "I don't know anymore information";
   const char *const occurrence1_filepath = __FILE__;
-  const iu32 occurrence1_line = __LINE__;
+  const IU32 occurrence1_line = __LINE__;
   CRUX__occurrences_push(
     &occurrences,
     occurrence1_error,
@@ -71,7 +71,7 @@ void CRUX__occurrences_stack_push_pop_clean_tests () {
   const CRUX__Error *occurrence2_error = &error_2;
   const char *const occurrence2_info = "I don't know anymore information";
   const char *const occurrence2_filepath = __FILE__;
-  const iu32 occurrence2_line = __LINE__;
+  const IU32 occurrence2_line = __LINE__;
   CRUX__occurrences_push(
     &occurrences,
     occurrence2_error,
@@ -99,7 +99,7 @@ void CRUX__occurrences_print_tests () {
   const CRUX__Error *occurrence0_error = &error_0;
   const char *const occurrence0_info = "I don't know anymore information";
   const char *const occurrence0_filepath = __FILE__;
-  const iu32 occurrence0_line = __LINE__;
+  const IU32 occurrence0_line = __LINE__;
   CRUX__occurrences_push(
     &occurrences,
     occurrence0_error,
@@ -110,7 +110,7 @@ void CRUX__occurrences_print_tests () {
   const CRUX__Error *occurrence1_error = &error_1;
   const char *const occurrence1_info = "I don't know anymore information";
   const char *const occurrence1_filepath = __FILE__;
-  const iu32 occurrence1_line = __LINE__;
+  const IU32 occurrence1_line = __LINE__;
   CRUX__occurrences_push(
     &occurrences,
     occurrence1_error,
@@ -121,7 +121,7 @@ void CRUX__occurrences_print_tests () {
   const CRUX__Error *occurrence2_error = &error_2;
   const char *const occurrence2_info = "I don't know anymore information";
   const char *const occurrence2_filepath = __FILE__;
-  const iu32 occurrence2_line = __LINE__;
+  const IU32 occurrence2_line = __LINE__;
   CRUX__occurrences_push(
     &occurrences,
     occurrence2_error,

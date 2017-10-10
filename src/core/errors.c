@@ -24,7 +24,7 @@ void CRUX__occurrences_push (
     const CRUX__Error *const error,
     const char *const info,
     const char *const filepath,
-    const iu32 line) {
+    const IU32 line) {
   CRUX__Occurrence *occurrence = talloc_zero(NULL, CRUX__Occurrence);
   occurrence->error = talloc_zero(occurrence, CRUX__Error);
   occurrence->error->code = error->code;

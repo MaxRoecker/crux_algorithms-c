@@ -18,8 +18,8 @@
  * @brief  Represents an error in CRUX.
  *
  */
-typedef struct CRUX__ErrorStruct {
-  iu32 code;  /**< Error's code */
+typedef struct CRUX__Error_Struct {
+  IU32 code;  /**< Error's code */
   char *name; /**< Error's name */
 } CRUX__Error;
 
@@ -63,12 +63,12 @@ const char * CRUX__error_stringify (
  * points its cause to NULL.
  *
  */
-typedef struct CRUX__OccurrenceStruct {
-  struct CRUX__OccurrenceStruct *cause; /**< The cause of the occurrence */
+typedef struct CRUX__Occurrence_Struct {
+  struct CRUX__Occurrence_Struct *cause; /**< The cause of the occurrence */
   CRUX__Error *error; /**< The error of the occurrence */
   char *info;         /**< Information about the occurrence */
   char *filepath;     /**< The file path where the occurrence happened */
-  iu32 line;          /**< The file line where the occurrence happend */
+  IU32 line;          /**< The file line where the occurrence happend */
 } CRUX__Occurrence;
 
 
@@ -87,7 +87,7 @@ void CRUX__occurrences_push (
     const CRUX__Error *const error,
     const char *const info,
     const char *const filepath,
-    const iu32 line);
+    const IU32 line);
 
 
 /**
