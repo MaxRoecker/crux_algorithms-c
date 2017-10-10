@@ -144,6 +144,10 @@ typedef long double flp4;
 #define FLP2_EPSILON (DBL_EPSILON)
 #define FLP4_EPSILON (LDBL_EPSILON)
 
+#define FLP1_MANTISSA_MAX (1UL << (FLT_MANT_DIG - 1UL)) + ((1UL << (FLT_MANT_DIG - 1)) - 1UL)
+#define FLP2_MANTISSA_MAX (1UL << (DBL_MANT_DIG - 1UL)) + ((1UL << (DBL_MANT_DIG - 1)) - 1UL)
+#define FLP4_MANTISSA_MAX (1UL << (LDBL_MANT_DIG - 1UL)) + ((1UL << (LDBL_MANT_DIG - 1)) - 1UL)
+
 #define FLP1_FMT "f"
 #define FLP2_FMT "lf"
 #define FLP4_FMT "Lf"
