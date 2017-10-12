@@ -120,9 +120,9 @@ typedef float FLP1;
 typedef double FLP2;
 typedef long double FLP4;
 
-#define FLP1_INT_PRECISION (FLT_MANT_DIG)
-#define FLP2_INT_PRECISION (DBL_MANT_DIG)
-#define FLP4_INT_PRECISION (LDBL_MANT_DIG)
+#define FLP1_INT_PRECISION (FLT_MANT_DIG * log2(FLT_RADIX))
+#define FLP2_INT_PRECISION (DBL_MANT_DIG * log2(FLT_RADIX))
+#define FLP4_INT_PRECISION (LDBL_MANT_DIG * log2(FLT_RADIX))
 
 #define FLP1_MAX (FLT_MAX)
 #define FLP2_MAX (DBL_MAX)
