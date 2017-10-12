@@ -34,20 +34,20 @@ typedef uint16_t IU16;
 typedef uint32_t IU32;
 typedef uint64_t IU64;
 
-#define IU08_INT_PRECISION 8
-#define IU16_INT_PRECISION 16
-#define IU32_INT_PRECISION 32
-#define IU64_INT_PRECISION 64
+#define IU08_INT_PRECISION (8)
+#define IU16_INT_PRECISION (16)
+#define IU32_INT_PRECISION (32)
+#define IU64_INT_PRECISION (64)
 
 #define AS_IU08(integer) ((IU08) UINT8_C(integer))
 #define AS_IU16(integer) ((IU16) UINT16_C(integer))
 #define AS_IU32(integer) ((IU32) UINT32_C(integer))
 #define AS_IU64(integer) ((IU64) UINT64_C(integer))
 
-#define IU08_MIN (0u)
-#define IU16_MIN (0u)
-#define IU32_MIN (0u)
-#define IU64_MIN (0u)
+#define IU08_MIN (0U)
+#define IU16_MIN (0U)
+#define IU32_MIN (0U)
+#define IU64_MIN (0U)
 
 #define IU08_MAX (UINT8_MAX)
 #define IU16_MAX (UINT16_MAX)
@@ -59,10 +59,10 @@ typedef uint64_t IU64;
 #define IU32_BIGGEST (UINT32_MAX)
 #define IU64_BIGGEST (UINT64_MAX)
 
-#define IU08_SMALLEST AS_IU08(1)
-#define IU16_SMALLEST AS_IU16(1)
-#define IU32_SMALLEST AS_IU32(1)
-#define IU64_SMALLEST AS_IU64(1)
+#define IU08_SMALLEST (1U)
+#define IU16_SMALLEST (1U)
+#define IU32_SMALLEST (1U)
+#define IU64_SMALLEST (1UL)
 
 #define IU08_FMT PRIu8
 #define IU16_FMT PRIu16
@@ -78,10 +78,10 @@ typedef int16_t IS16;
 typedef int32_t IS32;
 typedef int64_t IS64;
 
-#define IS08_INT_PRECISION 7
-#define IS16_INT_PRECISION 15
-#define IS32_INT_PRECISION 31
-#define IS64_INT_PRECISION 63
+#define IS08_INT_PRECISION (7)
+#define IS16_INT_PRECISION (15)
+#define IS32_INT_PRECISION (31)
+#define IS64_INT_PRECISION (63)
 
 #define AS_IS08(integer) ((IS08) INT8_C(integer))
 #define AS_IS16(integer) ((IS16) INT16_C(integer))
@@ -103,10 +103,10 @@ typedef int64_t IS64;
 #define IS32_BIGGEST (INT32_MAX)
 #define IS64_BIGGEST (INT64_MAX)
 
-#define IS08_SMALLEST AS_IS08(1)
-#define IS16_SMALLEST AS_IS16(1)
-#define IS32_SMALLEST AS_IS32(1)
-#define IS64_SMALLEST AS_IS64(1)
+#define IS08_SMALLEST (1)
+#define IS16_SMALLEST (1)
+#define IS32_SMALLEST (1)
+#define IS64_SMALLEST (1L)
 
 #define IS08_FMT PRId8
 #define IS16_FMT PRId16
