@@ -144,21 +144,21 @@ typedef long double FLP4;
 #define FLP2_EPSILON (DBL_EPSILON)
 #define FLP4_EPSILON (LDBL_EPSILON)
 
-#define FLP1_MANTISSA_MAX (1UL << (FLT_MANT_DIG - 1UL)) + ((1UL << (FLT_MANT_DIG - 1)) - 1UL)
-#define FLP2_MANTISSA_MAX (1UL << (DBL_MANT_DIG - 1UL)) + ((1UL << (DBL_MANT_DIG - 1)) - 1UL)
-#define FLP4_MANTISSA_MAX (1UL << (LDBL_MANT_DIG - 1UL)) + ((1UL << (LDBL_MANT_DIG - 1)) - 1UL)
+#define FLP1_MANTISSA_MAX ((1UL << (FLT_MANT_DIG - 1UL)) + ((1UL << (FLT_MANT_DIG - 1)) - 1UL))
+#define FLP2_MANTISSA_MAX ((1UL << (DBL_MANT_DIG - 1UL)) + ((1UL << (DBL_MANT_DIG - 1)) - 1UL))
+#define FLP4_MANTISSA_MAX ((1UL << (LDBL_MANT_DIG - 1UL)) + ((1UL << (LDBL_MANT_DIG - 1)) - 1UL))
 
 #define FLP1_FMT "f"
 #define FLP2_FMT "lf"
 #define FLP4_FMT "Lf"
 
-#define INT_AS_FLP1(integer) integer ## .0f
-#define INT_AS_FLP2(integer) integer ## .0
-#define INT_AS_FLP4(integer) integer ## .0l
+#define INT_AS_FLP1(integer) ((FLP1) (integer ## .0f))
+#define INT_AS_FLP2(integer) ((FLP2) (integer ## .0))
+#define INT_AS_FLP4(integer) ((FLP4) (integer ## .0l))
 
-#define AS_FLP1(floating) floating ## f
-#define AS_FLP2(floating) floating
-#define AS_FLP4(floating) floating ## l
+#define AS_FLP1(floating) ((FLP1) (floating ## f))
+#define AS_FLP2(floating) ((FLP2) (floating))
+#define AS_FLP4(floating) ((FLP4) (floating ## l))
 
 
 
