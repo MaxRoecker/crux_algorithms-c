@@ -655,7 +655,7 @@ void CRUX__cast_is08_is16_test () {
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_is16(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_is16(tgt_min);
   ok((src_max_cast.occ != NULL), "Must have an error.");
-  ok((src_min_cast.occ != NULL), "Must not have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((tgt_max_cast.occ == NULL), "Must not have an error.");
   ok((tgt_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -675,7 +675,7 @@ void CRUX__cast_is08_is32_test () {
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_is32(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_is32(tgt_min);
   ok((src_max_cast.occ != NULL), "Must have an error.");
-  ok((src_min_cast.occ != NULL), "Must not have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((tgt_max_cast.occ == NULL), "Must not have an error.");
   ok((tgt_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -695,7 +695,7 @@ void CRUX__cast_is08_is64_test () {
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_is64(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_is64(tgt_min);
   ok((src_max_cast.occ != NULL), "Must have an error.");
-  ok((src_min_cast.occ != NULL), "Must not have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((tgt_max_cast.occ == NULL), "Must not have an error.");
   ok((tgt_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -815,7 +815,7 @@ void CRUX__cast_is16_is32_test () {
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_is32(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_is32(tgt_min);
   ok((src_max_cast.occ != NULL), "Must have an error.");
-  ok((src_min_cast.occ != NULL), "Must not have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((tgt_max_cast.occ == NULL), "Must not have an error.");
   ok((tgt_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -835,7 +835,7 @@ void CRUX__cast_is16_is64_test () {
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_is64(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_is64(tgt_min);
   ok((src_max_cast.occ != NULL), "Must have an error.");
-  ok((src_min_cast.occ != NULL), "Must not have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((tgt_max_cast.occ == NULL), "Must not have an error.");
   ok((tgt_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -975,7 +975,7 @@ void CRUX__cast_is32_is64_test () {
   CRUX__ResultIS32 tgt_max_cast = CRUX__cast_is32_is64(tgt_max);
   CRUX__ResultIS32 tgt_min_cast = CRUX__cast_is32_is64(tgt_min);
   ok((src_max_cast.occ != NULL), "Must have an error.");
-  ok((src_min_cast.occ != NULL), "Must not have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((tgt_max_cast.occ == NULL), "Must not have an error.");
   ok((tgt_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1541,7 +1541,7 @@ void CRUX__cast_is08_flp1_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1574,7 +1574,7 @@ void CRUX__cast_is08_flp2_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1607,7 +1607,7 @@ void CRUX__cast_is08_flp4_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1640,7 +1640,7 @@ void CRUX__cast_is16_flp1_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1673,7 +1673,7 @@ void CRUX__cast_is16_flp2_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1706,7 +1706,7 @@ void CRUX__cast_is16_flp4_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1739,7 +1739,7 @@ void CRUX__cast_is32_flp1_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1772,7 +1772,7 @@ void CRUX__cast_is32_flp2_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1805,7 +1805,7 @@ void CRUX__cast_is32_flp4_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1838,7 +1838,7 @@ void CRUX__cast_is64_flp1_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1871,7 +1871,7 @@ void CRUX__cast_is64_flp2_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
@@ -1904,7 +1904,7 @@ void CRUX__cast_is64_flp4_test () {
   ok((src_min_cast.occ != NULL), "Must have an error.");
   ok((src_smallest_cast.occ != NULL), "Must have an error.");
   ok((truncated_pos_cast.occ == NULL), "Must not have an error.");
-  ok((truncated_neg_cast.occ == NULL), "Must have an error.");
+  ok((truncated_neg_cast.occ == NULL), "Must not have an error.");
   ok((target_max_cast.occ == NULL), "Must not have an error.");
   ok((target_min_cast.occ == NULL), "Must not have an error.");
   CRUX__occurrences_clean(&src_max_cast.occ);
