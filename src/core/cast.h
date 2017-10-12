@@ -729,3 +729,219 @@ CRUX__ResultIS64 CRUX__cast_is64_flp2 (const FLP2 value);
  *
  */
 CRUX__ResultIS64 CRUX__cast_is64_flp4 (const FLP4 value);
+
+/**
+ * @brief Cast an IU08 value into a FLP1.
+ *
+ * @param[in] value An IU08 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_iu08 (const IU08 value);
+
+/**
+ * @brief Cast an IU16 value into a FLP1.
+ *
+ * @param[in] value An IU16 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_iu16 (const IU16 value);
+
+/**
+ * @brief Cast an IU32 value into a FLP1.
+ *
+ * @param[in] value An IU32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_iu32 (const IU32 value);
+
+/**
+ * @brief Cast an IU64 value into a FLP1.
+ *
+ * @param[in] value An IU64 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_iu64 (const IU64 value);
+
+/**
+ * @brief Cast an IS08 value into a FLP1.
+ *
+ * @param[in] value An IS08 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_is08 (const IS08 value);
+
+/**
+ * @brief Cast an IS16 value into a FLP1.
+ *
+ * @param[in] value An IS16 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_is16 (const IS16 value);
+
+/**
+ * @brief Cast an IS32 value into a FLP1.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_is32 (const IS32 value);
+
+/**
+ * @brief Cast an IS64 value into a FLP1.
+ *
+ * @param[in] value An IS64 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_is64 (const IS64 value);
+
+/**
+ * @brief Cast an IU08 value into a FLP2.
+ *
+ * @param[in] value An IU08 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_iu08 (const IU08 value);
+
+/**
+ * @brief Cast an IU16 value into a FLP2.
+ *
+ * @param[in] value An IU16 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_iu16 (const IU16 value);
+
+/**
+ * @brief Cast an IU32 value into a FLP2.
+ *
+ * @param[in] value An IU32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_iu32 (const IU32 value);
+
+/**
+ * @brief Cast an IU64 value into a FLP2.
+ *
+ * @param[in] value An IU64 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_iu64 (const IU64 value);
+
+/**
+ * @brief Cast an IS08 value into a FLP2.
+ *
+ * @param[in] value An IS08 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_is08 (const IS08 value);
+
+/**
+ * @brief Cast an IS16 value into a FLP2.
+ *
+ * @param[in] value An IS16 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_is16 (const IS16 value);
+
+/**
+ * @brief Cast an IS32 value into a FLP2.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_is32 (const IS32 value);
+
+/**
+ * @brief Cast an IS64 value into a FLP2.
+ *
+ * @param[in] value An IS64 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_is64 (const IS64 value);
+
+/**
+ * @brief Cast an IU08 value into a FLP4.
+ *
+ * @param[in] value An IU08 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_iu08 (const IU08 value);
+
+/**
+ * @brief Cast an IU16 value into a FLP4.
+ *
+ * @param[in] value An IU16 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_iu16 (const IU16 value);
+
+/**
+ * @brief Cast an IU32 value into a FLP4.
+ *
+ * @param[in] value An IU32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_iu32 (const IU32 value);
+
+/**
+ * @brief Cast an IU64 value into a FLP4.
+ *
+ * @param[in] value An IU64 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_iu64 (const IU64 value);
+
+/**
+ * @brief Cast an IS08 value into a FLP4.
+ *
+ * @param[in] value An IS08 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_is08 (const IS08 value);
+
+/**
+ * @brief Cast an IS16 value into a FLP4.
+ *
+ * @param[in] value An IS16 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_is16 (const IS16 value);
+
+/**
+ * @brief Cast an IS32 value into a FLP4.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_is32 (const IS32 value);
+
+/**
+ * @brief Cast an IS64 value into a FLP4.
+ *
+ * @param[in] value An IS64 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_is64 (const IS64 value);
