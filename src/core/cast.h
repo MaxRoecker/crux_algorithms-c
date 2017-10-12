@@ -6,7 +6,8 @@
  */
 #pragma once
 #include "./results.h"
-#define CRUX__CORE_ERROR_CODE__INTEGER_CAST 0x00000100
+#define CRUX__INTEGER_CAST_ERROR_CODE 0x00000100
+#define CRUX__FLOATING_POINT_CAST_ERROR_CODE 0x00000101
 
 
 /**
