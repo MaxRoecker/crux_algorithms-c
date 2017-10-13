@@ -174,11 +174,10 @@ typedef long double FLP4;
   IS64 : IS64_INT_PRECISION,                  \
   FLP1 : FLP1_INT_PRECISION,                  \
   FLP2 : FLP2_INT_PRECISION,                  \
-  FLP4 : FLP4_INT_PRECISION,                  \
-  default: 0)
+  FLP4 : FLP4_INT_PRECISION)
 
 
-#define MAX(value) _Generic(value,  \
+#define MAX_OF(value) _Generic(value,  \
   IU08 : IU08_MAX,                  \
   IU16 : IU16_MAX,                  \
   IU32 : IU32_MAX,                  \
@@ -189,11 +188,10 @@ typedef long double FLP4;
   IS64 : IS64_MAX,                  \
   FLP1 : FLP1_MAX,                  \
   FLP2 : FLP2_MAX,                  \
-  FLP4 : FLP4_MAX,                  \
-  default: 0)
+  FLP4 : FLP4_MAX)
 
 
-#define MIN(value) _Generic(value,  \
+#define MIN_OF(value) _Generic(value,  \
   IU08 : IU08_MIN,                  \
   IU16 : IU16_MIN,                  \
   IU32 : IU32_MIN,                  \
@@ -204,11 +202,10 @@ typedef long double FLP4;
   IS64 : IS64_MIN,                  \
   FLP1 : FLP1_MIN,                  \
   FLP2 : FLP2_MIN,                  \
-  FLP4 : FLP4_MIN,                  \
-  default: 0)
+  FLP4 : FLP4_MIN)
 
 
-#define BIGGEST(value) _Generic(value,  \
+#define BIGGEST_OF(value) _Generic(value,  \
   IU08 : IU08_BIGGEST,                  \
   IU16 : IU16_BIGGEST,                  \
   IU32 : IU32_BIGGEST,                  \
@@ -219,11 +216,10 @@ typedef long double FLP4;
   IS64 : IS64_BIGGEST,                  \
   FLP1 : FLP1_BIGGEST,                  \
   FLP2 : FLP2_BIGGEST,                  \
-  FLP4 : FLP4_BIGGEST,                  \
-  default: 0)
+  FLP4 : FLP4_BIGGEST)
 
 
-#define SMALLEST(value) _Generic(value,  \
+#define SMALLEST_OF(value) _Generic(value,  \
   IU08 : IU08_SMALLEST,                  \
   IU16 : IU16_SMALLEST,                  \
   IU32 : IU32_SMALLEST,                  \
@@ -234,11 +230,10 @@ typedef long double FLP4;
   IS64 : IS64_SMALLEST,                  \
   FLP1 : FLP1_SMALLEST,                  \
   FLP2 : FLP2_SMALLEST,                  \
-  FLP4 : FLP4_SMALLEST,                  \
-  default: 0)
+  FLP4 : FLP4_SMALLEST)
 
 
-#define FMT(value) _Generic(value,  \
+#define FMT_OF(value) _Generic(value,  \
   IU08 : IU08_FMT,                  \
   IU16 : IU16_FMT,                  \
   IU32 : IU32_FMT,                  \
@@ -249,12 +244,10 @@ typedef long double FLP4;
   IS64 : IS64_FMT,                  \
   FLP1 : FLP1_FMT,                  \
   FLP2 : FLP2_FMT,                  \
-  FLP4 : FLP4_FMT,                  \
-  default: "")
+  FLP4 : FLP4_FMT)
 
 
 #define FLP_TRUNC(value) _Generic(value,  \
   FLP1 : ((FLP1) truncf(value)),          \
   FLP2 : ((FLP2) trunc(value)),           \
-  FLP4 : ((FLP4) truncl(value)),          \
-  default: trunc(value))
+  FLP4 : ((FLP4) truncl(value)))
