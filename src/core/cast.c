@@ -2108,3 +2108,135 @@ CRUX__ResultFLP4 CRUX__cast_flp4_is64 (const IS64 value) {
   return result;
 }
 
+
+CRUX__ResultFLP1 CRUX__cast_flp1_flp2 (const FLP2 value) {
+  FLP1 casted = AS_FLP1(0.0);
+  const CRUX__Occurrence *occurrences = NULL;
+  const bool has_overflow = (isgreater(fabs(value), FLP1_MAX))
+    || (isless(fabs(value), FLP1_MIN));
+  if (has_overflow) {
+    const CRUX__Error *const error = &CRUX__ERROR_FLOATING_POINT_CAST;
+    const char *const info_fmt = 
+        "Cast %"FLP2_FMT" (FLP2) into a FLP1 resulted in lost data.";
+    const char *const info = talloc_asprintf(NULL, info_fmt, value);
+    const char *const filepath = __FILE__;
+    const IU32 line = ((IU32) __LINE__) + AS_IU32(4);
+    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
+    talloc_free((void *) info);
+  } else {
+    casted = (FLP1) value;
+  }
+  CRUX__ResultFLP1 result = {.occ = occurrences, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultFLP1 CRUX__cast_flp1_flp4 (const FLP4 value) {
+  FLP1 casted = AS_FLP1(0.0);
+  const CRUX__Occurrence *occurrences = NULL;
+  const bool has_overflow = (isgreater(fabsl(value), FLP1_MAX))
+    || (isless(fabsl(value), FLP1_MIN));
+  if (has_overflow) {
+    const CRUX__Error *const error = &CRUX__ERROR_FLOATING_POINT_CAST;
+    const char *const info_fmt = 
+        "Cast %"FLP4_FMT" (FLP4) into a FLP1 resulted in lost data.";
+    const char *const info = talloc_asprintf(NULL, info_fmt, value);
+    const char *const filepath = __FILE__;
+    const IU32 line = ((IU32) __LINE__) + AS_IU32(4);
+    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
+    talloc_free((void *) info);
+  } else {
+    casted = (FLP1) value;
+  }
+  CRUX__ResultFLP1 result = {.occ = occurrences, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultFLP2 CRUX__cast_flp2_flp1 (const FLP1 value) {
+  FLP2 casted = AS_FLP2(0.0);
+  const CRUX__Occurrence *occurrences = NULL;
+  const bool has_overflow = (isgreater(fabsf(value), FLP2_MAX))
+    || (isless(fabsf(value), FLP2_MIN));
+  if (has_overflow) {
+    const CRUX__Error *const error = &CRUX__ERROR_FLOATING_POINT_CAST;
+    const char *const info_fmt = 
+        "Cast %"FLP1_FMT" (FLP1) into a FLP2 resulted in lost data.";
+    const char *const info = talloc_asprintf(NULL, info_fmt, value);
+    const char *const filepath = __FILE__;
+    const IU32 line = ((IU32) __LINE__) + AS_IU32(4);
+    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
+    talloc_free((void *) info);
+  } else {
+    casted = (FLP2) value;
+  }
+  CRUX__ResultFLP2 result = {.occ = occurrences, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultFLP2 CRUX__cast_flp2_flp4 (const FLP4 value) {
+  FLP2 casted = AS_FLP2(0.0);
+  const CRUX__Occurrence *occurrences = NULL;
+  const bool has_overflow = (isgreater(fabsl(value), FLP2_MAX))
+    || (isless(fabsl(value), FLP2_MIN));
+  if (has_overflow) {
+    const CRUX__Error *const error = &CRUX__ERROR_FLOATING_POINT_CAST;
+    const char *const info_fmt = 
+        "Cast %"FLP4_FMT" (FLP4) into a FLP2 resulted in lost data.";
+    const char *const info = talloc_asprintf(NULL, info_fmt, value);
+    const char *const filepath = __FILE__;
+    const IU32 line = ((IU32) __LINE__) + AS_IU32(4);
+    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
+    talloc_free((void *) info);
+  } else {
+    casted = (FLP2) value;
+  }
+  CRUX__ResultFLP2 result = {.occ = occurrences, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultFLP4 CRUX__cast_flp4_flp1 (const FLP1 value) {
+  FLP4 casted = AS_FLP4(0.0);
+  const CRUX__Occurrence *occurrences = NULL;
+  const bool has_overflow = (isgreater(fabsf(value), FLP4_MAX))
+    || (isless(fabsf(value), FLP4_MIN));
+  if (has_overflow) {
+    const CRUX__Error *const error = &CRUX__ERROR_FLOATING_POINT_CAST;
+    const char *const info_fmt = 
+        "Cast %"FLP1_FMT" (FLP1) into a FLP4 resulted in lost data.";
+    const char *const info = talloc_asprintf(NULL, info_fmt, value);
+    const char *const filepath = __FILE__;
+    const IU32 line = ((IU32) __LINE__) + AS_IU32(4);
+    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
+    talloc_free((void *) info);
+  } else {
+    casted = (FLP4) value;
+  }
+  CRUX__ResultFLP4 result = {.occ = occurrences, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultFLP4 CRUX__cast_flp4_flp2 (const FLP2 value) {
+  FLP4 casted = AS_FLP4(0.0);
+  const CRUX__Occurrence *occurrences = NULL;
+  const bool has_overflow = (isgreater(fabs(value), FLP4_MAX))
+    || (isless(fabs(value), FLP4_MIN));
+  if (has_overflow) {
+    const CRUX__Error *const error = &CRUX__ERROR_FLOATING_POINT_CAST;
+    const char *const info_fmt = 
+        "Cast %"FLP2_FMT" (FLP2) into a FLP4 resulted in lost data.";
+    const char *const info = talloc_asprintf(NULL, info_fmt, value);
+    const char *const filepath = __FILE__;
+    const IU32 line = ((IU32) __LINE__) + AS_IU32(4);
+    CRUX__occurrences_push(&occurrences, error, info, filepath, line);
+    talloc_free((void *) info);
+  } else {
+    casted = (FLP4) value;
+  }
+  CRUX__ResultFLP4 result = {.occ = occurrences, .value = casted};
+  return result;
+}
+

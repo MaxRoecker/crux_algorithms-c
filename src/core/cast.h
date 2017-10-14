@@ -945,3 +945,57 @@ CRUX__ResultFLP4 CRUX__cast_flp4_is32 (const IS32 value);
  *
  */
 CRUX__ResultFLP4 CRUX__cast_flp4_is64 (const IS64 value);
+
+/**
+ * @brief Cast an FLP2 value into a FLP1.
+ *
+ * @param[in] value An FLP2 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_flp2 (const FLP2 value);
+
+/**
+ * @brief Cast an FLP4 value into a FLP1.
+ *
+ * @param[in] value An FLP4 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP1 CRUX__cast_flp1_flp4 (const FLP4 value);
+
+/**
+ * @brief Cast an FLP1 value into a FLP2.
+ *
+ * @param[in] value An FLP1 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_flp1 (const FLP1 value);
+
+/**
+ * @brief Cast an FLP4 value into a FLP2.
+ *
+ * @param[in] value An FLP4 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP2 CRUX__cast_flp2_flp4 (const FLP4 value);
+
+/**
+ * @brief Cast an FLP1 value into a FLP4.
+ *
+ * @param[in] value An FLP1 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_flp1 (const FLP1 value);
+
+/**
+ * @brief Cast an FLP2 value into a FLP4.
+ *
+ * @param[in] value An FLP2 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultFLP4 CRUX__cast_flp4_flp2 (const FLP2 value);
