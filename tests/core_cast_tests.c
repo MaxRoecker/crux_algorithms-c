@@ -2421,8 +2421,134 @@ void CRUX__cast_flp4_is64_test () {
 }
 
 
+void CRUX__cast_flp1_flp2_test () {
+  // 8
+  const FLP2 src_max = FLP2_MAX;
+  const FLP2 src_min = FLP2_MIN;
+  const FLP2 target_max = FLP1_MAX;
+  const FLP2 target_min = FLP1_MIN;
+  CRUX__ResultFLP1 src_max_cast = CRUX__cast_flp1_flp2(src_max);
+  CRUX__ResultFLP1 src_min_cast = CRUX__cast_flp1_flp2(src_min);
+  CRUX__ResultFLP1 target_max_cast = CRUX__cast_flp1_flp2(target_max);
+  CRUX__ResultFLP1 target_min_cast = CRUX__cast_flp1_flp2(target_min);
+  ok((src_max_cast.occ != NULL), "Must have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
+  ok((target_max_cast.occ == NULL), "Must not have an error.");
+  ok((target_min_cast.occ == NULL), "Must not have an error.");
+  CRUX__occurrences_clean(&src_max_cast.occ);
+  CRUX__occurrences_clean(&src_min_cast.occ);
+  CRUX__occurrences_clean(&target_max_cast.occ);
+  CRUX__occurrences_clean(&target_min_cast.occ);
+}
+
+
+void CRUX__cast_flp1_flp4_test () {
+  // 8
+  const FLP4 src_max = FLP4_MAX;
+  const FLP4 src_min = FLP4_MIN;
+  const FLP4 target_max = FLP1_MAX;
+  const FLP4 target_min = FLP1_MIN;
+  CRUX__ResultFLP1 src_max_cast = CRUX__cast_flp1_flp4(src_max);
+  CRUX__ResultFLP1 src_min_cast = CRUX__cast_flp1_flp4(src_min);
+  CRUX__ResultFLP1 target_max_cast = CRUX__cast_flp1_flp4(target_max);
+  CRUX__ResultFLP1 target_min_cast = CRUX__cast_flp1_flp4(target_min);
+  ok((src_max_cast.occ != NULL), "Must have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
+  ok((target_max_cast.occ == NULL), "Must not have an error.");
+  ok((target_min_cast.occ == NULL), "Must not have an error.");
+  CRUX__occurrences_clean(&src_max_cast.occ);
+  CRUX__occurrences_clean(&src_min_cast.occ);
+  CRUX__occurrences_clean(&target_max_cast.occ);
+  CRUX__occurrences_clean(&target_min_cast.occ);
+}
+
+
+void CRUX__cast_flp2_flp1_test () {
+  // 8
+  const FLP1 src_max = FLP1_MAX;
+  const FLP1 src_min = FLP1_MIN;
+  const FLP1 target_max = FLP1_MAX;
+  const FLP1 target_min = FLP1_MIN;
+  CRUX__ResultFLP2 src_max_cast = CRUX__cast_flp2_flp1(src_max);
+  CRUX__ResultFLP2 src_min_cast = CRUX__cast_flp2_flp1(src_min);
+  CRUX__ResultFLP2 target_max_cast = CRUX__cast_flp2_flp1(target_max);
+  CRUX__ResultFLP2 target_min_cast = CRUX__cast_flp2_flp1(target_min);
+  ok((src_max_cast.occ == NULL), "Must not have an error.");
+  ok((src_min_cast.occ == NULL), "Must not have an error.");
+  ok((target_max_cast.occ == NULL), "Must not have an error.");
+  ok((target_min_cast.occ == NULL), "Must have an error.");
+  CRUX__occurrences_clean(&src_max_cast.occ);
+  CRUX__occurrences_clean(&src_min_cast.occ);
+  CRUX__occurrences_clean(&target_max_cast.occ);
+  CRUX__occurrences_clean(&target_min_cast.occ);
+}
+
+
+void CRUX__cast_flp2_flp4_test () {
+  // 8
+  const FLP4 src_max = FLP4_MAX;
+  const FLP4 src_min = FLP4_MIN;
+  const FLP4 target_max = FLP2_MAX;
+  const FLP4 target_min = FLP2_MIN;
+  CRUX__ResultFLP2 src_max_cast = CRUX__cast_flp2_flp4(src_max);
+  CRUX__ResultFLP2 src_min_cast = CRUX__cast_flp2_flp4(src_min);
+  CRUX__ResultFLP2 target_max_cast = CRUX__cast_flp2_flp4(target_max);
+  CRUX__ResultFLP2 target_min_cast = CRUX__cast_flp2_flp4(target_min);
+  ok((src_max_cast.occ != NULL), "Must have an error.");
+  ok((src_min_cast.occ != NULL), "Must have an error.");
+  ok((target_max_cast.occ == NULL), "Must not have an error.");
+  ok((target_min_cast.occ == NULL), "Must not have an error.");
+  CRUX__occurrences_clean(&src_max_cast.occ);
+  CRUX__occurrences_clean(&src_min_cast.occ);
+  CRUX__occurrences_clean(&target_max_cast.occ);
+  CRUX__occurrences_clean(&target_min_cast.occ);
+}
+
+
+void CRUX__cast_flp4_flp1_test () {
+  // 8
+  const FLP1 src_max = FLP1_MAX;
+  const FLP1 src_min = FLP1_MIN;
+  const FLP1 target_max = FLP1_MAX;
+  const FLP1 target_min = FLP1_MIN;
+  CRUX__ResultFLP4 src_max_cast = CRUX__cast_flp4_flp1(src_max);
+  CRUX__ResultFLP4 src_min_cast = CRUX__cast_flp4_flp1(src_min);
+  CRUX__ResultFLP4 target_max_cast = CRUX__cast_flp4_flp1(target_max);
+  CRUX__ResultFLP4 target_min_cast = CRUX__cast_flp4_flp1(target_min);
+  ok((src_max_cast.occ == NULL), "Must not have an error.");
+  ok((src_min_cast.occ == NULL), "Must not have an error.");
+  ok((target_max_cast.occ == NULL), "Must not have an error.");
+  ok((target_min_cast.occ == NULL), "Must have an error.");
+  CRUX__occurrences_clean(&src_max_cast.occ);
+  CRUX__occurrences_clean(&src_min_cast.occ);
+  CRUX__occurrences_clean(&target_max_cast.occ);
+  CRUX__occurrences_clean(&target_min_cast.occ);
+}
+
+
+void CRUX__cast_flp4_flp2_test () {
+  // 8
+  const FLP2 src_max = FLP2_MAX;
+  const FLP2 src_min = FLP2_MIN;
+  const FLP2 target_max = FLP2_MAX;
+  const FLP2 target_min = FLP2_MIN;
+  CRUX__ResultFLP4 src_max_cast = CRUX__cast_flp4_flp2(src_max);
+  CRUX__ResultFLP4 src_min_cast = CRUX__cast_flp4_flp2(src_min);
+  CRUX__ResultFLP4 target_max_cast = CRUX__cast_flp4_flp2(target_max);
+  CRUX__ResultFLP4 target_min_cast = CRUX__cast_flp4_flp2(target_min);
+  ok((src_max_cast.occ == NULL), "Must not have an error.");
+  ok((src_min_cast.occ == NULL), "Must not have an error.");
+  ok((target_max_cast.occ == NULL), "Must not have an error.");
+  ok((target_min_cast.occ == NULL), "Must have an error.");
+  CRUX__occurrences_clean(&src_max_cast.occ);
+  CRUX__occurrences_clean(&src_min_cast.occ);
+  CRUX__occurrences_clean(&target_max_cast.occ);
+  CRUX__occurrences_clean(&target_min_cast.occ);
+}
+
+
 int main () {
-  plan(392);
+  plan(512);
   CRUX__cast_iu08_iu16_test();
   CRUX__cast_iu08_iu32_test();
   CRUX__cast_iu08_iu64_test();
@@ -2527,6 +2653,12 @@ int main () {
   CRUX__cast_flp4_is16_test();
   CRUX__cast_flp4_is32_test();
   CRUX__cast_flp4_is64_test();
+  CRUX__cast_flp1_flp2_test();
+  CRUX__cast_flp1_flp4_test();
+  CRUX__cast_flp2_flp1_test();
+  CRUX__cast_flp2_flp4_test();
+  CRUX__cast_flp4_flp1_test();
+  CRUX__cast_flp4_flp2_test();
   done_testing();
   return EXIT_SUCCESS;
 }
