@@ -999,3 +999,146 @@ CRUX__ResultFLP4 CRUX__cast_flp4_flp1 (const FLP1 value);
  *
  */
 CRUX__ResultFLP4 CRUX__cast_flp4_flp2 (const FLP2 value);
+
+
+#define CRUX__CAST_IU08(value) _Generic(value,  \
+  IU16 : CRUX__cast_iu08_iu16(value),           \
+  IU32 : CRUX__cast_iu08_iu32(value),           \
+  IU64 : CRUX__cast_iu08_iu64(value),           \
+  IS08 : CRUX__cast_iu08_is08(value),           \
+  IS16 : CRUX__cast_iu08_is16(value),           \
+  IS32 : CRUX__cast_iu08_is32(value),           \
+  IS64 : CRUX__cast_iu08_is64(value),           \
+  FLP1 : CRUX__cast_iu08_flp1(value),           \
+  FLP2 : CRUX__cast_iu08_flp2(value),           \
+  FLP4 : CRUX__cast_iu08_flp4(value))
+
+
+#define CRUX__CAST_IU16(value) _Generic(value,  \
+  IU08 : CRUX__cast_iu16_iu08(value),           \
+  IU32 : CRUX__cast_iu16_iu32(value),           \
+  IU64 : CRUX__cast_iu16_iu64(value),           \
+  IS08 : CRUX__cast_iu16_is08(value),           \
+  IS16 : CRUX__cast_iu16_is16(value),           \
+  IS32 : CRUX__cast_iu16_is32(value),           \
+  IS64 : CRUX__cast_iu16_is64(value),           \
+  FLP1 : CRUX__cast_iu16_flp1(value),           \
+  FLP2 : CRUX__cast_iu16_flp2(value),           \
+  FLP4 : CRUX__cast_iu16_flp4(value))
+
+
+#define CRUX__CAST_IU32(value) _Generic(value,  \
+  IU08 : CRUX__cast_iu32_iu08(value),           \
+  IU16 : CRUX__cast_iu32_iu16(value),           \
+  IU64 : CRUX__cast_iu32_iu64(value),           \
+  IS08 : CRUX__cast_iu32_is08(value),           \
+  IS16 : CRUX__cast_iu32_is16(value),           \
+  IS32 : CRUX__cast_iu32_is32(value),           \
+  IS64 : CRUX__cast_iu32_is64(value),           \
+  FLP1 : CRUX__cast_iu32_flp1(value),           \
+  FLP2 : CRUX__cast_iu32_flp2(value),           \
+  FLP4 : CRUX__cast_iu32_flp4(value))
+
+
+#define CRUX__CAST_IU64(value) _Generic(value,  \
+  IU08 : CRUX__cast_iu64_iu08(value),           \
+  IU16 : CRUX__cast_iu64_iu16(value),           \
+  IU32 : CRUX__cast_iu64_iu32(value),           \
+  IS08 : CRUX__cast_iu64_is08(value),           \
+  IS16 : CRUX__cast_iu64_is16(value),           \
+  IS32 : CRUX__cast_iu64_is32(value),           \
+  IS64 : CRUX__cast_iu64_is64(value),           \
+  FLP1 : CRUX__cast_iu64_flp1(value),           \
+  FLP2 : CRUX__cast_iu64_flp2(value),           \
+  FLP4 : CRUX__cast_iu64_flp4(value))
+
+
+#define CRUX__CAST_IS08(value) _Generic(value,  \
+  IU08 : CRUX__cast_is08_iu08(value),           \
+  IU16 : CRUX__cast_is08_iu16(value),           \
+  IU32 : CRUX__cast_is08_iu32(value),           \
+  IU64 : CRUX__cast_is08_iu64(value),           \
+  IS16 : CRUX__cast_is08_is16(value),           \
+  IS32 : CRUX__cast_is08_is32(value),           \
+  IS64 : CRUX__cast_is08_is64(value),           \
+  FLP1 : CRUX__cast_is08_flp1(value),           \
+  FLP2 : CRUX__cast_is08_flp2(value),           \
+  FLP4 : CRUX__cast_is08_flp4(value))
+
+
+#define CRUX__CAST_IS16(value) _Generic(value,  \
+  IU08 : CRUX__cast_is16_iu08(value),           \
+  IU16 : CRUX__cast_is16_iu16(value),           \
+  IU32 : CRUX__cast_is16_iu32(value),           \
+  IU64 : CRUX__cast_is16_iu64(value),           \
+  IS08 : CRUX__cast_is16_is08(value),           \
+  IS32 : CRUX__cast_is16_is32(value),           \
+  IS64 : CRUX__cast_is16_is64(value),           \
+  FLP1 : CRUX__cast_is16_flp1(value),           \
+  FLP2 : CRUX__cast_is16_flp2(value),           \
+  FLP4 : CRUX__cast_is16_flp4(value))
+
+
+#define CRUX__CAST_IS32(value) _Generic(value,  \
+  IU08 : CRUX__cast_is32_iu08(value),           \
+  IU16 : CRUX__cast_is32_iu16(value),           \
+  IU32 : CRUX__cast_is32_iu32(value),           \
+  IU64 : CRUX__cast_is32_iu64(value),           \
+  IS08 : CRUX__cast_is32_is08(value),           \
+  IS16 : CRUX__cast_is32_is16(value),           \
+  IS64 : CRUX__cast_is32_is64(value),           \
+  FLP1 : CRUX__cast_is32_flp1(value),           \
+  FLP2 : CRUX__cast_is32_flp2(value),           \
+  FLP4 : CRUX__cast_is32_flp4(value))
+
+
+#define CRUX__CAST_IS64(value) _Generic(value,  \
+  IU08 : CRUX__cast_is64_iu08(value),           \
+  IU16 : CRUX__cast_is64_iu16(value),           \
+  IU32 : CRUX__cast_is64_iu32(value),           \
+  IU64 : CRUX__cast_is64_iu64(value),           \
+  IS08 : CRUX__cast_is64_is08(value),           \
+  IS16 : CRUX__cast_is64_is16(value),           \
+  IS32 : CRUX__cast_is64_is32(value),           \
+  FLP1 : CRUX__cast_is64_flp1(value),           \
+  FLP2 : CRUX__cast_is64_flp2(value),           \
+  FLP4 : CRUX__cast_is64_flp4(value))
+
+
+#define CRUX__CAST_FLP1(value) _Generic(value,  \
+  IU08 : CRUX__cast_flp1_iu08(value),           \
+  IU16 : CRUX__cast_flp1_iu16(value),           \
+  IU32 : CRUX__cast_flp1_iu32(value),           \
+  IU64 : CRUX__cast_flp1_iu64(value),           \
+  IS08 : CRUX__cast_flp1_is08(value),           \
+  IS16 : CRUX__cast_flp1_is16(value),           \
+  IS32 : CRUX__cast_flp1_is32(value),           \
+  IS64 : CRUX__cast_flp1_is64(value),           \
+  FLP2 : CRUX__cast_flp1_flp2(value),           \
+  FLP4 : CRUX__cast_flp1_flp4(value))
+
+
+#define CRUX__CAST_FLP2(value) _Generic(value,  \
+  IU08 : CRUX__cast_flp2_iu08(value),           \
+  IU16 : CRUX__cast_flp2_iu16(value),           \
+  IU32 : CRUX__cast_flp2_iu32(value),           \
+  IU64 : CRUX__cast_flp2_iu64(value),           \
+  IS08 : CRUX__cast_flp2_is08(value),           \
+  IS16 : CRUX__cast_flp2_is16(value),           \
+  IS32 : CRUX__cast_flp2_is32(value),           \
+  IS64 : CRUX__cast_flp2_is64(value),           \
+  FLP1 : CRUX__cast_flp2_flp1(value),           \
+  FLP4 : CRUX__cast_flp2_flp4(value))
+
+
+#define CRUX__CAST_FLP4(value) _Generic(value,  \
+  IU08 : CRUX__cast_flp4_iu08(value),           \
+  IU16 : CRUX__cast_flp4_iu16(value),           \
+  IU32 : CRUX__cast_flp4_iu32(value),           \
+  IU64 : CRUX__cast_flp4_iu64(value),           \
+  IS08 : CRUX__cast_flp4_is08(value),           \
+  IS16 : CRUX__cast_flp4_is16(value),           \
+  IS32 : CRUX__cast_flp4_is32(value),           \
+  IS64 : CRUX__cast_flp4_is64(value),           \
+  FLP1 : CRUX__cast_flp4_flp1(value),           \
+  FLP2 : CRUX__cast_flp4_flp2(value))
