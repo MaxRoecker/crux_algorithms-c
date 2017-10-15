@@ -34,15 +34,15 @@ typedef uint16_t IU16;
 typedef uint32_t IU32;
 typedef uint64_t IU64;
 
-#define IU08_INT_PRECISION (8)
-#define IU16_INT_PRECISION (16)
-#define IU32_INT_PRECISION (32)
-#define IU64_INT_PRECISION (64)
+#define IU08_INT_PRECISION UINT32_C(8)
+#define IU16_INT_PRECISION UINT32_C(16)
+#define IU32_INT_PRECISION UINT32_C(32)
+#define IU64_INT_PRECISION UINT32_C(64)
 
-#define IU08_MIN (0U)
-#define IU16_MIN (0U)
-#define IU32_MIN (0U)
-#define IU64_MIN (0U)
+#define IU08_MIN UINT8_C(0)
+#define IU16_MIN UINT16_C(0)
+#define IU32_MIN UINT32_C(0)
+#define IU64_MIN UINT64_C(0)
 
 #define IU08_MAX (UINT8_MAX)
 #define IU16_MAX (UINT16_MAX)
@@ -73,10 +73,10 @@ typedef int16_t IS16;
 typedef int32_t IS32;
 typedef int64_t IS64;
 
-#define IS08_INT_PRECISION (7)
-#define IS16_INT_PRECISION (15)
-#define IS32_INT_PRECISION (31)
-#define IS64_INT_PRECISION (63)
+#define IS08_INT_PRECISION UINT32_C(7)
+#define IS16_INT_PRECISION UINT32_C(15)
+#define IS32_INT_PRECISION UINT32_C(31)
+#define IS64_INT_PRECISION UINT32_C(63)
 
 #define IS08_MAX (INT8_MAX)
 #define IS16_MAX (INT16_MAX)
@@ -110,9 +110,9 @@ typedef float FLP1;
 typedef double FLP2;
 typedef long double FLP4;
 
-#define FLP1_INT_PRECISION (FLT_MANT_DIG * log2(FLT_RADIX))
-#define FLP2_INT_PRECISION (DBL_MANT_DIG * log2(FLT_RADIX))
-#define FLP4_INT_PRECISION (LDBL_MANT_DIG * log2(FLT_RADIX))
+#define FLP1_INT_PRECISION ((uint32_t) (FLT_MANT_DIG * log2(FLT_RADIX)))
+#define FLP2_INT_PRECISION ((uint32_t) (DBL_MANT_DIG * log2(FLT_RADIX)))
+#define FLP4_INT_PRECISION ((uint32_t) (LDBL_MANT_DIG * log2(FLT_RADIX)))
 
 #define FLP1_MAX (FLT_MAX)
 #define FLP2_MAX (DBL_MAX)
