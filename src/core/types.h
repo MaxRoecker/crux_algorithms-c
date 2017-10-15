@@ -49,15 +49,15 @@ typedef uint64_t IU64;
 #define IU32_MAX (UINT32_MAX)
 #define IU64_MAX (UINT64_MAX)
 
-#define IU08_BIGGEST (UINT8_MAX)
-#define IU16_BIGGEST (UINT16_MAX)
-#define IU32_BIGGEST (UINT32_MAX)
-#define IU64_BIGGEST (UINT64_MAX)
+#define IU08_MAGNITUDE_MAX (UINT8_MAX)
+#define IU16_MAGNITUDE_MAX (UINT16_MAX)
+#define IU32_MAGNITUDE_MAX (UINT32_MAX)
+#define IU64_MAGNITUDE_MAX (UINT64_MAX)
 
-#define IU08_SMALLEST (1U)
-#define IU16_SMALLEST (1U)
-#define IU32_SMALLEST (1U)
-#define IU64_SMALLEST (1UL)
+#define IU08_MAGNITUDE_MIN (1U)
+#define IU16_MAGNITUDE_MIN (1U)
+#define IU32_MAGNITUDE_MIN (1U)
+#define IU64_MAGNITUDE_MIN (1UL)
 
 #define IU08_FMT PRIu8
 #define IU16_FMT PRIu16
@@ -88,15 +88,15 @@ typedef int64_t IS64;
 #define IS32_MIN (INT32_MIN)
 #define IS64_MIN (INT64_MIN)
 
-#define IS08_BIGGEST (INT8_MAX)
-#define IS16_BIGGEST (INT16_MAX)
-#define IS32_BIGGEST (INT32_MAX)
-#define IS64_BIGGEST (INT64_MAX)
+#define IS08_MAGNITUDE_MAX (INT8_MAX)
+#define IS16_MAGNITUDE_MAX (INT16_MAX)
+#define IS32_MAGNITUDE_MAX (INT32_MAX)
+#define IS64_MAGNITUDE_MAX (INT64_MAX)
 
-#define IS08_SMALLEST (1)
-#define IS16_SMALLEST (1)
-#define IS32_SMALLEST (1)
-#define IS64_SMALLEST (1L)
+#define IS08_MAGNITUDE_MIN (1)
+#define IS16_MAGNITUDE_MIN (1)
+#define IS32_MAGNITUDE_MIN (1)
+#define IS64_MAGNITUDE_MIN (1L)
 
 #define IS08_FMT PRId8
 #define IS16_FMT PRId16
@@ -122,13 +122,13 @@ typedef long double FLP4;
 #define FLP2_MIN (-DBL_MAX)
 #define FLP4_MIN (-LDBL_MAX)
 
-#define FLP1_BIGGEST (FLT_MAX)
-#define FLP2_BIGGEST (DBL_MAX)
-#define FLP4_BIGGEST (LDBL_MAX)
+#define FLP1_MAGNITUDE_MAX (FLT_MAX)
+#define FLP2_MAGNITUDE_MAX (DBL_MAX)
+#define FLP4_MAGNITUDE_MAX (LDBL_MAX)
 
-#define FLP1_SMALLEST (FLT_MIN)
-#define FLP2_SMALLEST (DBL_MIN)
-#define FLP4_SMALLEST (LDBL_MIN)
+#define FLP1_MAGNITUDE_MIN (FLT_MIN)
+#define FLP2_MAGNITUDE_MIN (DBL_MIN)
+#define FLP4_MAGNITUDE_MIN (LDBL_MIN)
 
 #define FLP1_EPSILON (FLT_EPSILON)
 #define FLP2_EPSILON (DBL_EPSILON)
@@ -167,91 +167,91 @@ typedef long double FLP4;
 #define CRUX__int_as_flp4(integer) ((FLP4) (integer ## .0l))
 
 
-#define INT_PRECISION(value) _Generic(value,  \
-  IU08 : IU08_INT_PRECISION,                  \
-  IU16 : IU16_INT_PRECISION,                  \
-  IU32 : IU32_INT_PRECISION,                  \
-  IU64 : IU64_INT_PRECISION,                  \
-  IS08 : IS08_INT_PRECISION,                  \
-  IS16 : IS16_INT_PRECISION,                  \
-  IS32 : IS32_INT_PRECISION,                  \
-  IS64 : IS64_INT_PRECISION,                  \
-  FLP1 : FLP1_INT_PRECISION,                  \
-  FLP2 : FLP2_INT_PRECISION,                  \
+#define CRUX__get_int_precision(value) _Generic(value,  \
+  IU08 : IU08_INT_PRECISION,                            \
+  IU16 : IU16_INT_PRECISION,                            \
+  IU32 : IU32_INT_PRECISION,                            \
+  IU64 : IU64_INT_PRECISION,                            \
+  IS08 : IS08_INT_PRECISION,                            \
+  IS16 : IS16_INT_PRECISION,                            \
+  IS32 : IS32_INT_PRECISION,                            \
+  IS64 : IS64_INT_PRECISION,                            \
+  FLP1 : FLP1_INT_PRECISION,                            \
+  FLP2 : FLP2_INT_PRECISION,                            \
   FLP4 : FLP4_INT_PRECISION)
 
 
-#define MAX_OF(value) _Generic(value,  \
-  IU08 : IU08_MAX,                  \
-  IU16 : IU16_MAX,                  \
-  IU32 : IU32_MAX,                  \
-  IU64 : IU64_MAX,                  \
-  IS08 : IS08_MAX,                  \
-  IS16 : IS16_MAX,                  \
-  IS32 : IS32_MAX,                  \
-  IS64 : IS64_MAX,                  \
-  FLP1 : FLP1_MAX,                  \
-  FLP2 : FLP2_MAX,                  \
+#define CRUX__get_max_of(value) _Generic(value, \
+  IU08 : IU08_MAX,                              \
+  IU16 : IU16_MAX,                              \
+  IU32 : IU32_MAX,                              \
+  IU64 : IU64_MAX,                              \
+  IS08 : IS08_MAX,                              \
+  IS16 : IS16_MAX,                              \
+  IS32 : IS32_MAX,                              \
+  IS64 : IS64_MAX,                              \
+  FLP1 : FLP1_MAX,                              \
+  FLP2 : FLP2_MAX,                              \
   FLP4 : FLP4_MAX)
 
 
-#define MIN_OF(value) _Generic(value,  \
-  IU08 : IU08_MIN,                  \
-  IU16 : IU16_MIN,                  \
-  IU32 : IU32_MIN,                  \
-  IU64 : IU64_MIN,                  \
-  IS08 : IS08_MIN,                  \
-  IS16 : IS16_MIN,                  \
-  IS32 : IS32_MIN,                  \
-  IS64 : IS64_MIN,                  \
-  FLP1 : FLP1_MIN,                  \
-  FLP2 : FLP2_MIN,                  \
+#define CRUX__get_min_of(value) _Generic(value, \
+  IU08 : IU08_MIN,                              \
+  IU16 : IU16_MIN,                              \
+  IU32 : IU32_MIN,                              \
+  IU64 : IU64_MIN,                              \
+  IS08 : IS08_MIN,                              \
+  IS16 : IS16_MIN,                              \
+  IS32 : IS32_MIN,                              \
+  IS64 : IS64_MIN,                              \
+  FLP1 : FLP1_MIN,                              \
+  FLP2 : FLP2_MIN,                              \
   FLP4 : FLP4_MIN)
 
 
-#define BIGGEST_OF(value) _Generic(value,  \
-  IU08 : IU08_BIGGEST,                  \
-  IU16 : IU16_BIGGEST,                  \
-  IU32 : IU32_BIGGEST,                  \
-  IU64 : IU64_BIGGEST,                  \
-  IS08 : IS08_BIGGEST,                  \
-  IS16 : IS16_BIGGEST,                  \
-  IS32 : IS32_BIGGEST,                  \
-  IS64 : IS64_BIGGEST,                  \
-  FLP1 : FLP1_BIGGEST,                  \
-  FLP2 : FLP2_BIGGEST,                  \
-  FLP4 : FLP4_BIGGEST)
+#define CRUX__get_magnitude_max_of(value) _Generic(value, \
+  IU08 : IU08_MAGNITUDE_MAX,                              \
+  IU16 : IU16_MAGNITUDE_MAX,                              \
+  IU32 : IU32_MAGNITUDE_MAX,                              \
+  IU64 : IU64_MAGNITUDE_MAX,                              \
+  IS08 : IS08_MAGNITUDE_MAX,                              \
+  IS16 : IS16_MAGNITUDE_MAX,                              \
+  IS32 : IS32_MAGNITUDE_MAX,                              \
+  IS64 : IS64_MAGNITUDE_MAX,                              \
+  FLP1 : FLP1_MAGNITUDE_MAX,                              \
+  FLP2 : FLP2_MAGNITUDE_MAX,                              \
+  FLP4 : FLP4_MAGNITUDE_MAX)
 
 
-#define SMALLEST_OF(value) _Generic(value,  \
-  IU08 : IU08_SMALLEST,                  \
-  IU16 : IU16_SMALLEST,                  \
-  IU32 : IU32_SMALLEST,                  \
-  IU64 : IU64_SMALLEST,                  \
-  IS08 : IS08_SMALLEST,                  \
-  IS16 : IS16_SMALLEST,                  \
-  IS32 : IS32_SMALLEST,                  \
-  IS64 : IS64_SMALLEST,                  \
-  FLP1 : FLP1_SMALLEST,                  \
-  FLP2 : FLP2_SMALLEST,                  \
-  FLP4 : FLP4_SMALLEST)
+#define CRUX__get_magnitude_min_of(value) _Generic(value, \
+  IU08 : IU08_MAGNITUDE_MIN,                              \
+  IU16 : IU16_MAGNITUDE_MIN,                              \
+  IU32 : IU32_MAGNITUDE_MIN,                              \
+  IU64 : IU64_MAGNITUDE_MIN,                              \
+  IS08 : IS08_MAGNITUDE_MIN,                              \
+  IS16 : IS16_MAGNITUDE_MIN,                              \
+  IS32 : IS32_MAGNITUDE_MIN,                              \
+  IS64 : IS64_MAGNITUDE_MIN,                              \
+  FLP1 : FLP1_MAGNITUDE_MIN,                              \
+  FLP2 : FLP2_MAGNITUDE_MIN,                              \
+  FLP4 : FLP4_MAGNITUDE_MIN)
 
 
-#define FMT_OF(value) _Generic(value,  \
-  IU08 : IU08_FMT,                  \
-  IU16 : IU16_FMT,                  \
-  IU32 : IU32_FMT,                  \
-  IU64 : IU64_FMT,                  \
-  IS08 : IS08_FMT,                  \
-  IS16 : IS16_FMT,                  \
-  IS32 : IS32_FMT,                  \
-  IS64 : IS64_FMT,                  \
-  FLP1 : FLP1_FMT,                  \
-  FLP2 : FLP2_FMT,                  \
+#define CRUX__get_fmt_of(value) _Generic(value, \
+  IU08 : IU08_FMT,                              \
+  IU16 : IU16_FMT,                              \
+  IU32 : IU32_FMT,                              \
+  IU64 : IU64_FMT,                              \
+  IS08 : IS08_FMT,                              \
+  IS16 : IS16_FMT,                              \
+  IS32 : IS32_FMT,                              \
+  IS64 : IS64_FMT,                              \
+  FLP1 : FLP1_FMT,                              \
+  FLP2 : FLP2_FMT,                              \
   FLP4 : FLP4_FMT)
 
 
-#define FLP_TRUNC(value) _Generic(value,  \
-  FLP1 : ((FLP1) truncf(value)),          \
-  FLP2 : ((FLP2) trunc(value)),           \
+#define CRUX__trunc(value) _Generic(value,  \
+  FLP1 : ((FLP1) truncf(value)),            \
+  FLP2 : ((FLP2) trunc(value)),             \
   FLP4 : ((FLP4) truncl(value)))

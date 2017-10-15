@@ -936,7 +936,7 @@ CRUX__ResultIS64 CRUX__cast_is64_is32 (const IS32 value) {
 CRUX__ResultIU08 CRUX__cast_iu08_flp1 (const FLP1 value) {
   IU08 casted = CRUX__as_iu08(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP1 truncated = FLP_TRUNC(value);
+  const FLP1 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP1) IU08_INT_PRECISION) < log2f(fabsf(value)));
@@ -960,7 +960,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_flp1 (const FLP1 value) {
 CRUX__ResultIU08 CRUX__cast_iu08_flp2 (const FLP2 value) {
   IU08 casted = CRUX__as_iu08(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP2 truncated = FLP_TRUNC(value);
+  const FLP2 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP2) IU08_INT_PRECISION) < log2(fabs(value)));
@@ -984,7 +984,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_flp2 (const FLP2 value) {
 CRUX__ResultIU08 CRUX__cast_iu08_flp4 (const FLP4 value) {
   IU08 casted = CRUX__as_iu08(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP4 truncated = FLP_TRUNC(value);
+  const FLP4 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP4) IU08_INT_PRECISION) < log2l(fabsl(value)));
@@ -1008,7 +1008,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_flp4 (const FLP4 value) {
 CRUX__ResultIU16 CRUX__cast_iu16_flp1 (const FLP1 value) {
   IU16 casted = CRUX__as_iu16(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP1 truncated = FLP_TRUNC(value);
+  const FLP1 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP1) IU16_INT_PRECISION) < log2f(fabsf(value)));
@@ -1032,7 +1032,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_flp1 (const FLP1 value) {
 CRUX__ResultIU16 CRUX__cast_iu16_flp2 (const FLP2 value) {
   IU16 casted = CRUX__as_iu16(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP2 truncated = FLP_TRUNC(value);
+  const FLP2 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP2) IU16_INT_PRECISION) < log2(fabs(value)));
@@ -1056,7 +1056,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_flp2 (const FLP2 value) {
 CRUX__ResultIU16 CRUX__cast_iu16_flp4 (const FLP4 value) {
   IU16 casted = CRUX__as_iu16(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP4 truncated = FLP_TRUNC(value);
+  const FLP4 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP4) IU16_INT_PRECISION) < log2l(fabsl(value)));
@@ -1080,7 +1080,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_flp4 (const FLP4 value) {
 CRUX__ResultIU32 CRUX__cast_iu32_flp1 (const FLP1 value) {
   IU32 casted = CRUX__as_iu32(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP1 truncated = FLP_TRUNC(value);
+  const FLP1 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP1) IU32_INT_PRECISION) < log2f(fabsf(value)));
@@ -1104,7 +1104,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_flp1 (const FLP1 value) {
 CRUX__ResultIU32 CRUX__cast_iu32_flp2 (const FLP2 value) {
   IU32 casted = CRUX__as_iu32(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP2 truncated = FLP_TRUNC(value);
+  const FLP2 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP2) IU32_INT_PRECISION) < log2(fabs(value)));
@@ -1128,7 +1128,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_flp2 (const FLP2 value) {
 CRUX__ResultIU32 CRUX__cast_iu32_flp4 (const FLP4 value) {
   IU32 casted = CRUX__as_iu32(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP4 truncated = FLP_TRUNC(value);
+  const FLP4 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP4) IU32_INT_PRECISION) < log2l(fabsl(value)));
@@ -1152,7 +1152,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_flp4 (const FLP4 value) {
 CRUX__ResultIU64 CRUX__cast_iu64_flp1 (const FLP1 value) {
   IU64 casted = CRUX__as_iu64(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP1 truncated = FLP_TRUNC(value);
+  const FLP1 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP1) IU64_INT_PRECISION) < log2f(fabsf(value)));
@@ -1176,7 +1176,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_flp1 (const FLP1 value) {
 CRUX__ResultIU64 CRUX__cast_iu64_flp2 (const FLP2 value) {
   IU64 casted = CRUX__as_iu64(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP2 truncated = FLP_TRUNC(value);
+  const FLP2 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP2) IU64_INT_PRECISION) < log2(fabs(value)));
@@ -1200,7 +1200,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_flp2 (const FLP2 value) {
 CRUX__ResultIU64 CRUX__cast_iu64_flp4 (const FLP4 value) {
   IU64 casted = CRUX__as_iu64(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP4 truncated = FLP_TRUNC(value);
+  const FLP4 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (value < 0.0)
     || (((FLP4) IU64_INT_PRECISION) < log2l(fabsl(value)));
@@ -1224,7 +1224,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_flp4 (const FLP4 value) {
 CRUX__ResultIS08 CRUX__cast_is08_flp1 (const FLP1 value) {
   IS08 casted = CRUX__as_is08(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP1 truncated = FLP_TRUNC(value);
+  const FLP1 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP1) IS08_INT_PRECISION) < log2f(fabsf(value)));
   if (has_overflow) {
@@ -1247,7 +1247,7 @@ CRUX__ResultIS08 CRUX__cast_is08_flp1 (const FLP1 value) {
 CRUX__ResultIS08 CRUX__cast_is08_flp2 (const FLP2 value) {
   IS08 casted = CRUX__as_is08(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP2 truncated = FLP_TRUNC(value);
+  const FLP2 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP2) IS08_INT_PRECISION) < log2(fabs(value)));
   if (has_overflow) {
@@ -1270,7 +1270,7 @@ CRUX__ResultIS08 CRUX__cast_is08_flp2 (const FLP2 value) {
 CRUX__ResultIS08 CRUX__cast_is08_flp4 (const FLP4 value) {
   IS08 casted = CRUX__as_is08(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP4 truncated = FLP_TRUNC(value);
+  const FLP4 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP4) IS08_INT_PRECISION) < log2l(fabsl(value)));
   if (has_overflow) {
@@ -1293,7 +1293,7 @@ CRUX__ResultIS08 CRUX__cast_is08_flp4 (const FLP4 value) {
 CRUX__ResultIS16 CRUX__cast_is16_flp1 (const FLP1 value) {
   IS16 casted = CRUX__as_is16(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP1 truncated = FLP_TRUNC(value);
+  const FLP1 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP1) IS16_INT_PRECISION) < log2f(fabsf(value)));
   if (has_overflow) {
@@ -1316,7 +1316,7 @@ CRUX__ResultIS16 CRUX__cast_is16_flp1 (const FLP1 value) {
 CRUX__ResultIS16 CRUX__cast_is16_flp2 (const FLP2 value) {
   IS16 casted = CRUX__as_is16(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP2 truncated = FLP_TRUNC(value);
+  const FLP2 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP2) IS16_INT_PRECISION) < log2(fabs(value)));
   if (has_overflow) {
@@ -1339,7 +1339,7 @@ CRUX__ResultIS16 CRUX__cast_is16_flp2 (const FLP2 value) {
 CRUX__ResultIS16 CRUX__cast_is16_flp4 (const FLP4 value) {
   IS16 casted = CRUX__as_is16(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP4 truncated = FLP_TRUNC(value);
+  const FLP4 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP4) IS16_INT_PRECISION) < log2l(fabsl(value)));
   if (has_overflow) {
@@ -1362,7 +1362,7 @@ CRUX__ResultIS16 CRUX__cast_is16_flp4 (const FLP4 value) {
 CRUX__ResultIS32 CRUX__cast_is32_flp1 (const FLP1 value) {
   IS32 casted = CRUX__as_is32(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP1 truncated = FLP_TRUNC(value);
+  const FLP1 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP1) IS32_INT_PRECISION) < log2f(fabsf(value)));
   if (has_overflow) {
@@ -1385,7 +1385,7 @@ CRUX__ResultIS32 CRUX__cast_is32_flp1 (const FLP1 value) {
 CRUX__ResultIS32 CRUX__cast_is32_flp2 (const FLP2 value) {
   IS32 casted = CRUX__as_is32(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP2 truncated = FLP_TRUNC(value);
+  const FLP2 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP2) IS32_INT_PRECISION) < log2(fabs(value)));
   if (has_overflow) {
@@ -1408,7 +1408,7 @@ CRUX__ResultIS32 CRUX__cast_is32_flp2 (const FLP2 value) {
 CRUX__ResultIS32 CRUX__cast_is32_flp4 (const FLP4 value) {
   IS32 casted = CRUX__as_is32(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP4 truncated = FLP_TRUNC(value);
+  const FLP4 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP4) IS32_INT_PRECISION) < log2l(fabsl(value)));
   if (has_overflow) {
@@ -1431,7 +1431,7 @@ CRUX__ResultIS32 CRUX__cast_is32_flp4 (const FLP4 value) {
 CRUX__ResultIS64 CRUX__cast_is64_flp1 (const FLP1 value) {
   IS64 casted = CRUX__as_is64(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP1 truncated = FLP_TRUNC(value);
+  const FLP1 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP1) IS64_INT_PRECISION) < log2f(fabsf(value)));
   if (has_overflow) {
@@ -1454,7 +1454,7 @@ CRUX__ResultIS64 CRUX__cast_is64_flp1 (const FLP1 value) {
 CRUX__ResultIS64 CRUX__cast_is64_flp2 (const FLP2 value) {
   IS64 casted = CRUX__as_is64(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP2 truncated = FLP_TRUNC(value);
+  const FLP2 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP2) IS64_INT_PRECISION) < log2(fabs(value)));
   if (has_overflow) {
@@ -1477,7 +1477,7 @@ CRUX__ResultIS64 CRUX__cast_is64_flp2 (const FLP2 value) {
 CRUX__ResultIS64 CRUX__cast_is64_flp4 (const FLP4 value) {
   IS64 casted = CRUX__as_is64(0);
   const CRUX__Occurrence *occurrences = NULL;
-  const FLP4 truncated = FLP_TRUNC(value);
+  const FLP4 truncated = CRUX__trunc(value);
   const bool has_overflow = (value != truncated)
     || (((FLP4) IS64_INT_PRECISION) < log2l(fabsl(value)));
   if (has_overflow) {

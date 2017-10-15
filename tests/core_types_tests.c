@@ -228,17 +228,17 @@ void CRUX__int_precision_tests () {
   const FLP1 floating_point_1 = FLP1_MAX;
   const FLP2 floating_point_2 = FLP2_MIN;
   const FLP4 floating_point_4 = FLP4_MAX;
-  ok((INT_PRECISION(unsigned_integer_08) == 8), "Must has precision equals to %d.", 8);
-  ok((INT_PRECISION(unsigned_integer_16) == 16), "Must has precision equals to %d.", 16);
-  ok((INT_PRECISION(unsigned_integer_32) == 32), "Must has precision equals to %d.", 32);
-  ok((INT_PRECISION(unsigned_integer_64) == 64), "Must has precision equals to %d.", 64);
-  ok((INT_PRECISION(signed_integer_08) == 7), "Must has precision equals to %d.", 7);
-  ok((INT_PRECISION(signed_integer_16) == 15), "Must has precision equals to %d.", 15);
-  ok((INT_PRECISION(signed_integer_32) == 31), "Must has precision equals to %d.", 31);
-  ok((INT_PRECISION(signed_integer_64) == 63), "Must has precision equals to %d.", 63);
-  ok((INT_PRECISION(floating_point_1) == FLT_MANT_DIG), "Must has precision equals to %d.", FLT_MANT_DIG);
-  ok((INT_PRECISION(floating_point_2) == DBL_MANT_DIG), "Must has precision equals to %d.", DBL_MANT_DIG);
-  ok((INT_PRECISION(floating_point_4) == LDBL_MANT_DIG), "Must has precision equals to %d.", LDBL_MANT_DIG);
+  ok((CRUX__get_int_precision(unsigned_integer_08) == 8), "Must has precision equals to %d.", 8);
+  ok((CRUX__get_int_precision(unsigned_integer_16) == 16), "Must has precision equals to %d.", 16);
+  ok((CRUX__get_int_precision(unsigned_integer_32) == 32), "Must has precision equals to %d.", 32);
+  ok((CRUX__get_int_precision(unsigned_integer_64) == 64), "Must has precision equals to %d.", 64);
+  ok((CRUX__get_int_precision(signed_integer_08) == 7), "Must has precision equals to %d.", 7);
+  ok((CRUX__get_int_precision(signed_integer_16) == 15), "Must has precision equals to %d.", 15);
+  ok((CRUX__get_int_precision(signed_integer_32) == 31), "Must has precision equals to %d.", 31);
+  ok((CRUX__get_int_precision(signed_integer_64) == 63), "Must has precision equals to %d.", 63);
+  ok((CRUX__get_int_precision(floating_point_1) == FLT_MANT_DIG), "Must has precision equals to %d.", FLT_MANT_DIG);
+  ok((CRUX__get_int_precision(floating_point_2) == DBL_MANT_DIG), "Must has precision equals to %d.", DBL_MANT_DIG);
+  ok((CRUX__get_int_precision(floating_point_4) == LDBL_MANT_DIG), "Must has precision equals to %d.", LDBL_MANT_DIG);
 }
 
 
@@ -247,21 +247,21 @@ void CRUX__trunc_tests () {
   const FLP1 zero_1 = 0.0f;
   const FLP1 pos_1 = 1.5f;
   const FLP1 neg_1 = -1.5f;
-  ok((FLP_TRUNC(zero_1) == 0.0f), "Must be equals to 0.0.");
-  ok((FLP_TRUNC(pos_1) == 1.0f), "Must be equals to 1.0.");
-  ok((FLP_TRUNC(neg_1) == -1.0f), "Must be equals to -1.0.");
+  ok((CRUX__trunc(zero_1) == 0.0f), "Must be equals to 0.0.");
+  ok((CRUX__trunc(pos_1) == 1.0f), "Must be equals to 1.0.");
+  ok((CRUX__trunc(neg_1) == -1.0f), "Must be equals to -1.0.");
   const FLP2 zero_2 = 0.0;
   const FLP2 pos_2 = 1.5;
   const FLP2 neg_2 = -1.5;
-  ok((FLP_TRUNC(zero_2) == 0.0), "Must be equals to 0.0.");
-  ok((FLP_TRUNC(pos_2) == 1.0), "Must be equals to 1.0.");
-  ok((FLP_TRUNC(neg_2) == -1.0), "Must be equals to -1.0.");
+  ok((CRUX__trunc(zero_2) == 0.0), "Must be equals to 0.0.");
+  ok((CRUX__trunc(pos_2) == 1.0), "Must be equals to 1.0.");
+  ok((CRUX__trunc(neg_2) == -1.0), "Must be equals to -1.0.");
   const FLP4 zero_4 = 0.0l;
   const FLP4 pos_4 = 1.5l;
   const FLP4 neg_4 = -1.5l;
-  ok((FLP_TRUNC(zero_4) == 0.0l), "Must be equals to 0.0.");
-  ok((FLP_TRUNC(pos_4) == 1.0l), "Must be equals to 1.0.");
-  ok((FLP_TRUNC(neg_4) == -1.0l), "Must be equals to -1.0.");
+  ok((CRUX__trunc(zero_4) == 0.0l), "Must be equals to 0.0.");
+  ok((CRUX__trunc(pos_4) == 1.0l), "Must be equals to 1.0.");
+  ok((CRUX__trunc(neg_4) == -1.0l), "Must be equals to -1.0.");
 }
 
 

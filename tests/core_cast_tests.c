@@ -1129,9 +1129,9 @@ void CRUX__cast_iu08_flp1_test () {
   // 8
   const FLP1 src_max = FLP1_MAX;
   const FLP1 src_min = FLP1_MIN;
-  const FLP1 src_smallest = FLP1_SMALLEST;
-  const FLP1 truncated_pos = FLP_TRUNC(CRUX__as_flp1(1.5));
-  const FLP1 truncated_neg = FLP_TRUNC(CRUX__as_flp1(-1.5));
+  const FLP1 src_smallest = FLP1_MAGNITUDE_MIN;
+  const FLP1 truncated_pos = CRUX__trunc(CRUX__as_flp1(1.5));
+  const FLP1 truncated_neg = CRUX__trunc(CRUX__as_flp1(-1.5));
   const FLP1 target_max = IU08_MAX;
   const FLP1 target_min = IU08_MIN;
   CRUX__ResultIU08 src_max_cast = CRUX__cast_iu08_flp1(src_max);
@@ -1162,9 +1162,9 @@ void CRUX__cast_iu08_flp2_test () {
   // 8
   const FLP2 src_max = FLP2_MAX;
   const FLP2 src_min = FLP2_MIN;
-  const FLP2 src_smallest = FLP2_SMALLEST;
-  const FLP2 truncated_pos = FLP_TRUNC(CRUX__as_flp2(1.5));
-  const FLP2 truncated_neg = FLP_TRUNC(CRUX__as_flp2(-1.5));
+  const FLP2 src_smallest = FLP2_MAGNITUDE_MIN;
+  const FLP2 truncated_pos = CRUX__trunc(CRUX__as_flp2(1.5));
+  const FLP2 truncated_neg = CRUX__trunc(CRUX__as_flp2(-1.5));
   const FLP2 target_max = IU08_MAX;
   const FLP2 target_min = IU08_MIN;
   CRUX__ResultIU08 src_max_cast = CRUX__cast_iu08_flp2(src_max);
@@ -1195,9 +1195,9 @@ void CRUX__cast_iu08_flp4_test () {
   // 8
   const FLP4 src_max = FLP4_MAX;
   const FLP4 src_min = FLP4_MIN;
-  const FLP4 src_smallest = FLP4_SMALLEST;
-  const FLP4 truncated_pos = FLP_TRUNC(CRUX__as_flp4(1.5));
-  const FLP4 truncated_neg = FLP_TRUNC(CRUX__as_flp4(-1.5));
+  const FLP4 src_smallest = FLP4_MAGNITUDE_MIN;
+  const FLP4 truncated_pos = CRUX__trunc(CRUX__as_flp4(1.5));
+  const FLP4 truncated_neg = CRUX__trunc(CRUX__as_flp4(-1.5));
   const FLP4 target_max = IU08_MAX;
   const FLP4 target_min = IU08_MIN;
   CRUX__ResultIU08 src_max_cast = CRUX__cast_iu08_flp4(src_max);
@@ -1228,9 +1228,9 @@ void CRUX__cast_iu16_flp1_test () {
   // 8
   const FLP1 src_max = FLP1_MAX;
   const FLP1 src_min = FLP1_MIN;
-  const FLP1 src_smallest = FLP1_SMALLEST;
-  const FLP1 truncated_pos = FLP_TRUNC(CRUX__as_flp1(1.5));
-  const FLP1 truncated_neg = FLP_TRUNC(CRUX__as_flp1(-1.5));
+  const FLP1 src_smallest = FLP1_MAGNITUDE_MIN;
+  const FLP1 truncated_pos = CRUX__trunc(CRUX__as_flp1(1.5));
+  const FLP1 truncated_neg = CRUX__trunc(CRUX__as_flp1(-1.5));
   const FLP1 target_max = IU16_MAX;
   const FLP1 target_min = IU16_MIN;
   CRUX__ResultIU16 src_max_cast = CRUX__cast_iu16_flp1(src_max);
@@ -1261,9 +1261,9 @@ void CRUX__cast_iu16_flp2_test () {
   // 8
   const FLP2 src_max = FLP2_MAX;
   const FLP2 src_min = FLP2_MIN;
-  const FLP2 src_smallest = FLP2_SMALLEST;
-  const FLP2 truncated_pos = FLP_TRUNC(CRUX__as_flp2(1.5));
-  const FLP2 truncated_neg = FLP_TRUNC(CRUX__as_flp2(-1.5));
+  const FLP2 src_smallest = FLP2_MAGNITUDE_MIN;
+  const FLP2 truncated_pos = CRUX__trunc(CRUX__as_flp2(1.5));
+  const FLP2 truncated_neg = CRUX__trunc(CRUX__as_flp2(-1.5));
   const FLP2 target_max = IU16_MAX;
   const FLP2 target_min = IU16_MIN;
   CRUX__ResultIU16 src_max_cast = CRUX__cast_iu16_flp2(src_max);
@@ -1294,9 +1294,9 @@ void CRUX__cast_iu16_flp4_test () {
   // 8
   const FLP4 src_max = FLP4_MAX;
   const FLP4 src_min = FLP4_MIN;
-  const FLP4 src_smallest = FLP4_SMALLEST;
-  const FLP4 truncated_pos = FLP_TRUNC(CRUX__as_flp4(1.5));
-  const FLP4 truncated_neg = FLP_TRUNC(CRUX__as_flp4(-1.5));
+  const FLP4 src_smallest = FLP4_MAGNITUDE_MIN;
+  const FLP4 truncated_pos = CRUX__trunc(CRUX__as_flp4(1.5));
+  const FLP4 truncated_neg = CRUX__trunc(CRUX__as_flp4(-1.5));
   const FLP4 target_max = IU16_MAX;
   const FLP4 target_min = IU16_MIN;
   CRUX__ResultIU16 src_max_cast = CRUX__cast_iu16_flp4(src_max);
@@ -1327,9 +1327,9 @@ void CRUX__cast_iu32_flp1_test () {
   // 8
   const FLP1 src_max = FLP1_MAX;
   const FLP1 src_min = FLP1_MIN;
-  const FLP1 src_smallest = FLP1_SMALLEST;
-  const FLP1 truncated_pos = FLP_TRUNC(CRUX__as_flp1(1.5));
-  const FLP1 truncated_neg = FLP_TRUNC(CRUX__as_flp1(-1.5));
+  const FLP1 src_smallest = FLP1_MAGNITUDE_MIN;
+  const FLP1 truncated_pos = CRUX__trunc(CRUX__as_flp1(1.5));
+  const FLP1 truncated_neg = CRUX__trunc(CRUX__as_flp1(-1.5));
   const FLP1 target_max = ((FLP1) FLP1_MANTISSA_MAX);
   const FLP1 target_min = ((FLP1) 0.0);
   CRUX__ResultIU32 src_max_cast = CRUX__cast_iu32_flp1(src_max);
@@ -1360,9 +1360,9 @@ void CRUX__cast_iu32_flp2_test () {
   // 8
   const FLP2 src_max = FLP2_MAX;
   const FLP2 src_min = FLP2_MIN;
-  const FLP2 src_smallest = FLP2_SMALLEST;
-  const FLP2 truncated_pos = FLP_TRUNC(CRUX__as_flp2(1.5));
-  const FLP2 truncated_neg = FLP_TRUNC(CRUX__as_flp2(-1.5));
+  const FLP2 src_smallest = FLP2_MAGNITUDE_MIN;
+  const FLP2 truncated_pos = CRUX__trunc(CRUX__as_flp2(1.5));
+  const FLP2 truncated_neg = CRUX__trunc(CRUX__as_flp2(-1.5));
   const FLP2 target_max = IU32_MAX;
   const FLP2 target_min = IU32_MIN;
   CRUX__ResultIU32 src_max_cast = CRUX__cast_iu32_flp2(src_max);
@@ -1393,9 +1393,9 @@ void CRUX__cast_iu32_flp4_test () {
   // 8
   const FLP4 src_max = FLP4_MAX;
   const FLP4 src_min = FLP4_MIN;
-  const FLP4 src_smallest = FLP4_SMALLEST;
-  const FLP4 truncated_pos = FLP_TRUNC(CRUX__as_flp4(1.5));
-  const FLP4 truncated_neg = FLP_TRUNC(CRUX__as_flp4(-1.5));
+  const FLP4 src_smallest = FLP4_MAGNITUDE_MIN;
+  const FLP4 truncated_pos = CRUX__trunc(CRUX__as_flp4(1.5));
+  const FLP4 truncated_neg = CRUX__trunc(CRUX__as_flp4(-1.5));
   const FLP4 target_max = IU32_MAX;
   const FLP4 target_min = IU32_MIN;
   CRUX__ResultIU32 src_max_cast = CRUX__cast_iu32_flp4(src_max);
@@ -1426,9 +1426,9 @@ void CRUX__cast_iu64_flp1_test () {
   // 8
   const FLP1 src_max = FLP1_MAX;
   const FLP1 src_min = FLP1_MIN;
-  const FLP1 src_smallest = FLP1_SMALLEST;
-  const FLP1 truncated_pos = FLP_TRUNC(CRUX__as_flp1(1.5));
-  const FLP1 truncated_neg = FLP_TRUNC(CRUX__as_flp1(-1.5));
+  const FLP1 src_smallest = FLP1_MAGNITUDE_MIN;
+  const FLP1 truncated_pos = CRUX__trunc(CRUX__as_flp1(1.5));
+  const FLP1 truncated_neg = CRUX__trunc(CRUX__as_flp1(-1.5));
   const FLP1 target_max = ((FLP1) FLP1_MANTISSA_MAX);
   const FLP1 target_min = ((FLP1) 0.0);
   CRUX__ResultIU64 src_max_cast = CRUX__cast_iu64_flp1(src_max);
@@ -1459,9 +1459,9 @@ void CRUX__cast_iu64_flp2_test () {
   // 8
   const FLP2 src_max = FLP2_MAX;
   const FLP2 src_min = FLP2_MIN;
-  const FLP2 src_smallest = FLP2_SMALLEST;
-  const FLP2 truncated_pos = FLP_TRUNC(CRUX__as_flp2(1.5));
-  const FLP2 truncated_neg = FLP_TRUNC(CRUX__as_flp2(-1.5));
+  const FLP2 src_smallest = FLP2_MAGNITUDE_MIN;
+  const FLP2 truncated_pos = CRUX__trunc(CRUX__as_flp2(1.5));
+  const FLP2 truncated_neg = CRUX__trunc(CRUX__as_flp2(-1.5));
   const FLP2 target_max = ((FLP2) FLP2_MANTISSA_MAX);
   const FLP2 target_min = ((FLP2) 0.0);
   CRUX__ResultIU64 src_max_cast = CRUX__cast_iu64_flp2(src_max);
@@ -1492,9 +1492,9 @@ void CRUX__cast_iu64_flp4_test () {
   // 8
   const FLP4 src_max = FLP4_MAX;
   const FLP4 src_min = FLP4_MIN;
-  const FLP4 src_smallest = FLP4_SMALLEST;
-  const FLP4 truncated_pos = FLP_TRUNC(CRUX__as_flp4(1.5));
-  const FLP4 truncated_neg = FLP_TRUNC(CRUX__as_flp4(-1.5));
+  const FLP4 src_smallest = FLP4_MAGNITUDE_MIN;
+  const FLP4 truncated_pos = CRUX__trunc(CRUX__as_flp4(1.5));
+  const FLP4 truncated_neg = CRUX__trunc(CRUX__as_flp4(-1.5));
   const FLP4 target_max = ((FLP4) FLP4_MANTISSA_MAX);
   const FLP4 target_min = ((FLP4) 0.0);
   CRUX__ResultIU64 src_max_cast = CRUX__cast_iu64_flp4(src_max);
@@ -1525,9 +1525,9 @@ void CRUX__cast_is08_flp1_test () {
   // 8
   const FLP1 src_max = FLP1_MAX;
   const FLP1 src_min = FLP1_MIN;
-  const FLP1 src_smallest = FLP1_SMALLEST;
-  const FLP1 truncated_pos = FLP_TRUNC(CRUX__as_flp1(1.5));
-  const FLP1 truncated_neg = FLP_TRUNC(CRUX__as_flp1(-1.5));
+  const FLP1 src_smallest = FLP1_MAGNITUDE_MIN;
+  const FLP1 truncated_pos = CRUX__trunc(CRUX__as_flp1(1.5));
+  const FLP1 truncated_neg = CRUX__trunc(CRUX__as_flp1(-1.5));
   const FLP1 target_max = IS08_MAX;
   const FLP1 target_min = IS08_MIN;
   CRUX__ResultIS08 src_max_cast = CRUX__cast_is08_flp1(src_max);
@@ -1558,9 +1558,9 @@ void CRUX__cast_is08_flp2_test () {
   // 8
   const FLP2 src_max = FLP2_MAX;
   const FLP2 src_min = FLP2_MIN;
-  const FLP2 src_smallest = FLP2_SMALLEST;
-  const FLP2 truncated_pos = FLP_TRUNC(CRUX__as_flp2(1.5));
-  const FLP2 truncated_neg = FLP_TRUNC(CRUX__as_flp2(-1.5));
+  const FLP2 src_smallest = FLP2_MAGNITUDE_MIN;
+  const FLP2 truncated_pos = CRUX__trunc(CRUX__as_flp2(1.5));
+  const FLP2 truncated_neg = CRUX__trunc(CRUX__as_flp2(-1.5));
   const FLP2 target_max = IS08_MAX;
   const FLP2 target_min = IS08_MIN;
   CRUX__ResultIS08 src_max_cast = CRUX__cast_is08_flp2(src_max);
@@ -1591,9 +1591,9 @@ void CRUX__cast_is08_flp4_test () {
   // 8
   const FLP4 src_max = FLP4_MAX;
   const FLP4 src_min = FLP4_MIN;
-  const FLP4 src_smallest = FLP4_SMALLEST;
-  const FLP4 truncated_pos = FLP_TRUNC(CRUX__as_flp4(1.5));
-  const FLP4 truncated_neg = FLP_TRUNC(CRUX__as_flp4(-1.5));
+  const FLP4 src_smallest = FLP4_MAGNITUDE_MIN;
+  const FLP4 truncated_pos = CRUX__trunc(CRUX__as_flp4(1.5));
+  const FLP4 truncated_neg = CRUX__trunc(CRUX__as_flp4(-1.5));
   const FLP4 target_max = IS08_MAX;
   const FLP4 target_min = IS08_MIN;
   CRUX__ResultIS08 src_max_cast = CRUX__cast_is08_flp4(src_max);
@@ -1624,9 +1624,9 @@ void CRUX__cast_is16_flp1_test () {
   // 8
   const FLP1 src_max = FLP1_MAX;
   const FLP1 src_min = FLP1_MIN;
-  const FLP1 src_smallest = FLP1_SMALLEST;
-  const FLP1 truncated_pos = FLP_TRUNC(CRUX__as_flp1(1.5));
-  const FLP1 truncated_neg = FLP_TRUNC(CRUX__as_flp1(-1.5));
+  const FLP1 src_smallest = FLP1_MAGNITUDE_MIN;
+  const FLP1 truncated_pos = CRUX__trunc(CRUX__as_flp1(1.5));
+  const FLP1 truncated_neg = CRUX__trunc(CRUX__as_flp1(-1.5));
   const FLP1 target_max = IS16_MAX;
   const FLP1 target_min = IS16_MIN;
   CRUX__ResultIS16 src_max_cast = CRUX__cast_is16_flp1(src_max);
@@ -1657,9 +1657,9 @@ void CRUX__cast_is16_flp2_test () {
   // 8
   const FLP2 src_max = FLP2_MAX;
   const FLP2 src_min = FLP2_MIN;
-  const FLP2 src_smallest = FLP2_SMALLEST;
-  const FLP2 truncated_pos = FLP_TRUNC(CRUX__as_flp2(1.5));
-  const FLP2 truncated_neg = FLP_TRUNC(CRUX__as_flp2(-1.5));
+  const FLP2 src_smallest = FLP2_MAGNITUDE_MIN;
+  const FLP2 truncated_pos = CRUX__trunc(CRUX__as_flp2(1.5));
+  const FLP2 truncated_neg = CRUX__trunc(CRUX__as_flp2(-1.5));
   const FLP2 target_max = IS16_MAX;
   const FLP2 target_min = IS16_MIN;
   CRUX__ResultIS16 src_max_cast = CRUX__cast_is16_flp2(src_max);
@@ -1690,9 +1690,9 @@ void CRUX__cast_is16_flp4_test () {
   // 8
   const FLP4 src_max = FLP4_MAX;
   const FLP4 src_min = FLP4_MIN;
-  const FLP4 src_smallest = FLP4_SMALLEST;
-  const FLP4 truncated_pos = FLP_TRUNC(CRUX__as_flp4(1.5));
-  const FLP4 truncated_neg = FLP_TRUNC(CRUX__as_flp4(-1.5));
+  const FLP4 src_smallest = FLP4_MAGNITUDE_MIN;
+  const FLP4 truncated_pos = CRUX__trunc(CRUX__as_flp4(1.5));
+  const FLP4 truncated_neg = CRUX__trunc(CRUX__as_flp4(-1.5));
   const FLP4 target_max = IS16_MAX;
   const FLP4 target_min = IS16_MIN;
   CRUX__ResultIS16 src_max_cast = CRUX__cast_is16_flp4(src_max);
@@ -1723,9 +1723,9 @@ void CRUX__cast_is32_flp1_test () {
   // 8
   const FLP1 src_max = FLP1_MAX;
   const FLP1 src_min = FLP1_MIN;
-  const FLP1 src_smallest = FLP1_SMALLEST;
-  const FLP1 truncated_pos = FLP_TRUNC(CRUX__as_flp1(1.5));
-  const FLP1 truncated_neg = FLP_TRUNC(CRUX__as_flp1(-1.5));
+  const FLP1 src_smallest = FLP1_MAGNITUDE_MIN;
+  const FLP1 truncated_pos = CRUX__trunc(CRUX__as_flp1(1.5));
+  const FLP1 truncated_neg = CRUX__trunc(CRUX__as_flp1(-1.5));
   const FLP1 target_max = ((FLP1) FLP1_MANTISSA_MAX);
   const FLP1 target_min = -1 * target_max;
   CRUX__ResultIS32 src_max_cast = CRUX__cast_is32_flp1(src_max);
@@ -1756,9 +1756,9 @@ void CRUX__cast_is32_flp2_test () {
   // 8
   const FLP2 src_max = FLP2_MAX;
   const FLP2 src_min = FLP2_MIN;
-  const FLP2 src_smallest = FLP2_SMALLEST;
-  const FLP2 truncated_pos = FLP_TRUNC(CRUX__as_flp2(1.5));
-  const FLP2 truncated_neg = FLP_TRUNC(CRUX__as_flp2(-1.5));
+  const FLP2 src_smallest = FLP2_MAGNITUDE_MIN;
+  const FLP2 truncated_pos = CRUX__trunc(CRUX__as_flp2(1.5));
+  const FLP2 truncated_neg = CRUX__trunc(CRUX__as_flp2(-1.5));
   const FLP2 target_max = IS32_MAX;
   const FLP2 target_min = IS32_MIN;
   CRUX__ResultIS32 src_max_cast = CRUX__cast_is32_flp2(src_max);
@@ -1789,9 +1789,9 @@ void CRUX__cast_is32_flp4_test () {
   // 8
   const FLP4 src_max = FLP4_MAX;
   const FLP4 src_min = FLP4_MIN;
-  const FLP4 src_smallest = FLP4_SMALLEST;
-  const FLP4 truncated_pos = FLP_TRUNC(CRUX__as_flp4(1.5));
-  const FLP4 truncated_neg = FLP_TRUNC(CRUX__as_flp4(-1.5));
+  const FLP4 src_smallest = FLP4_MAGNITUDE_MIN;
+  const FLP4 truncated_pos = CRUX__trunc(CRUX__as_flp4(1.5));
+  const FLP4 truncated_neg = CRUX__trunc(CRUX__as_flp4(-1.5));
   const FLP4 target_max = IS32_MAX;
   const FLP4 target_min = IS32_MIN;
   CRUX__ResultIS32 src_max_cast = CRUX__cast_is32_flp4(src_max);
@@ -1822,9 +1822,9 @@ void CRUX__cast_is64_flp1_test () {
   // 8
   const FLP1 src_max = FLP1_MAX;
   const FLP1 src_min = FLP1_MIN;
-  const FLP1 src_smallest = FLP1_SMALLEST;
-  const FLP1 truncated_pos = FLP_TRUNC(CRUX__as_flp1(1.5));
-  const FLP1 truncated_neg = FLP_TRUNC(CRUX__as_flp1(-1.5));
+  const FLP1 src_smallest = FLP1_MAGNITUDE_MIN;
+  const FLP1 truncated_pos = CRUX__trunc(CRUX__as_flp1(1.5));
+  const FLP1 truncated_neg = CRUX__trunc(CRUX__as_flp1(-1.5));
   const FLP1 target_max = ((FLP1) FLP1_MANTISSA_MAX);
   const FLP1 target_min = -1 * target_max;
   CRUX__ResultIS64 src_max_cast = CRUX__cast_is64_flp1(src_max);
@@ -1855,9 +1855,9 @@ void CRUX__cast_is64_flp2_test () {
   // 8
   const FLP2 src_max = FLP2_MAX;
   const FLP2 src_min = FLP2_MIN;
-  const FLP2 src_smallest = FLP2_SMALLEST;
-  const FLP2 truncated_pos = FLP_TRUNC(CRUX__as_flp2(1.5));
-  const FLP2 truncated_neg = FLP_TRUNC(CRUX__as_flp2(-1.5));
+  const FLP2 src_smallest = FLP2_MAGNITUDE_MIN;
+  const FLP2 truncated_pos = CRUX__trunc(CRUX__as_flp2(1.5));
+  const FLP2 truncated_neg = CRUX__trunc(CRUX__as_flp2(-1.5));
   const FLP2 target_max = ((FLP2) FLP2_MANTISSA_MAX);
   const FLP2 target_min = -1 * target_max;
   CRUX__ResultIS64 src_max_cast = CRUX__cast_is64_flp2(src_max);
@@ -1888,9 +1888,9 @@ void CRUX__cast_is64_flp4_test () {
   // 8
   const FLP4 src_max = FLP4_MAX;
   const FLP4 src_min = FLP4_MIN;
-  const FLP4 src_smallest = FLP4_SMALLEST;
-  const FLP4 truncated_pos = FLP_TRUNC(CRUX__as_flp4(1.5));
-  const FLP4 truncated_neg = FLP_TRUNC(CRUX__as_flp4(-1.5));
+  const FLP4 src_smallest = FLP4_MAGNITUDE_MIN;
+  const FLP4 truncated_pos = CRUX__trunc(CRUX__as_flp4(1.5));
+  const FLP4 truncated_neg = CRUX__trunc(CRUX__as_flp4(-1.5));
   const FLP4 target_max = IS64_MAX;
   const FLP4 target_min = IS64_MIN;
   CRUX__ResultIS64 src_max_cast = CRUX__cast_is64_flp4(src_max);
