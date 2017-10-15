@@ -39,11 +39,6 @@ typedef uint64_t IU64;
 #define IU32_INT_PRECISION (32)
 #define IU64_INT_PRECISION (64)
 
-#define AS_IU08(integer) ((IU08) UINT8_C(integer))
-#define AS_IU16(integer) ((IU16) UINT16_C(integer))
-#define AS_IU32(integer) ((IU32) UINT32_C(integer))
-#define AS_IU64(integer) ((IU64) UINT64_C(integer))
-
 #define IU08_MIN (0U)
 #define IU16_MIN (0U)
 #define IU32_MIN (0U)
@@ -82,11 +77,6 @@ typedef int64_t IS64;
 #define IS16_INT_PRECISION (15)
 #define IS32_INT_PRECISION (31)
 #define IS64_INT_PRECISION (63)
-
-#define AS_IS08(integer) ((IS08) INT8_C(integer))
-#define AS_IS16(integer) ((IS16) INT16_C(integer))
-#define AS_IS32(integer) ((IS32) INT32_C(integer))
-#define AS_IS64(integer) ((IS64) INT64_C(integer))
 
 #define IS08_MAX (INT8_MAX)
 #define IS16_MAX (INT16_MAX)
@@ -152,15 +142,29 @@ typedef long double FLP4;
 #define FLP2_FMT "lf"
 #define FLP4_FMT "Lf"
 
-#define INT_AS_FLP1(integer) ((FLP1) (integer ## .0f))
-#define INT_AS_FLP2(integer) ((FLP2) (integer ## .0))
-#define INT_AS_FLP4(integer) ((FLP4) (integer ## .0l))
-
-#define AS_FLP1(floating) ((FLP1) (floating ## f))
-#define AS_FLP2(floating) ((FLP2) (floating))
-#define AS_FLP4(floating) ((FLP4) (floating ## l))
 
 
+
+#define CRUX__as_iu08(integer) ((IU08) UINT8_C(integer))
+#define CRUX__as_iu16(integer) ((IU16) UINT16_C(integer))
+#define CRUX__as_iu32(integer) ((IU32) UINT32_C(integer))
+#define CRUX__as_iu64(integer) ((IU64) UINT64_C(integer))
+
+
+#define CRUX__as_is08(integer) ((IS08) INT8_C(integer))
+#define CRUX__as_is16(integer) ((IS16) INT16_C(integer))
+#define CRUX__as_is32(integer) ((IS32) INT32_C(integer))
+#define CRUX__as_is64(integer) ((IS64) INT64_C(integer))
+
+
+#define CRUX__as_flp1(floating) ((FLP1) (floating ## f))
+#define CRUX__as_flp2(floating) ((FLP2) (floating))
+#define CRUX__as_flp4(floating) ((FLP4) (floating ## l))
+
+
+#define CRUX__int_as_flp1(integer) ((FLP1) (integer ## .0f))
+#define CRUX__int_as_flp2(integer) ((FLP2) (integer ## .0))
+#define CRUX__int_as_flp4(integer) ((FLP4) (integer ## .0l))
 
 
 #define INT_PRECISION(value) _Generic(value,  \
