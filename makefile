@@ -5,10 +5,10 @@ BIN			=bin
 CFLAGS	=-std=c11 -Wall -ffunction-sections -fdata-sections
 LFLAGS	=-lm -ltap -ltalloc -Wl,--gc-sections
 
-# Packages
+
+# Core package
 core_package		= $(SRC)/core
 
-# Modules
 core_types_module				= $(core_package)/types.c
 core_types_object				= $(BIN)/core_types.o
 core_types_dependencies	=
@@ -24,6 +24,25 @@ core_results_dependencies	= core_errors $(core_errors_dependencies)
 core_cast_module					= $(core_package)/cast.c
 core_cast_object					= $(BIN)/core_cast.o
 core_cast_dependencies		= core_results $(core_results_dependencies)
+
+
+# Float package
+float_package		= $(SRC)/float
+
+float_types_module				= $(float_package)/types.c
+float_types_object				= $(BIN)/float_types.o
+float_types_dependencies	= core_types $(core_types_dependencies)
+
+float_results_module				= $(float_package)/results.c
+float_results_object				= $(BIN)/float_results.o
+float_results_dependencies	= core_results $(core_results_dependencies) \
+															float_types $(float_types_dependencies)
+
+float_cast_module					= $(float_package)/cast.c
+float_cast_object					= $(BIN)/float_cast.o
+float_cast_dependencies		= core_cast $(core_cast_dependencies) \
+														float_results $(float_results_dependencies)
+
 
 # Macros
 compile = $(CC) $(CFLAGS) -c -o $($(1)_object) $($(1)_module)
@@ -45,7 +64,7 @@ test__%: init-bin
 	$(CC) $(LFLAGS) -o $(BIN)/$(subst test__,,$@)_tests \
 		$(BIN)/$(subst test__,,$@)_tests.o \
 		$($(subst test__,,$@)_object) \
-		$(foreach d,$(addsuffix _object,$($(subst test__,,$@)_dependencies)),$($d))
+		$(foreach d,$(sort $(addsuffix _object,$($(subst test__,,$@)_dependencies))),$($d))
 	strip -S --strip-unneeded \
 		--remove-section=.note.gnu.gold-version \
 		--remove-section=.comment \
