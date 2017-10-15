@@ -138,6 +138,10 @@ typedef long double FLP4;
 #define FLP2_MANTISSA_MAX ((1UL << (DBL_MANT_DIG - 1UL)) + ((1UL << (DBL_MANT_DIG - 1UL)) - 1UL))
 #define FLP4_MANTISSA_MAX ((1UL << (LDBL_MANT_DIG - 1UL)) + ((1UL << (LDBL_MANT_DIG - 1UL)) - 1UL))
 
+#define FLP1_MANTISSA_MIN (-1 * FLP1_MANTISSA_MAX)
+#define FLP2_MANTISSA_MIN (-1 * FLP2_MANTISSA_MAX)
+#define FLP4_MANTISSA_MIN (-1 * FLP4_MANTISSA_MAX)
+
 #define FLP1_FMT "f"
 #define FLP2_FMT "lf"
 #define FLP4_FMT "Lf"
