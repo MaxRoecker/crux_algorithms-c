@@ -7,23 +7,35 @@ LFLAGS	=-lm -ltap -ltalloc -Wl,--gc-sections
 
 
 # Core package
-core_package		= $(SRC)/core
+core_package = $(SRC)/core
 
-core_types_module				= $(core_package)/types.c
-core_types_object				= $(BIN)/core_types.o
-core_types_dependencies	=
+core_types_module						= $(core_package)/types.c
+core_types_object						= $(BIN)/core_types.o
+core_types_dependencies			=
 
-core_errors_module				= $(core_package)/errors.c
-core_errors_object				= $(BIN)/core_errors.o
-core_errors_dependencies	= core_types $(core_types_dependencies)
+core_errors_module					= $(core_package)/errors.c
+core_errors_object					= $(BIN)/core_errors.o
+core_errors_dependencies		= core_types $(core_types_dependencies)
 
-core_results_module				= $(core_package)/results.c
-core_results_object				= $(BIN)/core_results.o
-core_results_dependencies	= core_errors $(core_errors_dependencies)
+core_errcodes_module				= $(core_package)/errcodes.c
+core_errcodes_object				= $(BIN)/core_errcodes.o
+core_errcodes_dependencies	= core_types $(core_types_dependencies)
 
-core_cast_module					= $(core_package)/cast.c
-core_cast_object					= $(BIN)/core_cast.o
-core_cast_dependencies		= core_results $(core_results_dependencies)
+core_results_module					= $(core_package)/results.c
+core_results_object					= $(BIN)/core_results.o
+core_results_dependencies		= core_errors $(core_errors_dependencies)
+
+core_cast_module						= $(core_package)/cast.c
+core_cast_object						= $(BIN)/core_cast.o
+core_cast_dependencies			= core_results $(core_results_dependencies)
+
+core_core_module						= $(core_package)/core.c
+core_core_object						= $(BIN)/core_core.o
+core_core_dependencies			= core_types $(core_types_dependencies) \
+															core_errors $(core_errors_dependencies) \
+															core_errcodes $(core_errcodes_dependencies) \
+															core_results $(core_results_dependencies) \
+															core_cast $(core_cast_dependencies)
 
 
 # Float package
