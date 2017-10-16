@@ -7,7 +7,7 @@ static const CRUX__Error CRUX__ERROR_INTEGER_CAST = {
 
 
 static const CRUX__Error CRUX__ERROR_FLOATING_POINT_CAST = {
-  .code = CRUX__FLOATING_POINT_CAST_ERROR_CODE,
+  .code = CRUX__FLOAT_CAST_ERROR_CODE,
   .name = "Floating point cast error"};
 
 

@@ -7,7 +7,8 @@
 #include "./../core/cast.h"
 #include "./results.h"
 
-#define CRUX__FLOATING_POINT_CAST_ERROR_CODE 0x00000101
+
+#define CRUX__FLOAT_CAST_ERROR_CODE CRUX__as_iu32(0x00020000)
 
 
 /**
