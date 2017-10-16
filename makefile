@@ -38,6 +38,20 @@ core_core_dependencies			= core_types $(core_types_dependencies) \
 															core_cast $(core_cast_dependencies)
 
 
+# Math package
+math_package = $(SRC)/math
+
+math_errcodes_module				= $(math_package)/errcodes.c
+math_errcodes_object				= $(BIN)/math_errcodes.o
+math_errcodes_dependencies	= core_types $(core_types_dependencies)
+
+math_abs_module							= $(math_package)/abs.c
+math_abs_object							= $(BIN)/math_abs.o
+math_abs_dependencies				= core_core $(core_core_dependencies) \
+															math_errcodes $(math_errcodes_dependencies)
+
+
+
 # Float package
 float_package		= $(SRC)/float
 
