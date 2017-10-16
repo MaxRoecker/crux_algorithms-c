@@ -6,9 +6,8 @@
  */
 #pragma once
 #include "./results.h"
+#include "./errcodes.h"
 
-
-#define CRUX__INTEGER_CAST_ERROR_CODE 0x00000100
 
 
 /**
