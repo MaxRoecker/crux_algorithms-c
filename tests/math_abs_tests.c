@@ -148,10 +148,52 @@ void CRUX_MATH__abs_is64_test () {
 }
 
 
+void CRUX_MATH__abs_test () {
+  const IU08 iu08_value = CRUX__as_iu08(0);
+  const IU16 iu16_value = CRUX__as_iu16(0);
+  const IU32 iu32_value = CRUX__as_iu32(0);
+  const IU64 iu64_value = CRUX__as_iu64(0);
+  const IS08 is08_value = CRUX__as_is08(0);
+  const IS16 is16_value = CRUX__as_is16(0);
+  const IS32 is32_value = CRUX__as_is32(0);
+  const IS64 is64_value = CRUX__as_is64(0);
+  CRUX__ResultIU08 iu08_result = CRUX_MATH__abs(iu08_value);
+  CRUX__ResultIU16 iu16_result = CRUX_MATH__abs(iu16_value);
+  CRUX__ResultIU32 iu32_result = CRUX_MATH__abs(iu32_value);
+  CRUX__ResultIU64 iu64_result = CRUX_MATH__abs(iu64_value);
+  CRUX__ResultIS08 is08_result = CRUX_MATH__abs(is08_value);
+  CRUX__ResultIS16 is16_result = CRUX_MATH__abs(is16_value);
+  CRUX__ResultIS32 is32_result = CRUX_MATH__abs(is32_value);
+  CRUX__ResultIS64 is64_result = CRUX_MATH__abs(is64_value);
+  ok((iu08_result.occ == NULL), "Must not have an error.");
+  ok((iu08_result.value == CRUX__as_iu08(0)), "Must be equal to 0.");
+  ok((iu16_result.occ == NULL), "Must not have an error.");
+  ok((iu16_result.value == CRUX__as_iu16(0)), "Must be equal to 0.");
+  ok((iu32_result.occ == NULL), "Must not have an error.");
+  ok((iu32_result.value == CRUX__as_iu32(0)), "Must be equal to 0.");
+  ok((iu64_result.occ == NULL), "Must not have an error.");
+  ok((iu64_result.value == CRUX__as_iu64(0)), "Must be equal to 0.");
+  ok((is08_result.occ == NULL), "Must not have an error.");
+  ok((is08_result.value == CRUX__as_is08(0)), "Must be equal to 0.");
+  ok((is16_result.occ == NULL), "Must not have an error.");
+  ok((is16_result.value == CRUX__as_is16(0)), "Must be equal to 0.");
+  ok((is32_result.occ == NULL), "Must not have an error.");
+  ok((is32_result.value == CRUX__as_is32(0)), "Must be equal to 0.");
+  ok((is64_result.occ == NULL), "Must not have an error.");
+  ok((is64_result.value == CRUX__as_is64(0)), "Must be equal to 0.");
+  CRUX__occurrences_clean(&iu08_result.occ);
+  CRUX__occurrences_clean(&iu16_result.occ);
+  CRUX__occurrences_clean(&iu32_result.occ);
+  CRUX__occurrences_clean(&iu64_result.occ);
+  CRUX__occurrences_clean(&is08_result.occ);
+  CRUX__occurrences_clean(&is16_result.occ);
+  CRUX__occurrences_clean(&is32_result.occ);
+  CRUX__occurrences_clean(&is64_result.occ);
+}
 
 
 int main () {
-  plan(36);
+  plan(52);
   CRUX_MATH__abs_iu08_test();
   CRUX_MATH__abs_iu16_test();
   CRUX_MATH__abs_iu32_test();
@@ -160,6 +202,7 @@ int main () {
   CRUX_MATH__abs_is16_test();
   CRUX_MATH__abs_is32_test();
   CRUX_MATH__abs_is64_test();
+  CRUX_MATH__abs_test();
   done_testing();
   return EXIT_SUCCESS;
 }
