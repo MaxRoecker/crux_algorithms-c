@@ -14,6 +14,12 @@
 #include "./types.h"
 
 
+
+
+#define CRUX__ERROR_NAME_SIZE 64UL
+#define CRUX__ERROR_STRING_SIZE 128UL
+
+
 /**
  * @struct CRUX__Error
  * @brief  Represents an error in CRUX.
@@ -21,7 +27,7 @@
  */
 typedef struct CRUX__Error_Struct {
   IU32 code;  /**< Error's code */
-  char *name; /**< Error's name */
+  Char name[CRUX__ERROR_NAME_SIZE]; /**< Error's name */
 } CRUX__Error;
 
 
@@ -33,22 +39,28 @@ typedef struct CRUX__Error_Struct {
  * @return true if the an error is equals to another error, false otherwise.
  *
  */
-bool CRUX__error_equals (
-    const CRUX__Error *const one,
-    const CRUX__Error *const another);
+Bool CRUX__error_equals (
+    const CRUX__Error one,
+    const CRUX__Error another);
 
 
 /**
  * @brief Serialize the error into a string.
  *
  * @param[in] error     A error.
- * @return a null terminated string of the error.
+ * @param[in] buffer    An Char array where the string will be stored.
  *
  */
-const char * CRUX__error_stringify (
-    const CRUX__Error *const error);
+void CRUX__error_stringify (
+  const CRUX__Error error,
+  Char *buffer,
+  const IU64 buffer_size);
 
 
+
+
+#define CRUX__OCCURRENCE_FILEPATH_SIZE 256UL
+#define CRUX__OCCURRENCE_INFO_SIZE 256UL
 
 
 /**
@@ -65,11 +77,11 @@ const char * CRUX__error_stringify (
  *
  */
 typedef struct CRUX__Occurrence_Struct {
-  struct CRUX__Occurrence_Struct *cause; /**< The cause of the occurrence */
-  CRUX__Error *error; /**< The error of the occurrence */
-  char *info;         /**< Information about the occurrence */
-  char *filepath;     /**< The file path where the occurrence happened */
-  IU32 line;          /**< The file line where the occurrence happend */
+  struct CRUX__Occurrence_Struct *cause;      /**< The cause of the occurrence */
+  CRUX__Error error;                          /**< The error of the occurrence */
+  Char info[CRUX__OCCURRENCE_FILEPATH_SIZE];  /**< Information about the occurrence */
+  Char filepath[CRUX__OCCURRENCE_INFO_SIZE];  /**< The file path where the occurrence happened */
+  IU32 line;                                  /**< The file line where the occurrence happend */
 } CRUX__Occurrence;
 
 
@@ -85,10 +97,7 @@ typedef struct CRUX__Occurrence_Struct {
  */
 void CRUX__occurrences_push (
     const CRUX__Occurrence **occurrences,
-    const CRUX__Error *const error,
-    const char *const info,
-    const char *const filepath,
-    const IU32 line);
+    const CRUX__Occurrence occurrence);
 
 
 /**

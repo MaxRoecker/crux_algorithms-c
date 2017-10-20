@@ -1,40 +1,29 @@
 #include "./errors.h"
 
 
-bool CRUX__error_equals (
-    const CRUX__Error *const one,
-    const CRUX__Error *const another) {
-  assert(one != NULL);
-  assert(another != NULL);
-  return (one->code == another->code);
+Bool CRUX__error_equals (const CRUX__Error one, const CRUX__Error another) {
+  return ((Bool) (one.code == another.code));
 }
 
 
-const char * CRUX__error_stringify (
-    const CRUX__Error *const error) {
-  assert(error != NULL);
-  const char *const string = talloc_asprintf(
-    NULL, "E#%08X %s", error->code, error->name);
-  return string;
+void CRUX__error_stringify (
+    const CRUX__Error error,
+    Char *buffer,
+    const IU64 buffer_size) {
+  assert(buffer_size >= CRUX__ERROR_STRING_SIZE);
+  snprintf(buffer, buffer_size, "E#%08X %s", error.code, error.name);
 }
 
 
 void CRUX__occurrences_push (
     const CRUX__Occurrence **occurrences,
-    const CRUX__Error *const error,
-    const char *const info,
-    const char *const filepath,
-    const IU32 line) {
-  CRUX__Occurrence *occurrence = talloc_zero(NULL, CRUX__Occurrence);
-  occurrence->error = talloc_zero(occurrence, CRUX__Error);
-  occurrence->error->code = error->code;
-  occurrence->error->name = talloc_strdup(occurrence, error->name);
-  occurrence->cause = (CRUX__Occurrence *) talloc_steal(
-    occurrence, *occurrences);
-  occurrence->info = talloc_strdup(occurrence, info);
-  occurrence->filepath = talloc_strdup(occurrence, filepath);
-  occurrence->line = line;
-  *occurrences = occurrence;
+    const CRUX__Occurrence occurrence) {;
+  CRUX__Occurrence *occ = talloc_zero(NULL, CRUX__Occurrence);
+  assert(occurrences != NULL);
+  assert(((void *) occ) != NULL);
+  *occ = occurrence;
+  occ->cause = (CRUX__Occurrence *) talloc_steal(occ, *occurrences);
+  *occurrences = occ;
 }
 
 
@@ -54,13 +43,12 @@ void CRUX__occurrences_print (
   assert(*occurrences != NULL);
   const CRUX__Occurrence *next = *occurrences;
   while (next != NULL) {
-    const char *const format = talloc_strdup(
-      NULL, "----------------\n(%s, %d) %s: %s\n\n");
-    const char *error_string = CRUX__error_stringify(next->error);
+    const Size error_string_size = CRUX__ERROR_STRING_SIZE;
+    const Char format[35] = "----------------\n(%s, %d) %s: %s\n\n";
+    Char error_string[error_string_size];
+    CRUX__error_stringify(next->error, error_string, error_string_size);
     fprintf(
       stream, format, next->filepath, next->line, error_string, next->info);
-    talloc_free((void *) format);
-    talloc_free((void *) error_string);
     next = (const CRUX__Occurrence *) next->cause;
     if (next != NULL) {
       fprintf(stream, "Caused by:\n");
