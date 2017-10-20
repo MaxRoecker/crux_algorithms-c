@@ -98,6 +98,11 @@ typedef int64_t IS64;
 
 
 
+typedef bool Bool;
+typedef char Char;
+typedef size_t Size;
+
+
 
 #define CRUX__as_iu08(integer) ((IU08) UINT8_C(integer))
 #define CRUX__as_iu16(integer) ((IU16) UINT16_C(integer))
