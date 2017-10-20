@@ -42,78 +42,80 @@ void CRUX__error_stringify_tests () {
   ok(strcmp(string_2, expected_2) == 0, "Must be the same string.");
 }
 
-void CRUX__occurrences_stack_push_pop_clean_tests () {
-  const CRUX__Occurrence *occurrences = NULL;
-  const CRUX__Occurrence occurrence_0 = {
+void CRUX__exceptions_stack_push_pop_clean_tests () {
+  const CRUX__Exception *exceptions = NULL;
+  const CRUX__Exception exception_0 = {
     .cause = NULL,
     .error = error_0,
     .info = "I don't know anymore information",
     .filepath = __FILE__,
     .line = __LINE__};
-  const CRUX__Occurrence occurrence_1 = {
+  const CRUX__Exception exception_1 = {
     .cause = NULL,
     .error = error_1,
     .info = "I don't know anymore information",
     .filepath = __FILE__,
     .line = __LINE__};
-  const CRUX__Occurrence occurrence_2 = {
+  const Char info_fmt[] = "I don't know %s";
+  CRUX__Exception exception_2 = {
     .cause = NULL,
     .error = error_2,
-    .info = "I don't know anymore information",
     .filepath = __FILE__,
     .line = __LINE__};
-  CRUX__occurrences_push(&occurrences, occurrence_0);
-  CRUX__occurrences_push(&occurrences, occurrence_1);
-  CRUX__occurrences_push(&occurrences, occurrence_2);
+  snprintf(exception_2.filepath, 256, info_fmt, "anymore information");
+  CRUX__exceptions_push(&exceptions, exception_0);
+  CRUX__exceptions_push(&exceptions, exception_1);
+  CRUX__exceptions_push(&exceptions, exception_2);
 
-  ok(CRUX__error_equals(occurrence_2.error, occurrences->error), "Must be equals.");
-  ok(CRUX__error_equals(occurrence_1.error, occurrences->cause->error), "Must be equals.");
-  ok(CRUX__error_equals(occurrence_0.error, occurrences->cause->cause->error), "Must be equals.");
+  ok(CRUX__error_equals(exception_2.error, exceptions->error), "Must be equals.");
+  ok(CRUX__error_equals(exception_1.error, exceptions->cause->error), "Must be equals.");
+  ok(CRUX__error_equals(exception_0.error, exceptions->cause->cause->error), "Must be equals.");
 
-  const CRUX__Occurrence *const popped = CRUX__occurrences_pop(&occurrences);
-  ok(CRUX__error_equals(occurrence_2.error, popped->error), "Must be equals.");
-  ok(CRUX__error_equals(occurrence_1.error, occurrences->error), "Must be equals.");
-  ok(CRUX__error_equals(occurrence_0.error, occurrences->cause->error), "Must be equals.");
+  const CRUX__Exception *const popped = CRUX__exceptions_pop(&exceptions);
+  ok(CRUX__error_equals(exception_2.error, popped->error), "Must be equals.");
+  ok(CRUX__error_equals(exception_1.error, exceptions->error), "Must be equals.");
+  ok(CRUX__error_equals(exception_0.error, exceptions->cause->error), "Must be equals.");
   talloc_free((void *) popped);
-  CRUX__occurrences_clean(&occurrences);
-  ok((occurrences == NULL), "Must be equals.");
+  CRUX__exceptions_clean(&exceptions);
+  ok((exceptions == NULL), "Must be equals.");
 }
 
 
-void CRUX__occurrences_print_tests () {
-  const CRUX__Occurrence *occurrences = NULL;
-  const CRUX__Occurrence occurrence_0 = {
+void CRUX__exceptions_print_tests () {
+  const CRUX__Exception *exceptions = NULL;
+  const CRUX__Exception exception_0 = {
     .cause = NULL,
     .error = error_0,
     .info = "I don't know anymore information",
     .filepath = __FILE__,
     .line = __LINE__};
-  const CRUX__Occurrence occurrence_1 = {
+  const CRUX__Exception exception_1 = {
     .cause = NULL,
     .error = error_1,
     .info = "I don't know anymore information",
     .filepath = __FILE__,
     .line = __LINE__};
-  const CRUX__Occurrence occurrence_2 = {
+  const Char info_fmt[] = "I don't know %s";
+  CRUX__Exception exception_2 = {
     .cause = NULL,
     .error = error_2,
-    .info = "I don't know anymore information",
     .filepath = __FILE__,
     .line = __LINE__};
-  CRUX__occurrences_push(&occurrences, occurrence_0);
-  CRUX__occurrences_push(&occurrences, occurrence_1);
-  CRUX__occurrences_push(&occurrences, occurrence_2);
+  snprintf(exception_2.filepath, 256, info_fmt, "anymore information");
+  CRUX__exceptions_push(&exceptions, exception_0);
+  CRUX__exceptions_push(&exceptions, exception_1);
+  CRUX__exceptions_push(&exceptions, exception_2);
 
-  CRUX__occurrences_print(stdout, &occurrences);
-  CRUX__occurrences_clean(&occurrences);
+  CRUX__exceptions_print(stdout, &exceptions);
+  CRUX__exceptions_clean(&exceptions);
 }
 
 int main () {
   plan(19);
   CRUX__error_equals_test();
   CRUX__error_stringify_tests();
-  CRUX__occurrences_stack_push_pop_clean_tests();
-  CRUX__occurrences_print_tests();
+  CRUX__exceptions_stack_push_pop_clean_tests();
+  CRUX__exceptions_print_tests();
   done_testing();
   return EXIT_SUCCESS;
 }

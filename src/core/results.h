@@ -13,7 +13,7 @@
  *
  */
 typedef struct CRUX__ResultVoid_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
 } CRUX__ResultVoid;
 
 
@@ -23,7 +23,7 @@ typedef struct CRUX__ResultVoid_Struct {
  *
  */
 typedef struct CRUX__ResultIU08_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const IU08 value;             /**< Result value. */
 } CRUX__ResultIU08;
 
@@ -34,7 +34,7 @@ typedef struct CRUX__ResultIU08_Struct {
  *
  */
 typedef struct CRUX__ResultIU16_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const IU16 value;             /**< Result value. */
 } CRUX__ResultIU16;
 
@@ -45,7 +45,7 @@ typedef struct CRUX__ResultIU16_Struct {
  *
  */
 typedef struct CRUX__ResultIU32_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const IU32 value;             /**< Result value. */
 } CRUX__ResultIU32;
 
@@ -56,7 +56,7 @@ typedef struct CRUX__ResultIU32_Struct {
  *
  */
 typedef struct CRUX__ResultIU64_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const IU64 value;             /**< Result value. */
 } CRUX__ResultIU64;
 
@@ -67,7 +67,7 @@ typedef struct CRUX__ResultIU64_Struct {
  *
  */
 typedef struct CRUX__ResultIS08_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const IS08 value;             /**< Result value. */
 } CRUX__ResultIS08;
 
@@ -78,7 +78,7 @@ typedef struct CRUX__ResultIS08_Struct {
  *
  */
 typedef struct CRUX__ResultIS16_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const IS16 value;             /**< Result value. */
 } CRUX__ResultIS16;
 
@@ -89,7 +89,7 @@ typedef struct CRUX__ResultIS16_Struct {
  *
  */
 typedef struct CRUX__ResultIS32_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const IS32 value;             /**< Result value. */
 } CRUX__ResultIS32;
 
@@ -100,7 +100,7 @@ typedef struct CRUX__ResultIS32_Struct {
  *
  */
 typedef struct CRUX__ResultIS64_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const IS64 value;             /**< Result value. */
 } CRUX__ResultIS64;
 
@@ -111,7 +111,7 @@ typedef struct CRUX__ResultIS64_Struct {
  *
  */
 typedef struct CRUX__ResultBool_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const Bool value;             /**< Result value. */
 } CRUX__ResultBool;
 
@@ -122,7 +122,7 @@ typedef struct CRUX__ResultBool_Struct {
  *
  */
 typedef struct CRUX__ResultChar_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const Char value;             /**< Result value. */
 } CRUX__ResultChar;
 
@@ -133,7 +133,7 @@ typedef struct CRUX__ResultChar_Struct {
  *
  */
 typedef struct CRUX__ResultSize_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const Size value;             /**< Result value. */
 } CRUX__ResultSize;
 
@@ -144,7 +144,7 @@ typedef struct CRUX__ResultSize_Struct {
  *
  */
 typedef struct CRUX__ResultAddr_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const CRUX__Exception *expts;  /**< Occurrence's stack. */
   const void *value;             /**< Result value. */
 } CRUX__ResultAddr;
 

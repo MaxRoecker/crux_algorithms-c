@@ -64,71 +64,71 @@ void CRUX__error_stringify (
 
 
 /**
- * @struct CRUX__Occurrence
- * @brief  Represents an error occurrence.
+ * @struct CRUX__Exception
+ * @brief  Represents an error exception.
  *
- * An error occurrence is a incident that results in a error. While the
- * `CRUX__Error` describes the error, a `CRUX__Occurrence` describes when and
+ * An error exception is a incident that results in a error. While the
+ * `CRUX__Error` describes the error, a `CRUX__Exception` describes when and
  * where the error happened.
  *
- * An occurrence can have a `cause`, that points to another occurrence that
- * generated it. This form a stack of occurrences, where the root cause
+ * An exception can have a `cause`, that points to another exception that
+ * generated it. This form a stack of exceptions, where the root cause
  * points its cause to NULL.
  *
  */
-typedef struct CRUX__Occurrence_Struct {
-  struct CRUX__Occurrence_Struct *cause;      /**< The cause of the occurrence */
-  CRUX__Error error;                          /**< The error of the occurrence */
-  Char info[CRUX__OCCURRENCE_FILEPATH_SIZE];  /**< Information about the occurrence */
-  Char filepath[CRUX__OCCURRENCE_INFO_SIZE];  /**< The file path where the occurrence happened */
-  IU32 line;                                  /**< The file line where the occurrence happend */
-} CRUX__Occurrence;
+typedef struct CRUX__Exception_Struct {
+  struct CRUX__Exception_Struct *cause;      /**< The cause of the exception */
+  CRUX__Error error;                          /**< The error of the exception */
+  Char info[CRUX__OCCURRENCE_FILEPATH_SIZE];  /**< Information about the exception */
+  Char filepath[CRUX__OCCURRENCE_INFO_SIZE];  /**< The file path where the exception happened */
+  IU32 line;                                  /**< The file line where the exception happend */
+} CRUX__Exception;
 
 
 /**
- * @brief Create a new occurrence and push it on the occurrences stack.
+ * @brief Create a new exception and push it on the exceptions stack.
  *
- * @param[in] occurrences The occurrences stack address.
- * @param[in] error       The error of the occurrence.
- * @param[in] info        Information about the occurrence.
- * @param[in] filepath    The file path where the occurrence happened.
- * @param[in] line        The file line where the occurrence happend.
+ * @param[in] exceptions The exceptions stack address.
+ * @param[in] error       The error of the exception.
+ * @param[in] info        Information about the exception.
+ * @param[in] filepath    The file path where the exception happened.
+ * @param[in] line        The file line where the exception happend.
  *
  */
-void CRUX__occurrences_push (
-    const CRUX__Occurrence **occurrences,
-    const CRUX__Occurrence occurrence);
+void CRUX__exceptions_push (
+    const CRUX__Exception **exceptions,
+    const CRUX__Exception exception);
 
 
 /**
- * @brief Pop an occurrence of the error stack.
+ * @brief Pop an exception of the error stack.
  *
- * @param[in] occurrences The occurrences stack address.
- * @return The occurrence popped.
+ * @param[in] exceptions The exceptions stack address.
+ * @return The exception popped.
  *
  */
-CRUX__Occurrence * CRUX__occurrences_pop (
-    const CRUX__Occurrence **occurrences);
+CRUX__Exception * CRUX__exceptions_pop (
+    const CRUX__Exception **exceptions);
 
 /**
  * @brief Prints a stacktrace of an error stack into a stream file.
  *
  * @param[in] stream      The stream file.
- * @param[in] occurrences The occurrences stack address.
+ * @param[in] exceptions The exceptions stack address.
  *
  */
-void CRUX__occurrences_print (
+void CRUX__exceptions_print (
     FILE *stream,
-    const CRUX__Occurrence *const *const occurrences);
+    const CRUX__Exception *const *const exceptions);
 
 /**
- * @brief Cleans the error stack, deleting all the occurrences.
+ * @brief Cleans the error stack, deleting all the exceptions.
  *
- * @param[in] occurrences The occurrences stack address.
+ * @param[in] exceptions The exceptions stack address.
  *
  */
-void CRUX__occurrences_clean (
-    const CRUX__Occurrence **occurrences);
+void CRUX__exceptions_clean (
+    const CRUX__Exception **exceptions);
 
 
 
