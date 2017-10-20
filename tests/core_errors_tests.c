@@ -74,7 +74,7 @@ void CRUX__occurrences_stack_push_pop_clean_tests () {
   ok(CRUX__error_equals(occurrence_2.error, popped->error), "Must be equals.");
   ok(CRUX__error_equals(occurrence_1.error, occurrences->error), "Must be equals.");
   ok(CRUX__error_equals(occurrence_0.error, occurrences->cause->error), "Must be equals.");
-  
+  talloc_free((void *) popped);
   CRUX__occurrences_clean(&occurrences);
   ok((occurrences == NULL), "Must be equals.");
 }
