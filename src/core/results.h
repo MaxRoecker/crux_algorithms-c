@@ -18,17 +18,6 @@ typedef struct CRUX__ResultVoid_Struct {
 
 
 /**
- * @struct CRUX__ResultBool
- * @brief  Represents a boolean result with a possible Error.
- *
- */
-typedef struct CRUX__ResultBool_Struct {
-  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
-  const bool value;             /**< Result value. */
-} CRUX__ResultBool;
-
-
-/**
  * @struct CRUX__ResultIU08
  * @brief  Represents a IU08 result with a possible Error.
  *
@@ -114,3 +103,48 @@ typedef struct CRUX__ResultIS64_Struct {
   const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
   const IS64 value;             /**< Result value. */
 } CRUX__ResultIS64;
+
+
+/**
+ * @struct CRUX__ResultBool
+ * @brief  Represents a boolean result with a possible Error.
+ *
+ */
+typedef struct CRUX__ResultBool_Struct {
+  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const Bool value;             /**< Result value. */
+} CRUX__ResultBool;
+
+
+/**
+ * @struct CRUX__ResultChar
+ * @brief  Represents a character result with a possible Error.
+ *
+ */
+typedef struct CRUX__ResultChar_Struct {
+  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const Char value;             /**< Result value. */
+} CRUX__ResultChar;
+
+
+/**
+ * @struct CRUX__ResultSize
+ * @brief  Represents a size result with a possible Error.
+ *
+ */
+typedef struct CRUX__ResultSize_Struct {
+  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const Size value;             /**< Result value. */
+} CRUX__ResultSize;
+
+
+/**
+ * @struct CRUX__ResultAddr
+ * @brief  Represents an address result with a possible Error.
+ *
+ */
+typedef struct CRUX__ResultAddr_Struct {
+  const CRUX__Occurrence *occ;  /**< Occurrence's stack. */
+  const void *value;             /**< Result value. */
+} CRUX__ResultAddr;
+
