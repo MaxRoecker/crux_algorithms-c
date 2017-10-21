@@ -16,8 +16,8 @@
 
 
 
-#define CRUX__ERROR_NAME_SIZE 64UL
-#define CRUX__ERROR_STRING_SIZE 128UL
+#define CRUX__ERROR_NAME_SIZE ((Size) 64)
+#define CRUX__ERROR_STRING_SIZE ((Size) 128)
 
 
 /**
@@ -59,8 +59,8 @@ void CRUX__error_stringify (
 
 
 
-#define CRUX__OCCURRENCE_FILEPATH_SIZE 256UL
-#define CRUX__OCCURRENCE_INFO_SIZE 256UL
+#define CRUX__EXCEPTION_FILEPATH_SIZE ((Size) 256)
+#define CRUX__EXCEPTION_INFO_SIZE ((Size) 256)
 
 
 /**
@@ -77,11 +77,11 @@ void CRUX__error_stringify (
  *
  */
 typedef struct CRUX__Exception_Struct {
-  struct CRUX__Exception_Struct *cause;      /**< The cause of the exception */
-  CRUX__Error error;                          /**< The error of the exception */
-  Char info[CRUX__OCCURRENCE_FILEPATH_SIZE];  /**< Information about the exception */
-  Char filepath[CRUX__OCCURRENCE_INFO_SIZE];  /**< The file path where the exception happened */
-  IU32 line;                                  /**< The file line where the exception happend */
+  struct CRUX__Exception_Struct *cause;     /**< The cause of the exception */
+  CRUX__Error error;                        /**< The error of the exception */
+  Char info[CRUX__EXCEPTION_FILEPATH_SIZE]; /**< Information about the exception */
+  Char filepath[CRUX__EXCEPTION_INFO_SIZE]; /**< The file path where the exception happened */
+  IU32 line;                                /**< The file line where the exception happend */
 } CRUX__Exception;
 
 
