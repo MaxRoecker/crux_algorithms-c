@@ -7,7 +7,7 @@
 #pragma once
 
 #include "./types.h"
-#include "./errors.h"
-#include "./errcodes.h"
+#include "./error.h"
+#include "./exception.h"
 #include "./results.h"
 #include "./cast.h"

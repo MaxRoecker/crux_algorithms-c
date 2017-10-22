@@ -1,60 +1,13 @@
 /**
  * ---------------------------------------------------------------------------
- * @file   errors.h
- * @brief  Default functions to handle errors.
+ * @file   exception.h
+ * @brief  Default functions to handle exceptions.
  * 
  */
 #pragma once
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
-#include <string.h>
 #include <talloc.h>
-#include "./errcodes.h"
-
-
-
-
-#define CRUX__ERROR_NAME_SIZE ((Size) 64)
-#define CRUX__ERROR_STRING_SIZE ((Size) 128)
-
-
-/**
- * @struct CRUX__Error
- * @brief  Represents an error in CRUX.
- *
- */
-typedef struct CRUX__Error_Struct {
-  IU32 code;  /**< Error's code */
-  Char name[CRUX__ERROR_NAME_SIZE]; /**< Error's name */
-} CRUX__Error;
-
-
-/**
- * @brief Checks if the errors are equals.
- *
- * @param[in] one       A error.
- * @param[in] another   A error.
- * @return true if the an error is equals to another error, false otherwise.
- *
- */
-Bool CRUX__error_equals (
-    const CRUX__Error one,
-    const CRUX__Error another);
-
-
-/**
- * @brief Serialize the error into a string.
- *
- * @param[in] error     A error.
- * @param[in] buffer    An Char array where the string will be stored.
- *
- */
-void CRUX__error_stringify (
-  const CRUX__Error error,
-  Char *buffer,
-  const IU64 buffer_size);
+#include "./error.h"
 
 
 
@@ -110,6 +63,7 @@ void CRUX__exceptions_push (
 CRUX__Exception * CRUX__exceptions_pop (
     const CRUX__Exception **exceptions);
 
+
 /**
  * @brief Prints a stacktrace of an error stack into a stream file.
  *
@@ -121,6 +75,7 @@ void CRUX__exceptions_print (
     FILE *stream,
     const CRUX__Exception *const *const exceptions);
 
+
 /**
  * @brief Cleans the error stack, deleting all the exceptions.
  *
@@ -129,10 +84,3 @@ void CRUX__exceptions_print (
  */
 void CRUX__exceptions_clean (
     const CRUX__Exception **exceptions);
-
-
-
-
-
-
-

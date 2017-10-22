@@ -1,18 +1,4 @@
-#include "./errors.h"
-
-
-Bool CRUX__error_equals (const CRUX__Error one, const CRUX__Error another) {
-  return ((Bool) (one.code == another.code));
-}
-
-
-void CRUX__error_stringify (
-    const CRUX__Error error,
-    Char *buffer,
-    const IU64 buffer_size) {
-  assert(buffer_size >= CRUX__ERROR_STRING_SIZE);
-  snprintf(buffer, buffer_size, "E#%08X %s", error.code, error.name);
-}
+#include "./exception.h"
 
 
 void CRUX__exceptions_push (

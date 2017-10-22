@@ -1,4 +1,3 @@
-#include <string.h>
 #include <tap.h>
 #include "./../src/core/cast.h"
 

@@ -5,7 +5,7 @@
  *
  */
 #pragma once
-#include "./errors.h"
+#include "./exception.h"
 
 /**
  * @struct CRUX__ResultVoid

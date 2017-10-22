@@ -13,17 +13,17 @@ core_types_module						= $(core_package)/types.c
 core_types_object						= $(BIN)/core_types.o
 core_types_dependencies			=
 
-core_errors_module					= $(core_package)/errors.c
-core_errors_object					= $(BIN)/core_errors.o
-core_errors_dependencies		= core_types $(core_types_dependencies)
+core_error_module						= $(core_package)/error.c
+core_error_object						= $(BIN)/core_error.o
+core_error_dependencies			= core_types $(core_types_dependencies)
 
-core_errcodes_module				= $(core_package)/errcodes.c
-core_errcodes_object				= $(BIN)/core_errcodes.o
-core_errcodes_dependencies	= core_types $(core_types_dependencies)
+core_exception_module				= $(core_package)/exception.c
+core_exception_object				= $(BIN)/core_exception.o
+core_exception_dependencies	= core_error $(core_error_dependencies)
 
 core_results_module					= $(core_package)/results.c
 core_results_object					= $(BIN)/core_results.o
-core_results_dependencies		= core_errors $(core_errors_dependencies)
+core_results_dependencies		= core_exception $(core_exception_dependencies)
 
 core_cast_module						= $(core_package)/cast.c
 core_cast_object						= $(BIN)/core_cast.o
@@ -32,8 +32,8 @@ core_cast_dependencies			= core_results $(core_results_dependencies)
 core_core_module						= $(core_package)/core.c
 core_core_object						= $(BIN)/core_core.o
 core_core_dependencies			= core_types $(core_types_dependencies) \
-															core_errors $(core_errors_dependencies) \
-															core_errcodes $(core_errcodes_dependencies) \
+															core_error $(core_error_dependencies) \
+															core_exception $(core_exception_dependencies) \
 															core_results $(core_results_dependencies) \
 															core_cast $(core_cast_dependencies)
 
@@ -51,27 +51,10 @@ math_abs_dependencies				= core_core $(core_core_dependencies) \
 															math_errcodes $(math_errcodes_dependencies)
 
 
-
-# Float package
-float_package		= $(SRC)/float
-
-float_types_module				= $(float_package)/types.c
-float_types_object				= $(BIN)/float_types.o
-float_types_dependencies	= core_types $(core_types_dependencies)
-
-float_results_module				= $(float_package)/results.c
-float_results_object				= $(BIN)/float_results.o
-float_results_dependencies	= core_results $(core_results_dependencies) \
-															float_types $(float_types_dependencies)
-
-float_cast_module					= $(float_package)/cast.c
-float_cast_object					= $(BIN)/float_cast.o
-float_cast_dependencies		= core_cast $(core_cast_dependencies) \
-														float_results $(float_results_dependencies)
-
-
 # Macros
 compile = $(CC) $(CFLAGS) -c -o $($(1)_object) $($(1)_module)
+
+
 
 
 init-bin:
