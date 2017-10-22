@@ -5,8 +5,7 @@
  *
  */
 #pragma once
-#include "./../core/core.h"
-#include "./errcodes.h"
+#include "./error.h"
 
 
 /**

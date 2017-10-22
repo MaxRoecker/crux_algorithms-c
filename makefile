@@ -46,14 +46,13 @@ core_core_dependencies			= core_types $(core_types_dependencies) \
 # Math package
 math_package = $(SRC)/math
 
-math_errcodes_module				= $(math_package)/errcodes.c
-math_errcodes_object				= $(BIN)/math_errcodes.o
-math_errcodes_dependencies	= core_types $(core_types_dependencies)
+math_error_module						= $(math_package)/error.c
+math_error_object						= $(BIN)/math_error.o
+math_error_dependencies			= core_core $(core_core_dependencies)
 
 math_abs_module							= $(math_package)/abs.c
 math_abs_object							= $(BIN)/math_abs.o
-math_abs_dependencies				= core_core $(core_core_dependencies) \
-															math_errcodes $(math_errcodes_dependencies)
+math_abs_dependencies				= math_error $(math_error_dependencies)
 
 
 # Macros
