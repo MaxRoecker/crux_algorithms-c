@@ -1,5 +1,3 @@
-#include <string.h>
-#include <talloc.h>
 #include <tap.h>
 #include "./../src/math/abs.h"
 
