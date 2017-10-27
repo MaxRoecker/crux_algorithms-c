@@ -79,16 +79,3 @@ extern const CRUX__Error CRUX__ERROR_VALUE;
  * Raised when there is no memory available to do the operation.
  */
 extern const CRUX__Error CRUX__ERROR_MEMORY;
-
-
-
-
-
-
-
-
-
-
-
-
-
