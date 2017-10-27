@@ -17,13 +17,12 @@ void CRUX__exceptions_stack_push_pop_clean_tests () {
     .info = "I don't know anymore information",
     .filepath = __FILE__,
     .line = __LINE__};
-  const Char info_fmt[] = "I don't know %s";
   CRUX__Exception exception_2 = {
     .cause = NULL,
     .error = CRUX__ERROR_MEMORY,
     .filepath = __FILE__,
     .line = __LINE__};
-  snprintf(exception_2.filepath, 256, info_fmt, "anymore information");
+  CRUX__exception_infoprintf(exception_2, "I don't know %s", "anymore information");
   CRUX__exceptions_push(&exceptions, exception_0);
   CRUX__exceptions_push(&exceptions, exception_1);
   CRUX__exceptions_push(&exceptions, exception_2);
@@ -56,13 +55,12 @@ void CRUX__exceptions_print_tests () {
     .info = "I don't know anymore information",
     .filepath = __FILE__,
     .line = __LINE__};
-  const Char info_fmt[] = "I don't know %s";
   CRUX__Exception exception_2 = {
     .cause = NULL,
     .error = CRUX__ERROR_MEMORY,
     .filepath = __FILE__,
     .line = __LINE__};
-  snprintf(exception_2.filepath, 256, info_fmt, "anymore information");
+  CRUX__exception_infoprintf(exception_2, "I don't know %s", "anymore information");
   CRUX__exceptions_push(&exceptions, exception_0);
   CRUX__exceptions_push(&exceptions, exception_1);
   CRUX__exceptions_push(&exceptions, exception_2);
