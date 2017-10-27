@@ -10,7 +10,7 @@ CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size) {
       .filepath = __FILE__,
       .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
     const char info_fmt[] = "There is no %"SIZE_FMT" bytes available.";
-    snprintf(exception.info, CRUX__EXCEPTION_FILEPATH_SIZE, info_fmt, size);
+    CRUX__exception_infoprintf(exception, info_fmt, size);
     CRUX__exceptions_push(&exceptions, exception);
   }
   CRUX__ResultAddr result = {.expts = exceptions, .value = address};
