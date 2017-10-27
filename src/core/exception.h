@@ -84,3 +84,12 @@ void CRUX__exceptions_print (
  */
 void CRUX__exceptions_clean (
     const CRUX__Exception **exceptions);
+
+
+/**
+ * @brief Put a formated string as info of an exception.
+ * 
+ * @param[in] exception The exception where info will be placed.
+ * @param[in] format    The formated string.
+ */
+#define CRUX__exception_infoprintf(exception, format, ...) snprintf(exception.info, CRUX__EXCEPTION_FILEPATH_SIZE, format, __VA_ARGS__);
