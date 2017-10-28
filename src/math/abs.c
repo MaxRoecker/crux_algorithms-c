@@ -41,7 +41,7 @@ CRUX__ResultIS08 CRUX_MATH__abs_is08 (const IS08 value) {
   IS08 abs_value = CRUX__as_is08(0);
   if (value == IS08_MIN) {
     CRUX__Exception exception = {
-      .error = CRUX_MATH__ERROR_OVERFLOW,
+      .error = CRUX_MATH__ERROR_RANGE,
       .filepath = __FILE__,
       .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
     const Char fmt[] = CRUX_MATH__info(IS08_FMT, "IS08");
@@ -60,7 +60,7 @@ CRUX__ResultIS16 CRUX_MATH__abs_is16 (const IS16 value) {
   IS16 abs_value = CRUX__as_is16(0);
   if (value == IS16_MIN) {
     CRUX__Exception exception = {
-      .error = CRUX_MATH__ERROR_OVERFLOW,
+      .error = CRUX_MATH__ERROR_RANGE,
       .filepath = __FILE__,
       .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
     const Char fmt[] = CRUX_MATH__info(IS16_FMT, "IS16");
@@ -79,7 +79,7 @@ CRUX__ResultIS32 CRUX_MATH__abs_is32 (const IS32 value) {
   IS32 abs_value = CRUX__as_is32(0);
   if (value == IS32_MIN) {
     CRUX__Exception exception = {
-      .error = CRUX_MATH__ERROR_OVERFLOW,
+      .error = CRUX_MATH__ERROR_RANGE,
       .filepath = __FILE__,
       .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
     const Char fmt[] = CRUX_MATH__info(IS32_FMT, "IS32");
@@ -98,7 +98,7 @@ CRUX__ResultIS64 CRUX_MATH__abs_is64 (const IS64 value) {
   IS64 abs_value = CRUX__as_is64(0);
   if (value == IS64_MIN) {
     CRUX__Exception exception = {
-      .error = CRUX_MATH__ERROR_OVERFLOW,
+      .error = CRUX_MATH__ERROR_RANGE,
       .filepath = __FILE__,
       .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
     const Char fmt[] = CRUX_MATH__info(IS64_FMT, "IS64");

@@ -18,8 +18,15 @@
 extern const CRUX__Error CRUX_MATH__ERROR_MATH;
 
 /**
- * CRUX_MATH__ERROR_OVERFLOW
+ * CRUX_MATH__ERROR_DOMAIN
  * 
- * Raised when the operation results in a integer overflow.
+ * Raised when the operation can't be applied to the arguments.
  */
-extern const CRUX__Error CRUX_MATH__ERROR_OVERFLOW;
+extern const CRUX__Error CRUX_MATH__ERROR_DOMAIN;
+
+/**
+ * CRUX_MATH__ERROR_RANGE
+ * 
+ * Raised when the operation can't be representable as a result.
+ */
+extern const CRUX__Error CRUX_MATH__ERROR_RANGE;
