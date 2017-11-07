@@ -13,14 +13,14 @@ void CRUX__cast_iu08_iu16_test () {
   CRUX__ResultIU08 src_min_cast = CRUX__cast_iu08_iu16(src_min);
   CRUX__ResultIU08 tgt_max_cast = CRUX__cast_iu08_iu16(tgt_max);
   CRUX__ResultIU08 tgt_min_cast = CRUX__cast_iu08_iu16(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -33,14 +33,14 @@ void CRUX__cast_iu08_iu32_test () {
   CRUX__ResultIU08 src_min_cast = CRUX__cast_iu08_iu32(src_min);
   CRUX__ResultIU08 tgt_max_cast = CRUX__cast_iu08_iu32(tgt_max);
   CRUX__ResultIU08 tgt_min_cast = CRUX__cast_iu08_iu32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -53,14 +53,14 @@ void CRUX__cast_iu08_iu64_test () {
   CRUX__ResultIU08 src_min_cast = CRUX__cast_iu08_iu64(src_min);
   CRUX__ResultIU08 tgt_max_cast = CRUX__cast_iu08_iu64(tgt_max);
   CRUX__ResultIU08 tgt_min_cast = CRUX__cast_iu08_iu64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -73,14 +73,14 @@ void CRUX__cast_iu08_is08_test () {
   CRUX__ResultIU08 src_min_cast = CRUX__cast_iu08_is08(src_min);
   CRUX__ResultIU08 tgt_max_cast = CRUX__cast_iu08_is08(tgt_max);
   CRUX__ResultIU08 tgt_min_cast = CRUX__cast_iu08_is08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -93,14 +93,14 @@ void CRUX__cast_iu08_is16_test () {
   CRUX__ResultIU08 src_min_cast = CRUX__cast_iu08_is16(src_min);
   CRUX__ResultIU08 tgt_max_cast = CRUX__cast_iu08_is16(tgt_max);
   CRUX__ResultIU08 tgt_min_cast = CRUX__cast_iu08_is16(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -113,14 +113,14 @@ void CRUX__cast_iu08_is32_test () {
   CRUX__ResultIU08 src_min_cast = CRUX__cast_iu08_is32(src_min);
   CRUX__ResultIU08 tgt_max_cast = CRUX__cast_iu08_is32(tgt_max);
   CRUX__ResultIU08 tgt_min_cast = CRUX__cast_iu08_is32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -133,14 +133,14 @@ void CRUX__cast_iu08_is64_test () {
   CRUX__ResultIU08 src_min_cast = CRUX__cast_iu08_is64(src_min);
   CRUX__ResultIU08 tgt_max_cast = CRUX__cast_iu08_is64(tgt_max);
   CRUX__ResultIU08 tgt_min_cast = CRUX__cast_iu08_is64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -153,14 +153,14 @@ void CRUX__cast_iu16_iu08_test () {
   CRUX__ResultIU16 src_min_cast = CRUX__cast_iu16_iu08(src_min);
   CRUX__ResultIU16 tgt_max_cast = CRUX__cast_iu16_iu08(tgt_max);
   CRUX__ResultIU16 tgt_min_cast = CRUX__cast_iu16_iu08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -173,14 +173,14 @@ void CRUX__cast_iu16_iu32_test () {
   CRUX__ResultIU16 src_min_cast = CRUX__cast_iu16_iu32(src_min);
   CRUX__ResultIU16 tgt_max_cast = CRUX__cast_iu16_iu32(tgt_max);
   CRUX__ResultIU16 tgt_min_cast = CRUX__cast_iu16_iu32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -193,14 +193,14 @@ void CRUX__cast_iu16_iu64_test () {
   CRUX__ResultIU16 src_min_cast = CRUX__cast_iu16_iu64(src_min);
   CRUX__ResultIU16 tgt_max_cast = CRUX__cast_iu16_iu64(tgt_max);
   CRUX__ResultIU16 tgt_min_cast = CRUX__cast_iu16_iu64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -213,14 +213,14 @@ void CRUX__cast_iu16_is08_test () {
   CRUX__ResultIU16 src_min_cast = CRUX__cast_iu16_is08(src_min);
   CRUX__ResultIU16 tgt_max_cast = CRUX__cast_iu16_is08(tgt_max);
   CRUX__ResultIU16 tgt_min_cast = CRUX__cast_iu16_is08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -233,14 +233,14 @@ void CRUX__cast_iu16_is16_test () {
   CRUX__ResultIU16 src_min_cast = CRUX__cast_iu16_is16(src_min);
   CRUX__ResultIU16 tgt_max_cast = CRUX__cast_iu16_is16(tgt_max);
   CRUX__ResultIU16 tgt_min_cast = CRUX__cast_iu16_is16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -253,14 +253,14 @@ void CRUX__cast_iu16_is32_test () {
   CRUX__ResultIU16 src_min_cast = CRUX__cast_iu16_is32(src_min);
   CRUX__ResultIU16 tgt_max_cast = CRUX__cast_iu16_is32(tgt_max);
   CRUX__ResultIU16 tgt_min_cast = CRUX__cast_iu16_is32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -273,14 +273,14 @@ void CRUX__cast_iu16_is64_test () {
   CRUX__ResultIU16 src_min_cast = CRUX__cast_iu16_is64(src_min);
   CRUX__ResultIU16 tgt_max_cast = CRUX__cast_iu16_is64(tgt_max);
   CRUX__ResultIU16 tgt_min_cast = CRUX__cast_iu16_is64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -293,14 +293,14 @@ void CRUX__cast_iu32_iu08_test () {
   CRUX__ResultIU32 src_min_cast = CRUX__cast_iu32_iu08(src_min);
   CRUX__ResultIU32 tgt_max_cast = CRUX__cast_iu32_iu08(tgt_max);
   CRUX__ResultIU32 tgt_min_cast = CRUX__cast_iu32_iu08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -313,14 +313,14 @@ void CRUX__cast_iu32_iu16_test () {
   CRUX__ResultIU32 src_min_cast = CRUX__cast_iu32_iu16(src_min);
   CRUX__ResultIU32 tgt_max_cast = CRUX__cast_iu32_iu16(tgt_max);
   CRUX__ResultIU32 tgt_min_cast = CRUX__cast_iu32_iu16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -333,14 +333,14 @@ void CRUX__cast_iu32_iu64_test () {
   CRUX__ResultIU32 src_min_cast = CRUX__cast_iu32_iu64(src_min);
   CRUX__ResultIU32 tgt_max_cast = CRUX__cast_iu32_iu64(tgt_max);
   CRUX__ResultIU32 tgt_min_cast = CRUX__cast_iu32_iu64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -353,14 +353,14 @@ void CRUX__cast_iu32_is08_test () {
   CRUX__ResultIU32 src_min_cast = CRUX__cast_iu32_is08(src_min);
   CRUX__ResultIU32 tgt_max_cast = CRUX__cast_iu32_is08(tgt_max);
   CRUX__ResultIU32 tgt_min_cast = CRUX__cast_iu32_is08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -373,14 +373,14 @@ void CRUX__cast_iu32_is16_test () {
   CRUX__ResultIU32 src_min_cast = CRUX__cast_iu32_is16(src_min);
   CRUX__ResultIU32 tgt_max_cast = CRUX__cast_iu32_is16(tgt_max);
   CRUX__ResultIU32 tgt_min_cast = CRUX__cast_iu32_is16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -393,14 +393,14 @@ void CRUX__cast_iu32_is32_test () {
   CRUX__ResultIU32 src_min_cast = CRUX__cast_iu32_is32(src_min);
   CRUX__ResultIU32 tgt_max_cast = CRUX__cast_iu32_is32(tgt_max);
   CRUX__ResultIU32 tgt_min_cast = CRUX__cast_iu32_is32(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -413,14 +413,14 @@ void CRUX__cast_iu32_is64_test () {
   CRUX__ResultIU32 src_min_cast = CRUX__cast_iu32_is64(src_min);
   CRUX__ResultIU32 tgt_max_cast = CRUX__cast_iu32_is64(tgt_max);
   CRUX__ResultIU32 tgt_min_cast = CRUX__cast_iu32_is64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -433,14 +433,14 @@ void CRUX__cast_iu64_iu08_test () {
   CRUX__ResultIU64 src_min_cast = CRUX__cast_iu64_iu08(src_min);
   CRUX__ResultIU64 tgt_max_cast = CRUX__cast_iu64_iu08(tgt_max);
   CRUX__ResultIU64 tgt_min_cast = CRUX__cast_iu64_iu08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -453,14 +453,14 @@ void CRUX__cast_iu64_iu16_test () {
   CRUX__ResultIU64 src_min_cast = CRUX__cast_iu64_iu16(src_min);
   CRUX__ResultIU64 tgt_max_cast = CRUX__cast_iu64_iu16(tgt_max);
   CRUX__ResultIU64 tgt_min_cast = CRUX__cast_iu64_iu16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -473,14 +473,14 @@ void CRUX__cast_iu64_iu32_test () {
   CRUX__ResultIU64 src_min_cast = CRUX__cast_iu64_iu32(src_min);
   CRUX__ResultIU64 tgt_max_cast = CRUX__cast_iu64_iu32(tgt_max);
   CRUX__ResultIU64 tgt_min_cast = CRUX__cast_iu64_iu32(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -493,14 +493,14 @@ void CRUX__cast_iu64_is08_test () {
   CRUX__ResultIU64 src_min_cast = CRUX__cast_iu64_is08(src_min);
   CRUX__ResultIU64 tgt_max_cast = CRUX__cast_iu64_is08(tgt_max);
   CRUX__ResultIU64 tgt_min_cast = CRUX__cast_iu64_is08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -513,14 +513,14 @@ void CRUX__cast_iu64_is16_test () {
   CRUX__ResultIU64 src_min_cast = CRUX__cast_iu64_is16(src_min);
   CRUX__ResultIU64 tgt_max_cast = CRUX__cast_iu64_is16(tgt_max);
   CRUX__ResultIU64 tgt_min_cast = CRUX__cast_iu64_is16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -533,14 +533,14 @@ void CRUX__cast_iu64_is32_test () {
   CRUX__ResultIU64 src_min_cast = CRUX__cast_iu64_is32(src_min);
   CRUX__ResultIU64 tgt_max_cast = CRUX__cast_iu64_is32(tgt_max);
   CRUX__ResultIU64 tgt_min_cast = CRUX__cast_iu64_is32(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -553,14 +553,14 @@ void CRUX__cast_iu64_is64_test () {
   CRUX__ResultIU64 src_min_cast = CRUX__cast_iu64_is64(src_min);
   CRUX__ResultIU64 tgt_max_cast = CRUX__cast_iu64_is64(tgt_max);
   CRUX__ResultIU64 tgt_min_cast = CRUX__cast_iu64_is64(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -573,14 +573,14 @@ void CRUX__cast_is08_iu08_test () {
   CRUX__ResultIS08 src_min_cast = CRUX__cast_is08_iu08(src_min);
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_iu08(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_iu08(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -593,14 +593,14 @@ void CRUX__cast_is08_iu16_test () {
   CRUX__ResultIS08 src_min_cast = CRUX__cast_is08_iu16(src_min);
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_iu16(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_iu16(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -613,14 +613,14 @@ void CRUX__cast_is08_iu32_test () {
   CRUX__ResultIS08 src_min_cast = CRUX__cast_is08_iu32(src_min);
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_iu32(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_iu32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -633,14 +633,14 @@ void CRUX__cast_is08_iu64_test () {
   CRUX__ResultIS08 src_min_cast = CRUX__cast_is08_iu64(src_min);
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_iu64(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_iu64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -653,14 +653,14 @@ void CRUX__cast_is08_is16_test () {
   CRUX__ResultIS08 src_min_cast = CRUX__cast_is08_is16(src_min);
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_is16(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_is16(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -673,14 +673,14 @@ void CRUX__cast_is08_is32_test () {
   CRUX__ResultIS08 src_min_cast = CRUX__cast_is08_is32(src_min);
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_is32(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_is32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -693,14 +693,14 @@ void CRUX__cast_is08_is64_test () {
   CRUX__ResultIS08 src_min_cast = CRUX__cast_is08_is64(src_min);
   CRUX__ResultIS08 tgt_max_cast = CRUX__cast_is08_is64(tgt_max);
   CRUX__ResultIS08 tgt_min_cast = CRUX__cast_is08_is64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -713,14 +713,14 @@ void CRUX__cast_is16_iu08_test () {
   CRUX__ResultIS16 src_min_cast = CRUX__cast_is16_iu08(src_min);
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_iu08(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_iu08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -733,14 +733,14 @@ void CRUX__cast_is16_iu16_test () {
   CRUX__ResultIS16 src_min_cast = CRUX__cast_is16_iu16(src_min);
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_iu16(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_iu16(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -753,14 +753,14 @@ void CRUX__cast_is16_iu32_test () {
   CRUX__ResultIS16 src_min_cast = CRUX__cast_is16_iu32(src_min);
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_iu32(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_iu32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -773,14 +773,14 @@ void CRUX__cast_is16_iu64_test () {
   CRUX__ResultIS16 src_min_cast = CRUX__cast_is16_iu64(src_min);
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_iu64(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_iu64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -793,14 +793,14 @@ void CRUX__cast_is16_is08_test () {
   CRUX__ResultIS16 src_min_cast = CRUX__cast_is16_is08(src_min);
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_is08(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_is08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -813,14 +813,14 @@ void CRUX__cast_is16_is32_test () {
   CRUX__ResultIS16 src_min_cast = CRUX__cast_is16_is32(src_min);
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_is32(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_is32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -833,14 +833,14 @@ void CRUX__cast_is16_is64_test () {
   CRUX__ResultIS16 src_min_cast = CRUX__cast_is16_is64(src_min);
   CRUX__ResultIS16 tgt_max_cast = CRUX__cast_is16_is64(tgt_max);
   CRUX__ResultIS16 tgt_min_cast = CRUX__cast_is16_is64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -853,14 +853,14 @@ void CRUX__cast_is32_iu08_test () {
   CRUX__ResultIS32 src_min_cast = CRUX__cast_is32_iu08(src_min);
   CRUX__ResultIS32 tgt_max_cast = CRUX__cast_is32_iu08(tgt_max);
   CRUX__ResultIS32 tgt_min_cast = CRUX__cast_is32_iu08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -873,14 +873,14 @@ void CRUX__cast_is32_iu16_test () {
   CRUX__ResultIS32 src_min_cast = CRUX__cast_is32_iu16(src_min);
   CRUX__ResultIS32 tgt_max_cast = CRUX__cast_is32_iu16(tgt_max);
   CRUX__ResultIS32 tgt_min_cast = CRUX__cast_is32_iu16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -893,14 +893,14 @@ void CRUX__cast_is32_iu32_test () {
   CRUX__ResultIS32 src_min_cast = CRUX__cast_is32_iu32(src_min);
   CRUX__ResultIS32 tgt_max_cast = CRUX__cast_is32_iu32(tgt_max);
   CRUX__ResultIS32 tgt_min_cast = CRUX__cast_is32_iu32(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -913,14 +913,14 @@ void CRUX__cast_is32_iu64_test () {
   CRUX__ResultIS32 src_min_cast = CRUX__cast_is32_iu64(src_min);
   CRUX__ResultIS32 tgt_max_cast = CRUX__cast_is32_iu64(tgt_max);
   CRUX__ResultIS32 tgt_min_cast = CRUX__cast_is32_iu64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -933,14 +933,14 @@ void CRUX__cast_is32_is08_test () {
   CRUX__ResultIS32 src_min_cast = CRUX__cast_is32_is08(src_min);
   CRUX__ResultIS32 tgt_max_cast = CRUX__cast_is32_is08(tgt_max);
   CRUX__ResultIS32 tgt_min_cast = CRUX__cast_is32_is08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -953,14 +953,14 @@ void CRUX__cast_is32_is16_test () {
   CRUX__ResultIS32 src_min_cast = CRUX__cast_is32_is16(src_min);
   CRUX__ResultIS32 tgt_max_cast = CRUX__cast_is32_is16(tgt_max);
   CRUX__ResultIS32 tgt_min_cast = CRUX__cast_is32_is16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -973,14 +973,14 @@ void CRUX__cast_is32_is64_test () {
   CRUX__ResultIS32 src_min_cast = CRUX__cast_is32_is64(src_min);
   CRUX__ResultIS32 tgt_max_cast = CRUX__cast_is32_is64(tgt_max);
   CRUX__ResultIS32 tgt_min_cast = CRUX__cast_is32_is64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts != NULL), "Must have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(!CRUX__trace_check(src_min_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -993,14 +993,14 @@ void CRUX__cast_is64_iu08_test () {
   CRUX__ResultIS64 src_min_cast = CRUX__cast_is64_iu08(src_min);
   CRUX__ResultIS64 tgt_max_cast = CRUX__cast_is64_iu08(tgt_max);
   CRUX__ResultIS64 tgt_min_cast = CRUX__cast_is64_iu08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -1013,14 +1013,14 @@ void CRUX__cast_is64_iu16_test () {
   CRUX__ResultIS64 src_min_cast = CRUX__cast_is64_iu16(src_min);
   CRUX__ResultIS64 tgt_max_cast = CRUX__cast_is64_iu16(tgt_max);
   CRUX__ResultIS64 tgt_min_cast = CRUX__cast_is64_iu16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -1033,14 +1033,14 @@ void CRUX__cast_is64_iu32_test () {
   CRUX__ResultIS64 src_min_cast = CRUX__cast_is64_iu32(src_min);
   CRUX__ResultIS64 tgt_max_cast = CRUX__cast_is64_iu32(tgt_max);
   CRUX__ResultIS64 tgt_min_cast = CRUX__cast_is64_iu32(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -1053,14 +1053,14 @@ void CRUX__cast_is64_iu64_test () {
   CRUX__ResultIS64 src_min_cast = CRUX__cast_is64_iu64(src_min);
   CRUX__ResultIS64 tgt_max_cast = CRUX__cast_is64_iu64(tgt_max);
   CRUX__ResultIS64 tgt_min_cast = CRUX__cast_is64_iu64(tgt_min);
-  ok((src_max_cast.expts != NULL), "Must have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(!CRUX__trace_check(src_max_cast.trace), "Must have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -1073,14 +1073,14 @@ void CRUX__cast_is64_is08_test () {
   CRUX__ResultIS64 src_min_cast = CRUX__cast_is64_is08(src_min);
   CRUX__ResultIS64 tgt_max_cast = CRUX__cast_is64_is08(tgt_max);
   CRUX__ResultIS64 tgt_min_cast = CRUX__cast_is64_is08(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -1093,14 +1093,14 @@ void CRUX__cast_is64_is16_test () {
   CRUX__ResultIS64 src_min_cast = CRUX__cast_is64_is16(src_min);
   CRUX__ResultIS64 tgt_max_cast = CRUX__cast_is64_is16(tgt_max);
   CRUX__ResultIS64 tgt_min_cast = CRUX__cast_is64_is16(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -1113,14 +1113,14 @@ void CRUX__cast_is64_is32_test () {
   CRUX__ResultIS64 src_min_cast = CRUX__cast_is64_is32(src_min);
   CRUX__ResultIS64 tgt_max_cast = CRUX__cast_is64_is32(tgt_max);
   CRUX__ResultIS64 tgt_min_cast = CRUX__cast_is64_is32(tgt_min);
-  ok((src_max_cast.expts == NULL), "Must not have an error.");
-  ok((src_min_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_max_cast.expts == NULL), "Must not have an error.");
-  ok((tgt_min_cast.expts == NULL), "Must not have an error.");
-  CRUX__exceptions_clean(&src_max_cast.expts);
-  CRUX__exceptions_clean(&src_min_cast.expts);
-  CRUX__exceptions_clean(&tgt_max_cast.expts);
-  CRUX__exceptions_clean(&tgt_min_cast.expts);
+  ok(CRUX__trace_check(src_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(src_min_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_max_cast.trace), "Must not have an error.");
+  ok(CRUX__trace_check(tgt_min_cast.trace), "Must not have an error.");
+  CRUX__trace_clean(&src_max_cast.trace);
+  CRUX__trace_clean(&src_min_cast.trace);
+  CRUX__trace_clean(&tgt_max_cast.trace);
+  CRUX__trace_clean(&tgt_min_cast.trace);
 }
 
 
@@ -1201,175 +1201,175 @@ void CRUX__cast_test () {
   CRUX__ResultIS64 is16_cast_to_is64 = CRUX__cast_to_is64(is16_value);
   CRUX__ResultIS64 is32_cast_to_is64 = CRUX__cast_to_is64(is32_value);
   
-  ok((iu16_cast_to_iu08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu16_cast_to_iu08.trace), "Must not have an error.");
   ok((iu16_cast_to_iu08.value == CRUX__as_iu08(0)), "The result must be 0.");
-  ok((iu32_cast_to_iu08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu32_cast_to_iu08.trace), "Must not have an error.");
   ok((iu32_cast_to_iu08.value == CRUX__as_iu08(0)), "The result must be 0.");
-  ok((iu64_cast_to_iu08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu64_cast_to_iu08.trace), "Must not have an error.");
   ok((iu64_cast_to_iu08.value == CRUX__as_iu08(0)), "The result must be 0.");
-  ok((is08_cast_to_iu08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is08_cast_to_iu08.trace), "Must not have an error.");
   ok((is08_cast_to_iu08.value == CRUX__as_iu08(0)), "The result must be 0.");
-  ok((is16_cast_to_iu08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is16_cast_to_iu08.trace), "Must not have an error.");
   ok((is16_cast_to_iu08.value == CRUX__as_iu08(0)), "The result must be 0.");
-  ok((is32_cast_to_iu08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is32_cast_to_iu08.trace), "Must not have an error.");
   ok((is32_cast_to_iu08.value == CRUX__as_iu08(0)), "The result must be 0.");
-  ok((is64_cast_to_iu08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is64_cast_to_iu08.trace), "Must not have an error.");
   ok((is64_cast_to_iu08.value == CRUX__as_iu08(0)), "The result must be 0.");
-  ok((iu08_cast_to_iu16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu08_cast_to_iu16.trace), "Must not have an error.");
   ok((iu08_cast_to_iu16.value == CRUX__as_iu16(0)), "The result must be 0.");
-  ok((iu32_cast_to_iu16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu32_cast_to_iu16.trace), "Must not have an error.");
   ok((iu32_cast_to_iu16.value == CRUX__as_iu16(0)), "The result must be 0.");
-  ok((iu64_cast_to_iu16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu64_cast_to_iu16.trace), "Must not have an error.");
   ok((iu64_cast_to_iu16.value == CRUX__as_iu16(0)), "The result must be 0.");
-  ok((is08_cast_to_iu16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is08_cast_to_iu16.trace), "Must not have an error.");
   ok((is08_cast_to_iu16.value == CRUX__as_iu16(0)), "The result must be 0.");
-  ok((is16_cast_to_iu16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is16_cast_to_iu16.trace), "Must not have an error.");
   ok((is16_cast_to_iu16.value == CRUX__as_iu16(0)), "The result must be 0.");
-  ok((is32_cast_to_iu16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is32_cast_to_iu16.trace), "Must not have an error.");
   ok((is32_cast_to_iu16.value == CRUX__as_iu16(0)), "The result must be 0.");
-  ok((is64_cast_to_iu16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is64_cast_to_iu16.trace), "Must not have an error.");
   ok((is64_cast_to_iu16.value == CRUX__as_iu16(0)), "The result must be 0.");
-  ok((iu08_cast_to_iu32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu08_cast_to_iu32.trace), "Must not have an error.");
   ok((iu08_cast_to_iu32.value == CRUX__as_iu32(0)), "The result must be 0.");
-  ok((iu16_cast_to_iu32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu16_cast_to_iu32.trace), "Must not have an error.");
   ok((iu16_cast_to_iu32.value == CRUX__as_iu32(0)), "The result must be 0.");
-  ok((iu64_cast_to_iu32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu64_cast_to_iu32.trace), "Must not have an error.");
   ok((iu64_cast_to_iu32.value == CRUX__as_iu32(0)), "The result must be 0.");
-  ok((is08_cast_to_iu32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is08_cast_to_iu32.trace), "Must not have an error.");
   ok((is08_cast_to_iu32.value == CRUX__as_iu32(0)), "The result must be 0.");
-  ok((is16_cast_to_iu32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is16_cast_to_iu32.trace), "Must not have an error.");
   ok((is16_cast_to_iu32.value == CRUX__as_iu32(0)), "The result must be 0.");
-  ok((is32_cast_to_iu32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is32_cast_to_iu32.trace), "Must not have an error.");
   ok((is32_cast_to_iu32.value == CRUX__as_iu32(0)), "The result must be 0.");
-  ok((is64_cast_to_iu32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is64_cast_to_iu32.trace), "Must not have an error.");
   ok((is64_cast_to_iu32.value == CRUX__as_iu32(0)), "The result must be 0.");
-  ok((iu08_cast_to_iu64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu08_cast_to_iu64.trace), "Must not have an error.");
   ok((iu08_cast_to_iu64.value == CRUX__as_iu64(0)), "The result must be 0.");
-  ok((iu16_cast_to_iu64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu16_cast_to_iu64.trace), "Must not have an error.");
   ok((iu16_cast_to_iu64.value == CRUX__as_iu64(0)), "The result must be 0.");
-  ok((iu32_cast_to_iu64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu32_cast_to_iu64.trace), "Must not have an error.");
   ok((iu32_cast_to_iu64.value == CRUX__as_iu64(0)), "The result must be 0.");
-  ok((is08_cast_to_iu64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is08_cast_to_iu64.trace), "Must not have an error.");
   ok((is08_cast_to_iu64.value == CRUX__as_iu64(0)), "The result must be 0.");
-  ok((is16_cast_to_iu64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is16_cast_to_iu64.trace), "Must not have an error.");
   ok((is16_cast_to_iu64.value == CRUX__as_iu64(0)), "The result must be 0.");
-  ok((is32_cast_to_iu64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is32_cast_to_iu64.trace), "Must not have an error.");
   ok((is32_cast_to_iu64.value == CRUX__as_iu64(0)), "The result must be 0.");
-  ok((is64_cast_to_iu64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is64_cast_to_iu64.trace), "Must not have an error.");
   ok((is64_cast_to_iu64.value == CRUX__as_iu64(0)), "The result must be 0.");
-  ok((iu08_cast_to_is08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu08_cast_to_is08.trace), "Must not have an error.");
   ok((iu08_cast_to_is08.value == CRUX__as_is08(0)), "The result must be 0.");
-  ok((iu16_cast_to_is08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu16_cast_to_is08.trace), "Must not have an error.");
   ok((iu16_cast_to_is08.value == CRUX__as_is08(0)), "The result must be 0.");
-  ok((iu32_cast_to_is08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu32_cast_to_is08.trace), "Must not have an error.");
   ok((iu32_cast_to_is08.value == CRUX__as_is08(0)), "The result must be 0.");
-  ok((iu64_cast_to_is08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu64_cast_to_is08.trace), "Must not have an error.");
   ok((iu64_cast_to_is08.value == CRUX__as_is08(0)), "The result must be 0.");
-  ok((is16_cast_to_is08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is16_cast_to_is08.trace), "Must not have an error.");
   ok((is16_cast_to_is08.value == CRUX__as_is08(0)), "The result must be 0.");
-  ok((is32_cast_to_is08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is32_cast_to_is08.trace), "Must not have an error.");
   ok((is32_cast_to_is08.value == CRUX__as_is08(0)), "The result must be 0.");
-  ok((is64_cast_to_is08.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is64_cast_to_is08.trace), "Must not have an error.");
   ok((is64_cast_to_is08.value == CRUX__as_is08(0)), "The result must be 0.");
-  ok((iu08_cast_to_is16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu08_cast_to_is16.trace), "Must not have an error.");
   ok((iu08_cast_to_is16.value == CRUX__as_is16(0)), "The result must be 0.");
-  ok((iu16_cast_to_is16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu16_cast_to_is16.trace), "Must not have an error.");
   ok((iu16_cast_to_is16.value == CRUX__as_is16(0)), "The result must be 0.");
-  ok((iu32_cast_to_is16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu32_cast_to_is16.trace), "Must not have an error.");
   ok((iu32_cast_to_is16.value == CRUX__as_is16(0)), "The result must be 0.");
-  ok((iu64_cast_to_is16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu64_cast_to_is16.trace), "Must not have an error.");
   ok((iu64_cast_to_is16.value == CRUX__as_is16(0)), "The result must be 0.");
-  ok((is08_cast_to_is16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is08_cast_to_is16.trace), "Must not have an error.");
   ok((is08_cast_to_is16.value == CRUX__as_is16(0)), "The result must be 0.");
-  ok((is32_cast_to_is16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is32_cast_to_is16.trace), "Must not have an error.");
   ok((is32_cast_to_is16.value == CRUX__as_is16(0)), "The result must be 0.");
-  ok((is64_cast_to_is16.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is64_cast_to_is16.trace), "Must not have an error.");
   ok((is64_cast_to_is16.value == CRUX__as_is16(0)), "The result must be 0.");
-  ok((iu08_cast_to_is32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu08_cast_to_is32.trace), "Must not have an error.");
   ok((iu08_cast_to_is32.value == CRUX__as_is32(0)), "The result must be 0.");
-  ok((iu16_cast_to_is32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu16_cast_to_is32.trace), "Must not have an error.");
   ok((iu16_cast_to_is32.value == CRUX__as_is32(0)), "The result must be 0.");
-  ok((iu32_cast_to_is32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu32_cast_to_is32.trace), "Must not have an error.");
   ok((iu32_cast_to_is32.value == CRUX__as_is32(0)), "The result must be 0.");
-  ok((iu64_cast_to_is32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu64_cast_to_is32.trace), "Must not have an error.");
   ok((iu64_cast_to_is32.value == CRUX__as_is32(0)), "The result must be 0.");
-  ok((is08_cast_to_is32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is08_cast_to_is32.trace), "Must not have an error.");
   ok((is08_cast_to_is32.value == CRUX__as_is32(0)), "The result must be 0.");
-  ok((is16_cast_to_is32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is16_cast_to_is32.trace), "Must not have an error.");
   ok((is16_cast_to_is32.value == CRUX__as_is32(0)), "The result must be 0.");
-  ok((is64_cast_to_is32.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is64_cast_to_is32.trace), "Must not have an error.");
   ok((is64_cast_to_is32.value == CRUX__as_is32(0)), "The result must be 0.");
-  ok((iu08_cast_to_is64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu08_cast_to_is64.trace), "Must not have an error.");
   ok((iu08_cast_to_is64.value == CRUX__as_is64(0)), "The result must be 0.");
-  ok((iu16_cast_to_is64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu16_cast_to_is64.trace), "Must not have an error.");
   ok((iu16_cast_to_is64.value == CRUX__as_is64(0)), "The result must be 0.");
-  ok((iu32_cast_to_is64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu32_cast_to_is64.trace), "Must not have an error.");
   ok((iu32_cast_to_is64.value == CRUX__as_is64(0)), "The result must be 0.");
-  ok((iu64_cast_to_is64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu64_cast_to_is64.trace), "Must not have an error.");
   ok((iu64_cast_to_is64.value == CRUX__as_is64(0)), "The result must be 0.");
-  ok((is08_cast_to_is64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is08_cast_to_is64.trace), "Must not have an error.");
   ok((is08_cast_to_is64.value == CRUX__as_is64(0)), "The result must be 0.");
-  ok((is16_cast_to_is64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is16_cast_to_is64.trace), "Must not have an error.");
   ok((is16_cast_to_is64.value == CRUX__as_is64(0)), "The result must be 0.");
-  ok((is32_cast_to_is64.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is32_cast_to_is64.trace), "Must not have an error.");
   ok((is32_cast_to_is64.value == CRUX__as_is64(0)), "The result must be 0.");
 
-  CRUX__exceptions_clean(&iu16_cast_to_iu08.expts);
-  CRUX__exceptions_clean(&iu32_cast_to_iu08.expts);
-  CRUX__exceptions_clean(&iu64_cast_to_iu08.expts);
-  CRUX__exceptions_clean(&is08_cast_to_iu08.expts);
-  CRUX__exceptions_clean(&is16_cast_to_iu08.expts);
-  CRUX__exceptions_clean(&is32_cast_to_iu08.expts);
-  CRUX__exceptions_clean(&is64_cast_to_iu08.expts);
-  CRUX__exceptions_clean(&iu08_cast_to_iu16.expts);
-  CRUX__exceptions_clean(&iu32_cast_to_iu16.expts);
-  CRUX__exceptions_clean(&iu64_cast_to_iu16.expts);
-  CRUX__exceptions_clean(&is08_cast_to_iu16.expts);
-  CRUX__exceptions_clean(&is16_cast_to_iu16.expts);
-  CRUX__exceptions_clean(&is32_cast_to_iu16.expts);
-  CRUX__exceptions_clean(&is64_cast_to_iu16.expts);
-  CRUX__exceptions_clean(&iu08_cast_to_iu32.expts);
-  CRUX__exceptions_clean(&iu16_cast_to_iu32.expts);
-  CRUX__exceptions_clean(&iu64_cast_to_iu32.expts);
-  CRUX__exceptions_clean(&is08_cast_to_iu32.expts);
-  CRUX__exceptions_clean(&is16_cast_to_iu32.expts);
-  CRUX__exceptions_clean(&is32_cast_to_iu32.expts);
-  CRUX__exceptions_clean(&is64_cast_to_iu32.expts);
-  CRUX__exceptions_clean(&iu08_cast_to_iu64.expts);
-  CRUX__exceptions_clean(&iu16_cast_to_iu64.expts);
-  CRUX__exceptions_clean(&iu32_cast_to_iu64.expts);
-  CRUX__exceptions_clean(&is08_cast_to_iu64.expts);
-  CRUX__exceptions_clean(&is16_cast_to_iu64.expts);
-  CRUX__exceptions_clean(&is32_cast_to_iu64.expts);
-  CRUX__exceptions_clean(&is64_cast_to_iu64.expts);
-  CRUX__exceptions_clean(&iu08_cast_to_is08.expts);
-  CRUX__exceptions_clean(&iu16_cast_to_is08.expts);
-  CRUX__exceptions_clean(&iu32_cast_to_is08.expts);
-  CRUX__exceptions_clean(&iu64_cast_to_is08.expts);
-  CRUX__exceptions_clean(&is16_cast_to_is08.expts);
-  CRUX__exceptions_clean(&is32_cast_to_is08.expts);
-  CRUX__exceptions_clean(&is64_cast_to_is08.expts);
-  CRUX__exceptions_clean(&iu08_cast_to_is16.expts);
-  CRUX__exceptions_clean(&iu16_cast_to_is16.expts);
-  CRUX__exceptions_clean(&iu32_cast_to_is16.expts);
-  CRUX__exceptions_clean(&iu64_cast_to_is16.expts);
-  CRUX__exceptions_clean(&is08_cast_to_is16.expts);
-  CRUX__exceptions_clean(&is32_cast_to_is16.expts);
-  CRUX__exceptions_clean(&is64_cast_to_is16.expts);
-  CRUX__exceptions_clean(&iu08_cast_to_is32.expts);
-  CRUX__exceptions_clean(&iu16_cast_to_is32.expts);
-  CRUX__exceptions_clean(&iu32_cast_to_is32.expts);
-  CRUX__exceptions_clean(&iu64_cast_to_is32.expts);
-  CRUX__exceptions_clean(&is08_cast_to_is32.expts);
-  CRUX__exceptions_clean(&is16_cast_to_is32.expts);
-  CRUX__exceptions_clean(&is64_cast_to_is32.expts);
-  CRUX__exceptions_clean(&iu08_cast_to_is64.expts);
-  CRUX__exceptions_clean(&iu16_cast_to_is64.expts);
-  CRUX__exceptions_clean(&iu32_cast_to_is64.expts);
-  CRUX__exceptions_clean(&iu64_cast_to_is64.expts);
-  CRUX__exceptions_clean(&is08_cast_to_is64.expts);
-  CRUX__exceptions_clean(&is16_cast_to_is64.expts);
-  CRUX__exceptions_clean(&is32_cast_to_is64.expts);
+  CRUX__trace_clean(&iu16_cast_to_iu08.trace);
+  CRUX__trace_clean(&iu32_cast_to_iu08.trace);
+  CRUX__trace_clean(&iu64_cast_to_iu08.trace);
+  CRUX__trace_clean(&is08_cast_to_iu08.trace);
+  CRUX__trace_clean(&is16_cast_to_iu08.trace);
+  CRUX__trace_clean(&is32_cast_to_iu08.trace);
+  CRUX__trace_clean(&is64_cast_to_iu08.trace);
+  CRUX__trace_clean(&iu08_cast_to_iu16.trace);
+  CRUX__trace_clean(&iu32_cast_to_iu16.trace);
+  CRUX__trace_clean(&iu64_cast_to_iu16.trace);
+  CRUX__trace_clean(&is08_cast_to_iu16.trace);
+  CRUX__trace_clean(&is16_cast_to_iu16.trace);
+  CRUX__trace_clean(&is32_cast_to_iu16.trace);
+  CRUX__trace_clean(&is64_cast_to_iu16.trace);
+  CRUX__trace_clean(&iu08_cast_to_iu32.trace);
+  CRUX__trace_clean(&iu16_cast_to_iu32.trace);
+  CRUX__trace_clean(&iu64_cast_to_iu32.trace);
+  CRUX__trace_clean(&is08_cast_to_iu32.trace);
+  CRUX__trace_clean(&is16_cast_to_iu32.trace);
+  CRUX__trace_clean(&is32_cast_to_iu32.trace);
+  CRUX__trace_clean(&is64_cast_to_iu32.trace);
+  CRUX__trace_clean(&iu08_cast_to_iu64.trace);
+  CRUX__trace_clean(&iu16_cast_to_iu64.trace);
+  CRUX__trace_clean(&iu32_cast_to_iu64.trace);
+  CRUX__trace_clean(&is08_cast_to_iu64.trace);
+  CRUX__trace_clean(&is16_cast_to_iu64.trace);
+  CRUX__trace_clean(&is32_cast_to_iu64.trace);
+  CRUX__trace_clean(&is64_cast_to_iu64.trace);
+  CRUX__trace_clean(&iu08_cast_to_is08.trace);
+  CRUX__trace_clean(&iu16_cast_to_is08.trace);
+  CRUX__trace_clean(&iu32_cast_to_is08.trace);
+  CRUX__trace_clean(&iu64_cast_to_is08.trace);
+  CRUX__trace_clean(&is16_cast_to_is08.trace);
+  CRUX__trace_clean(&is32_cast_to_is08.trace);
+  CRUX__trace_clean(&is64_cast_to_is08.trace);
+  CRUX__trace_clean(&iu08_cast_to_is16.trace);
+  CRUX__trace_clean(&iu16_cast_to_is16.trace);
+  CRUX__trace_clean(&iu32_cast_to_is16.trace);
+  CRUX__trace_clean(&iu64_cast_to_is16.trace);
+  CRUX__trace_clean(&is08_cast_to_is16.trace);
+  CRUX__trace_clean(&is32_cast_to_is16.trace);
+  CRUX__trace_clean(&is64_cast_to_is16.trace);
+  CRUX__trace_clean(&iu08_cast_to_is32.trace);
+  CRUX__trace_clean(&iu16_cast_to_is32.trace);
+  CRUX__trace_clean(&iu32_cast_to_is32.trace);
+  CRUX__trace_clean(&iu64_cast_to_is32.trace);
+  CRUX__trace_clean(&is08_cast_to_is32.trace);
+  CRUX__trace_clean(&is16_cast_to_is32.trace);
+  CRUX__trace_clean(&is64_cast_to_is32.trace);
+  CRUX__trace_clean(&iu08_cast_to_is64.trace);
+  CRUX__trace_clean(&iu16_cast_to_is64.trace);
+  CRUX__trace_clean(&iu32_cast_to_is64.trace);
+  CRUX__trace_clean(&iu64_cast_to_is64.trace);
+  CRUX__trace_clean(&is08_cast_to_is64.trace);
+  CRUX__trace_clean(&is16_cast_to_is64.trace);
+  CRUX__trace_clean(&is32_cast_to_is64.trace);
 }
 
 

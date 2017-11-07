@@ -9,12 +9,12 @@ void CRUX_MATH__abs_iu08_test () {
   const IU08 min_abs = IU08_MIN;
   CRUX__ResultIU08 max_abs_result = CRUX_MATH__abs_iu08(max);
   CRUX__ResultIU08 min_abs_result = CRUX_MATH__abs_iu08(min);
-  ok((max_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
   ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IU08_FMT".", max_abs);
-  ok((min_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
   ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"IU08_FMT".", min_abs);
-  CRUX__exceptions_clean(&max_abs_result.expts);
-  CRUX__exceptions_clean(&min_abs_result.expts);
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
 }
 
 
@@ -25,12 +25,12 @@ void CRUX_MATH__abs_iu16_test () {
   const IU16 min_abs = IU16_MIN;
   CRUX__ResultIU16 max_abs_result = CRUX_MATH__abs_iu16(max);
   CRUX__ResultIU16 min_abs_result = CRUX_MATH__abs_iu16(min);
-  ok((max_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
   ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IU16_FMT".", max_abs);
-  ok((min_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
   ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"IU16_FMT".", min_abs);
-  CRUX__exceptions_clean(&max_abs_result.expts);
-  CRUX__exceptions_clean(&min_abs_result.expts);
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
 }
 
 
@@ -41,12 +41,12 @@ void CRUX_MATH__abs_iu32_test () {
   const IU32 min_abs = IU32_MIN;
   CRUX__ResultIU32 max_abs_result = CRUX_MATH__abs_iu32(max);
   CRUX__ResultIU32 min_abs_result = CRUX_MATH__abs_iu32(min);
-  ok((max_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
   ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IU32_FMT".", max_abs);
-  ok((min_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
   ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"IU32_FMT".", min_abs);
-  CRUX__exceptions_clean(&max_abs_result.expts);
-  CRUX__exceptions_clean(&min_abs_result.expts);
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
 }
 
 
@@ -57,12 +57,12 @@ void CRUX_MATH__abs_iu64_test () {
   const IU64 min_abs = IU64_MIN;
   CRUX__ResultIU64 max_abs_result = CRUX_MATH__abs_iu64(max);
   CRUX__ResultIU64 min_abs_result = CRUX_MATH__abs_iu64(min);
-  ok((max_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
   ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IU64_FMT".", max_abs);
-  ok((min_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
   ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"IU64_FMT".", min_abs);
-  CRUX__exceptions_clean(&max_abs_result.expts);
-  CRUX__exceptions_clean(&min_abs_result.expts);
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
 }
 
 
@@ -75,14 +75,14 @@ void CRUX_MATH__abs_is08_test () {
   CRUX__ResultIS08 max_abs_result = CRUX_MATH__abs_is08(max);
   CRUX__ResultIS08 negative_abs_result = CRUX_MATH__abs_is08(negative);
   CRUX__ResultIS08 min_abs_result = CRUX_MATH__abs_is08(min);
-  ok((max_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
   ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IS08_FMT".", max_abs);
-  ok((negative_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(negative_abs_result.trace), "Must not have an error.");
   ok((negative_abs_result.value == negative_abs), "The absolute value must be equal to %"IS08_FMT".", negative_abs);
-  ok((min_abs_result.expts != NULL), "Must have an error.");
-  CRUX__exceptions_clean(&max_abs_result.expts);
-  CRUX__exceptions_clean(&negative_abs_result.expts);
-  CRUX__exceptions_clean(&min_abs_result.expts);
+  ok(!CRUX__trace_check(min_abs_result.trace), "Must have an error.");
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&negative_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
 }
 
 
@@ -95,14 +95,14 @@ void CRUX_MATH__abs_is16_test () {
   CRUX__ResultIS16 max_abs_result = CRUX_MATH__abs_is16(max);
   CRUX__ResultIS16 negative_abs_result = CRUX_MATH__abs_is16(negative);
   CRUX__ResultIS16 min_abs_result = CRUX_MATH__abs_is16(min);
-  ok((max_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
   ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IS16_FMT".", max_abs);
-  ok((negative_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(negative_abs_result.trace), "Must not have an error.");
   ok((negative_abs_result.value == negative_abs), "The absolute value must be equal to %"IS16_FMT".", negative_abs);
-  ok((min_abs_result.expts != NULL), "Must have an error.");
-  CRUX__exceptions_clean(&max_abs_result.expts);
-  CRUX__exceptions_clean(&negative_abs_result.expts);
-  CRUX__exceptions_clean(&min_abs_result.expts);
+  ok(!CRUX__trace_check(min_abs_result.trace), "Must have an error.");
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&negative_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
 }
 
 
@@ -115,14 +115,14 @@ void CRUX_MATH__abs_is32_test () {
   CRUX__ResultIS32 max_abs_result = CRUX_MATH__abs_is32(max);
   CRUX__ResultIS32 negative_abs_result = CRUX_MATH__abs_is32(negative);
   CRUX__ResultIS32 min_abs_result = CRUX_MATH__abs_is32(min);
-  ok((max_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
   ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IS32_FMT".", max_abs);
-  ok((negative_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(negative_abs_result.trace), "Must not have an error.");
   ok((negative_abs_result.value == negative_abs), "The absolute value must be equal to %"IS32_FMT".", negative_abs);
-  ok((min_abs_result.expts != NULL), "Must have an error.");
-  CRUX__exceptions_clean(&max_abs_result.expts);
-  CRUX__exceptions_clean(&negative_abs_result.expts);
-  CRUX__exceptions_clean(&min_abs_result.expts);
+  ok(!CRUX__trace_check(min_abs_result.trace), "Must have an error.");
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&negative_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
 }
 
 
@@ -135,14 +135,14 @@ void CRUX_MATH__abs_is64_test () {
   CRUX__ResultIS64 max_abs_result = CRUX_MATH__abs_is64(max);
   CRUX__ResultIS64 negative_abs_result = CRUX_MATH__abs_is64(negative);
   CRUX__ResultIS64 min_abs_result = CRUX_MATH__abs_is64(min);
-  ok((max_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
   ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IS64_FMT".", max_abs);
-  ok((negative_abs_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(negative_abs_result.trace), "Must not have an error.");
   ok((negative_abs_result.value == negative_abs), "The absolute value must be equal to %"IS64_FMT".", negative_abs);
-  ok((min_abs_result.expts != NULL), "Must have an error.");
-  CRUX__exceptions_clean(&max_abs_result.expts);
-  CRUX__exceptions_clean(&negative_abs_result.expts);
-  CRUX__exceptions_clean(&min_abs_result.expts);
+  ok(!CRUX__trace_check(min_abs_result.trace), "Must have an error.");
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&negative_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
 }
 
 
@@ -163,30 +163,30 @@ void CRUX_MATH__abs_test () {
   CRUX__ResultIS16 is16_result = CRUX_MATH__abs(is16_value);
   CRUX__ResultIS32 is32_result = CRUX_MATH__abs(is32_value);
   CRUX__ResultIS64 is64_result = CRUX_MATH__abs(is64_value);
-  ok((iu08_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu08_result.trace), "Must not have an error.");
   ok((iu08_result.value == CRUX__as_iu08(0)), "Must be equal to 0.");
-  ok((iu16_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu16_result.trace), "Must not have an error.");
   ok((iu16_result.value == CRUX__as_iu16(0)), "Must be equal to 0.");
-  ok((iu32_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu32_result.trace), "Must not have an error.");
   ok((iu32_result.value == CRUX__as_iu32(0)), "Must be equal to 0.");
-  ok((iu64_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(iu64_result.trace), "Must not have an error.");
   ok((iu64_result.value == CRUX__as_iu64(0)), "Must be equal to 0.");
-  ok((is08_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is08_result.trace), "Must not have an error.");
   ok((is08_result.value == CRUX__as_is08(0)), "Must be equal to 0.");
-  ok((is16_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is16_result.trace), "Must not have an error.");
   ok((is16_result.value == CRUX__as_is16(0)), "Must be equal to 0.");
-  ok((is32_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is32_result.trace), "Must not have an error.");
   ok((is32_result.value == CRUX__as_is32(0)), "Must be equal to 0.");
-  ok((is64_result.expts == NULL), "Must not have an error.");
+  ok(CRUX__trace_check(is64_result.trace), "Must not have an error.");
   ok((is64_result.value == CRUX__as_is64(0)), "Must be equal to 0.");
-  CRUX__exceptions_clean(&iu08_result.expts);
-  CRUX__exceptions_clean(&iu16_result.expts);
-  CRUX__exceptions_clean(&iu32_result.expts);
-  CRUX__exceptions_clean(&iu64_result.expts);
-  CRUX__exceptions_clean(&is08_result.expts);
-  CRUX__exceptions_clean(&is16_result.expts);
-  CRUX__exceptions_clean(&is32_result.expts);
-  CRUX__exceptions_clean(&is64_result.expts);
+  CRUX__trace_clean(&iu08_result.trace);
+  CRUX__trace_clean(&iu16_result.trace);
+  CRUX__trace_clean(&iu32_result.trace);
+  CRUX__trace_clean(&iu64_result.trace);
+  CRUX__trace_clean(&is08_result.trace);
+  CRUX__trace_clean(&is16_result.trace);
+  CRUX__trace_clean(&is32_result.trace);
+  CRUX__trace_clean(&is64_result.trace);
 }
 
 

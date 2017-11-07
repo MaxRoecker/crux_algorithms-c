@@ -8,6 +8,7 @@
 
 #include "./types.h"
 #include "./error.h"
-#include "./exception.h"
+#include "./fault.h"
+#include "./trace.h"
 #include "./results.h"
 #include "./cast.h"

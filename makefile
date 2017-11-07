@@ -17,13 +17,17 @@ core_error_module						= $(core_package)/error.c
 core_error_object						= $(BIN)/core_error.o
 core_error_dependencies			= core_types $(core_types_dependencies)
 
-core_exception_module				= $(core_package)/exception.c
-core_exception_object				= $(BIN)/core_exception.o
-core_exception_dependencies	= core_error $(core_error_dependencies)
+core_fault_module						= $(core_package)/fault.c
+core_fault_object						= $(BIN)/core_fault.o
+core_fault_dependencies			= core_error $(core_error_dependencies)
+
+core_trace_module						= $(core_package)/trace.c
+core_trace_object						= $(BIN)/core_trace.o
+core_trace_dependencies			= core_fault $(core_fault_dependencies)
 
 core_results_module					= $(core_package)/results.c
 core_results_object					= $(BIN)/core_results.o
-core_results_dependencies		= core_exception $(core_exception_dependencies)
+core_results_dependencies		= core_trace $(core_trace_dependencies)
 
 core_cast_module						= $(core_package)/cast.c
 core_cast_object						= $(BIN)/core_cast.o
@@ -37,7 +41,8 @@ core_core_module						= $(core_package)/core.c
 core_core_object						= $(BIN)/core_core.o
 core_core_dependencies			= core_types $(core_types_dependencies) \
 															core_error $(core_error_dependencies) \
-															core_exception $(core_exception_dependencies) \
+															core_fault $(core_fault_dependencies) \
+															core_trace $(core_trace_dependencies) \
 															core_results $(core_results_dependencies) \
 															core_cast $(core_cast_dependencies) \
 															core_memory $(core_memory_dependencies)
@@ -53,6 +58,10 @@ math_error_dependencies			= core_core $(core_core_dependencies)
 math_abs_module							= $(math_package)/abs.c
 math_abs_object							= $(BIN)/math_abs.o
 math_abs_dependencies				= math_error $(math_error_dependencies)
+
+math_add_module							= $(math_package)/add.c
+math_add_object							= $(BIN)/math_add.o
+math_add_dependencies				= math_error $(math_error_dependencies)
 
 
 # Macros
