@@ -49,19 +49,19 @@ core_core_dependencies			= core_types $(core_types_dependencies) \
 
 
 # Math package
-math_package = $(SRC)/math
+arithmetic_package = $(SRC)/arithmetic
 
-math_error_module						= $(math_package)/error.c
-math_error_object						= $(BIN)/math_error.o
-math_error_dependencies			= core_core $(core_core_dependencies)
+arithmetic_error_module					= $(arithmetic_package)/error.c
+arithmetic_error_object					= $(BIN)/arithmetic_error.o
+arithmetic_error_dependencies		= core_core $(core_core_dependencies)
 
-math_abs_module							= $(math_package)/abs.c
-math_abs_object							= $(BIN)/math_abs.o
-math_abs_dependencies				= math_error $(math_error_dependencies)
+arithmetic_abs_module						= $(arithmetic_package)/abs.c
+arithmetic_abs_object						= $(BIN)/arithmetic_abs.o
+arithmetic_abs_dependencies			= arithmetic_error $(arithmetic_error_dependencies)
 
-math_add_module							= $(math_package)/add.c
-math_add_object							= $(BIN)/math_add.o
-math_add_dependencies				= math_error $(math_error_dependencies)
+arithmetic_add_module						= $(arithmetic_package)/add.c
+arithmetic_add_object						= $(BIN)/arithmetic_add.o
+arithmetic_add_dependencies			= arithmetic_error $(arithmetic_error_dependencies)
 
 
 # Macros

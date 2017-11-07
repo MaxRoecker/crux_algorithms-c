@@ -1,5 +1,5 @@
 #include <tap.h>
-#include "./../src/math/abs.h"
+#include "./../src/arithmetic/abs.h"
 
 
 void CRUX_MATH__abs_iu08_test () {
