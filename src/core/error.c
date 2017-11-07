@@ -17,7 +17,8 @@ const CRUX__Error CRUX__ERROR_MEMORY = {
 
 
 Bool CRUX__error_equals (const CRUX__Error one, const CRUX__Error another) {
-  return ((Bool) (one.code == another.code));
+  const Bool are_equals = (one.code == another.code);
+  return are_equals;
 }
 
 

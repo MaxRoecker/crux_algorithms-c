@@ -33,8 +33,8 @@ typedef struct CRUX__Error_Struct {
 /**
  * @brief Checks if the errors are equals.
  *
- * @param[in] one       A error.
- * @param[in] another   A error.
+ * @param[in] one     An error.
+ * @param[in] another An error.
  * @return true if the an error is equals to another error, false otherwise.
  *
  */
@@ -46,8 +46,8 @@ Bool CRUX__error_equals (
 /**
  * @brief Serialize the error into a string.
  *
- * @param[in] error       the error;
- * @param[in] buffer      the Char array where the string will be stored;
+ * @param[in] error   The error;
+ * @param[in] buffer  The Char array where the string will be stored;
  * @param[in] buffer_size the buffer maximum size;
  *
  */
