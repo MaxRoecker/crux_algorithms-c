@@ -24,6 +24,9 @@
 
 
 
+#define nil(type) ((type *) 0)
+
+
 typedef bool Bool;
 typedef char Char;
 typedef size_t Size;
@@ -120,6 +123,19 @@ typedef int64_t IS64;
 #define CRUX__as_is16(integer) ((IS16) INT16_C(integer))
 #define CRUX__as_is32(integer) ((IS32) INT32_C(integer))
 #define CRUX__as_is64(integer) ((IS64) INT64_C(integer))
+
+
+#define CRUX__null_of(value) _Generic(value,  \
+  Bool : ((Bool *) 0),                        \
+  Char : ((Char *) 0),                        \
+  IU08 : ((IU08 *) 0),                        \
+  IU16 : ((IU16 *) 0),                        \
+  IU32 : ((IU32 *) 0),                        \
+  IU64 : ((IU64 *) 0),                        \
+  IS08 : ((IS08 *) 0),                        \
+  IS16 : ((IS16 *) 0),                        \
+  IS32 : ((IS32 *) 0),                        \
+  IS64 : ((IS64 *) 0))
 
 
 #define CRUX__get_int_precision(value) _Generic(value,  \

@@ -7,7 +7,7 @@
 
 
 void CRUX__iu08_format_tests () {
-  void *const ctx = talloc_new(NULL);
+  void *const ctx = talloc_new(nil(void));
   const IU08 min = IU08_MIN;
   const IU08 max = IU08_MAX;
   const IU08 one = 1;
@@ -25,7 +25,7 @@ void CRUX__iu08_format_tests () {
 
 
 void CRUX__iu16_format_tests () {
-  void *const ctx = talloc_new(NULL);
+  void *const ctx = talloc_new(nil(void));
   const IU16 min = IU16_MIN;
   const IU16 max = IU16_MAX;
   const IU16 one = 1;
@@ -43,7 +43,7 @@ void CRUX__iu16_format_tests () {
 
 
 void CRUX__iu32_format_tests () {
-  void *const ctx = talloc_new(NULL);
+  void *const ctx = talloc_new(nil(void));
   const IU32 min = IU32_MIN;
   const IU32 max = IU32_MAX;
   const IU32 one = 1;
@@ -61,7 +61,7 @@ void CRUX__iu32_format_tests () {
 
 
 void CRUX__iu64_format_tests () {
-  void *const ctx = talloc_new(NULL);
+  void *const ctx = talloc_new(nil(void));
   const IU64 min = IU64_MIN;
   const IU64 max = IU64_MAX;
   const IU64 one = 1;
@@ -79,7 +79,7 @@ void CRUX__iu64_format_tests () {
 
 
 void CRUX__is08_format_tests () {
-  void *const ctx = talloc_new(NULL);
+  void *const ctx = talloc_new(nil(void));
   const IS08 min = IS08_MIN;
   const IS08 max = IS08_MAX;
   const IS08 one = 1;
@@ -97,7 +97,7 @@ void CRUX__is08_format_tests () {
 
 
 void CRUX__is16_format_tests () {
-  void *const ctx = talloc_new(NULL);
+  void *const ctx = talloc_new(nil(void));
   const IS16 min = IS16_MIN;
   const IS16 max = IS16_MAX;
   const IS16 one = 1;
@@ -115,7 +115,7 @@ void CRUX__is16_format_tests () {
 
 
 void CRUX__is32_format_tests () {
-  void *const ctx = talloc_new(NULL);
+  void *const ctx = talloc_new(nil(void));
   const IS32 min = IS32_MIN;
   const IS32 max = IS32_MAX;
   const IS32 one = 1;
@@ -133,7 +133,7 @@ void CRUX__is32_format_tests () {
 
 
 void CRUX__is64_format_tests () {
-  void *const ctx = talloc_new(NULL);
+  void *const ctx = talloc_new(nil(void));
   const IS64 min = IS64_MIN;
   const IS64 max = IS64_MAX;
   const IS64 one = 1;
@@ -148,6 +148,35 @@ void CRUX__is64_format_tests () {
   ok(strcmp(one_str, one_formated) == 0, "Must be equals.");
   talloc_free(ctx);
 }
+
+
+void CRUX__null_of_tests () {
+  const IU08 iu08 = IU08_MAX;
+  const IU16 iu16 = IU16_MAX;
+  const IU32 iu32 = IU32_MAX;
+  const IU64 iu64 = IU64_MAX;
+  const IS08 is08 = IS08_MAX;
+  const IS16 is16 = IS16_MAX;
+  const IS32 is32 = IS32_MAX;
+  const IS64 is64 = IS64_MAX;
+  const IU08 *iu08_null = CRUX__null_of(iu08);
+  const IU16 *iu16_null = CRUX__null_of(iu16);
+  const IU32 *iu32_null = CRUX__null_of(iu32);
+  const IU64 *iu64_null = CRUX__null_of(iu64);
+  const IS08 *is08_null = CRUX__null_of(is08);
+  const IS16 *is16_null = CRUX__null_of(is16);
+  const IS32 *is32_null = CRUX__null_of(is32);
+  const IS64 *is64_null = CRUX__null_of(is64);
+  ok((iu08_null == nil(IU08)), "Must be nil.");
+  ok((iu16_null == nil(IU16)), "Must be nil.");
+  ok((iu32_null == nil(IU32)), "Must be nil.");
+  ok((iu64_null == nil(IU64)), "Must be nil.");
+  ok((is08_null == nil(IS08)), "Must be nil.");
+  ok((is16_null == nil(IS16)), "Must be nil.");
+  ok((is32_null == nil(IS32)), "Must be nil.");
+  ok((is64_null == nil(IS64)), "Must be nil.");
+}
+
 
 void CRUX__int_precision_tests () {
   const IU08 unsigned_integer_08 = CRUX__as_iu08(0);
@@ -167,6 +196,7 @@ void CRUX__int_precision_tests () {
   ok((CRUX__get_int_precision(signed_integer_32) == 31), "Must has precision equals to %d.", 31);
   ok((CRUX__get_int_precision(signed_integer_64) == 63), "Must has precision equals to %d.", 63);
 }
+
 
 void CRUX__popcount_tests () {
   const IU08 iu08 = IU08_MAX;
@@ -205,8 +235,9 @@ void CRUX__popcount_tests () {
 }
 
 
+
 int main () {
-  plan(43);
+  plan(51);
   CRUX__iu08_format_tests();
   CRUX__iu16_format_tests();
   CRUX__iu32_format_tests();
@@ -215,6 +246,7 @@ int main () {
   CRUX__is16_format_tests();
   CRUX__is32_format_tests();
   CRUX__is64_format_tests();
+  CRUX__null_of_tests();
   CRUX__int_precision_tests();
   CRUX__popcount_tests();
   done_testing();
