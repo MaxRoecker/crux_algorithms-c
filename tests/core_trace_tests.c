@@ -2,8 +2,7 @@
 #include "./../src/core/trace.h"
 
 
-void CRUX__trace_push_clean_tests () {
-  CRUX__Trace trace = CRUX__trace_create();
+void CRUX__trace_push_move_clean_tests () {
   CRUX__Fault fault_0 = {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_GENERIC,
@@ -21,19 +20,33 @@ void CRUX__trace_push_clean_tests () {
     .error = CRUX__ERROR_MEMORY,
     .filepath = __FILE__,
     .line = __LINE__};
+  CRUX__Trace trace_0 = CRUX__trace_create();
+  CRUX__Trace trace_1 = CRUX__trace_create();
+ 
   CRUX__fault_infoprintf(fault_2, "I don't know %s", "anymore information");
   
-  trace = CRUX__trace_push(trace, fault_0);
-  trace = CRUX__trace_push(trace, fault_1);
-  trace = CRUX__trace_push(trace, fault_2);
+  CRUX__trace_push(&trace_0, fault_0);
+  CRUX__trace_push(&trace_0, fault_1);
+  ok(!CRUX__fault_equals(fault_1, *trace_0.top), "Must not be equals.");
+  ok(CRUX__fault_equals(fault_0, *trace_0.top->cause), "Must be equals.");
+  ok((trace_0.top->cause->cause == nil(CRUX__Fault)), "Must be nil.");
 
-  ok(CRUX__error_equals(fault_2.error, trace.top->error), "Must be equals.");
-  ok(CRUX__error_equals(fault_1.error, trace.top->cause->error), "Must be equals.");
-  ok(CRUX__error_equals(fault_0.error, trace.top->cause->cause->error), "Must be equals.");
+  CRUX__trace_move(&trace_1, &trace_0);
+  ok(!CRUX__fault_equals(fault_1, *trace_1.top), "Must not be equals.");
+  ok(CRUX__fault_equals(fault_0, *trace_1.top->cause), "Must be equals.");
+  ok((trace_1.top->cause->cause == nil(CRUX__Fault)), "Must be nil.");
+  ok((trace_0.context == nil(void)), "Must be nil.");
+  ok((trace_0.top == nil(CRUX__Fault)), "Must be nil.");
 
-  CRUX__trace_clean(&trace);
-  ok((trace.context == nil(void)), "Must be nil.");
-  ok((trace.top == nil(CRUX__Fault)), "Must be nil.");
+  CRUX__trace_push(&trace_1, fault_2);
+  ok(!CRUX__fault_equals(fault_2, *(trace_1.top)), "Must not be equals.");
+  ok(!CRUX__fault_equals(fault_1, *(trace_1.top->cause)), "Must not be equals.");
+  ok(CRUX__fault_equals(fault_0, *(trace_1.top->cause->cause)), "Must be equals.");
+  ok((trace_1.top->cause->cause->cause == nil(CRUX__Fault)), "Must be nil.");
+
+  CRUX__trace_clean(&trace_1);
+  ok((trace_1.context == nil(void)), "Must be nil.");
+  ok((trace_1.top == nil(CRUX__Fault)), "Must be nil.");
 }
 
 
@@ -57,20 +70,17 @@ void CRUX__trace_print_tests () {
     .filepath = __FILE__,
     .line = __LINE__};
   CRUX__fault_infoprintf(fault_2, "I don't know %s", "anymore information");
-  
-  trace = CRUX__trace_push(trace, fault_0);
-  trace = CRUX__trace_push(trace, fault_1);
-  trace = CRUX__trace_push(trace, fault_2);
-
+  CRUX__trace_push(&trace, fault_0);
+  CRUX__trace_push(&trace, fault_1);
+  CRUX__trace_push(&trace, fault_2);
   CRUX__trace_print(stdout, trace);
-  
   CRUX__trace_clean(&trace);
 }
 
 
 int main () {
-  plan(5);
-  CRUX__trace_push_clean_tests();
+  plan(14);
+  CRUX__trace_push_move_clean_tests();
   CRUX__trace_print_tests();
   done_testing();
   return EXIT_SUCCESS;

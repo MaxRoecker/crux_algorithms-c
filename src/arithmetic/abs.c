@@ -46,7 +46,7 @@ CRUX__ResultIS08 CRUX_MATH__abs_is08 (const IS08 value) {
       .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
     const Char fmt[] = CRUX_MATH__info(IS08_FMT, "IS08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     abs_value = (IS08) abs(value);
   }
@@ -65,7 +65,7 @@ CRUX__ResultIS16 CRUX_MATH__abs_is16 (const IS16 value) {
       .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
     const Char fmt[] = CRUX_MATH__info(IS16_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     abs_value = (IS16) abs(value);
   }
@@ -84,7 +84,7 @@ CRUX__ResultIS32 CRUX_MATH__abs_is32 (const IS32 value) {
       .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
     const Char fmt[] = CRUX_MATH__info(IS32_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     abs_value = (IS32) labs(value);
   }
@@ -103,7 +103,7 @@ CRUX__ResultIS64 CRUX_MATH__abs_is64 (const IS64 value) {
       .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
     const Char fmt[] = CRUX_MATH__info(IS64_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     abs_value = (IS64) llabs(value);
   }

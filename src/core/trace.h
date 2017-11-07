@@ -26,6 +26,7 @@ typedef struct CRUX__Trace_Struct {
 
 
 
+
 /**
  * @brief Create a new empty fault trace.
  * 
@@ -54,9 +55,22 @@ Bool CRUX__trace_check (
  * @return the new trace.
  *
  */
-CRUX__Trace CRUX__trace_push (
-    const CRUX__Trace trace,
+void CRUX__trace_push (
+    CRUX__Trace *restrict const trace,
     const CRUX__Fault fault);
+
+
+/**
+ * @brief Cleans the target, Moves all source faults to target and cleans source.
+ * 
+ *
+ * @param[in] target  The trace where the faults will be pushed.
+ * @param[in] source  The trace where from the faults will be popped.
+ *
+ */
+void CRUX__trace_move (
+    CRUX__Trace *restrict const target,
+    CRUX__Trace *restrict const source);
 
 
 /**

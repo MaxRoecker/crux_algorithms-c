@@ -15,16 +15,28 @@ Bool CRUX__trace_check(const CRUX__Trace trace) {
 }
 
 
-CRUX__Trace CRUX__trace_push (
-    const CRUX__Trace trace,
+void CRUX__trace_push (
+    CRUX__Trace *restrict const trace,
     const CRUX__Fault fault) {
-  CRUX__Trace new_trace = trace;
-  CRUX__Fault *const traced = talloc_zero(new_trace.context, CRUX__Fault);
-  assert(traced != nil(CRUX__Fault));
-  *traced = fault;
-  traced->cause = new_trace.top;
-  new_trace.top = traced;
-  return new_trace;
+  assert(trace != nil(CRUX__Trace));
+  CRUX__Fault *const traced_fault = talloc_zero(trace->context, CRUX__Fault);
+  assert(traced_fault != nil(CRUX__Fault));
+  *traced_fault = fault;
+  traced_fault->cause = trace->top;
+  trace->top = traced_fault;
+}
+
+
+void CRUX__trace_move (
+    CRUX__Trace *restrict const target,
+    CRUX__Trace *restrict const source) {
+  assert(target != nil(CRUX__Trace));
+  assert(source != nil(CRUX__Trace));
+  talloc_free_children(target->context);
+  talloc_steal(target->context, source->context);
+  target->top = source->top;
+  source->context = nil(void);
+  source->top = nil(CRUX__Fault);
 }
 
 

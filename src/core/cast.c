@@ -14,7 +14,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_iu16 (const IU16 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU16_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU08) value;
   }
@@ -33,7 +33,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_iu32 (const IU32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU32_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU08) value;
   }
@@ -52,7 +52,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_iu64 (const IU64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU64_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU08) value;
   }
@@ -71,7 +71,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_is08 (const IS08 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS08_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU08) value;
   }
@@ -90,7 +90,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_is16 (const IS16 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS16_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU08) value;
   }
@@ -109,7 +109,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_is32 (const IS32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS32_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU08) value;
   }
@@ -128,7 +128,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_is64 (const IS64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS64_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU08) value;
   }
@@ -156,7 +156,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_iu32 (const IU32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU32_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU16) value;
   }
@@ -175,7 +175,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_iu64 (const IU64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU64_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU16) value;
   }
@@ -194,7 +194,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_is08 (const IS08 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS08_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU16) value;
   }
@@ -213,7 +213,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_is16 (const IS16 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS16_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU16) value;
   }
@@ -232,7 +232,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_is32 (const IS32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS32_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU16) value;
   }
@@ -251,7 +251,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_is64 (const IS64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS64_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU16) value;
   }
@@ -288,7 +288,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_iu64 (const IU64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU64_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU32) value;
   }
@@ -307,7 +307,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_is08 (const IS08 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS08_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU32) value;
   }
@@ -326,7 +326,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_is16 (const IS16 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS16_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU32) value;
   }
@@ -345,7 +345,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_is32 (const IS32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS32_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU32) value;
   }
@@ -364,7 +364,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_is64 (const IS64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS64_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU32) value;
   }
@@ -410,7 +410,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_is08 (const IS08 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS08_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU64) value;
   }
@@ -429,7 +429,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_is16 (const IS16 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS16_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU64) value;
   }
@@ -448,7 +448,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_is32 (const IS32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS32_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU64) value;
   }
@@ -467,7 +467,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_is64 (const IS64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS64_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IU64) value;
   }
@@ -486,7 +486,7 @@ CRUX__ResultIS08 CRUX__cast_is08_iu08 (const IU08 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU08_FMT, "IS08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS08) value;
   }
@@ -505,7 +505,7 @@ CRUX__ResultIS08 CRUX__cast_is08_iu16 (const IU16 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU16_FMT, "IS08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS08) value;
   }
@@ -524,7 +524,7 @@ CRUX__ResultIS08 CRUX__cast_is08_iu32 (const IU32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU32_FMT, "IS08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS08) value;
   }
@@ -543,7 +543,7 @@ CRUX__ResultIS08 CRUX__cast_is08_iu64 (const IU64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU64_FMT, "IS08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS08) value;
   }
@@ -562,7 +562,7 @@ CRUX__ResultIS08 CRUX__cast_is08_is16 (const IS16 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS16_FMT, "IS08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS08) value;
   }
@@ -581,7 +581,7 @@ CRUX__ResultIS08 CRUX__cast_is08_is32 (const IS32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS32_FMT, "IS08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS08) value;
   }
@@ -600,7 +600,7 @@ CRUX__ResultIS08 CRUX__cast_is08_is64 (const IS64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS64_FMT, "IS08");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS08) value;
   }
@@ -628,7 +628,7 @@ CRUX__ResultIS16 CRUX__cast_is16_iu16 (const IU16 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU16_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS16) value;
   }
@@ -647,7 +647,7 @@ CRUX__ResultIS16 CRUX__cast_is16_iu32 (const IU32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU32_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS16) value;
   }
@@ -666,7 +666,7 @@ CRUX__ResultIS16 CRUX__cast_is16_iu64 (const IU64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU64_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS16) value;
   }
@@ -694,7 +694,7 @@ CRUX__ResultIS16 CRUX__cast_is16_is32 (const IS32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS32_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS16) value;
   }
@@ -713,7 +713,7 @@ CRUX__ResultIS16 CRUX__cast_is16_is64 (const IS64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS64_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS16) value;
   }
@@ -750,7 +750,7 @@ CRUX__ResultIS32 CRUX__cast_is32_iu32 (const IU32 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU32_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS32) value;
   }
@@ -769,7 +769,7 @@ CRUX__ResultIS32 CRUX__cast_is32_iu64 (const IU64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU64_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS32) value;
   }
@@ -806,7 +806,7 @@ CRUX__ResultIS32 CRUX__cast_is32_is64 (const IS64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IS64_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS32) value;
   }
@@ -852,7 +852,7 @@ CRUX__ResultIS64 CRUX__cast_is64_iu64 (const IU64 value) {
       .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
     const Char fmt[] = CRUX__info(IU64_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, value);
-    trace = CRUX__trace_push(trace, fault);
+    CRUX__trace_push(&trace, fault);
   } else {
     casted = (IS64) value;
   }
