@@ -4,7 +4,7 @@
 CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size) {
   CRUX__Trace trace = CRUX__trace_create();
   const void *address = talloc_zero_size(context, size);
-  if (address == NULL) {
+  if (address == nil(void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_MEMORY,
       .filepath = __FILE__,
@@ -19,14 +19,14 @@ CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size) {
 
 
 CRUX__ResultAddr CRUX__alloc (const IU64 size) {
-  const void *context = NULL;
+  const void *context = nil(void);
   CRUX__ResultAddr result = CRUX__alloc_into(context, size);
   return result;
 }
 
 
 CRUX__ResultAddr CRUX__alloc_context () {
-  const void *context = NULL;
+  const void *context = nil(void);
   CRUX__ResultAddr result = CRUX__alloc_context_into(context);
   return result;
 }
@@ -35,7 +35,7 @@ CRUX__ResultAddr CRUX__alloc_context () {
 CRUX__ResultAddr CRUX__alloc_context_into (const void *context) {
   CRUX__Trace trace = CRUX__trace_create();
   const void *address = talloc_new(context);
-  if (address == NULL) {
+  if (address == nil(void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_MEMORY,
       .info = "There is no space available for new context",
@@ -74,17 +74,17 @@ CRUX__ResultAddr CRUX__alloc_move (const void *new_context, void **address) {
 
 CRUX__ResultVoid CRUX__alloc_free (void **context) {
   CRUX__Trace trace = CRUX__trace_create();
-  if (context == NULL) {
+  if (context == nil(void)) {
     const CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
-      .info = "Invalid NULL argument value.",
+      .info = "Invalid nil argument value.",
       .filepath = __FILE__,
       .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
     trace = CRUX__trace_push(trace, fault);
-  } else if (*context == NULL) {
+  } else if (*context == nil(void)) {
     const CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
-      .info = "It's not possible to free a NULL context.",
+      .info = "It's not possible to free a nil context.",
       .filepath = __FILE__,
       .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
     trace = CRUX__trace_push(trace, fault);
@@ -98,7 +98,7 @@ CRUX__ResultVoid CRUX__alloc_free (void **context) {
         .line = (((IU32) __LINE__) - CRUX__as_iu32(6))};
       trace = CRUX__trace_push(trace, fault);
     } else {
-      *context = NULL;
+      *context = nil(void);
     }
   }
   CRUX__ResultVoid result = {.trace = trace};

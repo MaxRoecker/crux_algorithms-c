@@ -32,15 +32,15 @@ void CRUX__trace_clean (CRUX__Trace *restrict const trace) {
   if (trace != nil(CRUX__Trace)) {
     if (trace->context != nil(void)) {
       talloc_free(trace->context);
-      trace->context = (void *) 0;
-      trace->top = (CRUX__Fault *) 0;
+      trace->context = nil(void);
+      trace->top = nil(CRUX__Fault);
     }
   }
 }
 
 
 void CRUX__trace_print (FILE *const stream, const CRUX__Trace trace) {
-  assert(stream != ((FILE *) 0));
+  assert(stream != nil(FILE));
   const CRUX__Fault *next = trace.top;
   while (next != nil(const CRUX__Fault)) {
     const Size error_string_size = CRUX__ERROR_STRING_SIZE;
