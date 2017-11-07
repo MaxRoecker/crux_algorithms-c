@@ -151,30 +151,22 @@ void CRUX__is64_format_tests () {
 
 
 void CRUX__null_of_tests () {
-  const IU08 iu08 = IU08_MAX;
-  const IU16 iu16 = IU16_MAX;
-  const IU32 iu32 = IU32_MAX;
-  const IU64 iu64 = IU64_MAX;
-  const IS08 is08 = IS08_MAX;
-  const IS16 is16 = IS16_MAX;
-  const IS32 is32 = IS32_MAX;
-  const IS64 is64 = IS64_MAX;
-  const IU08 *iu08_null = CRUX__null_of(iu08);
-  const IU16 *iu16_null = CRUX__null_of(iu16);
-  const IU32 *iu32_null = CRUX__null_of(iu32);
-  const IU64 *iu64_null = CRUX__null_of(iu64);
-  const IS08 *is08_null = CRUX__null_of(is08);
-  const IS16 *is16_null = CRUX__null_of(is16);
-  const IS32 *is32_null = CRUX__null_of(is32);
-  const IS64 *is64_null = CRUX__null_of(is64);
-  ok((iu08_null == nil(IU08)), "Must be nil.");
-  ok((iu16_null == nil(IU16)), "Must be nil.");
-  ok((iu32_null == nil(IU32)), "Must be nil.");
-  ok((iu64_null == nil(IU64)), "Must be nil.");
-  ok((is08_null == nil(IS08)), "Must be nil.");
-  ok((is16_null == nil(IS16)), "Must be nil.");
-  ok((is32_null == nil(IS32)), "Must be nil.");
-  ok((is64_null == nil(IS64)), "Must be nil.");
+  const IU08 *iu08_nil = nil(IU08);
+  const IU16 *iu16_nil = nil(IU16);
+  const IU32 *iu32_nil = nil(IU32);
+  const IU64 *iu64_nil = nil(IU64);
+  const IS08 *is08_nil = nil(IS08);
+  const IS16 *is16_nil = nil(IS16);
+  const IS32 *is32_nil = nil(IS32);
+  const IS64 *is64_nil = nil(IS64);
+  ok((iu08_nil == ((IU08 *) 0)), "Must be nil.");
+  ok((iu16_nil == ((IU16 *) 0)), "Must be nil.");
+  ok((iu32_nil == ((IU32 *) 0)), "Must be nil.");
+  ok((iu64_nil == ((IU64 *) 0)), "Must be nil.");
+  ok((is08_nil == ((IS08 *) 0)), "Must be nil.");
+  ok((is16_nil == ((IS16 *) 0)), "Must be nil.");
+  ok((is32_nil == ((IS32 *) 0)), "Must be nil.");
+  ok((is64_nil == ((IS64 *) 0)), "Must be nil.");
 }
 
 
