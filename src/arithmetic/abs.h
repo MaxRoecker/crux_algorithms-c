@@ -15,7 +15,7 @@
  * @return the absolute value.
  *
  */
-CRUX__ResultIU08 CRUX_MATH__abs_iu08 (const IU08 value);
+CRUX__ResultIU08 CRUX_ARITH__abs_iu08 (const IU08 value);
 
 
 /**
@@ -25,7 +25,7 @@ CRUX__ResultIU08 CRUX_MATH__abs_iu08 (const IU08 value);
  * @return the absolute value.
  *
  */
-CRUX__ResultIU16 CRUX_MATH__abs_iu16 (const IU16 value);
+CRUX__ResultIU16 CRUX_ARITH__abs_iu16 (const IU16 value);
 
 
 /**
@@ -35,7 +35,7 @@ CRUX__ResultIU16 CRUX_MATH__abs_iu16 (const IU16 value);
  * @return the absolute value.
  *
  */
-CRUX__ResultIU32 CRUX_MATH__abs_iu32 (const IU32 value);
+CRUX__ResultIU32 CRUX_ARITH__abs_iu32 (const IU32 value);
 
 
 /**
@@ -45,7 +45,7 @@ CRUX__ResultIU32 CRUX_MATH__abs_iu32 (const IU32 value);
  * @return the absolute value.
  *
  */
-CRUX__ResultIU64 CRUX_MATH__abs_iu64 (const IU64 value);
+CRUX__ResultIU64 CRUX_ARITH__abs_iu64 (const IU64 value);
 
 
 /**
@@ -55,7 +55,7 @@ CRUX__ResultIU64 CRUX_MATH__abs_iu64 (const IU64 value);
  * @return the absolute value.
  *
  */
-CRUX__ResultIS08 CRUX_MATH__abs_is08 (const IS08 value);
+CRUX__ResultIS08 CRUX_ARITH__abs_is08 (const IS08 value);
 
 
 /**
@@ -65,7 +65,7 @@ CRUX__ResultIS08 CRUX_MATH__abs_is08 (const IS08 value);
  * @return the absolute value.
  *
  */
-CRUX__ResultIS16 CRUX_MATH__abs_is16 (const IS16 value);
+CRUX__ResultIS16 CRUX_ARITH__abs_is16 (const IS16 value);
 
 
 /**
@@ -75,7 +75,7 @@ CRUX__ResultIS16 CRUX_MATH__abs_is16 (const IS16 value);
  * @return the absolute value.
  *
  */
-CRUX__ResultIS32 CRUX_MATH__abs_is32 (const IS32 value);
+CRUX__ResultIS32 CRUX_ARITH__abs_is32 (const IS32 value);
 
 
 /**
@@ -85,17 +85,17 @@ CRUX__ResultIS32 CRUX_MATH__abs_is32 (const IS32 value);
  * @return the absolute value.
  *
  */
-CRUX__ResultIS64 CRUX_MATH__abs_is64 (const IS64 value);
+CRUX__ResultIS64 CRUX_ARITH__abs_is64 (const IS64 value);
 
 
 
 
-#define CRUX_MATH__abs(value) _Generic(value, \
-  IU08 : CRUX_MATH__abs_iu08(value),          \
-  IU16 : CRUX_MATH__abs_iu16(value),          \
-  IU32 : CRUX_MATH__abs_iu32(value),          \
-  IU64 : CRUX_MATH__abs_iu64(value),          \
-  IS08 : CRUX_MATH__abs_is08(value),          \
-  IS16 : CRUX_MATH__abs_is16(value),          \
-  IS32 : CRUX_MATH__abs_is32(value),          \
-  IS64 : CRUX_MATH__abs_is64(value))
+#define CRUX_ARITH__abs(value) _Generic(value, \
+  IU08 : CRUX_ARITH__abs_iu08(value),          \
+  IU16 : CRUX_ARITH__abs_iu16(value),          \
+  IU32 : CRUX_ARITH__abs_iu32(value),          \
+  IU64 : CRUX_ARITH__abs_iu64(value),          \
+  IS08 : CRUX_ARITH__abs_is08(value),          \
+  IS16 : CRUX_ARITH__abs_is16(value),          \
+  IS32 : CRUX_ARITH__abs_is32(value),          \
+  IS64 : CRUX_ARITH__abs_is64(value))

@@ -48,7 +48,7 @@ core_core_dependencies			= core_types $(core_types_dependencies) \
 															core_memory $(core_memory_dependencies)
 
 
-# Math package
+# Arithmetic package
 arithmetic_package = $(SRC)/arithmetic
 
 arithmetic_error_module					= $(arithmetic_package)/error.c
