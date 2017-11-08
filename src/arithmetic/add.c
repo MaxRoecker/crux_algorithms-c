@@ -2185,5 +2185,5 @@ CRUX__ResultIS64 CRUX_MATH__add_is64_is64 (
   return result;
 }
 
-
-
+#undef info_promo_fmt
+#undef info_overflow_fmt
