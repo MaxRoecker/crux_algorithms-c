@@ -6,6 +6,7 @@
 
 
 
+
 CRUX__ResultIU08 CRUX_MATH__add_iu08_iu08 (
     const IU08 a, const IU08 b) {
   CRUX__Trace trace = CRUX__trace_create();
@@ -2184,6 +2185,9 @@ CRUX__ResultIS64 CRUX_MATH__add_is64_is64 (
   CRUX__ResultIS64 result = {.trace = trace, .value = sum};
   return result;
 }
+
+
+
 
 #undef info_promo_fmt
 #undef info_overflow_fmt
