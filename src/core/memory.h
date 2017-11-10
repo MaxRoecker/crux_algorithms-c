@@ -14,7 +14,7 @@
  * @brief Allocates a zero-initialized memory space in a new context;
  *
  * @param[in] size    the size of the allocation;
- * @return a result with an address of the memory allocation.
+ * @return the address of the memory allocation.
  *
  */
 CRUX__ResultAddr CRUX__alloc (const Size size);
@@ -25,7 +25,7 @@ CRUX__ResultAddr CRUX__alloc (const Size size);
  *
  * @param[in] context the parent's context;
  * @param[in] size    the size of the allocation;
- * @return a result with an address of the memory allocation.
+ * @return the address of the memory allocation.
  *
  */
 CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size);
@@ -34,7 +34,7 @@ CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size);
 /**
  * @brief Allocates a zero-spaced new context.
  *
- * @return a result with an address of the context.
+ * @return the address of the context.
  *
  */
 CRUX__ResultAddr CRUX__alloc_context (void);
@@ -44,7 +44,7 @@ CRUX__ResultAddr CRUX__alloc_context (void);
  * @brief Allocates a zero-spaced new context in a existing context.
  *
  * @param[in] context the parent's context;
- * @return a result with an address of the context.
+ * @return the address of the context.
  *
  */
 CRUX__ResultAddr CRUX__alloc_context_into (const void *context);
@@ -75,7 +75,7 @@ CRUX__ResultSize CRUX__alloc_get_total_size (const void *context);
  *
  * @param[in] new_context the new parent's context;
  * @param[in] address     the address that will have a new context;
- * @return the new contextualized address
+ * @return a new contextualized address
  *
  */
 CRUX__ResultAddr CRUX__alloc_move (const void *new_context, void **address);
@@ -85,7 +85,7 @@ CRUX__ResultAddr CRUX__alloc_move (const void *new_context, void **address);
  * @brief Free the context and all of its children and sets it to nil.
  *
  * @param[in] context the context to be freed;
- * @return the size of the context only.
+ * @return the result of the context freeing.
  *
  */
 CRUX__ResultVoid CRUX__alloc_free (void **context);
