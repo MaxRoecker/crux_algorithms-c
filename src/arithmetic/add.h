@@ -1,6 +1,6 @@
 /**
  * ---------------------------------------------------------------------------
- * @file   sum.h
+ * @file   add.h
  * @brief  Addition for values of core types.
  *
  */
