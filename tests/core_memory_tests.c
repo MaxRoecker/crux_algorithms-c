@@ -2,7 +2,7 @@
 #include "./../src/core/memory.h"
 
 
-void CRUX__alloc_test () {
+void CRUX__alloc_test (void) {
   const Size max = SIZE_MAX;
   const Size avg = 255;
   const Size min = SIZE_MIN;
@@ -41,7 +41,7 @@ void CRUX__alloc_test () {
 }
 
 
-void CRUX__alloc_into_tests () {
+void CRUX__alloc_into_tests (void) {
   Size root_size = 0;
   const Size a_size = 16;
   const Size b_size = 32;

@@ -1,7 +1,7 @@
 #include "./trace.h"
 
 
-CRUX__Trace CRUX__trace_create () {
+CRUX__Trace CRUX__trace_create (void) {
   CRUX__Fault *const top = nil(CRUX__Fault);
   void *const context = talloc_new(nil(void));
   const CRUX__Trace faultrace = {.top = top, .context = context};

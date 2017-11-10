@@ -4,7 +4,7 @@
 
 
 
-void CRUX_ARITH__sub_iu08_iu08_tests () {
+void CRUX_ARITH__sub_iu08_iu08_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -64,7 +64,7 @@ void CRUX_ARITH__sub_iu08_iu08_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu08_iu16_tests () {
+void CRUX_ARITH__sub_iu08_iu16_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -124,7 +124,7 @@ void CRUX_ARITH__sub_iu08_iu16_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu08_iu32_tests () {
+void CRUX_ARITH__sub_iu08_iu32_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -184,7 +184,7 @@ void CRUX_ARITH__sub_iu08_iu32_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu08_iu64_tests () {
+void CRUX_ARITH__sub_iu08_iu64_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -244,7 +244,7 @@ void CRUX_ARITH__sub_iu08_iu64_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu08_is08_tests () {
+void CRUX_ARITH__sub_iu08_is08_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -304,7 +304,7 @@ void CRUX_ARITH__sub_iu08_is08_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu08_is16_tests () {
+void CRUX_ARITH__sub_iu08_is16_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -364,7 +364,7 @@ void CRUX_ARITH__sub_iu08_is16_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu08_is32_tests () {
+void CRUX_ARITH__sub_iu08_is32_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -424,7 +424,7 @@ void CRUX_ARITH__sub_iu08_is32_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu08_is64_tests () {
+void CRUX_ARITH__sub_iu08_is64_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -484,7 +484,7 @@ void CRUX_ARITH__sub_iu08_is64_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu16_iu08_tests () {
+void CRUX_ARITH__sub_iu16_iu08_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -544,7 +544,7 @@ void CRUX_ARITH__sub_iu16_iu08_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu16_iu16_tests () {
+void CRUX_ARITH__sub_iu16_iu16_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -604,7 +604,7 @@ void CRUX_ARITH__sub_iu16_iu16_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu16_iu32_tests () {
+void CRUX_ARITH__sub_iu16_iu32_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -664,7 +664,7 @@ void CRUX_ARITH__sub_iu16_iu32_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu16_iu64_tests () {
+void CRUX_ARITH__sub_iu16_iu64_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -724,7 +724,7 @@ void CRUX_ARITH__sub_iu16_iu64_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu16_is08_tests () {
+void CRUX_ARITH__sub_iu16_is08_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -784,7 +784,7 @@ void CRUX_ARITH__sub_iu16_is08_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu16_is16_tests () {
+void CRUX_ARITH__sub_iu16_is16_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -844,7 +844,7 @@ void CRUX_ARITH__sub_iu16_is16_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu16_is32_tests () {
+void CRUX_ARITH__sub_iu16_is32_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -904,7 +904,7 @@ void CRUX_ARITH__sub_iu16_is32_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu16_is64_tests () {
+void CRUX_ARITH__sub_iu16_is64_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -964,7 +964,7 @@ void CRUX_ARITH__sub_iu16_is64_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu32_iu08_tests () {
+void CRUX_ARITH__sub_iu32_iu08_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1024,7 +1024,7 @@ void CRUX_ARITH__sub_iu32_iu08_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu32_iu16_tests () {
+void CRUX_ARITH__sub_iu32_iu16_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1084,7 +1084,7 @@ void CRUX_ARITH__sub_iu32_iu16_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu32_iu32_tests () {
+void CRUX_ARITH__sub_iu32_iu32_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1144,7 +1144,7 @@ void CRUX_ARITH__sub_iu32_iu32_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu32_iu64_tests () {
+void CRUX_ARITH__sub_iu32_iu64_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1204,7 +1204,7 @@ void CRUX_ARITH__sub_iu32_iu64_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu32_is08_tests () {
+void CRUX_ARITH__sub_iu32_is08_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1264,7 +1264,7 @@ void CRUX_ARITH__sub_iu32_is08_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu32_is16_tests () {
+void CRUX_ARITH__sub_iu32_is16_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1324,7 +1324,7 @@ void CRUX_ARITH__sub_iu32_is16_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu32_is32_tests () {
+void CRUX_ARITH__sub_iu32_is32_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1384,7 +1384,7 @@ void CRUX_ARITH__sub_iu32_is32_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu32_is64_tests () {
+void CRUX_ARITH__sub_iu32_is64_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1444,7 +1444,7 @@ void CRUX_ARITH__sub_iu32_is64_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu64_iu08_tests () {
+void CRUX_ARITH__sub_iu64_iu08_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1504,7 +1504,7 @@ void CRUX_ARITH__sub_iu64_iu08_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu64_iu16_tests () {
+void CRUX_ARITH__sub_iu64_iu16_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1564,7 +1564,7 @@ void CRUX_ARITH__sub_iu64_iu16_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu64_iu32_tests () {
+void CRUX_ARITH__sub_iu64_iu32_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1624,7 +1624,7 @@ void CRUX_ARITH__sub_iu64_iu32_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu64_iu64_tests () {
+void CRUX_ARITH__sub_iu64_iu64_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1684,7 +1684,7 @@ void CRUX_ARITH__sub_iu64_iu64_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu64_is08_tests () {
+void CRUX_ARITH__sub_iu64_is08_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1744,7 +1744,7 @@ void CRUX_ARITH__sub_iu64_is08_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu64_is16_tests () {
+void CRUX_ARITH__sub_iu64_is16_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1804,7 +1804,7 @@ void CRUX_ARITH__sub_iu64_is16_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu64_is32_tests () {
+void CRUX_ARITH__sub_iu64_is32_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1864,7 +1864,7 @@ void CRUX_ARITH__sub_iu64_is32_tests () {
 }
 
 
-void CRUX_ARITH__sub_iu64_is64_tests () {
+void CRUX_ARITH__sub_iu64_is64_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1924,7 +1924,7 @@ void CRUX_ARITH__sub_iu64_is64_tests () {
 }
 
 
-void CRUX_ARITH__sub_is08_iu08_tests () {
+void CRUX_ARITH__sub_is08_iu08_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -1984,7 +1984,7 @@ void CRUX_ARITH__sub_is08_iu08_tests () {
 }
 
 
-void CRUX_ARITH__sub_is08_iu16_tests () {
+void CRUX_ARITH__sub_is08_iu16_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2044,7 +2044,7 @@ void CRUX_ARITH__sub_is08_iu16_tests () {
 }
 
 
-void CRUX_ARITH__sub_is08_iu32_tests () {
+void CRUX_ARITH__sub_is08_iu32_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2104,7 +2104,7 @@ void CRUX_ARITH__sub_is08_iu32_tests () {
 }
 
 
-void CRUX_ARITH__sub_is08_iu64_tests () {
+void CRUX_ARITH__sub_is08_iu64_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2164,7 +2164,7 @@ void CRUX_ARITH__sub_is08_iu64_tests () {
 }
 
 
-void CRUX_ARITH__sub_is08_is08_tests () {
+void CRUX_ARITH__sub_is08_is08_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2224,7 +2224,7 @@ void CRUX_ARITH__sub_is08_is08_tests () {
 }
 
 
-void CRUX_ARITH__sub_is08_is16_tests () {
+void CRUX_ARITH__sub_is08_is16_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2284,7 +2284,7 @@ void CRUX_ARITH__sub_is08_is16_tests () {
 }
 
 
-void CRUX_ARITH__sub_is08_is32_tests () {
+void CRUX_ARITH__sub_is08_is32_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2344,7 +2344,7 @@ void CRUX_ARITH__sub_is08_is32_tests () {
 }
 
 
-void CRUX_ARITH__sub_is08_is64_tests () {
+void CRUX_ARITH__sub_is08_is64_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2404,7 +2404,7 @@ void CRUX_ARITH__sub_is08_is64_tests () {
 }
 
 
-void CRUX_ARITH__sub_is16_iu08_tests () {
+void CRUX_ARITH__sub_is16_iu08_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2464,7 +2464,7 @@ void CRUX_ARITH__sub_is16_iu08_tests () {
 }
 
 
-void CRUX_ARITH__sub_is16_iu16_tests () {
+void CRUX_ARITH__sub_is16_iu16_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2524,7 +2524,7 @@ void CRUX_ARITH__sub_is16_iu16_tests () {
 }
 
 
-void CRUX_ARITH__sub_is16_iu32_tests () {
+void CRUX_ARITH__sub_is16_iu32_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2584,7 +2584,7 @@ void CRUX_ARITH__sub_is16_iu32_tests () {
 }
 
 
-void CRUX_ARITH__sub_is16_iu64_tests () {
+void CRUX_ARITH__sub_is16_iu64_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2644,7 +2644,7 @@ void CRUX_ARITH__sub_is16_iu64_tests () {
 }
 
 
-void CRUX_ARITH__sub_is16_is08_tests () {
+void CRUX_ARITH__sub_is16_is08_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2704,7 +2704,7 @@ void CRUX_ARITH__sub_is16_is08_tests () {
 }
 
 
-void CRUX_ARITH__sub_is16_is16_tests () {
+void CRUX_ARITH__sub_is16_is16_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2764,7 +2764,7 @@ void CRUX_ARITH__sub_is16_is16_tests () {
 }
 
 
-void CRUX_ARITH__sub_is16_is32_tests () {
+void CRUX_ARITH__sub_is16_is32_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2824,7 +2824,7 @@ void CRUX_ARITH__sub_is16_is32_tests () {
 }
 
 
-void CRUX_ARITH__sub_is16_is64_tests () {
+void CRUX_ARITH__sub_is16_is64_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2884,7 +2884,7 @@ void CRUX_ARITH__sub_is16_is64_tests () {
 }
 
 
-void CRUX_ARITH__sub_is32_iu08_tests () {
+void CRUX_ARITH__sub_is32_iu08_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -2944,7 +2944,7 @@ void CRUX_ARITH__sub_is32_iu08_tests () {
 }
 
 
-void CRUX_ARITH__sub_is32_iu16_tests () {
+void CRUX_ARITH__sub_is32_iu16_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3004,7 +3004,7 @@ void CRUX_ARITH__sub_is32_iu16_tests () {
 }
 
 
-void CRUX_ARITH__sub_is32_iu32_tests () {
+void CRUX_ARITH__sub_is32_iu32_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3064,7 +3064,7 @@ void CRUX_ARITH__sub_is32_iu32_tests () {
 }
 
 
-void CRUX_ARITH__sub_is32_iu64_tests () {
+void CRUX_ARITH__sub_is32_iu64_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3124,7 +3124,7 @@ void CRUX_ARITH__sub_is32_iu64_tests () {
 }
 
 
-void CRUX_ARITH__sub_is32_is08_tests () {
+void CRUX_ARITH__sub_is32_is08_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3184,7 +3184,7 @@ void CRUX_ARITH__sub_is32_is08_tests () {
 }
 
 
-void CRUX_ARITH__sub_is32_is16_tests () {
+void CRUX_ARITH__sub_is32_is16_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3244,7 +3244,7 @@ void CRUX_ARITH__sub_is32_is16_tests () {
 }
 
 
-void CRUX_ARITH__sub_is32_is32_tests () {
+void CRUX_ARITH__sub_is32_is32_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3304,7 +3304,7 @@ void CRUX_ARITH__sub_is32_is32_tests () {
 }
 
 
-void CRUX_ARITH__sub_is32_is64_tests () {
+void CRUX_ARITH__sub_is32_is64_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3364,7 +3364,7 @@ void CRUX_ARITH__sub_is32_is64_tests () {
 }
 
 
-void CRUX_ARITH__sub_is64_iu08_tests () {
+void CRUX_ARITH__sub_is64_iu08_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3424,7 +3424,7 @@ void CRUX_ARITH__sub_is64_iu08_tests () {
 }
 
 
-void CRUX_ARITH__sub_is64_iu16_tests () {
+void CRUX_ARITH__sub_is64_iu16_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3484,7 +3484,7 @@ void CRUX_ARITH__sub_is64_iu16_tests () {
 }
 
 
-void CRUX_ARITH__sub_is64_iu32_tests () {
+void CRUX_ARITH__sub_is64_iu32_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3544,7 +3544,7 @@ void CRUX_ARITH__sub_is64_iu32_tests () {
 }
 
 
-void CRUX_ARITH__sub_is64_iu64_tests () {
+void CRUX_ARITH__sub_is64_iu64_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3604,7 +3604,7 @@ void CRUX_ARITH__sub_is64_iu64_tests () {
 }
 
 
-void CRUX_ARITH__sub_is64_is08_tests () {
+void CRUX_ARITH__sub_is64_is08_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3664,7 +3664,7 @@ void CRUX_ARITH__sub_is64_is08_tests () {
 }
 
 
-void CRUX_ARITH__sub_is64_is16_tests () {
+void CRUX_ARITH__sub_is64_is16_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3724,7 +3724,7 @@ void CRUX_ARITH__sub_is64_is16_tests () {
 }
 
 
-void CRUX_ARITH__sub_is64_is32_tests () {
+void CRUX_ARITH__sub_is64_is32_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3784,7 +3784,7 @@ void CRUX_ARITH__sub_is64_is32_tests () {
 }
 
 
-void CRUX_ARITH__sub_is64_is64_tests () {
+void CRUX_ARITH__sub_is64_is64_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);

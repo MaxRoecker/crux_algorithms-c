@@ -33,7 +33,7 @@ typedef struct CRUX__Trace_Struct {
  * @return A initialized CRUX__Trace.
  *
  */
-CRUX__Trace CRUX__trace_create ();
+CRUX__Trace CRUX__trace_create (void);
 
 
 /**

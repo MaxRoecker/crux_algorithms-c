@@ -25,7 +25,7 @@ CRUX__ResultAddr CRUX__alloc (const IU64 size) {
 }
 
 
-CRUX__ResultAddr CRUX__alloc_context () {
+CRUX__ResultAddr CRUX__alloc_context (void) {
   const void *context = nil(void);
   CRUX__ResultAddr result = CRUX__alloc_context_into(context);
   return result;

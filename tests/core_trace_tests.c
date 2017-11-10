@@ -2,7 +2,7 @@
 #include "./../src/core/trace.h"
 
 
-void CRUX__trace_push_move_clean_tests () {
+void CRUX__trace_push_move_clean_tests (void) {
   CRUX__Fault fault_0 = {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_GENERIC,
@@ -50,7 +50,7 @@ void CRUX__trace_push_move_clean_tests () {
 }
 
 
-void CRUX__trace_print_tests () {
+void CRUX__trace_print_tests (void) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Fault fault_0 = {
     .cause = nil(CRUX__Fault),

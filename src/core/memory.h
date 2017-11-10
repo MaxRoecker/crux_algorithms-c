@@ -37,7 +37,7 @@ CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size);
  * @return a result with an address of the context.
  *
  */
-CRUX__ResultAddr CRUX__alloc_context ();
+CRUX__ResultAddr CRUX__alloc_context (void);
 
 
 /**

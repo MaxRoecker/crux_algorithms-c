@@ -4,7 +4,7 @@
 
 
 
-void CRUX__cast_iu08_iu16_test () {
+void CRUX__cast_iu08_iu16_test (void) {
   const IU16 src_max = IU16_MAX;
   const IU16 src_min = IU16_MIN;
   const IU16 tgt_max = IU08_MAX;
@@ -24,7 +24,7 @@ void CRUX__cast_iu08_iu16_test () {
 }
 
 
-void CRUX__cast_iu08_iu32_test () {
+void CRUX__cast_iu08_iu32_test (void) {
   const IU32 src_max = IU32_MAX;
   const IU32 src_min = IU32_MIN;
   const IU32 tgt_max = IU08_MAX;
@@ -44,7 +44,7 @@ void CRUX__cast_iu08_iu32_test () {
 }
 
 
-void CRUX__cast_iu08_iu64_test () {
+void CRUX__cast_iu08_iu64_test (void) {
   const IU64 src_max = IU64_MAX;
   const IU64 src_min = IU64_MIN;
   const IU64 tgt_max = IU08_MAX;
@@ -64,7 +64,7 @@ void CRUX__cast_iu08_iu64_test () {
 }
 
 
-void CRUX__cast_iu08_is08_test () {
+void CRUX__cast_iu08_is08_test (void) {
   const IS08 src_max = IS08_MAX;
   const IS08 src_min = IS08_MIN;
   const IS08 tgt_max = IS08_MAX;
@@ -84,7 +84,7 @@ void CRUX__cast_iu08_is08_test () {
 }
 
 
-void CRUX__cast_iu08_is16_test () {
+void CRUX__cast_iu08_is16_test (void) {
   const IS16 src_max = IS16_MAX;
   const IS16 src_min = IS16_MIN;
   const IS16 tgt_max = IU08_MAX;
@@ -104,7 +104,7 @@ void CRUX__cast_iu08_is16_test () {
 }
 
 
-void CRUX__cast_iu08_is32_test () {
+void CRUX__cast_iu08_is32_test (void) {
   const IS32 src_max = IS32_MAX;
   const IS32 src_min = IS32_MIN;
   const IS32 tgt_max = IU08_MAX;
@@ -124,7 +124,7 @@ void CRUX__cast_iu08_is32_test () {
 }
 
 
-void CRUX__cast_iu08_is64_test () {
+void CRUX__cast_iu08_is64_test (void) {
   const IS64 src_max = IS64_MAX;
   const IS64 src_min = IS64_MIN;
   const IS64 tgt_max = IU08_MAX;
@@ -144,7 +144,7 @@ void CRUX__cast_iu08_is64_test () {
 }
 
 
-void CRUX__cast_iu16_iu08_test () {
+void CRUX__cast_iu16_iu08_test (void) {
   const IU08 src_max = IU08_MAX;
   const IU08 src_min = IU08_MIN;
   const IU08 tgt_max = IU08_MAX;
@@ -164,7 +164,7 @@ void CRUX__cast_iu16_iu08_test () {
 }
 
 
-void CRUX__cast_iu16_iu32_test () {
+void CRUX__cast_iu16_iu32_test (void) {
   const IU32 src_max = IU32_MAX;
   const IU32 src_min = IU32_MIN;
   const IU32 tgt_max = IU16_MAX;
@@ -184,7 +184,7 @@ void CRUX__cast_iu16_iu32_test () {
 }
 
 
-void CRUX__cast_iu16_iu64_test () {
+void CRUX__cast_iu16_iu64_test (void) {
   const IU64 src_max = IU64_MAX;
   const IU64 src_min = IU64_MIN;
   const IU64 tgt_max = IU16_MAX;
@@ -204,7 +204,7 @@ void CRUX__cast_iu16_iu64_test () {
 }
 
 
-void CRUX__cast_iu16_is08_test () {
+void CRUX__cast_iu16_is08_test (void) {
   const IS08 src_max = IS08_MAX;
   const IS08 src_min = IS08_MIN;
   const IS08 tgt_max = IS08_MAX;
@@ -224,7 +224,7 @@ void CRUX__cast_iu16_is08_test () {
 }
 
 
-void CRUX__cast_iu16_is16_test () {
+void CRUX__cast_iu16_is16_test (void) {
   const IS16 src_max = IS16_MAX;
   const IS16 src_min = IS16_MIN;
   const IS16 tgt_max = IS16_MAX;
@@ -244,7 +244,7 @@ void CRUX__cast_iu16_is16_test () {
 }
 
 
-void CRUX__cast_iu16_is32_test () {
+void CRUX__cast_iu16_is32_test (void) {
   const IS32 src_max = IS32_MAX;
   const IS32 src_min = IS32_MIN;
   const IS32 tgt_max = IU16_MAX;
@@ -264,7 +264,7 @@ void CRUX__cast_iu16_is32_test () {
 }
 
 
-void CRUX__cast_iu16_is64_test () {
+void CRUX__cast_iu16_is64_test (void) {
   const IS64 src_max = IS64_MAX;
   const IS64 src_min = IS64_MIN;
   const IS64 tgt_max = IU16_MAX;
@@ -284,7 +284,7 @@ void CRUX__cast_iu16_is64_test () {
 }
 
 
-void CRUX__cast_iu32_iu08_test () {
+void CRUX__cast_iu32_iu08_test (void) {
   const IU08 src_max = IU08_MAX;
   const IU08 src_min = IU08_MIN;
   const IU08 tgt_max = IU08_MAX;
@@ -304,7 +304,7 @@ void CRUX__cast_iu32_iu08_test () {
 }
 
 
-void CRUX__cast_iu32_iu16_test () {
+void CRUX__cast_iu32_iu16_test (void) {
   const IU16 src_max = IU16_MAX;
   const IU16 src_min = IU16_MIN;
   const IU16 tgt_max = IU16_MAX;
@@ -324,7 +324,7 @@ void CRUX__cast_iu32_iu16_test () {
 }
 
 
-void CRUX__cast_iu32_iu64_test () {
+void CRUX__cast_iu32_iu64_test (void) {
   const IU64 src_max = IU64_MAX;
   const IU64 src_min = IU64_MIN;
   const IU64 tgt_max = IU32_MAX;
@@ -344,7 +344,7 @@ void CRUX__cast_iu32_iu64_test () {
 }
 
 
-void CRUX__cast_iu32_is08_test () {
+void CRUX__cast_iu32_is08_test (void) {
   const IS08 src_max = IS08_MAX;
   const IS08 src_min = IS08_MIN;
   const IS08 tgt_max = IS08_MAX;
@@ -364,7 +364,7 @@ void CRUX__cast_iu32_is08_test () {
 }
 
 
-void CRUX__cast_iu32_is16_test () {
+void CRUX__cast_iu32_is16_test (void) {
   const IS16 src_max = IS16_MAX;
   const IS16 src_min = IS16_MIN;
   const IS16 tgt_max = IS16_MAX;
@@ -384,7 +384,7 @@ void CRUX__cast_iu32_is16_test () {
 }
 
 
-void CRUX__cast_iu32_is32_test () {
+void CRUX__cast_iu32_is32_test (void) {
   const IS32 src_max = IS32_MAX;
   const IS32 src_min = IS32_MIN;
   const IS32 tgt_max = IS32_MAX;
@@ -404,7 +404,7 @@ void CRUX__cast_iu32_is32_test () {
 }
 
 
-void CRUX__cast_iu32_is64_test () {
+void CRUX__cast_iu32_is64_test (void) {
   const IS64 src_max = IS64_MAX;
   const IS64 src_min = IS64_MIN;
   const IS64 tgt_max = IU32_MAX;
@@ -424,7 +424,7 @@ void CRUX__cast_iu32_is64_test () {
 }
 
 
-void CRUX__cast_iu64_iu08_test () {
+void CRUX__cast_iu64_iu08_test (void) {
   const IU08 src_max = IU08_MAX;
   const IU08 src_min = IU08_MIN;
   const IU08 tgt_max = IU08_MAX;
@@ -444,7 +444,7 @@ void CRUX__cast_iu64_iu08_test () {
 }
 
 
-void CRUX__cast_iu64_iu16_test () {
+void CRUX__cast_iu64_iu16_test (void) {
   const IU16 src_max = IU16_MAX;
   const IU16 src_min = IU16_MIN;
   const IU16 tgt_max = IU16_MAX;
@@ -464,7 +464,7 @@ void CRUX__cast_iu64_iu16_test () {
 }
 
 
-void CRUX__cast_iu64_iu32_test () {
+void CRUX__cast_iu64_iu32_test (void) {
   const IU32 src_max = IU32_MAX;
   const IU32 src_min = IU32_MIN;
   const IU32 tgt_max = IU32_MAX;
@@ -484,7 +484,7 @@ void CRUX__cast_iu64_iu32_test () {
 }
 
 
-void CRUX__cast_iu64_is08_test () {
+void CRUX__cast_iu64_is08_test (void) {
   const IS08 src_max = IS08_MAX;
   const IS08 src_min = IS08_MIN;
   const IS08 tgt_max = IS08_MAX;
@@ -504,7 +504,7 @@ void CRUX__cast_iu64_is08_test () {
 }
 
 
-void CRUX__cast_iu64_is16_test () {
+void CRUX__cast_iu64_is16_test (void) {
   const IS16 src_max = IS16_MAX;
   const IS16 src_min = IS16_MIN;
   const IS16 tgt_max = IS16_MAX;
@@ -524,7 +524,7 @@ void CRUX__cast_iu64_is16_test () {
 }
 
 
-void CRUX__cast_iu64_is32_test () {
+void CRUX__cast_iu64_is32_test (void) {
   const IS32 src_max = IS32_MAX;
   const IS32 src_min = IS32_MIN;
   const IS32 tgt_max = IS32_MAX;
@@ -544,7 +544,7 @@ void CRUX__cast_iu64_is32_test () {
 }
 
 
-void CRUX__cast_iu64_is64_test () {
+void CRUX__cast_iu64_is64_test (void) {
   const IS64 src_max = IS64_MAX;
   const IS64 src_min = IS64_MIN;
   const IS64 tgt_max = IS64_MAX;
@@ -564,7 +564,7 @@ void CRUX__cast_iu64_is64_test () {
 }
 
 
-void CRUX__cast_is08_iu08_test () {
+void CRUX__cast_is08_iu08_test (void) {
   const IU08 src_max = IU08_MAX;
   const IU08 src_min = IU08_MIN;
   const IU08 tgt_max = IS08_MAX;
@@ -584,7 +584,7 @@ void CRUX__cast_is08_iu08_test () {
 }
 
 
-void CRUX__cast_is08_iu16_test () {
+void CRUX__cast_is08_iu16_test (void) {
   const IU16 src_max = IU16_MAX;
   const IU16 src_min = IU16_MIN;
   const IU16 tgt_max = IS08_MAX;
@@ -604,7 +604,7 @@ void CRUX__cast_is08_iu16_test () {
 }
 
 
-void CRUX__cast_is08_iu32_test () {
+void CRUX__cast_is08_iu32_test (void) {
   const IU32 src_max = IU32_MAX;
   const IU32 src_min = IU32_MIN;
   const IU32 tgt_max = IS08_MAX;
@@ -624,7 +624,7 @@ void CRUX__cast_is08_iu32_test () {
 }
 
 
-void CRUX__cast_is08_iu64_test () {
+void CRUX__cast_is08_iu64_test (void) {
   const IU64 src_max = IU64_MAX;
   const IU64 src_min = IU64_MIN;
   const IU64 tgt_max = IS08_MAX;
@@ -644,7 +644,7 @@ void CRUX__cast_is08_iu64_test () {
 }
 
 
-void CRUX__cast_is08_is16_test () {
+void CRUX__cast_is08_is16_test (void) {
   const IS16 src_max = IS16_MAX;
   const IS16 src_min = IS16_MIN;
   const IS16 tgt_max = IS08_MAX;
@@ -664,7 +664,7 @@ void CRUX__cast_is08_is16_test () {
 }
 
 
-void CRUX__cast_is08_is32_test () {
+void CRUX__cast_is08_is32_test (void) {
   const IS32 src_max = IS32_MAX;
   const IS32 src_min = IS32_MIN;
   const IS32 tgt_max = IS08_MAX;
@@ -684,7 +684,7 @@ void CRUX__cast_is08_is32_test () {
 }
 
 
-void CRUX__cast_is08_is64_test () {
+void CRUX__cast_is08_is64_test (void) {
   const IS64 src_max = IS64_MAX;
   const IS64 src_min = IS64_MIN;
   const IS64 tgt_max = IS08_MAX;
@@ -704,7 +704,7 @@ void CRUX__cast_is08_is64_test () {
 }
 
 
-void CRUX__cast_is16_iu08_test () {
+void CRUX__cast_is16_iu08_test (void) {
   const IU08 src_max = IU08_MAX;
   const IU08 src_min = IU08_MIN;
   const IU08 tgt_max = IU08_MAX;
@@ -724,7 +724,7 @@ void CRUX__cast_is16_iu08_test () {
 }
 
 
-void CRUX__cast_is16_iu16_test () {
+void CRUX__cast_is16_iu16_test (void) {
   const IU16 src_max = IU16_MAX;
   const IU16 src_min = IU16_MIN;
   const IU16 tgt_max = IS16_MAX;
@@ -744,7 +744,7 @@ void CRUX__cast_is16_iu16_test () {
 }
 
 
-void CRUX__cast_is16_iu32_test () {
+void CRUX__cast_is16_iu32_test (void) {
   const IU32 src_max = IU32_MAX;
   const IU32 src_min = IU32_MIN;
   const IU32 tgt_max = IS16_MAX;
@@ -764,7 +764,7 @@ void CRUX__cast_is16_iu32_test () {
 }
 
 
-void CRUX__cast_is16_iu64_test () {
+void CRUX__cast_is16_iu64_test (void) {
   const IU64 src_max = IU64_MAX;
   const IU64 src_min = IU64_MIN;
   const IU64 tgt_max = IS16_MAX;
@@ -784,7 +784,7 @@ void CRUX__cast_is16_iu64_test () {
 }
 
 
-void CRUX__cast_is16_is08_test () {
+void CRUX__cast_is16_is08_test (void) {
   const IS08 src_max = IS08_MAX;
   const IS08 src_min = IS08_MIN;
   const IS08 tgt_max = IS08_MAX;
@@ -804,7 +804,7 @@ void CRUX__cast_is16_is08_test () {
 }
 
 
-void CRUX__cast_is16_is32_test () {
+void CRUX__cast_is16_is32_test (void) {
   const IS32 src_max = IS32_MAX;
   const IS32 src_min = IS32_MIN;
   const IS32 tgt_max = IS16_MAX;
@@ -824,7 +824,7 @@ void CRUX__cast_is16_is32_test () {
 }
 
 
-void CRUX__cast_is16_is64_test () {
+void CRUX__cast_is16_is64_test (void) {
   const IS64 src_max = IS64_MAX;
   const IS64 src_min = IS64_MIN;
   const IS64 tgt_max = IS16_MAX;
@@ -844,7 +844,7 @@ void CRUX__cast_is16_is64_test () {
 }
 
 
-void CRUX__cast_is32_iu08_test () {
+void CRUX__cast_is32_iu08_test (void) {
   const IU08 src_max = IU08_MAX;
   const IU08 src_min = IU08_MIN;
   const IU08 tgt_max = IU08_MAX;
@@ -864,7 +864,7 @@ void CRUX__cast_is32_iu08_test () {
 }
 
 
-void CRUX__cast_is32_iu16_test () {
+void CRUX__cast_is32_iu16_test (void) {
   const IU16 src_max = IU16_MAX;
   const IU16 src_min = IU16_MIN;
   const IU16 tgt_max = IU16_MAX;
@@ -884,7 +884,7 @@ void CRUX__cast_is32_iu16_test () {
 }
 
 
-void CRUX__cast_is32_iu32_test () {
+void CRUX__cast_is32_iu32_test (void) {
   const IU32 src_max = IU32_MAX;
   const IU32 src_min = IU32_MIN;
   const IU32 tgt_max = IS32_MAX;
@@ -904,7 +904,7 @@ void CRUX__cast_is32_iu32_test () {
 }
 
 
-void CRUX__cast_is32_iu64_test () {
+void CRUX__cast_is32_iu64_test (void) {
   const IU64 src_max = IU64_MAX;
   const IU64 src_min = IU64_MIN;
   const IU64 tgt_max = IS32_MAX;
@@ -924,7 +924,7 @@ void CRUX__cast_is32_iu64_test () {
 }
 
 
-void CRUX__cast_is32_is08_test () {
+void CRUX__cast_is32_is08_test (void) {
   const IS08 src_max = IS08_MAX;
   const IS08 src_min = IS08_MIN;
   const IS08 tgt_max = IS08_MAX;
@@ -944,7 +944,7 @@ void CRUX__cast_is32_is08_test () {
 }
 
 
-void CRUX__cast_is32_is16_test () {
+void CRUX__cast_is32_is16_test (void) {
   const IS16 src_max = IS16_MAX;
   const IS16 src_min = IS16_MIN;
   const IS16 tgt_max = IS16_MAX;
@@ -964,7 +964,7 @@ void CRUX__cast_is32_is16_test () {
 }
 
 
-void CRUX__cast_is32_is64_test () {
+void CRUX__cast_is32_is64_test (void) {
   const IS64 src_max = IS64_MAX;
   const IS64 src_min = IS64_MIN;
   const IS64 tgt_max = IS32_MAX;
@@ -984,7 +984,7 @@ void CRUX__cast_is32_is64_test () {
 }
 
 
-void CRUX__cast_is64_iu08_test () {
+void CRUX__cast_is64_iu08_test (void) {
   const IU08 src_max = IU08_MAX;
   const IU08 src_min = IU08_MIN;
   const IU08 tgt_max = IU08_MAX;
@@ -1004,7 +1004,7 @@ void CRUX__cast_is64_iu08_test () {
 }
 
 
-void CRUX__cast_is64_iu16_test () {
+void CRUX__cast_is64_iu16_test (void) {
   const IU16 src_max = IU16_MAX;
   const IU16 src_min = IU16_MIN;
   const IU16 tgt_max = IU16_MAX;
@@ -1024,7 +1024,7 @@ void CRUX__cast_is64_iu16_test () {
 }
 
 
-void CRUX__cast_is64_iu32_test () {
+void CRUX__cast_is64_iu32_test (void) {
   const IU32 src_max = IU32_MAX;
   const IU32 src_min = IU32_MIN;
   const IU32 tgt_max = IU32_MAX;
@@ -1044,7 +1044,7 @@ void CRUX__cast_is64_iu32_test () {
 }
 
 
-void CRUX__cast_is64_iu64_test () {
+void CRUX__cast_is64_iu64_test (void) {
   const IU64 src_max = IU64_MAX;
   const IU64 src_min = IU64_MIN;
   const IU64 tgt_max = IS64_MAX;
@@ -1064,7 +1064,7 @@ void CRUX__cast_is64_iu64_test () {
 }
 
 
-void CRUX__cast_is64_is08_test () {
+void CRUX__cast_is64_is08_test (void) {
   const IS08 src_max = IS08_MAX;
   const IS08 src_min = IS08_MIN;
   const IS08 tgt_max = IS08_MAX;
@@ -1084,7 +1084,7 @@ void CRUX__cast_is64_is08_test () {
 }
 
 
-void CRUX__cast_is64_is16_test () {
+void CRUX__cast_is64_is16_test (void) {
   const IS16 src_max = IS16_MAX;
   const IS16 src_min = IS16_MIN;
   const IS16 tgt_max = IS16_MAX;
@@ -1104,7 +1104,7 @@ void CRUX__cast_is64_is16_test () {
 }
 
 
-void CRUX__cast_is64_is32_test () {
+void CRUX__cast_is64_is32_test (void) {
   const IS32 src_max = IS32_MAX;
   const IS32 src_min = IS32_MIN;
   const IS32 tgt_max = IS32_MAX;
@@ -1127,7 +1127,7 @@ void CRUX__cast_is64_is32_test () {
 
 
 
-void CRUX__cast_test () {
+void CRUX__cast_test (void) {
   const IU08 iu08_value = CRUX__as_iu08(0);
   const IU16 iu16_value = CRUX__as_iu16(0);
   const IU32 iu32_value = CRUX__as_iu32(0);

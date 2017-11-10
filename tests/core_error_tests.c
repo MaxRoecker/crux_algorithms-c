@@ -16,7 +16,7 @@ static const CRUX__Error error_2 = {
   .name = "Gratuitous error"};
 
 
-void CRUX__error_equals_test () {
+void CRUX__error_equals_test (void) {
   ok(CRUX__error_equals(error_0, error_0), "Must be equals.");
   ok(!CRUX__error_equals(error_0, error_1), "Must not be equals.");
   ok(!CRUX__error_equals(error_0, error_2), "Must not be equals.");
@@ -29,7 +29,7 @@ void CRUX__error_equals_test () {
 }
 
 
-void CRUX__error_stringify_tests () {
+void CRUX__error_stringify_tests (void) {
   const Size string_size = CRUX__ERROR_STRING_SIZE;
   Char string_0[string_size];
   Char string_1[string_size];

@@ -2,7 +2,7 @@
 #include "./../src/core/fault.h"
 
 
-void CRUX__fault_equals_tests () {
+void CRUX__fault_equals_tests (void) {
   CRUX__Fault fault_0 = {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_GENERIC,

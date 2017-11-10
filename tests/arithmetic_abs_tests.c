@@ -2,7 +2,7 @@
 #include "./../src/arithmetic/abs.h"
 
 
-void CRUX_ARITH__abs_iu08_test () {
+void CRUX_ARITH__abs_iu08_test (void) {
   const IU08 max = IU08_MAX;
   const IU08 min = IU08_MIN;
   const IU08 max_abs = IU08_MAX;
@@ -18,7 +18,7 @@ void CRUX_ARITH__abs_iu08_test () {
 }
 
 
-void CRUX_ARITH__abs_iu16_test () {
+void CRUX_ARITH__abs_iu16_test (void) {
   const IU16 max = IU16_MAX;
   const IU16 min = IU16_MIN;
   const IU16 max_abs = IU16_MAX;
@@ -34,7 +34,7 @@ void CRUX_ARITH__abs_iu16_test () {
 }
 
 
-void CRUX_ARITH__abs_iu32_test () {
+void CRUX_ARITH__abs_iu32_test (void) {
   const IU32 max = IU32_MAX;
   const IU32 min = IU32_MIN;
   const IU32 max_abs = IU32_MAX;
@@ -50,7 +50,7 @@ void CRUX_ARITH__abs_iu32_test () {
 }
 
 
-void CRUX_ARITH__abs_iu64_test () {
+void CRUX_ARITH__abs_iu64_test (void) {
   const IU64 max = IU64_MAX;
   const IU64 min = IU64_MIN;
   const IU64 max_abs = IU64_MAX;
@@ -66,7 +66,7 @@ void CRUX_ARITH__abs_iu64_test () {
 }
 
 
-void CRUX_ARITH__abs_is08_test () {
+void CRUX_ARITH__abs_is08_test (void) {
   const IS08 max = IS08_MAX;
   const IS08 negative = IS08_MIN + CRUX__as_is08(1);
   const IS08 min = IS08_MIN;
@@ -86,7 +86,7 @@ void CRUX_ARITH__abs_is08_test () {
 }
 
 
-void CRUX_ARITH__abs_is16_test () {
+void CRUX_ARITH__abs_is16_test (void) {
   const IS16 max = IS16_MAX;
   const IS16 negative = IS16_MIN + CRUX__as_is16(1);
   const IS16 min = IS16_MIN;
@@ -106,7 +106,7 @@ void CRUX_ARITH__abs_is16_test () {
 }
 
 
-void CRUX_ARITH__abs_is32_test () {
+void CRUX_ARITH__abs_is32_test (void) {
   const IS32 max = IS32_MAX;
   const IS32 negative = IS32_MIN + CRUX__as_is32(1);
   const IS32 min = IS32_MIN;
@@ -126,7 +126,7 @@ void CRUX_ARITH__abs_is32_test () {
 }
 
 
-void CRUX_ARITH__abs_is64_test () {
+void CRUX_ARITH__abs_is64_test (void) {
   const IS64 max = IS64_MAX;
   const IS64 negative = IS64_MIN + CRUX__as_is64(1);
   const IS64 min = IS64_MIN;
@@ -146,7 +146,7 @@ void CRUX_ARITH__abs_is64_test () {
 }
 
 
-void CRUX_ARITH__abs_test () {
+void CRUX_ARITH__abs_test (void) {
   const IU08 iu08_value = CRUX__as_iu08(0);
   const IU16 iu16_value = CRUX__as_iu16(0);
   const IU32 iu32_value = CRUX__as_iu32(0);
