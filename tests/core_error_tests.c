@@ -46,7 +46,7 @@ void CRUX__error_stringify_tests () {
 }
 
 
-int main () {
+int main (int argc, char *argv[]) {
   plan(12);
   CRUX__error_equals_test();
   CRUX__error_stringify_tests();

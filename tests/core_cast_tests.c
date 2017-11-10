@@ -1373,7 +1373,7 @@ void CRUX__cast_test () {
 }
 
 
-int main () {
+int main (int argc, char *argv[]) {
   plan(336);
   CRUX__cast_iu08_iu16_test();
   CRUX__cast_iu08_iu32_test();

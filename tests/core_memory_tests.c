@@ -96,7 +96,7 @@ void CRUX__alloc_into_tests () {
 }
 
 
-int main () {
+int main (int argc, char *argv[]) {
   plan(33);
   CRUX__alloc_test();
   CRUX__alloc_into_tests();

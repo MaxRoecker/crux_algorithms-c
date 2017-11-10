@@ -190,7 +190,7 @@ void CRUX_ARITH__abs_test () {
 }
 
 
-int main () {
+int main (int argc, char *argv[]) {
   plan(52);
   CRUX_ARITH__abs_iu08_test();
   CRUX_ARITH__abs_iu16_test();

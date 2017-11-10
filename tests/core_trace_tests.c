@@ -78,7 +78,7 @@ void CRUX__trace_print_tests () {
 }
 
 
-int main () {
+int main (int argc, char *argv[]) {
   plan(14);
   CRUX__trace_push_move_clean_tests();
   CRUX__trace_print_tests();

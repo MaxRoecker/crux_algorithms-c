@@ -34,7 +34,7 @@ void CRUX__fault_equals_tests () {
 }
 
 
-int main () {
+int main (int argc, char *argv[]) {
   plan(9);
   CRUX__fault_equals_tests();
   done_testing();

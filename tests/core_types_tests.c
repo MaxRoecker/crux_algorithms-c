@@ -228,7 +228,7 @@ void CRUX__popcount_tests () {
 
 
 
-int main () {
+int main (int argc, char *argv[]) {
   plan(51);
   CRUX__iu08_format_tests();
   CRUX__iu16_format_tests();

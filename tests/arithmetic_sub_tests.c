@@ -3846,7 +3846,7 @@ void CRUX_ARITH__sub_is64_is64_tests () {
 
 
 
-int main () {
+int main (int argc, char *argv[]) {
   plan(1024);
   CRUX_ARITH__sub_iu08_iu08_tests();
   CRUX_ARITH__sub_iu08_iu16_tests();
