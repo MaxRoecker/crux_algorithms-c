@@ -63,6 +63,10 @@ arithmetic_add_module						= $(arithmetic_package)/add.c
 arithmetic_add_object						= $(BIN)/arithmetic_add.o
 arithmetic_add_dependencies			= arithmetic_error $(arithmetic_error_dependencies)
 
+arithmetic_sub_module						= $(arithmetic_package)/sub.c
+arithmetic_sub_object						= $(BIN)/arithmetic_sub.o
+arithmetic_sub_dependencies			= arithmetic_error $(arithmetic_error_dependencies)
+
 
 # Macros
 compile = $(CC) $(CFLAGS) -c -o $($(1)_object) $($(1)_module)
