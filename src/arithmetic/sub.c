@@ -2,7 +2,7 @@
 
 
 #define CRUX_ARITH__info_promo(fmt, type) "It's not possible promote %" fmt " into a " type "."
-#define CRUX_ARITH__info_overflow(a_fmt, b_fmt) "%" a_fmt " + %" b_fmt " causes overflow."
+#define CRUX_ARITH__info_overflow(a_fmt, b_fmt) "%" a_fmt " - %" b_fmt " causes overflow."
 
 
 
