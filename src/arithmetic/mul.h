@@ -1,7 +1,7 @@
 /**
  * ---------------------------------------------------------------------------
  * @file   mul.h
- * @brief  Addition for values of core types.
+ * @brief  Multiplication for values of core types.
  *
  */
 #pragma once
