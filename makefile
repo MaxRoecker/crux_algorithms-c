@@ -71,6 +71,10 @@ arithmetic_mul_module						= $(arithmetic_package)/mul.c
 arithmetic_mul_object						= $(BIN)/arithmetic_mul.o
 arithmetic_mul_dependencies			= arithmetic_error $(arithmetic_error_dependencies)
 
+arithmetic_div_module						= $(arithmetic_package)/div.c
+arithmetic_div_object						= $(BIN)/arithmetic_div.o
+arithmetic_div_dependencies			= arithmetic_error $(arithmetic_error_dependencies)
+
 
 # Macros
 compile = $(CC) $(CFLAGS) -c -o $($(1)_object) $($(1)_module)
