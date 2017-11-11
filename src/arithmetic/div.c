@@ -2,6 +2,7 @@
 
 
 #define CRUX_ARITH__info_promo(fmt, type) "It's not possible promote %" fmt " into a " type "."
+#define CRUX_ARITH__info_division(a_fmt, b_fmt) "The division of %" a_fmt " by %" b_fmt " is invalid or causes overflow."
 
 
 
@@ -11,12 +12,14 @@ CRUX__ResultDivIU08 CRUX_ARITH__div_iu08_iu08 (
   CRUX__Trace trace = CRUX__trace_create();
   IU08 quo = CRUX__as_iu08(0);
   IU08 rem = CRUX__as_iu08(0);
-  if (b == CRUX__as_iu08(0)) {
+  const Bool has_error = (b == CRUX__as_iu08(0));
+  if (has_error) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
-      .info = "The divisor can't be zero.",
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(IU08_FMT, IU08_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
   } else {
     quo = a / b;
@@ -45,12 +48,14 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu08_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    if (b_promo == CRUX__as_iu16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu16(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU08_FMT, IU16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -80,12 +85,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu08_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU08_FMT, IU32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -115,12 +122,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu08_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU08_FMT, IU64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -150,12 +159,14 @@ CRUX__ResultDivIU08 CRUX_ARITH__div_iu08_is08 (
   } else {
     const IU08 a_promo = a;
     const IU08 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu08(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu08(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU08_FMT, IS08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -185,12 +196,15 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_iu08_is16 (
   } else {
     const IS16 a_promo = promo_result.value;
     const IS16 b_promo = b;
-    if (b_promo == CRUX__as_is16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is16(0))
+      || ((a_promo == IS16_MIN) && (b_promo == CRUX__as_is16(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU08_FMT, IS16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -220,12 +234,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_iu08_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    if (b_promo == CRUX__as_is32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is32(0))
+      || ((a_promo == IS32_MIN) && (b_promo == CRUX__as_is32(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU08_FMT, IS32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -255,12 +272,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_iu08_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU08_FMT, IS64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -290,12 +310,14 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_iu08 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu16(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU16_FMT, IU08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -312,12 +334,14 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_iu16 (
   CRUX__Trace trace = CRUX__trace_create();
   IU16 quo = CRUX__as_iu16(0);
   IU16 rem = CRUX__as_iu16(0);
-  if (b == CRUX__as_iu16(0)) {
+  const Bool has_error = (b == CRUX__as_iu16(0));
+  if (has_error) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
-      .info = "The divisor can't be zero.",
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(IU16_FMT, IU16_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
   } else {
     quo = a / b;
@@ -346,12 +370,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu16_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU16_FMT, IU32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -381,12 +407,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu16_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU16_FMT, IU64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -416,12 +444,14 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_is08 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu16(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU16_FMT, IS08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -451,12 +481,14 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_is16 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu16(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU16_FMT, IS16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -486,12 +518,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_iu16_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    if (b_promo == CRUX__as_is32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is32(0))
+      || ((a_promo == IS32_MIN) && (b_promo == CRUX__as_is32(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU16_FMT, IS32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -521,12 +556,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_iu16_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU16_FMT, IS64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -556,12 +594,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu08 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU32_FMT, IU08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -591,12 +631,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu16 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU32_FMT, IU16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -613,12 +655,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu32 (
   CRUX__Trace trace = CRUX__trace_create();
   IU32 quo = CRUX__as_iu32(0);
   IU32 rem = CRUX__as_iu32(0);
-  if (b == CRUX__as_iu32(0)) {
+  const Bool has_error = (b == CRUX__as_iu32(0));
+  if (has_error) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
-      .info = "The divisor can't be zero.",
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(IU32_FMT, IU32_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
   } else {
     quo = a / b;
@@ -647,12 +691,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu32_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU32_FMT, IU64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -682,12 +728,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is08 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU32_FMT, IS08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -717,12 +765,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is16 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU32_FMT, IS16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -752,12 +802,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is32 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU32_FMT, IS32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -787,12 +839,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_iu32_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU32_FMT, IS64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -822,12 +877,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu08 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU64_FMT, IU08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -857,12 +914,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu16 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU64_FMT, IU16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -892,12 +951,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu32 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU64_FMT, IU32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -914,12 +975,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu64 (
   CRUX__Trace trace = CRUX__trace_create();
   IU64 quo = CRUX__as_iu64(0);
   IU64 rem = CRUX__as_iu64(0);
-  if (b == CRUX__as_iu64(0)) {
+  const Bool has_error = (b == CRUX__as_iu64(0));
+  if (has_error) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
-      .info = "The divisor can't be zero.",
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(IU64_FMT, IU64_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
   } else {
     quo = a / b;
@@ -948,12 +1011,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is08 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU64_FMT, IS08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -983,12 +1048,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is16 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU64_FMT, IS16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1018,12 +1085,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is32 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU64_FMT, IS32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1053,12 +1122,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is64 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IU64_FMT, IS64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1088,12 +1159,14 @@ CRUX__ResultDivIU08 CRUX_ARITH__div_is08_iu08 (
   } else {
     const IU08 a_promo = promo_result.value;
     const IU08 b_promo = b;
-    if (b_promo == CRUX__as_iu08(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu08(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS08_FMT, IU08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1123,12 +1196,14 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_is08_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    if (b_promo == CRUX__as_iu16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu16(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS08_FMT, IU16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1158,12 +1233,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_is08_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS08_FMT, IU32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1193,12 +1270,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_is08_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS08_FMT, IU64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1215,12 +1294,15 @@ CRUX__ResultDivIS08 CRUX_ARITH__div_is08_is08 (
   CRUX__Trace trace = CRUX__trace_create();
   IS08 quo = CRUX__as_is08(0);
   IS08 rem = CRUX__as_is08(0);
-  if (b == CRUX__as_is08(0)) {
+  const Bool has_error = (b == CRUX__as_is08(0))
+    || ((a == IS08_MIN) && (b == CRUX__as_is08(-1)));
+  if (has_error) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
-      .info = "The divisor can't be zero.",
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(IS08_FMT, IS08_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
   } else {
     quo = a / b;
@@ -1249,12 +1331,15 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_is08_is16 (
   } else {
     const IS16 a_promo = promo_result.value;
     const IS16 b_promo = b;
-    if (b_promo == CRUX__as_is16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is16(0))
+      || ((a_promo == IS16_MIN) && (b_promo == CRUX__as_is16(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS08_FMT, IS16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1284,12 +1369,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is08_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    if (b_promo == CRUX__as_is32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is32(0))
+      || ((a_promo == IS32_MIN) && (b_promo == CRUX__as_is32(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS08_FMT, IS32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1319,12 +1407,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is08_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS08_FMT, IS64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1354,12 +1445,15 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_is16_iu08 (
   } else {
     const IS16 a_promo = a;
     const IS16 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is16(0))
+      || ((a_promo == IS16_MIN) && (b_promo == CRUX__as_is16(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS16_FMT, IU08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1389,12 +1483,14 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_is16_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    if (b_promo == CRUX__as_iu16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu16(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS16_FMT, IU16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1424,12 +1520,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_is16_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS16_FMT, IU32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1459,12 +1557,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_is16_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS16_FMT, IU64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1494,12 +1594,15 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_is16_is08 (
   } else {
     const IS16 a_promo = a;
     const IS16 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is16(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is16(0))
+      || ((a_promo == IS16_MIN) && (b_promo == CRUX__as_is16(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS16_FMT, IS08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1516,12 +1619,15 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_is16_is16 (
   CRUX__Trace trace = CRUX__trace_create();
   IS16 quo = CRUX__as_is16(0);
   IS16 rem = CRUX__as_is16(0);
-  if (b == CRUX__as_is16(0)) {
+  const Bool has_error = (b == CRUX__as_is16(0))
+    || ((a == IS16_MIN) && (b == CRUX__as_is16(-1)));
+  if (has_error) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
-      .info = "The divisor can't be zero.",
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(IS16_FMT, IS16_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
   } else {
     quo = a / b;
@@ -1550,12 +1656,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is16_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    if (b_promo == CRUX__as_is32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is32(0))
+      || ((a_promo == IS32_MIN) && (b_promo == CRUX__as_is32(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS16_FMT, IS32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1585,12 +1694,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is16_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS16_FMT, IS64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1620,12 +1732,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_iu08 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is32(0))
+      || ((a_promo == IS32_MIN) && (b_promo == CRUX__as_is32(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS32_FMT, IU08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1655,12 +1770,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_iu16 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is32(0))
+      || ((a_promo == IS32_MIN) && (b_promo == CRUX__as_is32(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS32_FMT, IU16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1690,12 +1808,14 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_is32_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (b_promo == CRUX__as_iu32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu32(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS32_FMT, IU32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1725,12 +1845,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_is32_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS32_FMT, IU64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1760,12 +1882,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is08 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is32(0))
+      || ((a_promo == IS32_MIN) && (b_promo == CRUX__as_is32(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS32_FMT, IS08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1795,12 +1920,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is16 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is32(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is32(0))
+      || ((a_promo == IS32_MIN) && (b_promo == CRUX__as_is32(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS32_FMT, IS16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1817,12 +1945,15 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is32 (
   CRUX__Trace trace = CRUX__trace_create();
   IS32 quo = CRUX__as_is32(0);
   IS32 rem = CRUX__as_is32(0);
-  if (b == CRUX__as_is32(0)) {
+  const Bool has_error = (b == CRUX__as_is32(0))
+    || ((a == IS32_MIN) && (b == CRUX__as_is32(-1)));
+  if (has_error) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
-      .info = "The divisor can't be zero.",
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(IS32_FMT, IS32_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
   } else {
     quo = a / b;
@@ -1851,12 +1982,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is32_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS32_FMT, IS64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1886,12 +2020,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu08 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS64_FMT, IU08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1921,12 +2058,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu16 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS64_FMT, IU16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1956,12 +2096,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu32 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS64_FMT, IU32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -1991,12 +2134,14 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_is64_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (b_promo == CRUX__as_iu64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_iu64(0));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS64_FMT, IU64_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -2026,12 +2171,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is08 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS64_FMT, IS08_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -2061,12 +2209,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is16 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS64_FMT, IS16_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -2096,12 +2247,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is32 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (b_promo == CRUX__as_is64(0)) {
+    const Bool has_error = (b_promo == CRUX__as_is64(0))
+      || ((a_promo == IS64_MIN) && (b_promo == CRUX__as_is64(-1)));
+    if (has_error) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
-        .info = "The divisor can't be zero.",
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      const Char fmt[] = CRUX_ARITH__info_division(IS64_FMT, IS32_FMT);
+      CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
     } else {
       quo = a_promo / b_promo;
@@ -2118,12 +2272,15 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is64 (
   CRUX__Trace trace = CRUX__trace_create();
   IS64 quo = CRUX__as_is64(0);
   IS64 rem = CRUX__as_is64(0);
-  if (b == CRUX__as_is64(0)) {
+  const Bool has_error = (b == CRUX__as_is64(0))
+    || ((a == IS64_MIN) && (b == CRUX__as_is64(-1)));
+  if (has_error) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
-      .info = "The divisor can't be zero.",
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(3)};
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(IS64_FMT, IS64_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
   } else {
     quo = a / b;
@@ -2137,3 +2294,4 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is64 (
 
 
 #undef CRUX_ARITH__info_promo
+#undef CRUX_ARITH__info_division
