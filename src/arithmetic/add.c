@@ -7,7 +7,6 @@
 
 
 
-
 CRUX__ResultIU08 CRUX_ARITH__add_iu08_iu08 (
     const IU08 a, const IU08 b) {
   CRUX__Trace trace = CRUX__trace_create();
@@ -32,7 +31,7 @@ CRUX__ResultIU08 CRUX_ARITH__add_iu08_iu08 (
 CRUX__ResultIU16 CRUX_ARITH__add_iu08_iu16 (
     const IU08 a, const IU16 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU08 addition = CRUX__as_iu16(0);
+  IU16 addition = CRUX__as_iu16(0);
   CRUX__ResultIU16 promo_result = CRUX__cast_to_iu16(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -67,7 +66,7 @@ CRUX__ResultIU16 CRUX_ARITH__add_iu08_iu16 (
 CRUX__ResultIU32 CRUX_ARITH__add_iu08_iu32 (
     const IU08 a, const IU32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU08 addition = CRUX__as_iu32(0);
+  IU32 addition = CRUX__as_iu32(0);
   CRUX__ResultIU32 promo_result = CRUX__cast_to_iu32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -102,7 +101,7 @@ CRUX__ResultIU32 CRUX_ARITH__add_iu08_iu32 (
 CRUX__ResultIU64 CRUX_ARITH__add_iu08_iu64 (
     const IU08 a, const IU64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU08 addition = CRUX__as_iu64(0);
+  IU64 addition = CRUX__as_iu64(0);
   CRUX__ResultIU64 promo_result = CRUX__cast_to_iu64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -172,7 +171,7 @@ CRUX__ResultIU08 CRUX_ARITH__add_iu08_is08 (
 CRUX__ResultIS16 CRUX_ARITH__add_iu08_is16 (
     const IU08 a, const IS16 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU08 addition = CRUX__as_is16(0);
+  IS16 addition = CRUX__as_is16(0);
   CRUX__ResultIS16 promo_result = CRUX__cast_to_is16(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -209,7 +208,7 @@ CRUX__ResultIS16 CRUX_ARITH__add_iu08_is16 (
 CRUX__ResultIS32 CRUX_ARITH__add_iu08_is32 (
     const IU08 a, const IS32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU08 addition = CRUX__as_is32(0);
+  IS32 addition = CRUX__as_is32(0);
   CRUX__ResultIS32 promo_result = CRUX__cast_to_is32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -246,7 +245,7 @@ CRUX__ResultIS32 CRUX_ARITH__add_iu08_is32 (
 CRUX__ResultIS64 CRUX_ARITH__add_iu08_is64 (
     const IU08 a, const IS64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU08 addition = CRUX__as_is64(0);
+  IS64 addition = CRUX__as_is64(0);
   CRUX__ResultIS64 promo_result = CRUX__cast_to_is64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -339,7 +338,7 @@ CRUX__ResultIU16 CRUX_ARITH__add_iu16_iu16 (
 CRUX__ResultIU32 CRUX_ARITH__add_iu16_iu32 (
     const IU16 a, const IU32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU16 addition = CRUX__as_iu32(0);
+  IU32 addition = CRUX__as_iu32(0);
   CRUX__ResultIU32 promo_result = CRUX__cast_to_iu32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -374,7 +373,7 @@ CRUX__ResultIU32 CRUX_ARITH__add_iu16_iu32 (
 CRUX__ResultIU64 CRUX_ARITH__add_iu16_iu64 (
     const IU16 a, const IU64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU16 addition = CRUX__as_iu64(0);
+  IU64 addition = CRUX__as_iu64(0);
   CRUX__ResultIU64 promo_result = CRUX__cast_to_iu64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -479,7 +478,7 @@ CRUX__ResultIU16 CRUX_ARITH__add_iu16_is16 (
 CRUX__ResultIS32 CRUX_ARITH__add_iu16_is32 (
     const IU16 a, const IS32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU16 addition = CRUX__as_is32(0);
+  IS32 addition = CRUX__as_is32(0);
   CRUX__ResultIS32 promo_result = CRUX__cast_to_is32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -516,7 +515,7 @@ CRUX__ResultIS32 CRUX_ARITH__add_iu16_is32 (
 CRUX__ResultIS64 CRUX_ARITH__add_iu16_is64 (
     const IU16 a, const IS64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU16 addition = CRUX__as_is64(0);
+  IS64 addition = CRUX__as_is64(0);
   CRUX__ResultIS64 promo_result = CRUX__cast_to_is64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -644,7 +643,7 @@ CRUX__ResultIU32 CRUX_ARITH__add_iu32_iu32 (
 CRUX__ResultIU64 CRUX_ARITH__add_iu32_iu64 (
     const IU32 a, const IU64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU32 addition = CRUX__as_iu64(0);
+  IU64 addition = CRUX__as_iu64(0);
   CRUX__ResultIU64 promo_result = CRUX__cast_to_iu64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -784,7 +783,7 @@ CRUX__ResultIU32 CRUX_ARITH__add_iu32_is32 (
 CRUX__ResultIS64 CRUX_ARITH__add_iu32_is64 (
     const IU32 a, const IS64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU32 addition = CRUX__as_is64(0);
+  IS64 addition = CRUX__as_is64(0);
   CRUX__ResultIS64 promo_result = CRUX__cast_to_is64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1087,7 +1086,7 @@ CRUX__ResultIU64 CRUX_ARITH__add_iu64_is64 (
 CRUX__ResultIU08 CRUX_ARITH__add_is08_iu08 (
     const IS08 a, const IU08 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS08 addition = CRUX__as_iu08(0);
+  IU08 addition = CRUX__as_iu08(0);
   CRUX__ResultIU08 promo_result = CRUX__cast_to_iu08(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1122,7 +1121,7 @@ CRUX__ResultIU08 CRUX_ARITH__add_is08_iu08 (
 CRUX__ResultIU16 CRUX_ARITH__add_is08_iu16 (
     const IS08 a, const IU16 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS08 addition = CRUX__as_iu16(0);
+  IU16 addition = CRUX__as_iu16(0);
   CRUX__ResultIU16 promo_result = CRUX__cast_to_iu16(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1157,7 +1156,7 @@ CRUX__ResultIU16 CRUX_ARITH__add_is08_iu16 (
 CRUX__ResultIU32 CRUX_ARITH__add_is08_iu32 (
     const IS08 a, const IU32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS08 addition = CRUX__as_iu32(0);
+  IU32 addition = CRUX__as_iu32(0);
   CRUX__ResultIU32 promo_result = CRUX__cast_to_iu32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1192,7 +1191,7 @@ CRUX__ResultIU32 CRUX_ARITH__add_is08_iu32 (
 CRUX__ResultIU64 CRUX_ARITH__add_is08_iu64 (
     const IS08 a, const IU64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS08 addition = CRUX__as_iu64(0);
+  IU64 addition = CRUX__as_iu64(0);
   CRUX__ResultIU64 promo_result = CRUX__cast_to_iu64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1249,7 +1248,7 @@ CRUX__ResultIS08 CRUX_ARITH__add_is08_is08 (
 CRUX__ResultIS16 CRUX_ARITH__add_is08_is16 (
     const IS08 a, const IS16 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS08 addition = CRUX__as_is16(0);
+  IS16 addition = CRUX__as_is16(0);
   CRUX__ResultIS16 promo_result = CRUX__cast_to_is16(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1286,7 +1285,7 @@ CRUX__ResultIS16 CRUX_ARITH__add_is08_is16 (
 CRUX__ResultIS32 CRUX_ARITH__add_is08_is32 (
     const IS08 a, const IS32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS08 addition = CRUX__as_is32(0);
+  IS32 addition = CRUX__as_is32(0);
   CRUX__ResultIS32 promo_result = CRUX__cast_to_is32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1323,7 +1322,7 @@ CRUX__ResultIS32 CRUX_ARITH__add_is08_is32 (
 CRUX__ResultIS64 CRUX_ARITH__add_is08_is64 (
     const IS08 a, const IS64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS08 addition = CRUX__as_is64(0);
+  IS64 addition = CRUX__as_is64(0);
   CRUX__ResultIS64 promo_result = CRUX__cast_to_is64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1397,7 +1396,7 @@ CRUX__ResultIS16 CRUX_ARITH__add_is16_iu08 (
 CRUX__ResultIU16 CRUX_ARITH__add_is16_iu16 (
     const IS16 a, const IU16 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS16 addition = CRUX__as_iu16(0);
+  IU16 addition = CRUX__as_iu16(0);
   CRUX__ResultIU16 promo_result = CRUX__cast_to_iu16(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1432,7 +1431,7 @@ CRUX__ResultIU16 CRUX_ARITH__add_is16_iu16 (
 CRUX__ResultIU32 CRUX_ARITH__add_is16_iu32 (
     const IS16 a, const IU32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS16 addition = CRUX__as_iu32(0);
+  IU32 addition = CRUX__as_iu32(0);
   CRUX__ResultIU32 promo_result = CRUX__cast_to_iu32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1467,7 +1466,7 @@ CRUX__ResultIU32 CRUX_ARITH__add_is16_iu32 (
 CRUX__ResultIU64 CRUX_ARITH__add_is16_iu64 (
     const IS16 a, const IU64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS16 addition = CRUX__as_iu64(0);
+  IU64 addition = CRUX__as_iu64(0);
   CRUX__ResultIU64 promo_result = CRUX__cast_to_iu64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1561,7 +1560,7 @@ CRUX__ResultIS16 CRUX_ARITH__add_is16_is16 (
 CRUX__ResultIS32 CRUX_ARITH__add_is16_is32 (
     const IS16 a, const IS32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS16 addition = CRUX__as_is32(0);
+  IS32 addition = CRUX__as_is32(0);
   CRUX__ResultIS32 promo_result = CRUX__cast_to_is32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1598,7 +1597,7 @@ CRUX__ResultIS32 CRUX_ARITH__add_is16_is32 (
 CRUX__ResultIS64 CRUX_ARITH__add_is16_is64 (
     const IS16 a, const IS64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS16 addition = CRUX__as_is64(0);
+  IS64 addition = CRUX__as_is64(0);
   CRUX__ResultIS64 promo_result = CRUX__cast_to_is64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1709,7 +1708,7 @@ CRUX__ResultIS32 CRUX_ARITH__add_is32_iu16 (
 CRUX__ResultIU32 CRUX_ARITH__add_is32_iu32 (
     const IS32 a, const IU32 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS32 addition = CRUX__as_iu32(0);
+  IU32 addition = CRUX__as_iu32(0);
   CRUX__ResultIU32 promo_result = CRUX__cast_to_iu32(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1744,7 +1743,7 @@ CRUX__ResultIU32 CRUX_ARITH__add_is32_iu32 (
 CRUX__ResultIU64 CRUX_ARITH__add_is32_iu64 (
     const IS32 a, const IU64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS32 addition = CRUX__as_iu64(0);
+  IU64 addition = CRUX__as_iu64(0);
   CRUX__ResultIU64 promo_result = CRUX__cast_to_iu64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -1875,7 +1874,7 @@ CRUX__ResultIS32 CRUX_ARITH__add_is32_is32 (
 CRUX__ResultIS64 CRUX_ARITH__add_is32_is64 (
     const IS32 a, const IS64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS32 addition = CRUX__as_is64(0);
+  IS64 addition = CRUX__as_is64(0);
   CRUX__ResultIS64 promo_result = CRUX__cast_to_is64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
@@ -2023,7 +2022,7 @@ CRUX__ResultIS64 CRUX_ARITH__add_is64_iu32 (
 CRUX__ResultIU64 CRUX_ARITH__add_is64_iu64 (
     const IS64 a, const IU64 b) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS64 addition = CRUX__as_iu64(0);
+  IU64 addition = CRUX__as_iu64(0);
   CRUX__ResultIU64 promo_result = CRUX__cast_to_iu64(a);
   if (!CRUX__trace_check(promo_result.trace)) {
     CRUX__Fault fault = {
