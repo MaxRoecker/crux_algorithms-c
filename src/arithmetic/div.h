@@ -1,6 +1,6 @@
 /**
  * ---------------------------------------------------------------------------
- * @file   mul.h
+ * @file   div.h
  * @brief  Division for values of core types.
  *
  */
