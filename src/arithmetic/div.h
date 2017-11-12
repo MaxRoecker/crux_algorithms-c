@@ -11,14 +11,103 @@
 
 
 /**
+ * @struct CRUX__DivIU08
+ * @brief  Represents a IU08 division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivIU08_Struct {
+  IU08 quo; /**< Division quotient. */
+  IU08 rem; /**< Division remainder. */
+} CRUX__DivIU08;
+
+
+/**
+ * @struct CRUX__DivIU16
+ * @brief  Represents a IU16 division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivIU16_Struct {
+  IU16 quo; /**< Division quotient. */
+  IU16 rem; /**< Division remainder. */
+} CRUX__DivIU16;
+
+
+/**
+ * @struct CRUX__DivIU32
+ * @brief  Represents a IU32 division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivIU32_Struct {
+  IU32 quo; /**< Division quotient. */
+  IU32 rem; /**< Division remainder. */
+} CRUX__DivIU32;
+
+
+/**
+ * @struct CRUX__DivIU64
+ * @brief  Represents a IU64 division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivIU64_Struct {
+  IU64 quo; /**< Division quotient. */
+  IU64 rem; /**< Division remainder. */
+} CRUX__DivIU64;
+
+
+/**
+ * @struct CRUX__DivIS08
+ * @brief  Represents a IS08 division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivIS08_Struct {
+  IS08 quo; /**< Division quotient. */
+  IS08 rem; /**< Division remainder. */
+} CRUX__DivIS08;
+
+
+/**
+ * @struct CRUX__DivIS16
+ * @brief  Represents a IS16 division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivIS16_Struct {
+  IS16 quo; /**< Division quotient. */
+  IS16 rem; /**< Division remainder. */
+} CRUX__DivIS16;
+
+
+/**
+ * @struct CRUX__DivIS32
+ * @brief  Represents a IS32 division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivIS32_Struct {
+  IS32 quo; /**< Division quotient. */
+  IS32 rem; /**< Division remainder. */
+} CRUX__DivIS32;
+
+
+/**
+ * @struct CRUX__DivIS64
+ * @brief  Represents a IS64 division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivIS64_Struct {
+  IS64 quo; /**< Division quotient. */
+  IS64 rem; /**< Division remainder. */
+} CRUX__DivIS64;
+
+
+
+
+/**
  * @struct CRUX__ResultDivIU08
  * @brief  Represents a IU08 division result with a possible Error.
  *
  */
 typedef struct CRUX__ResultDivIU08_Struct {
-  CRUX__Trace trace;  /**< The fault trace. */
-  const IU08 quo;     /**< Division quotient. */
-  const IU08 rem;     /**< Division remainder. */
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivIU08 value;  /**< Division value. */
 } CRUX__ResultDivIU08;
 
 
@@ -28,9 +117,8 @@ typedef struct CRUX__ResultDivIU08_Struct {
  *
  */
 typedef struct CRUX__ResultDivIU16_Struct {
-  CRUX__Trace trace;  /**< The fault trace. */
-  const IU16 quo;     /**< Division quotient. */
-  const IU16 rem;     /**< Division remainder. */
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivIU16 value;  /**< Division value. */
 } CRUX__ResultDivIU16;
 
 
@@ -40,9 +128,8 @@ typedef struct CRUX__ResultDivIU16_Struct {
  *
  */
 typedef struct CRUX__ResultDivIU32_Struct {
-  CRUX__Trace trace;  /**< The fault trace. */
-  const IU32 quo;     /**< Division quotient. */
-  const IU32 rem;     /**< Division remainder. */
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivIU32 value;  /**< Division value. */
 } CRUX__ResultDivIU32;
 
 
@@ -52,9 +139,8 @@ typedef struct CRUX__ResultDivIU32_Struct {
  *
  */
 typedef struct CRUX__ResultDivIU64_Struct {
-  CRUX__Trace trace;  /**< The fault trace. */
-  const IU64 quo;     /**< Division quotient. */
-  const IU64 rem;     /**< Division remainder. */
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivIU64 value;  /**< Division value. */
 } CRUX__ResultDivIU64;
 
 
@@ -64,9 +150,8 @@ typedef struct CRUX__ResultDivIU64_Struct {
  *
  */
 typedef struct CRUX__ResultDivIS08_Struct {
-  CRUX__Trace trace;  /**< The fault trace. */
-  const IS08 quo;     /**< Division quotient. */
-  const IS08 rem;     /**< Division remainder. */
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivIS08 value;  /**< Division value. */
 } CRUX__ResultDivIS08;
 
 
@@ -76,9 +161,8 @@ typedef struct CRUX__ResultDivIS08_Struct {
  *
  */
 typedef struct CRUX__ResultDivIS16_Struct {
-  CRUX__Trace trace;  /**< The fault trace. */
-  const IS16 quo;     /**< Division quotient. */
-  const IS16 rem;     /**< Division remainder. */
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivIS16 value;  /**< Division value. */
 } CRUX__ResultDivIS16;
 
 
@@ -88,9 +172,8 @@ typedef struct CRUX__ResultDivIS16_Struct {
  *
  */
 typedef struct CRUX__ResultDivIS32_Struct {
-  CRUX__Trace trace;  /**< The fault trace. */
-  const IS32 quo;     /**< Division quotient. */
-  const IS32 rem;     /**< Division remainder. */
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivIS32 value;  /**< Division value. */
 } CRUX__ResultDivIS32;
 
 
@@ -100,10 +183,10 @@ typedef struct CRUX__ResultDivIS32_Struct {
  *
  */
 typedef struct CRUX__ResultDivIS64_Struct {
-  CRUX__Trace trace;  /**< The fault trace. */
-  const IS64 quo;     /**< Division quotient. */
-  const IS64 rem;     /**< Division remainder. */
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivIS64 value;  /**< Division value. */
 } CRUX__ResultDivIS64;
+
 
 
 
