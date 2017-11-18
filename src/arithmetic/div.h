@@ -98,6 +98,17 @@ typedef struct CRUX__DivIS64_Struct {
 } CRUX__DivIS64;
 
 
+/**
+ * @struct CRUX__DivSize
+ * @brief  Represents a Size division with a quotient and remainder.
+ *
+ */
+typedef struct CRUX__DivSize_Struct {
+  Size quo; /**< Division quotient. */
+  Size rem; /**< Division remainder. */
+} CRUX__DivSize;
+
+
 
 
 /**
@@ -186,6 +197,17 @@ typedef struct CRUX__ResultDivIS64_Struct {
   CRUX__Trace trace;          /**< The fault trace. */
   const CRUX__DivIS64 value;  /**< Division value. */
 } CRUX__ResultDivIS64;
+
+
+/**
+ * @struct CRUX__ResultDivSize
+ * @brief  Represents a Size division result with a possible Error.
+ *
+ */
+typedef struct CRUX__ResultDivSize_Struct {
+  CRUX__Trace trace;          /**< The fault trace. */
+  const CRUX__DivSize value;  /**< Division value. */
+} CRUX__ResultDivSize;
 
 
 
@@ -892,6 +914,17 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is32 (const IS64 a, const IS32 b);
  *
  */
 CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is64 (const IS64 a, const IS64 b);
+
+
+/**
+ * @brief Returns a secure division of a Size and a Size.
+ *
+ * @param[in] a A Size value.
+ * @param[in] b A Size value.
+ * @return the result of division of a and b.
+ *
+ */
+CRUX__ResultDivSize CRUX_ARITH__div_size_size (const Size a, const Size b);
 
 
 

@@ -146,6 +146,21 @@ void CRUX_ARITH__abs_is64_test (void) {
 }
 
 
+void CRUX_ARITH__abs_size_test (void) {
+  const Size max = SIZE_MAX;
+  const Size min = SIZE_MIN;
+  const Size max_abs = SIZE_MAX;
+  const Size min_abs = SIZE_MIN;
+  CRUX__ResultSize max_abs_result = CRUX_ARITH__abs_size(max);
+  CRUX__ResultSize min_abs_result = CRUX_ARITH__abs_size(min);
+  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
+  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"SIZE_FMT".", max_abs);
+  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
+  ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"SIZE_FMT".", min_abs);
+  CRUX__trace_clean(&max_abs_result.trace);
+  CRUX__trace_clean(&min_abs_result.trace);
+}
+
 void CRUX_ARITH__abs_test (void) {
   const IU08 iu08_value = CRUX__as_iu08(0);
   const IU16 iu16_value = CRUX__as_iu16(0);
@@ -191,7 +206,7 @@ void CRUX_ARITH__abs_test (void) {
 
 
 int main (int argc, char *argv[]) {
-  plan(52);
+  plan(56);
   CRUX_ARITH__abs_iu08_test();
   CRUX_ARITH__abs_iu16_test();
   CRUX_ARITH__abs_iu32_test();
@@ -200,6 +215,7 @@ int main (int argc, char *argv[]) {
   CRUX_ARITH__abs_is16_test();
   CRUX_ARITH__abs_is32_test();
   CRUX_ARITH__abs_is64_test();
+  CRUX_ARITH__abs_size_test();
   CRUX_ARITH__abs_test();
   done_testing();
   return EXIT_SUCCESS;

@@ -2187,6 +2187,24 @@ CRUX__ResultIS64 CRUX_ARITH__add_is64_is64 (
 }
 
 
+CRUX__ResultSize CRUX_ARITH__add_size_size (const Size a, const Size b) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size addition = CRUX__as_size(0);
+  const Bool has_overflow = ((SIZE_MAX - a) < b);
+  if (has_overflow) {
+    CRUX__Fault fault = {
+      .error = CRUX_ARITH__ERROR_ARITHMETIC,
+      .filepath = __FILE__,
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_overflow(SIZE_FMT, SIZE_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    addition = a + b;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = addition};
+  return result;
+}
 
 
 #undef CRUX_ARITH__info_promo

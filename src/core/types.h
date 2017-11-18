@@ -123,6 +123,7 @@ typedef int64_t IS64;
 #define CRUX__as_is16(integer) ((IS16) INT16_C(integer))
 #define CRUX__as_is32(integer) ((IS32) INT32_C(integer))
 #define CRUX__as_is64(integer) ((IS64) INT64_C(integer))
+#define CRUX__as_size(integer) ((Size) integer)
 
 
 #define CRUX__get_int_precision(value) _Generic(value,  \

@@ -715,6 +715,17 @@ CRUX__ResultIS64 CRUX_ARITH__sub_is64_is32 (const IS64 a, const IS32 b);
 CRUX__ResultIS64 CRUX_ARITH__sub_is64_is64 (const IS64 a, const IS64 b);
 
 
+/**
+ * @brief Returns a secure subtraction of a Size and a Size.
+ *
+ * @param[in] a A Size value.
+ * @param[in] b A Size value.
+ * @return the result of subtraction of a and b.
+ *
+ */
+CRUX__ResultSize CRUX_ARITH__sub_size_size (const Size a, const Size b);
+
+
 
 
 #define CRUX_ARITH__sub(a, b) _Generic(a,    \

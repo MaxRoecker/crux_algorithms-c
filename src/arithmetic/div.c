@@ -2227,6 +2227,28 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is64 (
 }
 
 
+CRUX__ResultDivSize CRUX_ARITH__div_size_size (
+    const Size a, const Size b) {
+  CRUX__Trace trace = CRUX__trace_create();
+  CRUX__DivSize division = {.quo = CRUX__as_size(0), .rem = CRUX__as_size(0)};
+  const Bool has_error = (b == CRUX__as_size(0));
+  if (has_error) {
+    CRUX__Fault fault = {
+      .error = CRUX_ARITH__ERROR_ARITHMETIC,
+      .filepath = __FILE__,
+      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+    const Char fmt[] = CRUX_ARITH__info_division(SIZE_FMT, SIZE_FMT);
+    CRUX__fault_infoprintf(fault, fmt, a, b);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    division.quo = a / b;
+    division.rem = a % b;
+  }
+  CRUX__ResultDivSize result = {.trace = trace, .value = division};
+  return result;
+}
+
+
 
 
 #undef CRUX_ARITH__info_promo

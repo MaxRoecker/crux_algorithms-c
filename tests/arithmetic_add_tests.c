@@ -3844,8 +3844,68 @@ void CRUX_ARITH__add_is64_is64_tests (void) {
 }
 
 
+void CRUX_ARITH__add_size_size_tests (void) {
+  const Size a_max = SIZE_MAX;
+  const Size a_min = SIZE_MIN;
+  const Size a_nil = CRUX__as_size(0);
+  const Size a_one = CRUX__as_size(1);
+  const Size b_max = SIZE_MAX;
+  const Size b_min = SIZE_MIN;
+  const Size b_nil = CRUX__as_size(0);
+  const Size b_one = CRUX__as_size(1);
+  CRUX__ResultSize max_max = CRUX_ARITH__add_size_size(a_max, b_max);
+  CRUX__ResultSize max_min = CRUX_ARITH__add_size_size(a_max, b_min);
+  CRUX__ResultSize max_nil = CRUX_ARITH__add_size_size(a_max, b_nil);
+  CRUX__ResultSize max_one = CRUX_ARITH__add_size_size(a_max, b_one);
+  CRUX__ResultSize min_max = CRUX_ARITH__add_size_size(a_min, b_max);
+  CRUX__ResultSize min_min = CRUX_ARITH__add_size_size(a_min, b_min);
+  CRUX__ResultSize min_nil = CRUX_ARITH__add_size_size(a_min, b_nil);
+  CRUX__ResultSize min_one = CRUX_ARITH__add_size_size(a_min, b_one);
+  CRUX__ResultSize nil_max = CRUX_ARITH__add_size_size(a_nil, b_max);
+  CRUX__ResultSize nil_min = CRUX_ARITH__add_size_size(a_nil, b_min);
+  CRUX__ResultSize nil_nil = CRUX_ARITH__add_size_size(a_nil, b_nil);
+  CRUX__ResultSize nil_one = CRUX_ARITH__add_size_size(a_nil, b_one);
+  CRUX__ResultSize one_max = CRUX_ARITH__add_size_size(a_one, b_max);
+  CRUX__ResultSize one_min = CRUX_ARITH__add_size_size(a_one, b_min);
+  CRUX__ResultSize one_nil = CRUX_ARITH__add_size_size(a_one, b_nil);
+  CRUX__ResultSize one_one = CRUX_ARITH__add_size_size(a_one, b_one);
+  ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
+  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
+  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(max_one.trace), "Must have an error.");
+  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
+  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
+  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
+  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
+  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
+  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
+  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
+  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
+  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
+  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
+  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
+  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
+  CRUX__trace_clean(&max_max.trace);
+  CRUX__trace_clean(&max_min.trace);
+  CRUX__trace_clean(&max_nil.trace);
+  CRUX__trace_clean(&max_one.trace);
+  CRUX__trace_clean(&min_max.trace);
+  CRUX__trace_clean(&min_min.trace);
+  CRUX__trace_clean(&min_nil.trace);
+  CRUX__trace_clean(&min_one.trace);
+  CRUX__trace_clean(&nil_max.trace);
+  CRUX__trace_clean(&nil_min.trace);
+  CRUX__trace_clean(&nil_nil.trace);
+  CRUX__trace_clean(&nil_one.trace);
+  CRUX__trace_clean(&one_max.trace);
+  CRUX__trace_clean(&one_min.trace);
+  CRUX__trace_clean(&one_nil.trace);
+  CRUX__trace_clean(&one_one.trace);
+}
+
+
 int main (int argc, char *argv[]) {
-  plan(1024);
+  plan(1040);
   CRUX_ARITH__add_iu08_iu08_tests();
   CRUX_ARITH__add_iu08_iu16_tests();
   CRUX_ARITH__add_iu08_iu32_tests();
@@ -3910,6 +3970,7 @@ int main (int argc, char *argv[]) {
   CRUX_ARITH__add_is64_is16_tests();
   CRUX_ARITH__add_is64_is32_tests();
   CRUX_ARITH__add_is64_is64_tests();
+  CRUX_ARITH__add_size_size_tests();
   done_testing();
   return EXIT_SUCCESS;
 }
