@@ -12,3 +12,4 @@
 #include "./trace.h"
 #include "./results.h"
 #include "./cast.h"
+#include "./memory.h"
