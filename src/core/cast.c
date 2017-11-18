@@ -887,4 +887,347 @@ CRUX__ResultIS64 CRUX__cast_is64_is32 (const IS32 value) {
   return result;
 }
 
+
+CRUX__ResultIU08 CRUX__cast_size_iu08 (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  IU08 casted = CRUX__as_iu08(0);
+  const Bool is_beyond = (IU08_INT_PRECISION < SIZE_INT_PRECISION)
+    && (value > ((Size) IU08_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(SIZE_FMT, "IU08");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (IU08) value;
+  }
+  CRUX__ResultIU08 result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultIU16 CRUX__cast_size_iu16 (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  IU16 casted = CRUX__as_iu16(0);
+  const Bool is_beyond = (IU16_INT_PRECISION < SIZE_INT_PRECISION)
+    && (value > ((Size) IU16_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(SIZE_FMT, "IU16");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (IU16) value;
+  }
+  CRUX__ResultIU16 result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultIU32 CRUX__cast_size_iu32 (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  IU32 casted = CRUX__as_iu32(0);
+  const Bool is_beyond = (IU32_INT_PRECISION < SIZE_INT_PRECISION)
+    && (value > ((Size) IU32_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(SIZE_FMT, "IU32");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (IU32) value;
+  }
+  CRUX__ResultIU32 result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultIU64 CRUX__cast_size_iu64 (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  IU64 casted = CRUX__as_iu64(0);
+  const Bool is_beyond = (IU64_INT_PRECISION < SIZE_INT_PRECISION)
+    && (value > ((Size) IU64_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(SIZE_FMT, "IU64");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (IU64) value;
+  }
+  CRUX__ResultIU64 result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultIS08 CRUX__cast_size_is08 (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  IS08 casted = CRUX__as_is08(0);
+  const Bool is_beyond = (IS08_INT_PRECISION < SIZE_INT_PRECISION)
+    && (value > ((Size) IS08_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(SIZE_FMT, "IS08");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (IS08) value;
+  }
+  CRUX__ResultIS08 result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultIS16 CRUX__cast_size_is16 (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  IS16 casted = CRUX__as_is16(0);
+  const Bool is_beyond = (IS16_INT_PRECISION < SIZE_INT_PRECISION)
+    && (value > ((Size) IS16_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(SIZE_FMT, "IS16");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (IS16) value;
+  }
+  CRUX__ResultIS16 result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultIS32 CRUX__cast_size_is32 (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  IS32 casted = CRUX__as_is32(0);
+  const Bool is_beyond = (IS32_INT_PRECISION < SIZE_INT_PRECISION)
+    && (value > ((Size) IS32_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(SIZE_FMT, "IS32");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (IS32) value;
+  }
+  CRUX__ResultIS32 result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultIS64 CRUX__cast_size_is64 (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  IS64 casted = CRUX__as_is64(0);
+  const Bool is_beyond = (IS64_INT_PRECISION < SIZE_INT_PRECISION)
+    && (value > ((Size) IS64_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(SIZE_FMT, "IS64");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (IS64) value;
+  }
+  CRUX__ResultIS64 result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultSize CRU__cast_iu08_size (const IU08 value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size casted = 0;
+  const Bool is_beyond = (SIZE_INT_PRECISION < IU08_INT_PRECISION)
+    && (value > ((IU08) SIZE_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(IU08_FMT, "Size");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (Size) value;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultSize CRU__cast_iu16_size (const IU16 value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size casted = 0;
+  const Bool is_beyond = (SIZE_INT_PRECISION < IU16_INT_PRECISION)
+    && (value > ((IU16) SIZE_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(IU16_FMT, "Size");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (Size) value;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultSize CRU__cast_iu32_size (const IU32 value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size casted = 0;
+  const Bool is_beyond = (SIZE_INT_PRECISION < IU32_INT_PRECISION)
+    && (value > ((IU32) SIZE_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(IU32_FMT, "Size");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (Size) value;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultSize CRU__cast_iu64_size (const IU64 value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size casted = 0;
+  const Bool is_beyond = (SIZE_INT_PRECISION < IU64_INT_PRECISION)
+    && (value > ((IU64) SIZE_MAX));
+  if (is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(IU64_FMT, "Size");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (Size) value;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultSize CRU__cast_is08_size (const IS08 value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size casted = 0;
+  const Bool is_negative = (value < CRUX__as_is08(0));
+  const Bool is_beyond = (SIZE_INT_PRECISION < IS08_INT_PRECISION)
+    && (value > ((IS08) SIZE_MAX));
+  if (is_negative || is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(IS08_FMT, "Size");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (Size) value;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultSize CRU__cast_is16_size (const IS16 value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size casted = 0;
+  const Bool is_negative = (value < CRUX__as_is16(0));
+  const Bool is_beyond = (SIZE_INT_PRECISION < IS16_INT_PRECISION)
+    && (value > ((IS16) SIZE_MAX));
+  if (is_negative || is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(IS16_FMT, "Size");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (Size) value;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultSize CRU__cast_is32_size (const IS32 value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size casted = 0;
+  const Bool is_negative = (value < CRUX__as_is32(0));
+  const Bool is_beyond = (SIZE_INT_PRECISION < IS32_INT_PRECISION)
+    && (value > ((IS32) SIZE_MAX));
+  if (is_negative || is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(IS32_FMT, "Size");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (Size) value;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+CRUX__ResultSize CRU__cast_is64_size (const IS64 value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size casted = 0;
+  const Bool is_negative = (value < CRUX__as_is64(0));
+  const Bool is_beyond = (SIZE_INT_PRECISION < IS64_INT_PRECISION)
+    && (value > ((IS64) SIZE_MAX));
+  if (is_negative || is_beyond) {
+    CRUX__Fault fault = {
+      .error = CRUX__ERROR_VALUE,
+      .filepath = __FILE__,
+      .line = (((IU32) __LINE__) + CRUX__as_iu32(5))};
+    const Char fmt[] = CRUX__info(IS64_FMT, "Size");
+    CRUX__fault_infoprintf(fault, fmt, value);
+    CRUX__trace_push(&trace, fault);
+  } else {
+    casted = (Size) value;
+  }
+  CRUX__ResultSize result = {.trace = trace, .value = casted};
+  return result;
+}
+
+
+
+
 #undef CRUX__info

@@ -515,6 +515,167 @@ CRUX__ResultIS64 CRUX__cast_is64_is32 (const IS32 value);
 
 
 
+/**
+ * @brief Cast an Size value into a IU08.
+ *
+ * @param[in] value A Size.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultIU08 CRUX__cast_size_iu08 (const Size value);
+
+
+/**
+ * @brief Cast an Size value into a IU16.
+ *
+ * @param[in] value A Size.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultIU16 CRUX__cast_size_iu16 (const Size value);
+
+
+/**
+ * @brief Cast an Size value into a IU32.
+ *
+ * @param[in] value A Size.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultIU32 CRUX__cast_size_iu32 (const Size value);
+
+
+/**
+ * @brief Cast an Size value into a IU64.
+ *
+ * @param[in] value A Size.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultIU64 CRUX__cast_size_iu64 (const Size value);
+
+
+/**
+ * @brief Cast an Size value into a IS08.
+ *
+ * @param[in] value A Size.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultIS08 CRUX__cast_size_is08 (const Size value);
+
+
+/**
+ * @brief Cast an Size value into a IS16.
+ *
+ * @param[in] value A Size.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultIS16 CRUX__cast_size_is16 (const Size value);
+
+
+/**
+ * @brief Cast an Size value into a IS32.
+ *
+ * @param[in] value A Size.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultIS32 CRUX__cast_size_is32 (const Size value);
+
+
+/**
+ * @brief Cast an Size value into a IS64.
+ *
+ * @param[in] value A Size.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultIS64 CRUX__cast_size_is64 (const Size value);
+
+
+/**
+ * @brief Cast an IU08 value into a Size.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultSize CRU__cast_iu08_size (const IU08 value);
+
+
+/**
+ * @brief Cast an IU16 value into a Size.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultSize CRU__cast_iu16_size (const IU16 value);
+
+
+/**
+ * @brief Cast an IU32 value into a Size.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultSize CRU__cast_iu32_size (const IU32 value);
+
+
+/**
+ * @brief Cast an IU64 value into a Size.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultSize CRU__cast_iu64_size (const IU64 value);
+
+
+/**
+ * @brief Cast an IS08 value into a Size.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultSize CRU__cast_is08_size (const IS08 value);
+
+
+/**
+ * @brief Cast an IS16 value into a Size.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultSize CRU__cast_is16_size (const IS16 value);
+
+
+/**
+ * @brief Cast an IS32 value into a Size.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultSize CRU__cast_is32_size (const IS32 value);
+
+
+/**
+ * @brief Cast an IS64 value into a Size.
+ *
+ * @param[in] value An IS32 value.
+ * @return the result of the casting.
+ *
+ */
+CRUX__ResultSize CRU__cast_is64_size (const IS64 value);
+
+
+
 
 #define CRUX__cast_to_iu08(value) _Generic(value, \
   IU16 : CRUX__cast_iu08_iu16(value),             \
