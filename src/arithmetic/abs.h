@@ -88,6 +88,16 @@ CRUX__ResultIS32 CRUX_ARITH__abs_is32 (const IS32 value);
 CRUX__ResultIS64 CRUX_ARITH__abs_is64 (const IS64 value);
 
 
+/**
+ * @brief Returns the absolute (magnitude) of a Size value.
+ *
+ * @param[in] value A Size value.
+ * @return the absolute value.
+ *
+ */
+CRUX__ResultSize CRUX_ARITH__abs_size (const Size value);
+
+
 
 
 #define CRUX_ARITH__abs(value) _Generic(value, \

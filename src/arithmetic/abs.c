@@ -114,6 +114,14 @@ CRUX__ResultIS64 CRUX_ARITH__abs_is64 (const IS64 value) {
 }
 
 
+CRUX__ResultSize CRUX_ARITH__abs_size (const Size value) {
+  CRUX__Trace trace = CRUX__trace_create();
+  Size abs_value = value;
+  CRUX__ResultSize result = {.trace = trace, .value = abs_value};
+  return result;
+}
+
+
 
 
 #undef CRUX_ARITH__info
