@@ -1,9 +1,16 @@
 #include "./trace.h"
 
 
+static const Size POOL_SIZE = CRUX__as_size(16) * sizeof(CRUX__Fault);
+static const void *CRUX__TRACE_POOL = nil(const void);
+
+
 CRUX__Trace CRUX__trace_create (void) {
   CRUX__Fault *const top = nil(CRUX__Fault);
-  void *const context = talloc_new(nil(void));
+  if (CRUX__TRACE_POOL == nil(const void)) {
+    CRUX__TRACE_POOL = (const void *) talloc_pool(nil(void), POOL_SIZE);
+  }
+  void *const context = talloc_new(CRUX__TRACE_POOL);
   const CRUX__Trace faultrace = {.top = top, .context = context};
   return faultrace;
 }
