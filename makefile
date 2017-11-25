@@ -35,7 +35,7 @@ core_order_dependencies			= core_results $(core_results_dependencies)
 
 core_cast_module						= $(core_package)/cast.c
 core_cast_object						= $(BIN)/core_cast.o
-core_cast_dependencies			= core_results $(core_results_dependencies)
+core_cast_dependencies			= core_order $(core_order_dependencies)
 
 core_memory_module					= $(core_package)/memory.c
 core_memory_object					= $(BIN)/core_memory.o
