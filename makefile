@@ -29,6 +29,10 @@ core_results_module					= $(core_package)/results.c
 core_results_object					= $(BIN)/core_results.o
 core_results_dependencies		= core_trace $(core_trace_dependencies)
 
+core_order_module						= $(core_package)/order.c
+core_order_object						= $(BIN)/core_order.o
+core_order_dependencies			= core_results $(core_results_dependencies)
+
 core_cast_module						= $(core_package)/cast.c
 core_cast_object						= $(BIN)/core_cast.o
 core_cast_dependencies			= core_results $(core_results_dependencies)

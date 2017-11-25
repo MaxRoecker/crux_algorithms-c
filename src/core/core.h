@@ -11,5 +11,6 @@
 #include "./fault.h"
 #include "./trace.h"
 #include "./results.h"
+#include "./order.h"
 #include "./cast.h"
 #include "./memory.h"
