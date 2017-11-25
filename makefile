@@ -60,29 +60,34 @@ arithmetic_error_module							= $(arithmetic_package)/error.c
 arithmetic_error_object							= $(BIN)/arithmetic_error.o
 arithmetic_error_dependencies				= core_core $(core_core_dependencies)
 
+arithmetic_signal_module						= $(arithmetic_package)/signal.c
+arithmetic_signal_object						= $(BIN)/arithmetic_signal.o
+arithmetic_signal_dependencies			= arithmetic_error $(arithmetic_error_dependencies)
+
 arithmetic_abs_module								= $(arithmetic_package)/abs.c
 arithmetic_abs_object								= $(BIN)/arithmetic_abs.o
-arithmetic_abs_dependencies					= arithmetic_error $(arithmetic_error_dependencies)
+arithmetic_abs_dependencies					= arithmetic_signal $(arithmetic_signal_dependencies)
 
 arithmetic_add_module								= $(arithmetic_package)/add.c
 arithmetic_add_object								= $(BIN)/arithmetic_add.o
-arithmetic_add_dependencies					= arithmetic_error $(arithmetic_error_dependencies)
+arithmetic_add_dependencies					= arithmetic_signal $(arithmetic_signal_dependencies)
 
 arithmetic_sub_module								= $(arithmetic_package)/sub.c
 arithmetic_sub_object								= $(BIN)/arithmetic_sub.o
-arithmetic_sub_dependencies					= arithmetic_error $(arithmetic_error_dependencies)
+arithmetic_sub_dependencies					= arithmetic_signal $(arithmetic_signal_dependencies)
 
 arithmetic_mul_module								= $(arithmetic_package)/mul.c
 arithmetic_mul_object								= $(BIN)/arithmetic_mul.o
-arithmetic_mul_dependencies					= arithmetic_error $(arithmetic_error_dependencies)
+arithmetic_mul_dependencies					= arithmetic_signal $(arithmetic_signal_dependencies)
 
 arithmetic_div_module								= $(arithmetic_package)/div.c
 arithmetic_div_object								= $(BIN)/arithmetic_div.o
-arithmetic_div_dependencies					= arithmetic_error $(arithmetic_error_dependencies)
+arithmetic_div_dependencies					= arithmetic_signal $(arithmetic_signal_dependencies)
 
 arithmetic_arithmetic_module				= $(arithmetic_package)/arithmetic.c
 arithmetic_arithmetic_object				= $(BIN)/arithmetic_arithmetic.o
 arithmetic_arithmetic_dependencies	= arithmetic_error $(arithmetic_error_dependencies) \
+																			arithmetic_signal $(arithmetic_signal_dependencies) \
 																			arithmetic_abs $(arithmetic_abs_dependencies) \
 																			arithmetic_add $(arithmetic_add_dependencies) \
 																			arithmetic_sub $(arithmetic_sub_dependencies) \

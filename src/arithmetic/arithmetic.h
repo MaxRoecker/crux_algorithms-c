@@ -6,6 +6,7 @@
  */
 #pragma once
 
+#include "./signal.h"
 #include "./abs.h"
 #include "./add.h"
 #include "./sub.h"
