@@ -25,6 +25,7 @@
 
 
 #define nil(type) ((type *) 0)
+#define is_nil(value, type) (value == nil(type))
 
 
 typedef bool Bool;
