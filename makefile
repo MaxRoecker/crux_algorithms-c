@@ -39,7 +39,7 @@ core_cast_dependencies			= core_order $(core_order_dependencies)
 
 core_memory_module					= $(core_package)/memory.c
 core_memory_object					= $(BIN)/core_memory.o
-core_memory_dependencies		= core_results $(core_results_dependencies)
+core_memory_dependencies		= core_order $(core_order_dependencies)
 
 core_core_module						= $(core_package)/core.c
 core_core_object						= $(BIN)/core_core.o
@@ -48,6 +48,7 @@ core_core_dependencies			= core_types $(core_types_dependencies) \
 															core_fault $(core_fault_dependencies) \
 															core_trace $(core_trace_dependencies) \
 															core_results $(core_results_dependencies) \
+															core_order $(core_order_dependencies) \
 															core_cast $(core_cast_dependencies) \
 															core_memory $(core_memory_dependencies)
 

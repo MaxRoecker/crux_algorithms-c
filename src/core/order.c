@@ -376,7 +376,7 @@ CRUX__ResultOrder CRUX__compare_addr_char(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -398,7 +398,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu08(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -420,7 +420,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu16(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -442,7 +442,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu32(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -464,7 +464,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu64(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -486,7 +486,7 @@ CRUX__ResultOrder CRUX__compare_addr_is08(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -508,7 +508,7 @@ CRUX__ResultOrder CRUX__compare_addr_is16(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -530,7 +530,7 @@ CRUX__ResultOrder CRUX__compare_addr_is32(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -552,7 +552,7 @@ CRUX__ResultOrder CRUX__compare_addr_is64(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
@@ -574,7 +574,7 @@ CRUX__ResultOrder CRUX__compare_addr_size(
     const void *const another) {
   CRUX__Trace trace = CRUX__trace_create();
   CRUX__Order order = CRUX__EQUAL;
-  if ((one == nil(void)) || (another == nil(void))) {
+  if (is_nil(one, void) || is_nil(another, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
