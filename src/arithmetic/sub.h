@@ -5,7 +5,7 @@
  *
  */
 #pragma once
-#include "./error.h"
+#include "./signal.h"
 
 
 
@@ -726,6 +726,37 @@ CRUX__ResultIS64 CRUX_ARITH__sub_is64_is64 (const IS64 a, const IS64 b);
 CRUX__ResultSize CRUX_ARITH__sub_size_size (const Size a, const Size b);
 
 
+
+
+#define CRUX_ARITH__sub_has_overflow(a, b) (_Generic(a,   \
+  IU08 : _Generic(b,                                      \
+    IU08 : a < b,                                         \
+    default : assert(0)),                                 \
+  IU16 : _Generic(b,                                      \
+    IU16 : a < b,                                         \
+    default : assert(0)),                                 \
+  IU32 : _Generic(b,                                      \
+    IU32 : a < b,                                         \
+    default : assert(0)),                                 \
+  IU64 : _Generic(b,                                      \
+    IU64 : a < b,                                         \
+    default : assert(0)),                                 \
+  IS08 : _Generic(b,                                      \
+    IS08 : (CRUX__is_positive(b) && (a < (IS08_MIN + b))) \
+      || (CRUX__is_negative(b) && (a > (IS08_MAX + b))),  \
+    default : assert(0)),                                 \
+  IS16 : _Generic(b,                                      \
+    IS16 : (CRUX__is_positive(b) && (a < (IS16_MIN + b))) \
+      || (CRUX__is_negative(b) && (a > (IS16_MAX + b))),  \
+    default : assert(0)),                                 \
+  IS32 : _Generic(b,                                      \
+    IS32 : (CRUX__is_positive(b) && (a < (IS32_MIN + b))) \
+      || (CRUX__is_negative(b) && (a > (IS32_MAX + b))),  \
+    default : assert(0)),                                 \
+  IS64 : _Generic(b,                                      \
+    IS64 : (CRUX__is_positive(b) && (a < (IS64_MIN + b))) \
+      || (CRUX__is_negative(b) && (a > (IS64_MAX + b))),  \
+    default : assert(0))))
 
 
 #define CRUX_ARITH__sub(a, b) _Generic(a,    \

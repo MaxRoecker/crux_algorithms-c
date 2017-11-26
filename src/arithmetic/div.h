@@ -5,7 +5,7 @@
  *
  */
 #pragma once
-#include "./error.h"
+#include "./signal.h"
 
 
 
@@ -927,6 +927,37 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is64 (const IS64 a, const IS64 b);
 CRUX__ResultDivSize CRUX_ARITH__div_size_size (const Size a, const Size b);
 
 
+
+
+#define CRUX_ARITH__div_overflow(a, b) (_Generic(a, \
+  IU08 : _Generic(b,                                \
+    IU08 : CRUX__is_zero(b),                        \
+    default : assert(0)),                           \
+  IU16 : _Generic(b,                                \
+    IU16 : CRUX__is_zero(b),                        \
+    default : assert(0)),                           \
+  IU32 : _Generic(b,                                \
+    IU32 : CRUX__is_zero(b),                        \
+    default : assert(0)),                           \
+  IU64 : _Generic(b,                                \
+    IU64 : CRUX__is_zero(b),                        \
+    default : assert(0)),                           \
+  IS08 : _Generic(b,                                \
+    IS08 : CRUX__is_zero(b)                         \
+      || (CRUX__is_min(a) && (b == ((IS08) -1))),   \
+    default : assert(0)),                           \
+  IS16 : _Generic(b,                                \
+    IS16 : CRUX__is_zero(b)                         \
+      || (CRUX__is_min(a) && (b == ((IS16) -1))),   \
+    default : assert(0)),                           \
+  IS32 : _Generic(b,                                \
+    IS32 : CRUX__is_zero(b)                         \
+      || (CRUX__is_min(a) && (b == ((IS32) -1))),   \
+    default : assert(0)),                           \
+  IS64 : _Generic(b,                                \
+    IS64 : CRUX__is_zero(b)                         \
+      || (CRUX__is_min(a) && (b == ((IS64) -1))),   \
+    default : assert(0))))
 
 
 #define CRUX_ARITH__div(a, b) _Generic(a,    \

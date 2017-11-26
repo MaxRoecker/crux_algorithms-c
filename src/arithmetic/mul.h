@@ -5,7 +5,7 @@
  *
  */
 #pragma once
-#include "./error.h"
+#include "./signal.h"
 
 
 
@@ -726,6 +726,45 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is64_is64 (const IS64 a, const IS64 b);
 CRUX__ResultSize CRUX_ARITH__mul_size_size (const Size a, const Size b);
 
 
+
+
+#define CRUX_ARITH__mul_has_overflow(a, b) (_Generic(a,             \
+  IU08 : _Generic(b,                                                \
+    IU08 : (b != 0) && (a > (IU08_MAX / b)),                        \
+    default : assert(0)),                                           \
+  IU16 : _Generic(b,                                                \
+    IU16 : (b != 0) && (a > (IU16_MAX / b)),                        \
+    default : assert(0)),                                           \
+  IU32 : _Generic(b,                                                \
+    IU32 : (b != 0) && (a > (IU32_MAX / b)),                        \
+    default : assert(0)),                                           \
+  IU64 : _Generic(b,                                                \
+    IU64 : (b != 0) && (a > (IU64_MAX / b)),                        \
+    default : assert(0)),                                           \
+  IS08 : _Generic(b,                                                \
+    IS08 : ((a > 0) && (b > 0) && (a > (IS08_MAX / b)))             \
+      || ((a > 0) && (b < 0) && (b < (IS08_MIN / a)))               \
+      || ((a < 0) && (b > 0) && (a < (IS08_MIN / b)))               \
+      || ((a < 0) && (b < 0) && (a != 0) && (b < (IS08_MAX / a))),  \
+    default : assert(0)),                                           \
+  IS16 : _Generic(b,                                                \
+    IS16 : ((a > 0) && (b > 0) && (a > (IS16_MAX / b)))             \
+      || ((a > 0) && (b < 0) && (b < (IS16_MIN / a)))               \
+      || ((a < 0) && (b > 0) && (a < (IS16_MIN / b)))               \
+      || ((a < 0) && (b < 0) && (a != 0) && (b < (IS16_MAX / a))),  \
+    default : assert(0)),                                           \
+  IS32 : _Generic(b,                                                \
+    IS32 : ((a > 0) && (b > 0) && (a > (IS32_MAX / b)))             \
+      || ((a > 0) && (b < 0) && (b < (IS32_MIN / a)))               \
+      || ((a < 0) && (b > 0) && (a < (IS32_MIN / b)))               \
+      || ((a < 0) && (b < 0) && (a != 0) && (b < (IS32_MAX / a))),  \
+    default : assert(0)),                                           \
+  IS64 : _Generic(b,                                                \
+    IS64 : ((a > 0) && (b > 0) && (a > (IS64_MAX / b)))             \
+      || ((a > 0) && (b < 0) && (b < (IS64_MIN / a)))               \
+      || ((a < 0) && (b > 0) && (a < (IS64_MIN / b)))               \
+      || ((a < 0) && (b < 0) && (a != 0) && (b < (IS64_MAX / a))),  \
+    default : assert(0))))
 
 
 #define CRUX_ARITH__mul(a, b) _Generic(a,    \

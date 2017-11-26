@@ -5,7 +5,7 @@
  *
  */
 #pragma once
-#include "./error.h"
+#include "./signal.h"
 
 
 /**
@@ -97,6 +97,17 @@ CRUX__ResultIS64 CRUX_ARITH__abs_is64 (const IS64 value);
  */
 CRUX__ResultSize CRUX_ARITH__abs_size (const Size value);
 
+
+
+#define CRUX_ARITH__abs_has_overflow(value) (_Generic(value,  \
+  IU08 : false,                                               \
+  IU16 : false,                                               \
+  IU32 : false,                                               \
+  IU64 : false,                                               \
+  IS08 : CRUX__is_min(value),                                 \
+  IS16 : CRUX__is_min(value),                                 \
+  IS32 : CRUX__is_min(value),                                 \
+  IS64 : CRUX__is_min(value)))
 
 
 

@@ -41,7 +41,7 @@ CRUX__ResultIU64 CRUX_ARITH__abs_iu64 (const IU64 value) {
 CRUX__ResultIS08 CRUX_ARITH__abs_is08 (const IS08 value) {
   CRUX__Trace trace = CRUX__trace_create();
   IS08 abs_value = CRUX__as_is08(0);
-  if (value == IS08_MIN) {
+  if (CRUX_ARITH__abs_has_overflow(value)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -60,7 +60,7 @@ CRUX__ResultIS08 CRUX_ARITH__abs_is08 (const IS08 value) {
 CRUX__ResultIS16 CRUX_ARITH__abs_is16 (const IS16 value) {
   CRUX__Trace trace = CRUX__trace_create();
   IS16 abs_value = CRUX__as_is16(0);
-  if (value == IS16_MIN) {
+  if (CRUX_ARITH__abs_has_overflow(value)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -79,7 +79,7 @@ CRUX__ResultIS16 CRUX_ARITH__abs_is16 (const IS16 value) {
 CRUX__ResultIS32 CRUX_ARITH__abs_is32 (const IS32 value) {
   CRUX__Trace trace = CRUX__trace_create();
   IS32 abs_value = CRUX__as_is32(0);
-  if (value == IS32_MIN) {
+  if (CRUX_ARITH__abs_has_overflow(value)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -98,7 +98,7 @@ CRUX__ResultIS32 CRUX_ARITH__abs_is32 (const IS32 value) {
 CRUX__ResultIS64 CRUX_ARITH__abs_is64 (const IS64 value) {
   CRUX__Trace trace = CRUX__trace_create();
   IS64 abs_value = CRUX__as_is64(0);
-  if (value == IS64_MIN) {
+  if (CRUX_ARITH__abs_has_overflow(value)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,

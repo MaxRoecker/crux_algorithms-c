@@ -11,8 +11,7 @@ CRUX__ResultIU08 CRUX_ARITH__mul_iu08_iu08 (
     const IU08 a, const IU08 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IU08 multiplication = CRUX__as_iu08(0);
-  const Bool has_overflow = (b != 0) && (a > (IU08_MAX / b));
-  if (has_overflow) {
+  if (CRUX_ARITH__mul_has_overflow(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -45,9 +44,7 @@ CRUX__ResultIU16 CRUX_ARITH__mul_iu08_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU16_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -81,9 +78,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_iu08_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -117,9 +112,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu08_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -153,9 +146,7 @@ CRUX__ResultIU08 CRUX_ARITH__mul_iu08_is08 (
   } else {
     const IU08 a_promo = a;
     const IU08 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU08_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -189,12 +180,7 @@ CRUX__ResultIS16 CRUX_ARITH__mul_iu08_is16 (
   } else {
     const IS16 a_promo = promo_result.value;
     const IS16 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS16_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS16_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS16_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS16_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -228,12 +214,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_iu08_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS32_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS32_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS32_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS32_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -267,12 +248,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_iu08_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -306,9 +282,7 @@ CRUX__ResultIU16 CRUX_ARITH__mul_iu16_iu08 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU16_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -329,8 +303,7 @@ CRUX__ResultIU16 CRUX_ARITH__mul_iu16_iu16 (
     const IU16 a, const IU16 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IU16 multiplication = CRUX__as_iu16(0);
-  const Bool has_overflow = (b != 0) && (a > (IU16_MAX / b));
-  if (has_overflow) {
+  if (CRUX_ARITH__mul_has_overflow(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -363,9 +336,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_iu16_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -399,9 +370,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu16_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -435,9 +404,7 @@ CRUX__ResultIU16 CRUX_ARITH__mul_iu16_is08 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU16_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -471,9 +438,7 @@ CRUX__ResultIU16 CRUX_ARITH__mul_iu16_is16 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU16_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -507,12 +472,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_iu16_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS32_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS32_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS32_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS32_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -546,12 +506,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_iu16_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -585,9 +540,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_iu32_iu08 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -621,9 +574,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_iu32_iu16 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -644,8 +595,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_iu32_iu32 (
     const IU32 a, const IU32 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IU32 multiplication = CRUX__as_iu32(0);
-  const Bool has_overflow = (b != 0) && (a > (IU32_MAX / b));
-  if (has_overflow) {
+  if (CRUX_ARITH__mul_has_overflow(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -678,9 +628,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu32_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -714,9 +662,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_iu32_is08 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -750,9 +696,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_iu32_is16 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -786,9 +730,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_iu32_is32 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -822,12 +764,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_iu32_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -861,9 +798,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu64_iu08 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -897,9 +832,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu64_iu16 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -933,9 +866,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu64_iu32 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -990,9 +921,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu64_is08 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1026,9 +955,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu64_is16 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1062,9 +989,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu64_is32 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1098,9 +1023,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_iu64_is64 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1134,9 +1057,7 @@ CRUX__ResultIU08 CRUX_ARITH__mul_is08_iu08 (
   } else {
     const IU08 a_promo = promo_result.value;
     const IU08 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU08_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1170,9 +1091,7 @@ CRUX__ResultIU16 CRUX_ARITH__mul_is08_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU16_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1206,9 +1125,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_is08_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1242,9 +1159,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_is08_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1265,12 +1180,7 @@ CRUX__ResultIS08 CRUX_ARITH__mul_is08_is08 (
     const IS08 a, const IS08 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IS08 multiplication = CRUX__as_is08(0);
-  const Bool has_overflow = 
-    ((a > 0) && (b > 0) && (a > (IS08_MAX / b)))
-    || ((a > 0) && (b < 0) && (b < (IS08_MIN / a)))
-    || ((a < 0) && (b > 0) && (a < (IS08_MIN / b)))
-    || ((a < 0) && (b < 0) && (a != 0) && (b < (IS08_MAX / a)));
-  if (has_overflow) {
+  if (CRUX_ARITH__mul_has_overflow(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -1303,12 +1213,7 @@ CRUX__ResultIS16 CRUX_ARITH__mul_is08_is16 (
   } else {
     const IS16 a_promo = promo_result.value;
     const IS16 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS16_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS16_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS16_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS16_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1342,12 +1247,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_is08_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS32_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS32_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS32_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS32_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1381,12 +1281,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is08_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1420,12 +1315,7 @@ CRUX__ResultIS16 CRUX_ARITH__mul_is16_iu08 (
   } else {
     const IS16 a_promo = a;
     const IS16 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS16_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS16_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS16_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS16_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1459,9 +1349,7 @@ CRUX__ResultIU16 CRUX_ARITH__mul_is16_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU16_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1495,9 +1383,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_is16_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1531,9 +1417,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_is16_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1567,12 +1451,7 @@ CRUX__ResultIS16 CRUX_ARITH__mul_is16_is08 (
   } else {
     const IS16 a_promo = a;
     const IS16 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS16_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS16_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS16_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS16_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1593,12 +1472,7 @@ CRUX__ResultIS16 CRUX_ARITH__mul_is16_is16 (
     const IS16 a, const IS16 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IS16 multiplication = CRUX__as_is16(0);
-  const Bool has_overflow = 
-    ((a > 0) && (b > 0) && (a > (IS16_MAX / b)))
-    || ((a > 0) && (b < 0) && (b < (IS16_MIN / a)))
-    || ((a < 0) && (b > 0) && (a < (IS16_MIN / b)))
-    || ((a < 0) && (b < 0) && (a != 0) && (b < (IS16_MAX / a)));
-  if (has_overflow) {
+  if (CRUX_ARITH__mul_has_overflow(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -1631,12 +1505,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_is16_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS32_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS32_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS32_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS32_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1670,12 +1539,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is16_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1709,12 +1573,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_is32_iu08 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS32_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS32_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS32_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS32_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1748,12 +1607,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_is32_iu16 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS32_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS32_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS32_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS32_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1787,9 +1641,7 @@ CRUX__ResultIU32 CRUX_ARITH__mul_is32_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU32_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1823,9 +1675,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_is32_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1859,12 +1709,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_is32_is08 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS32_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS32_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS32_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS32_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1898,12 +1743,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_is32_is16 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS32_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS32_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS32_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS32_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1924,12 +1764,7 @@ CRUX__ResultIS32 CRUX_ARITH__mul_is32_is32 (
     const IS32 a, const IS32 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IS32 multiplication = CRUX__as_is32(0);
-  const Bool has_overflow = 
-    ((a > 0) && (b > 0) && (a > (IS32_MAX / b)))
-    || ((a > 0) && (b < 0) && (b < (IS32_MIN / a)))
-    || ((a < 0) && (b > 0) && (a < (IS32_MIN / b)))
-    || ((a < 0) && (b < 0) && (a != 0) && (b < (IS32_MAX / a)));
-  if (has_overflow) {
+  if (CRUX_ARITH__mul_has_overflow(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -1962,12 +1797,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is32_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2001,12 +1831,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is64_iu08 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2040,12 +1865,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is64_iu16 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2079,12 +1899,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is64_iu32 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2118,9 +1933,7 @@ CRUX__ResultIU64 CRUX_ARITH__mul_is64_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    const Bool has_overflow = 
-      (b_promo != 0) && (a_promo > (IU64_MAX / b_promo));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2154,12 +1967,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is64_is08 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2193,12 +2001,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is64_is16 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2232,12 +2035,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is64_is32 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    const Bool has_overflow = 
-      ((a_promo > 0) && (b_promo > 0) && (a_promo > (IS64_MAX / b_promo)))
-      || ((a_promo > 0) && (b_promo < 0) && (b_promo < (IS64_MIN / a_promo)))
-      || ((a_promo < 0) && (b_promo > 0) && (a_promo < (IS64_MIN / b_promo)))
-      || ((a_promo < 0) && (b_promo < 0) && (a_promo != 0) && (b_promo < (IS64_MAX / a_promo)));
-    if (has_overflow) {
+    if (CRUX_ARITH__mul_has_overflow(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX_ARITH__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2258,12 +2056,7 @@ CRUX__ResultIS64 CRUX_ARITH__mul_is64_is64 (
     const IS64 a, const IS64 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IS64 multiplication = CRUX__as_is64(0);
-  const Bool has_overflow = 
-    ((a > 0) && (b > 0) && (a > (IS64_MAX / b)))
-    || ((a > 0) && (b < 0) && (b < (IS64_MIN / a)))
-    || ((a < 0) && (b > 0) && (a < (IS64_MIN / b)))
-    || ((a < 0) && (b < 0) && (a != 0) && (b < (IS64_MAX / a)));
-  if (has_overflow) {
+  if (CRUX_ARITH__mul_has_overflow(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -2283,8 +2076,7 @@ CRUX__ResultSize CRUX_ARITH__mul_size_size (
     const Size a, const Size b) {
   CRUX__Trace trace = CRUX__trace_create();
   Size multiplication = CRUX__as_size(0);
-  const Bool has_overflow = (b != 0) && (a > (SIZE_MAX / b));
-  if (has_overflow) {
+  if (CRUX_ARITH__mul_has_overflow(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX_ARITH__ERROR_ARITHMETIC,
       .filepath = __FILE__,

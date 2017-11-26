@@ -5,7 +5,7 @@
  *
  */
 #pragma once
-#include "./error.h"
+#include "./signal.h"
 
 
 
@@ -726,76 +726,105 @@ CRUX__ResultIS64 CRUX_ARITH__add_is64_is64 (const IS64 a, const IS64 b);
 CRUX__ResultSize CRUX_ARITH__add_size_size (const Size a, const Size b);
 
 
-#define CRUX_ARITH__add(a, b) _Generic(a,    \
-  IU08 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__add_iu08_iu08(a, b),  \
-    IU16 : CRUX_ARITH__add_iu08_iu16(a, b),  \
-    IU32 : CRUX_ARITH__add_iu08_iu32(a, b),  \
-    IU64 : CRUX_ARITH__add_iu08_iu64(a, b),  \
-    IS08 : CRUX_ARITH__add_iu08_is08(a, b),  \
-    IS16 : CRUX_ARITH__add_iu08_is16(a, b),  \
-    IS32 : CRUX_ARITH__add_iu08_is32(a, b),  \
-    IS64 : CRUX_ARITH__add_iu08_is64(a, b)), \
-  IU16 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__add_iu16_iu08(a, b),  \
-    IU16 : CRUX_ARITH__add_iu16_iu16(a, b),  \
-    IU32 : CRUX_ARITH__add_iu16_iu32(a, b),  \
-    IU64 : CRUX_ARITH__add_iu16_iu64(a, b),  \
-    IS08 : CRUX_ARITH__add_iu16_is08(a, b),  \
-    IS16 : CRUX_ARITH__add_iu16_is16(a, b),  \
-    IS32 : CRUX_ARITH__add_iu16_is32(a, b),  \
-    IS64 : CRUX_ARITH__add_iu16_is64(a, b)), \
-  IU32 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__add_iu32_iu08(a, b),  \
-    IU16 : CRUX_ARITH__add_iu32_iu16(a, b),  \
-    IU32 : CRUX_ARITH__add_iu32_iu32(a, b),  \
-    IU64 : CRUX_ARITH__add_iu32_iu64(a, b),  \
-    IS08 : CRUX_ARITH__add_iu32_is08(a, b),  \
-    IS16 : CRUX_ARITH__add_iu32_is16(a, b),  \
-    IS32 : CRUX_ARITH__add_iu32_is32(a, b),  \
-    IS64 : CRUX_ARITH__add_iu32_is64(a, b)), \
-  IU64 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__add_iu64_iu08(a, b),  \
-    IU16 : CRUX_ARITH__add_iu64_iu16(a, b),  \
-    IU32 : CRUX_ARITH__add_iu64_iu32(a, b),  \
-    IU64 : CRUX_ARITH__add_iu64_iu64(a, b),  \
-    IS08 : CRUX_ARITH__add_iu64_is08(a, b),  \
-    IS16 : CRUX_ARITH__add_iu64_is16(a, b),  \
-    IS32 : CRUX_ARITH__add_iu64_is32(a, b),  \
-    IS64 : CRUX_ARITH__add_iu64_is64(a, b)), \
-  IS08 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__add_is08_iu08(a, b),  \
-    IU16 : CRUX_ARITH__add_is08_iu16(a, b),  \
-    IU32 : CRUX_ARITH__add_is08_iu32(a, b),  \
-    IU64 : CRUX_ARITH__add_is08_iu64(a, b),  \
-    IS08 : CRUX_ARITH__add_is08_is08(a, b),  \
-    IS16 : CRUX_ARITH__add_is08_is16(a, b),  \
-    IS32 : CRUX_ARITH__add_is08_is32(a, b),  \
-    IS64 : CRUX_ARITH__add_is08_is64(a, b)), \
-  IS16 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__add_is16_iu08(a, b),  \
-    IU16 : CRUX_ARITH__add_is16_iu16(a, b),  \
-    IU32 : CRUX_ARITH__add_is16_iu32(a, b),  \
-    IU64 : CRUX_ARITH__add_is16_iu64(a, b),  \
-    IS08 : CRUX_ARITH__add_is16_is08(a, b),  \
-    IS16 : CRUX_ARITH__add_is16_is16(a, b),  \
-    IS32 : CRUX_ARITH__add_is16_is32(a, b),  \
-    IS64 : CRUX_ARITH__add_is16_is64(a, b)), \
-  IS32 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__add_is32_iu08(a, b),  \
-    IU16 : CRUX_ARITH__add_is32_iu16(a, b),  \
-    IU32 : CRUX_ARITH__add_is32_iu32(a, b),  \
-    IU64 : CRUX_ARITH__add_is32_iu64(a, b),  \
-    IS08 : CRUX_ARITH__add_is32_is08(a, b),  \
-    IS16 : CRUX_ARITH__add_is32_is16(a, b),  \
-    IS32 : CRUX_ARITH__add_is32_is32(a, b),  \
-    IS64 : CRUX_ARITH__add_is32_is64(a, b)), \
-  IS64 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__add_is64_iu08(a, b),  \
-    IU16 : CRUX_ARITH__add_is64_iu16(a, b),  \
-    IU32 : CRUX_ARITH__add_is64_iu32(a, b),  \
-    IU64 : CRUX_ARITH__add_is64_iu64(a, b),  \
-    IS08 : CRUX_ARITH__add_is64_is08(a, b),  \
-    IS16 : CRUX_ARITH__add_is64_is16(a, b),  \
-    IS32 : CRUX_ARITH__add_is64_is32(a, b),  \
+
+
+#define CRUX_ARITH__add_has_overflow(a, b) (_Generic(a,   \
+  IU08 : _Generic(b,                                      \
+    IU08 : (IU08_MAX - a) < b, default : assert(0)),      \
+  IU16 : _Generic(b,                                      \
+    IU16 : (IU16_MAX - a) < b, default : assert(0)),      \
+  IU32 : _Generic(b,                                      \
+    IU32 : (IU32_MAX - a) < b, default : assert(0)),      \
+  IU64 : _Generic(b,                                      \
+    IU64 : (IU64_MAX - a) < b, default : assert(0)),      \
+  IS08 : _Generic(b,                                      \
+    IS08 : (CRUX__is_positive(b) && (a > (IS08_MAX - b))) \
+      || (CRUX__is_negative(b) && (a < (IS08_MIN - b))),  \
+    default : assert(0)),                                 \
+  IS16 : _Generic(b,                                      \
+    IS16 : (CRUX__is_positive(b) && (a > (IS16_MAX - b))) \
+      || (CRUX__is_negative(b) && (a < (IS16_MIN - b))),  \
+    default : assert(0)),                                 \
+  IS32 : _Generic(b,                                      \
+    IS32 : (CRUX__is_positive(b) && (a > (IS32_MAX - b))) \
+      || (CRUX__is_negative(b) && (a < (IS32_MIN - b))),  \
+    default : assert(0)),                                 \
+  IS64 : _Generic(b,                                      \
+    IS64 : (CRUX__is_positive(b) && (a > (IS64_MAX - b))) \
+      || (CRUX__is_negative(b) && (a < (IS64_MIN - b))),  \
+    default : assert(0))))
+
+
+#define CRUX_ARITH__add(a, b) _Generic(a,     \
+  IU08 : _Generic(b,                          \
+    IU08 : CRUX_ARITH__add_iu08_iu08(a, b),   \
+    IU16 : CRUX_ARITH__add_iu08_iu16(a, b),   \
+    IU32 : CRUX_ARITH__add_iu08_iu32(a, b),   \
+    IU64 : CRUX_ARITH__add_iu08_iu64(a, b),   \
+    IS08 : CRUX_ARITH__add_iu08_is08(a, b),   \
+    IS16 : CRUX_ARITH__add_iu08_is16(a, b),   \
+    IS32 : CRUX_ARITH__add_iu08_is32(a, b),   \
+    IS64 : CRUX_ARITH__add_iu08_is64(a, b)),  \
+  IU16 : _Generic(b,                          \
+    IU08 : CRUX_ARITH__add_iu16_iu08(a, b),   \
+    IU16 : CRUX_ARITH__add_iu16_iu16(a, b),   \
+    IU32 : CRUX_ARITH__add_iu16_iu32(a, b),   \
+    IU64 : CRUX_ARITH__add_iu16_iu64(a, b),   \
+    IS08 : CRUX_ARITH__add_iu16_is08(a, b),   \
+    IS16 : CRUX_ARITH__add_iu16_is16(a, b),   \
+    IS32 : CRUX_ARITH__add_iu16_is32(a, b),   \
+    IS64 : CRUX_ARITH__add_iu16_is64(a, b)),  \
+  IU32 : _Generic(b,                          \
+    IU08 : CRUX_ARITH__add_iu32_iu08(a, b),   \
+    IU16 : CRUX_ARITH__add_iu32_iu16(a, b),   \
+    IU32 : CRUX_ARITH__add_iu32_iu32(a, b),   \
+    IU64 : CRUX_ARITH__add_iu32_iu64(a, b),   \
+    IS08 : CRUX_ARITH__add_iu32_is08(a, b),   \
+    IS16 : CRUX_ARITH__add_iu32_is16(a, b),   \
+    IS32 : CRUX_ARITH__add_iu32_is32(a, b),   \
+    IS64 : CRUX_ARITH__add_iu32_is64(a, b)),  \
+  IU64 : _Generic(b,                          \
+    IU08 : CRUX_ARITH__add_iu64_iu08(a, b),   \
+    IU16 : CRUX_ARITH__add_iu64_iu16(a, b),   \
+    IU32 : CRUX_ARITH__add_iu64_iu32(a, b),   \
+    IU64 : CRUX_ARITH__add_iu64_iu64(a, b),   \
+    IS08 : CRUX_ARITH__add_iu64_is08(a, b),   \
+    IS16 : CRUX_ARITH__add_iu64_is16(a, b),   \
+    IS32 : CRUX_ARITH__add_iu64_is32(a, b),   \
+    IS64 : CRUX_ARITH__add_iu64_is64(a, b)),  \
+  IS08 : _Generic(b,                          \
+    IU08 : CRUX_ARITH__add_is08_iu08(a, b),   \
+    IU16 : CRUX_ARITH__add_is08_iu16(a, b),   \
+    IU32 : CRUX_ARITH__add_is08_iu32(a, b),   \
+    IU64 : CRUX_ARITH__add_is08_iu64(a, b),   \
+    IS08 : CRUX_ARITH__add_is08_is08(a, b),   \
+    IS16 : CRUX_ARITH__add_is08_is16(a, b),   \
+    IS32 : CRUX_ARITH__add_is08_is32(a, b),   \
+    IS64 : CRUX_ARITH__add_is08_is64(a, b)),  \
+  IS16 : _Generic(b,                          \
+    IU08 : CRUX_ARITH__add_is16_iu08(a, b),   \
+    IU16 : CRUX_ARITH__add_is16_iu16(a, b),   \
+    IU32 : CRUX_ARITH__add_is16_iu32(a, b),   \
+    IU64 : CRUX_ARITH__add_is16_iu64(a, b),   \
+    IS08 : CRUX_ARITH__add_is16_is08(a, b),   \
+    IS16 : CRUX_ARITH__add_is16_is16(a, b),   \
+    IS32 : CRUX_ARITH__add_is16_is32(a, b),   \
+    IS64 : CRUX_ARITH__add_is16_is64(a, b)),  \
+  IS32 : _Generic(b,                          \
+    IU08 : CRUX_ARITH__add_is32_iu08(a, b),   \
+    IU16 : CRUX_ARITH__add_is32_iu16(a, b),   \
+    IU32 : CRUX_ARITH__add_is32_iu32(a, b),   \
+    IU64 : CRUX_ARITH__add_is32_iu64(a, b),   \
+    IS08 : CRUX_ARITH__add_is32_is08(a, b),   \
+    IS16 : CRUX_ARITH__add_is32_is16(a, b),   \
+    IS32 : CRUX_ARITH__add_is32_is32(a, b),   \
+    IS64 : CRUX_ARITH__add_is32_is64(a, b)),  \
+  IS64 : _Generic(b,                          \
+    IU08 : CRUX_ARITH__add_is64_iu08(a, b),   \
+    IU16 : CRUX_ARITH__add_is64_iu16(a, b),   \
+    IU32 : CRUX_ARITH__add_is64_iu32(a, b),   \
+    IU64 : CRUX_ARITH__add_is64_iu64(a, b),   \
+    IS08 : CRUX_ARITH__add_is64_is08(a, b),   \
+    IS16 : CRUX_ARITH__add_is64_is16(a, b),   \
+    IS32 : CRUX_ARITH__add_is64_is32(a, b),   \
     IS64 : CRUX_ARITH__add_is64_is64(a, b)))
