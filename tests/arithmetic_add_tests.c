@@ -4,7 +4,7 @@
 
 
 
-void CRUX_ARITH__add_iu08_iu08_tests (void) {
+void CRUX__add_iu08_iu08_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -13,22 +13,22 @@ void CRUX_ARITH__add_iu08_iu08_tests (void) {
   const IU08 b_min = IU08_MIN;
   const IU08 b_nil = CRUX__as_iu08(0);
   const IU08 b_one = CRUX__as_iu08(1);
-  CRUX__ResultIU08 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU08 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU08 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU08 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU08 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU08 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU08 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU08 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU08 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU08 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU08 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU08 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU08 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU08 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU08 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU08 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU08 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU08 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU08 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU08 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU08 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU08 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU08 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU08 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU08 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU08 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU08 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU08 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU08 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU08 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU08 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU08 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -64,7 +64,7 @@ void CRUX_ARITH__add_iu08_iu08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu08_iu16_tests (void) {
+void CRUX__add_iu08_iu16_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -73,22 +73,22 @@ void CRUX_ARITH__add_iu08_iu16_tests (void) {
   const IU16 b_min = IU16_MIN;
   const IU16 b_nil = CRUX__as_iu16(0);
   const IU16 b_one = CRUX__as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -124,7 +124,7 @@ void CRUX_ARITH__add_iu08_iu16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu08_iu32_tests (void) {
+void CRUX__add_iu08_iu32_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -133,22 +133,22 @@ void CRUX_ARITH__add_iu08_iu32_tests (void) {
   const IU32 b_min = IU32_MIN;
   const IU32 b_nil = CRUX__as_iu32(0);
   const IU32 b_one = CRUX__as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -184,7 +184,7 @@ void CRUX_ARITH__add_iu08_iu32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu08_iu64_tests (void) {
+void CRUX__add_iu08_iu64_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -193,22 +193,22 @@ void CRUX_ARITH__add_iu08_iu64_tests (void) {
   const IU64 b_min = IU64_MIN;
   const IU64 b_nil = CRUX__as_iu64(0);
   const IU64 b_one = CRUX__as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -244,7 +244,7 @@ void CRUX_ARITH__add_iu08_iu64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu08_is08_tests (void) {
+void CRUX__add_iu08_is08_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -253,22 +253,22 @@ void CRUX_ARITH__add_iu08_is08_tests (void) {
   const IS08 b_min = IS08_MIN;
   const IS08 b_nil = CRUX__as_is08(0);
   const IS08 b_one = CRUX__as_is08(1);
-  CRUX__ResultIU08 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU08 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU08 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU08 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU08 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU08 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU08 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU08 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU08 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU08 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU08 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU08 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU08 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU08 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU08 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU08 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU08 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU08 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU08 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU08 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU08 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU08 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU08 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU08 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU08 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU08 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU08 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU08 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU08 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU08 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU08 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU08 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -304,7 +304,7 @@ void CRUX_ARITH__add_iu08_is08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu08_is16_tests (void) {
+void CRUX__add_iu08_is16_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -313,22 +313,22 @@ void CRUX_ARITH__add_iu08_is16_tests (void) {
   const IS16 b_min = IS16_MIN;
   const IS16 b_nil = CRUX__as_is16(0);
   const IS16 b_one = CRUX__as_is16(1);
-  CRUX__ResultIS16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -364,7 +364,7 @@ void CRUX_ARITH__add_iu08_is16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu08_is32_tests (void) {
+void CRUX__add_iu08_is32_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -373,22 +373,22 @@ void CRUX_ARITH__add_iu08_is32_tests (void) {
   const IS32 b_min = IS32_MIN;
   const IS32 b_nil = CRUX__as_is32(0);
   const IS32 b_one = CRUX__as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -424,7 +424,7 @@ void CRUX_ARITH__add_iu08_is32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu08_is64_tests (void) {
+void CRUX__add_iu08_is64_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
   const IU08 a_nil = CRUX__as_iu08(0);
@@ -433,22 +433,22 @@ void CRUX_ARITH__add_iu08_is64_tests (void) {
   const IS64 b_min = IS64_MIN;
   const IS64 b_nil = CRUX__as_is64(0);
   const IS64 b_one = CRUX__as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -484,7 +484,7 @@ void CRUX_ARITH__add_iu08_is64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu16_iu08_tests (void) {
+void CRUX__add_iu16_iu08_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -493,22 +493,22 @@ void CRUX_ARITH__add_iu16_iu08_tests (void) {
   const IU08 b_min = IU08_MIN;
   const IU08 b_nil = CRUX__as_iu08(0);
   const IU08 b_one = CRUX__as_iu08(1);
-  CRUX__ResultIU16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -544,7 +544,7 @@ void CRUX_ARITH__add_iu16_iu08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu16_iu16_tests (void) {
+void CRUX__add_iu16_iu16_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -553,22 +553,22 @@ void CRUX_ARITH__add_iu16_iu16_tests (void) {
   const IU16 b_min = IU16_MIN;
   const IU16 b_nil = CRUX__as_iu16(0);
   const IU16 b_one = CRUX__as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -604,7 +604,7 @@ void CRUX_ARITH__add_iu16_iu16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu16_iu32_tests (void) {
+void CRUX__add_iu16_iu32_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -613,22 +613,22 @@ void CRUX_ARITH__add_iu16_iu32_tests (void) {
   const IU32 b_min = IU32_MIN;
   const IU32 b_nil = CRUX__as_iu32(0);
   const IU32 b_one = CRUX__as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -664,7 +664,7 @@ void CRUX_ARITH__add_iu16_iu32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu16_iu64_tests (void) {
+void CRUX__add_iu16_iu64_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -673,22 +673,22 @@ void CRUX_ARITH__add_iu16_iu64_tests (void) {
   const IU64 b_min = IU64_MIN;
   const IU64 b_nil = CRUX__as_iu64(0);
   const IU64 b_one = CRUX__as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -724,7 +724,7 @@ void CRUX_ARITH__add_iu16_iu64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu16_is08_tests (void) {
+void CRUX__add_iu16_is08_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -733,22 +733,22 @@ void CRUX_ARITH__add_iu16_is08_tests (void) {
   const IS08 b_min = IS08_MIN;
   const IS08 b_nil = CRUX__as_is08(0);
   const IS08 b_one = CRUX__as_is08(1);
-  CRUX__ResultIU16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -784,7 +784,7 @@ void CRUX_ARITH__add_iu16_is08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu16_is16_tests (void) {
+void CRUX__add_iu16_is16_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -793,22 +793,22 @@ void CRUX_ARITH__add_iu16_is16_tests (void) {
   const IS16 b_min = IS16_MIN;
   const IS16 b_nil = CRUX__as_is16(0);
   const IS16 b_one = CRUX__as_is16(1);
-  CRUX__ResultIU16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -844,7 +844,7 @@ void CRUX_ARITH__add_iu16_is16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu16_is32_tests (void) {
+void CRUX__add_iu16_is32_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -853,22 +853,22 @@ void CRUX_ARITH__add_iu16_is32_tests (void) {
   const IS32 b_min = IS32_MIN;
   const IS32 b_nil = CRUX__as_is32(0);
   const IS32 b_one = CRUX__as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -904,7 +904,7 @@ void CRUX_ARITH__add_iu16_is32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu16_is64_tests (void) {
+void CRUX__add_iu16_is64_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
   const IU16 a_nil = CRUX__as_iu16(0);
@@ -913,22 +913,22 @@ void CRUX_ARITH__add_iu16_is64_tests (void) {
   const IS64 b_min = IS64_MIN;
   const IS64 b_nil = CRUX__as_is64(0);
   const IS64 b_one = CRUX__as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -964,7 +964,7 @@ void CRUX_ARITH__add_iu16_is64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu32_iu08_tests (void) {
+void CRUX__add_iu32_iu08_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -973,22 +973,22 @@ void CRUX_ARITH__add_iu32_iu08_tests (void) {
   const IU08 b_min = IU08_MIN;
   const IU08 b_nil = CRUX__as_iu08(0);
   const IU08 b_one = CRUX__as_iu08(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1024,7 +1024,7 @@ void CRUX_ARITH__add_iu32_iu08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu32_iu16_tests (void) {
+void CRUX__add_iu32_iu16_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1033,22 +1033,22 @@ void CRUX_ARITH__add_iu32_iu16_tests (void) {
   const IU16 b_min = IU16_MIN;
   const IU16 b_nil = CRUX__as_iu16(0);
   const IU16 b_one = CRUX__as_iu16(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1084,7 +1084,7 @@ void CRUX_ARITH__add_iu32_iu16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu32_iu32_tests (void) {
+void CRUX__add_iu32_iu32_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1093,22 +1093,22 @@ void CRUX_ARITH__add_iu32_iu32_tests (void) {
   const IU32 b_min = IU32_MIN;
   const IU32 b_nil = CRUX__as_iu32(0);
   const IU32 b_one = CRUX__as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1144,7 +1144,7 @@ void CRUX_ARITH__add_iu32_iu32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu32_iu64_tests (void) {
+void CRUX__add_iu32_iu64_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1153,22 +1153,22 @@ void CRUX_ARITH__add_iu32_iu64_tests (void) {
   const IU64 b_min = IU64_MIN;
   const IU64 b_nil = CRUX__as_iu64(0);
   const IU64 b_one = CRUX__as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1204,7 +1204,7 @@ void CRUX_ARITH__add_iu32_iu64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu32_is08_tests (void) {
+void CRUX__add_iu32_is08_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1213,22 +1213,22 @@ void CRUX_ARITH__add_iu32_is08_tests (void) {
   const IS08 b_min = IS08_MIN;
   const IS08 b_nil = CRUX__as_is08(0);
   const IS08 b_one = CRUX__as_is08(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1264,7 +1264,7 @@ void CRUX_ARITH__add_iu32_is08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu32_is16_tests (void) {
+void CRUX__add_iu32_is16_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1273,22 +1273,22 @@ void CRUX_ARITH__add_iu32_is16_tests (void) {
   const IS16 b_min = IS16_MIN;
   const IS16 b_nil = CRUX__as_is16(0);
   const IS16 b_one = CRUX__as_is16(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1324,7 +1324,7 @@ void CRUX_ARITH__add_iu32_is16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu32_is32_tests (void) {
+void CRUX__add_iu32_is32_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1333,22 +1333,22 @@ void CRUX_ARITH__add_iu32_is32_tests (void) {
   const IS32 b_min = IS32_MIN;
   const IS32 b_nil = CRUX__as_is32(0);
   const IS32 b_one = CRUX__as_is32(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1384,7 +1384,7 @@ void CRUX_ARITH__add_iu32_is32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu32_is64_tests (void) {
+void CRUX__add_iu32_is64_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
   const IU32 a_nil = CRUX__as_iu32(0);
@@ -1393,22 +1393,22 @@ void CRUX_ARITH__add_iu32_is64_tests (void) {
   const IS64 b_min = IS64_MIN;
   const IS64 b_nil = CRUX__as_is64(0);
   const IS64 b_one = CRUX__as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1444,7 +1444,7 @@ void CRUX_ARITH__add_iu32_is64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu64_iu08_tests (void) {
+void CRUX__add_iu64_iu08_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1453,22 +1453,22 @@ void CRUX_ARITH__add_iu64_iu08_tests (void) {
   const IU08 b_min = IU08_MIN;
   const IU08 b_nil = CRUX__as_iu08(0);
   const IU08 b_one = CRUX__as_iu08(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1504,7 +1504,7 @@ void CRUX_ARITH__add_iu64_iu08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu64_iu16_tests (void) {
+void CRUX__add_iu64_iu16_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1513,22 +1513,22 @@ void CRUX_ARITH__add_iu64_iu16_tests (void) {
   const IU16 b_min = IU16_MIN;
   const IU16 b_nil = CRUX__as_iu16(0);
   const IU16 b_one = CRUX__as_iu16(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1564,7 +1564,7 @@ void CRUX_ARITH__add_iu64_iu16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu64_iu32_tests (void) {
+void CRUX__add_iu64_iu32_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1573,22 +1573,22 @@ void CRUX_ARITH__add_iu64_iu32_tests (void) {
   const IU32 b_min = IU32_MIN;
   const IU32 b_nil = CRUX__as_iu32(0);
   const IU32 b_one = CRUX__as_iu32(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1624,7 +1624,7 @@ void CRUX_ARITH__add_iu64_iu32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu64_iu64_tests (void) {
+void CRUX__add_iu64_iu64_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1633,22 +1633,22 @@ void CRUX_ARITH__add_iu64_iu64_tests (void) {
   const IU64 b_min = IU64_MIN;
   const IU64 b_nil = CRUX__as_iu64(0);
   const IU64 b_one = CRUX__as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1684,7 +1684,7 @@ void CRUX_ARITH__add_iu64_iu64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu64_is08_tests (void) {
+void CRUX__add_iu64_is08_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1693,22 +1693,22 @@ void CRUX_ARITH__add_iu64_is08_tests (void) {
   const IS08 b_min = IS08_MIN;
   const IS08 b_nil = CRUX__as_is08(0);
   const IS08 b_one = CRUX__as_is08(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1744,7 +1744,7 @@ void CRUX_ARITH__add_iu64_is08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu64_is16_tests (void) {
+void CRUX__add_iu64_is16_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1753,22 +1753,22 @@ void CRUX_ARITH__add_iu64_is16_tests (void) {
   const IS16 b_min = IS16_MIN;
   const IS16 b_nil = CRUX__as_is16(0);
   const IS16 b_one = CRUX__as_is16(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1804,7 +1804,7 @@ void CRUX_ARITH__add_iu64_is16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu64_is32_tests (void) {
+void CRUX__add_iu64_is32_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1813,22 +1813,22 @@ void CRUX_ARITH__add_iu64_is32_tests (void) {
   const IS32 b_min = IS32_MIN;
   const IS32 b_nil = CRUX__as_is32(0);
   const IS32 b_one = CRUX__as_is32(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1864,7 +1864,7 @@ void CRUX_ARITH__add_iu64_is32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_iu64_is64_tests (void) {
+void CRUX__add_iu64_is64_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
   const IU64 a_nil = CRUX__as_iu64(0);
@@ -1873,22 +1873,22 @@ void CRUX_ARITH__add_iu64_is64_tests (void) {
   const IS64 b_min = IS64_MIN;
   const IS64 b_nil = CRUX__as_is64(0);
   const IS64 b_one = CRUX__as_is64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1924,7 +1924,7 @@ void CRUX_ARITH__add_iu64_is64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is08_iu08_tests (void) {
+void CRUX__add_is08_iu08_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -1933,22 +1933,22 @@ void CRUX_ARITH__add_is08_iu08_tests (void) {
   const IU08 b_min = IU08_MIN;
   const IU08 b_nil = CRUX__as_iu08(0);
   const IU08 b_one = CRUX__as_iu08(1);
-  CRUX__ResultIU08 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU08 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU08 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU08 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU08 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU08 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU08 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU08 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU08 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU08 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU08 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU08 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU08 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU08 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU08 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU08 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU08 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU08 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU08 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU08 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU08 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU08 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU08 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU08 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU08 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU08 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU08 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU08 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU08 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU08 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU08 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU08 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -1984,7 +1984,7 @@ void CRUX_ARITH__add_is08_iu08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is08_iu16_tests (void) {
+void CRUX__add_is08_iu16_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -1993,22 +1993,22 @@ void CRUX_ARITH__add_is08_iu16_tests (void) {
   const IU16 b_min = IU16_MIN;
   const IU16 b_nil = CRUX__as_iu16(0);
   const IU16 b_one = CRUX__as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2044,7 +2044,7 @@ void CRUX_ARITH__add_is08_iu16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is08_iu32_tests (void) {
+void CRUX__add_is08_iu32_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2053,22 +2053,22 @@ void CRUX_ARITH__add_is08_iu32_tests (void) {
   const IU32 b_min = IU32_MIN;
   const IU32 b_nil = CRUX__as_iu32(0);
   const IU32 b_one = CRUX__as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2104,7 +2104,7 @@ void CRUX_ARITH__add_is08_iu32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is08_iu64_tests (void) {
+void CRUX__add_is08_iu64_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2113,22 +2113,22 @@ void CRUX_ARITH__add_is08_iu64_tests (void) {
   const IU64 b_min = IU64_MIN;
   const IU64 b_nil = CRUX__as_iu64(0);
   const IU64 b_one = CRUX__as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2164,7 +2164,7 @@ void CRUX_ARITH__add_is08_iu64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is08_is08_tests (void) {
+void CRUX__add_is08_is08_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2173,22 +2173,22 @@ void CRUX_ARITH__add_is08_is08_tests (void) {
   const IS08 b_min = IS08_MIN;
   const IS08 b_nil = CRUX__as_is08(0);
   const IS08 b_one = CRUX__as_is08(1);
-  CRUX__ResultIS08 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS08 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS08 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS08 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS08 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS08 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS08 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS08 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS08 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS08 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS08 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS08 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS08 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS08 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS08 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS08 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS08 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS08 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS08 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS08 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS08 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS08 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS08 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS08 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS08 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS08 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS08 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS08 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS08 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS08 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS08 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS08 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2224,7 +2224,7 @@ void CRUX_ARITH__add_is08_is08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is08_is16_tests (void) {
+void CRUX__add_is08_is16_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2233,22 +2233,22 @@ void CRUX_ARITH__add_is08_is16_tests (void) {
   const IS16 b_min = IS16_MIN;
   const IS16 b_nil = CRUX__as_is16(0);
   const IS16 b_one = CRUX__as_is16(1);
-  CRUX__ResultIS16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2284,7 +2284,7 @@ void CRUX_ARITH__add_is08_is16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is08_is32_tests (void) {
+void CRUX__add_is08_is32_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2293,22 +2293,22 @@ void CRUX_ARITH__add_is08_is32_tests (void) {
   const IS32 b_min = IS32_MIN;
   const IS32 b_nil = CRUX__as_is32(0);
   const IS32 b_one = CRUX__as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2344,7 +2344,7 @@ void CRUX_ARITH__add_is08_is32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is08_is64_tests (void) {
+void CRUX__add_is08_is64_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
   const IS08 a_nil = CRUX__as_is08(0);
@@ -2353,22 +2353,22 @@ void CRUX_ARITH__add_is08_is64_tests (void) {
   const IS64 b_min = IS64_MIN;
   const IS64 b_nil = CRUX__as_is64(0);
   const IS64 b_one = CRUX__as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2404,7 +2404,7 @@ void CRUX_ARITH__add_is08_is64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is16_iu08_tests (void) {
+void CRUX__add_is16_iu08_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2413,22 +2413,22 @@ void CRUX_ARITH__add_is16_iu08_tests (void) {
   const IU08 b_min = IU08_MIN;
   const IU08 b_nil = CRUX__as_iu08(0);
   const IU08 b_one = CRUX__as_iu08(1);
-  CRUX__ResultIS16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2464,7 +2464,7 @@ void CRUX_ARITH__add_is16_iu08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is16_iu16_tests (void) {
+void CRUX__add_is16_iu16_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2473,22 +2473,22 @@ void CRUX_ARITH__add_is16_iu16_tests (void) {
   const IU16 b_min = IU16_MIN;
   const IU16 b_nil = CRUX__as_iu16(0);
   const IU16 b_one = CRUX__as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2524,7 +2524,7 @@ void CRUX_ARITH__add_is16_iu16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is16_iu32_tests (void) {
+void CRUX__add_is16_iu32_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2533,22 +2533,22 @@ void CRUX_ARITH__add_is16_iu32_tests (void) {
   const IU32 b_min = IU32_MIN;
   const IU32 b_nil = CRUX__as_iu32(0);
   const IU32 b_one = CRUX__as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2584,7 +2584,7 @@ void CRUX_ARITH__add_is16_iu32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is16_iu64_tests (void) {
+void CRUX__add_is16_iu64_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2593,22 +2593,22 @@ void CRUX_ARITH__add_is16_iu64_tests (void) {
   const IU64 b_min = IU64_MIN;
   const IU64 b_nil = CRUX__as_iu64(0);
   const IU64 b_one = CRUX__as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2644,7 +2644,7 @@ void CRUX_ARITH__add_is16_iu64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is16_is08_tests (void) {
+void CRUX__add_is16_is08_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2653,22 +2653,22 @@ void CRUX_ARITH__add_is16_is08_tests (void) {
   const IS08 b_min = IS08_MIN;
   const IS08 b_nil = CRUX__as_is08(0);
   const IS08 b_one = CRUX__as_is08(1);
-  CRUX__ResultIS16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2704,7 +2704,7 @@ void CRUX_ARITH__add_is16_is08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is16_is16_tests (void) {
+void CRUX__add_is16_is16_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2713,22 +2713,22 @@ void CRUX_ARITH__add_is16_is16_tests (void) {
   const IS16 b_min = IS16_MIN;
   const IS16 b_nil = CRUX__as_is16(0);
   const IS16 b_one = CRUX__as_is16(1);
-  CRUX__ResultIS16 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS16 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS16 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS16 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS16 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS16 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS16 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS16 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS16 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS16 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS16 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS16 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS16 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS16 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS16 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS16 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS16 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2764,7 +2764,7 @@ void CRUX_ARITH__add_is16_is16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is16_is32_tests (void) {
+void CRUX__add_is16_is32_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2773,22 +2773,22 @@ void CRUX_ARITH__add_is16_is32_tests (void) {
   const IS32 b_min = IS32_MIN;
   const IS32 b_nil = CRUX__as_is32(0);
   const IS32 b_one = CRUX__as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2824,7 +2824,7 @@ void CRUX_ARITH__add_is16_is32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is16_is64_tests (void) {
+void CRUX__add_is16_is64_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
   const IS16 a_nil = CRUX__as_is16(0);
@@ -2833,22 +2833,22 @@ void CRUX_ARITH__add_is16_is64_tests (void) {
   const IS64 b_min = IS64_MIN;
   const IS64 b_nil = CRUX__as_is64(0);
   const IS64 b_one = CRUX__as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2884,7 +2884,7 @@ void CRUX_ARITH__add_is16_is64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is32_iu08_tests (void) {
+void CRUX__add_is32_iu08_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -2893,22 +2893,22 @@ void CRUX_ARITH__add_is32_iu08_tests (void) {
   const IU08 b_min = IU08_MIN;
   const IU08 b_nil = CRUX__as_iu08(0);
   const IU08 b_one = CRUX__as_iu08(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -2944,7 +2944,7 @@ void CRUX_ARITH__add_is32_iu08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is32_iu16_tests (void) {
+void CRUX__add_is32_iu16_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -2953,22 +2953,22 @@ void CRUX_ARITH__add_is32_iu16_tests (void) {
   const IU16 b_min = IU16_MIN;
   const IU16 b_nil = CRUX__as_iu16(0);
   const IU16 b_one = CRUX__as_iu16(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3004,7 +3004,7 @@ void CRUX_ARITH__add_is32_iu16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is32_iu32_tests (void) {
+void CRUX__add_is32_iu32_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3013,22 +3013,22 @@ void CRUX_ARITH__add_is32_iu32_tests (void) {
   const IU32 b_min = IU32_MIN;
   const IU32 b_nil = CRUX__as_iu32(0);
   const IU32 b_one = CRUX__as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3064,7 +3064,7 @@ void CRUX_ARITH__add_is32_iu32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is32_iu64_tests (void) {
+void CRUX__add_is32_iu64_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3073,22 +3073,22 @@ void CRUX_ARITH__add_is32_iu64_tests (void) {
   const IU64 b_min = IU64_MIN;
   const IU64 b_nil = CRUX__as_iu64(0);
   const IU64 b_one = CRUX__as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3124,7 +3124,7 @@ void CRUX_ARITH__add_is32_iu64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is32_is08_tests (void) {
+void CRUX__add_is32_is08_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3133,22 +3133,22 @@ void CRUX_ARITH__add_is32_is08_tests (void) {
   const IS08 b_min = IS08_MIN;
   const IS08 b_nil = CRUX__as_is08(0);
   const IS08 b_one = CRUX__as_is08(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3184,7 +3184,7 @@ void CRUX_ARITH__add_is32_is08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is32_is16_tests (void) {
+void CRUX__add_is32_is16_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3193,22 +3193,22 @@ void CRUX_ARITH__add_is32_is16_tests (void) {
   const IS16 b_min = IS16_MIN;
   const IS16 b_nil = CRUX__as_is16(0);
   const IS16 b_one = CRUX__as_is16(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3244,7 +3244,7 @@ void CRUX_ARITH__add_is32_is16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is32_is32_tests (void) {
+void CRUX__add_is32_is32_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3253,22 +3253,22 @@ void CRUX_ARITH__add_is32_is32_tests (void) {
   const IS32 b_min = IS32_MIN;
   const IS32 b_nil = CRUX__as_is32(0);
   const IS32 b_one = CRUX__as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS32 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS32 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS32 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS32 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS32 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS32 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS32 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS32 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS32 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS32 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS32 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS32 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS32 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS32 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS32 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS32 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3304,7 +3304,7 @@ void CRUX_ARITH__add_is32_is32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is32_is64_tests (void) {
+void CRUX__add_is32_is64_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
   const IS32 a_nil = CRUX__as_is32(0);
@@ -3313,22 +3313,22 @@ void CRUX_ARITH__add_is32_is64_tests (void) {
   const IS64 b_min = IS64_MIN;
   const IS64 b_nil = CRUX__as_is64(0);
   const IS64 b_one = CRUX__as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3364,7 +3364,7 @@ void CRUX_ARITH__add_is32_is64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is64_iu08_tests (void) {
+void CRUX__add_is64_iu08_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3373,22 +3373,22 @@ void CRUX_ARITH__add_is64_iu08_tests (void) {
   const IU08 b_min = IU08_MIN;
   const IU08 b_nil = CRUX__as_iu08(0);
   const IU08 b_one = CRUX__as_iu08(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3424,7 +3424,7 @@ void CRUX_ARITH__add_is64_iu08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is64_iu16_tests (void) {
+void CRUX__add_is64_iu16_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3433,22 +3433,22 @@ void CRUX_ARITH__add_is64_iu16_tests (void) {
   const IU16 b_min = IU16_MIN;
   const IU16 b_nil = CRUX__as_iu16(0);
   const IU16 b_one = CRUX__as_iu16(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3484,7 +3484,7 @@ void CRUX_ARITH__add_is64_iu16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is64_iu32_tests (void) {
+void CRUX__add_is64_iu32_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3493,22 +3493,22 @@ void CRUX_ARITH__add_is64_iu32_tests (void) {
   const IU32 b_min = IU32_MIN;
   const IU32 b_nil = CRUX__as_iu32(0);
   const IU32 b_one = CRUX__as_iu32(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3544,7 +3544,7 @@ void CRUX_ARITH__add_is64_iu32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is64_iu64_tests (void) {
+void CRUX__add_is64_iu64_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3553,22 +3553,22 @@ void CRUX_ARITH__add_is64_iu64_tests (void) {
   const IU64 b_min = IU64_MIN;
   const IU64 b_nil = CRUX__as_iu64(0);
   const IU64 b_one = CRUX__as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIU64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIU64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIU64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIU64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIU64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIU64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIU64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIU64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIU64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIU64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIU64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIU64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIU64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIU64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIU64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIU64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3604,7 +3604,7 @@ void CRUX_ARITH__add_is64_iu64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is64_is08_tests (void) {
+void CRUX__add_is64_is08_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3613,22 +3613,22 @@ void CRUX_ARITH__add_is64_is08_tests (void) {
   const IS08 b_min = IS08_MIN;
   const IS08 b_nil = CRUX__as_is08(0);
   const IS08 b_one = CRUX__as_is08(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3664,7 +3664,7 @@ void CRUX_ARITH__add_is64_is08_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is64_is16_tests (void) {
+void CRUX__add_is64_is16_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3673,22 +3673,22 @@ void CRUX_ARITH__add_is64_is16_tests (void) {
   const IS16 b_min = IS16_MIN;
   const IS16 b_nil = CRUX__as_is16(0);
   const IS16 b_one = CRUX__as_is16(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3724,7 +3724,7 @@ void CRUX_ARITH__add_is64_is16_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is64_is32_tests (void) {
+void CRUX__add_is64_is32_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3733,22 +3733,22 @@ void CRUX_ARITH__add_is64_is32_tests (void) {
   const IS32 b_min = IS32_MIN;
   const IS32 b_nil = CRUX__as_is32(0);
   const IS32 b_one = CRUX__as_is32(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3784,7 +3784,7 @@ void CRUX_ARITH__add_is64_is32_tests (void) {
 }
 
 
-void CRUX_ARITH__add_is64_is64_tests (void) {
+void CRUX__add_is64_is64_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
   const IS64 a_nil = CRUX__as_is64(0);
@@ -3793,22 +3793,22 @@ void CRUX_ARITH__add_is64_is64_tests (void) {
   const IS64 b_min = IS64_MIN;
   const IS64 b_nil = CRUX__as_is64(0);
   const IS64 b_one = CRUX__as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX_ARITH__add(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX_ARITH__add(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX_ARITH__add(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX_ARITH__add(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX_ARITH__add(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX_ARITH__add(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX_ARITH__add(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX_ARITH__add(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX_ARITH__add(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX_ARITH__add(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX_ARITH__add(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX_ARITH__add(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX_ARITH__add(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX_ARITH__add(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX_ARITH__add(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX_ARITH__add(a_one, b_one);
+  CRUX__ResultIS64 max_max = CRUX__add(a_max, b_max);
+  CRUX__ResultIS64 max_min = CRUX__add(a_max, b_min);
+  CRUX__ResultIS64 max_nil = CRUX__add(a_max, b_nil);
+  CRUX__ResultIS64 max_one = CRUX__add(a_max, b_one);
+  CRUX__ResultIS64 min_max = CRUX__add(a_min, b_max);
+  CRUX__ResultIS64 min_min = CRUX__add(a_min, b_min);
+  CRUX__ResultIS64 min_nil = CRUX__add(a_min, b_nil);
+  CRUX__ResultIS64 min_one = CRUX__add(a_min, b_one);
+  CRUX__ResultIS64 nil_max = CRUX__add(a_nil, b_max);
+  CRUX__ResultIS64 nil_min = CRUX__add(a_nil, b_min);
+  CRUX__ResultIS64 nil_nil = CRUX__add(a_nil, b_nil);
+  CRUX__ResultIS64 nil_one = CRUX__add(a_nil, b_one);
+  CRUX__ResultIS64 one_max = CRUX__add(a_one, b_max);
+  CRUX__ResultIS64 one_min = CRUX__add(a_one, b_min);
+  CRUX__ResultIS64 one_nil = CRUX__add(a_one, b_nil);
+  CRUX__ResultIS64 one_one = CRUX__add(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3844,7 +3844,7 @@ void CRUX_ARITH__add_is64_is64_tests (void) {
 }
 
 
-void CRUX_ARITH__add_size_size_tests (void) {
+void CRUX__add_size_size_tests (void) {
   const Size a_max = SIZE_MAX;
   const Size a_min = SIZE_MIN;
   const Size a_nil = CRUX__as_size(0);
@@ -3853,22 +3853,22 @@ void CRUX_ARITH__add_size_size_tests (void) {
   const Size b_min = SIZE_MIN;
   const Size b_nil = CRUX__as_size(0);
   const Size b_one = CRUX__as_size(1);
-  CRUX__ResultSize max_max = CRUX_ARITH__add_size_size(a_max, b_max);
-  CRUX__ResultSize max_min = CRUX_ARITH__add_size_size(a_max, b_min);
-  CRUX__ResultSize max_nil = CRUX_ARITH__add_size_size(a_max, b_nil);
-  CRUX__ResultSize max_one = CRUX_ARITH__add_size_size(a_max, b_one);
-  CRUX__ResultSize min_max = CRUX_ARITH__add_size_size(a_min, b_max);
-  CRUX__ResultSize min_min = CRUX_ARITH__add_size_size(a_min, b_min);
-  CRUX__ResultSize min_nil = CRUX_ARITH__add_size_size(a_min, b_nil);
-  CRUX__ResultSize min_one = CRUX_ARITH__add_size_size(a_min, b_one);
-  CRUX__ResultSize nil_max = CRUX_ARITH__add_size_size(a_nil, b_max);
-  CRUX__ResultSize nil_min = CRUX_ARITH__add_size_size(a_nil, b_min);
-  CRUX__ResultSize nil_nil = CRUX_ARITH__add_size_size(a_nil, b_nil);
-  CRUX__ResultSize nil_one = CRUX_ARITH__add_size_size(a_nil, b_one);
-  CRUX__ResultSize one_max = CRUX_ARITH__add_size_size(a_one, b_max);
-  CRUX__ResultSize one_min = CRUX_ARITH__add_size_size(a_one, b_min);
-  CRUX__ResultSize one_nil = CRUX_ARITH__add_size_size(a_one, b_nil);
-  CRUX__ResultSize one_one = CRUX_ARITH__add_size_size(a_one, b_one);
+  CRUX__ResultSize max_max = CRUX__add_size_size(a_max, b_max);
+  CRUX__ResultSize max_min = CRUX__add_size_size(a_max, b_min);
+  CRUX__ResultSize max_nil = CRUX__add_size_size(a_max, b_nil);
+  CRUX__ResultSize max_one = CRUX__add_size_size(a_max, b_one);
+  CRUX__ResultSize min_max = CRUX__add_size_size(a_min, b_max);
+  CRUX__ResultSize min_min = CRUX__add_size_size(a_min, b_min);
+  CRUX__ResultSize min_nil = CRUX__add_size_size(a_min, b_nil);
+  CRUX__ResultSize min_one = CRUX__add_size_size(a_min, b_one);
+  CRUX__ResultSize nil_max = CRUX__add_size_size(a_nil, b_max);
+  CRUX__ResultSize nil_min = CRUX__add_size_size(a_nil, b_min);
+  CRUX__ResultSize nil_nil = CRUX__add_size_size(a_nil, b_nil);
+  CRUX__ResultSize nil_one = CRUX__add_size_size(a_nil, b_one);
+  CRUX__ResultSize one_max = CRUX__add_size_size(a_one, b_max);
+  CRUX__ResultSize one_min = CRUX__add_size_size(a_one, b_min);
+  CRUX__ResultSize one_nil = CRUX__add_size_size(a_one, b_nil);
+  CRUX__ResultSize one_one = CRUX__add_size_size(a_one, b_one);
   ok(!CRUX__trace_check(max_max.trace), "Must have an error.");
   ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
   ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
@@ -3906,71 +3906,71 @@ void CRUX_ARITH__add_size_size_tests (void) {
 
 int main (int argc, char *argv[]) {
   plan(1040);
-  CRUX_ARITH__add_iu08_iu08_tests();
-  CRUX_ARITH__add_iu08_iu16_tests();
-  CRUX_ARITH__add_iu08_iu32_tests();
-  CRUX_ARITH__add_iu08_iu64_tests();
-  CRUX_ARITH__add_iu08_is08_tests();
-  CRUX_ARITH__add_iu08_is16_tests();
-  CRUX_ARITH__add_iu08_is32_tests();
-  CRUX_ARITH__add_iu08_is64_tests();
-  CRUX_ARITH__add_iu16_iu08_tests();
-  CRUX_ARITH__add_iu16_iu16_tests();
-  CRUX_ARITH__add_iu16_iu32_tests();
-  CRUX_ARITH__add_iu16_iu64_tests();
-  CRUX_ARITH__add_iu16_is08_tests();
-  CRUX_ARITH__add_iu16_is16_tests();
-  CRUX_ARITH__add_iu16_is32_tests();
-  CRUX_ARITH__add_iu16_is64_tests();
-  CRUX_ARITH__add_iu32_iu08_tests();
-  CRUX_ARITH__add_iu32_iu16_tests();
-  CRUX_ARITH__add_iu32_iu32_tests();
-  CRUX_ARITH__add_iu32_iu64_tests();
-  CRUX_ARITH__add_iu32_is08_tests();
-  CRUX_ARITH__add_iu32_is16_tests();
-  CRUX_ARITH__add_iu32_is32_tests();
-  CRUX_ARITH__add_iu32_is64_tests();
-  CRUX_ARITH__add_iu64_iu08_tests();
-  CRUX_ARITH__add_iu64_iu16_tests();
-  CRUX_ARITH__add_iu64_iu32_tests();
-  CRUX_ARITH__add_iu64_iu64_tests();
-  CRUX_ARITH__add_iu64_is08_tests();
-  CRUX_ARITH__add_iu64_is16_tests();
-  CRUX_ARITH__add_iu64_is32_tests();
-  CRUX_ARITH__add_iu64_is64_tests();
-  CRUX_ARITH__add_is08_iu08_tests();
-  CRUX_ARITH__add_is08_iu16_tests();
-  CRUX_ARITH__add_is08_iu32_tests();
-  CRUX_ARITH__add_is08_iu64_tests();
-  CRUX_ARITH__add_is08_is08_tests();
-  CRUX_ARITH__add_is08_is16_tests();
-  CRUX_ARITH__add_is08_is32_tests();
-  CRUX_ARITH__add_is08_is64_tests();
-  CRUX_ARITH__add_is16_iu08_tests();
-  CRUX_ARITH__add_is16_iu16_tests();
-  CRUX_ARITH__add_is16_iu32_tests();
-  CRUX_ARITH__add_is16_iu64_tests();
-  CRUX_ARITH__add_is16_is08_tests();
-  CRUX_ARITH__add_is16_is16_tests();
-  CRUX_ARITH__add_is16_is32_tests();
-  CRUX_ARITH__add_is16_is64_tests();
-  CRUX_ARITH__add_is32_iu08_tests();
-  CRUX_ARITH__add_is32_iu16_tests();
-  CRUX_ARITH__add_is32_iu32_tests();
-  CRUX_ARITH__add_is32_iu64_tests();
-  CRUX_ARITH__add_is32_is08_tests();
-  CRUX_ARITH__add_is32_is16_tests();
-  CRUX_ARITH__add_is32_is32_tests();
-  CRUX_ARITH__add_is32_is64_tests();
-  CRUX_ARITH__add_is64_iu08_tests();
-  CRUX_ARITH__add_is64_iu16_tests();
-  CRUX_ARITH__add_is64_iu32_tests();
-  CRUX_ARITH__add_is64_iu64_tests();
-  CRUX_ARITH__add_is64_is08_tests();
-  CRUX_ARITH__add_is64_is16_tests();
-  CRUX_ARITH__add_is64_is32_tests();
-  CRUX_ARITH__add_is64_is64_tests();
-  CRUX_ARITH__add_size_size_tests();
+  CRUX__add_iu08_iu08_tests();
+  CRUX__add_iu08_iu16_tests();
+  CRUX__add_iu08_iu32_tests();
+  CRUX__add_iu08_iu64_tests();
+  CRUX__add_iu08_is08_tests();
+  CRUX__add_iu08_is16_tests();
+  CRUX__add_iu08_is32_tests();
+  CRUX__add_iu08_is64_tests();
+  CRUX__add_iu16_iu08_tests();
+  CRUX__add_iu16_iu16_tests();
+  CRUX__add_iu16_iu32_tests();
+  CRUX__add_iu16_iu64_tests();
+  CRUX__add_iu16_is08_tests();
+  CRUX__add_iu16_is16_tests();
+  CRUX__add_iu16_is32_tests();
+  CRUX__add_iu16_is64_tests();
+  CRUX__add_iu32_iu08_tests();
+  CRUX__add_iu32_iu16_tests();
+  CRUX__add_iu32_iu32_tests();
+  CRUX__add_iu32_iu64_tests();
+  CRUX__add_iu32_is08_tests();
+  CRUX__add_iu32_is16_tests();
+  CRUX__add_iu32_is32_tests();
+  CRUX__add_iu32_is64_tests();
+  CRUX__add_iu64_iu08_tests();
+  CRUX__add_iu64_iu16_tests();
+  CRUX__add_iu64_iu32_tests();
+  CRUX__add_iu64_iu64_tests();
+  CRUX__add_iu64_is08_tests();
+  CRUX__add_iu64_is16_tests();
+  CRUX__add_iu64_is32_tests();
+  CRUX__add_iu64_is64_tests();
+  CRUX__add_is08_iu08_tests();
+  CRUX__add_is08_iu16_tests();
+  CRUX__add_is08_iu32_tests();
+  CRUX__add_is08_iu64_tests();
+  CRUX__add_is08_is08_tests();
+  CRUX__add_is08_is16_tests();
+  CRUX__add_is08_is32_tests();
+  CRUX__add_is08_is64_tests();
+  CRUX__add_is16_iu08_tests();
+  CRUX__add_is16_iu16_tests();
+  CRUX__add_is16_iu32_tests();
+  CRUX__add_is16_iu64_tests();
+  CRUX__add_is16_is08_tests();
+  CRUX__add_is16_is16_tests();
+  CRUX__add_is16_is32_tests();
+  CRUX__add_is16_is64_tests();
+  CRUX__add_is32_iu08_tests();
+  CRUX__add_is32_iu16_tests();
+  CRUX__add_is32_iu32_tests();
+  CRUX__add_is32_iu64_tests();
+  CRUX__add_is32_is08_tests();
+  CRUX__add_is32_is16_tests();
+  CRUX__add_is32_is32_tests();
+  CRUX__add_is32_is64_tests();
+  CRUX__add_is64_iu08_tests();
+  CRUX__add_is64_iu16_tests();
+  CRUX__add_is64_iu32_tests();
+  CRUX__add_is64_iu64_tests();
+  CRUX__add_is64_is08_tests();
+  CRUX__add_is64_is16_tests();
+  CRUX__add_is64_is32_tests();
+  CRUX__add_is64_is64_tests();
+  CRUX__add_size_size_tests();
   done_testing();
   return EXIT_SUCCESS;
 }

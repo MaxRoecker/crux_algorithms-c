@@ -11,8 +11,8 @@
 
 
 /**
- * CRUX_ARITH__ERROR_ARITHMETIC
+ * CRUX__ERROR_ARITHMETIC
  * 
  * Generic arithmetic error. Raised when no specific error is available.
  */
-extern const CRUX__Error CRUX_ARITH__ERROR_ARITHMETIC;
+extern const CRUX__Error CRUX__ERROR_ARITHMETIC;

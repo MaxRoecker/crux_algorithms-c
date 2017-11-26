@@ -220,7 +220,7 @@ typedef struct CRUX__ResultDivSize_Struct {
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU08 CRUX_ARITH__div_iu08_iu08 (const IU08 a, const IU08 b);
+CRUX__ResultDivIU08 CRUX__div_iu08_iu08 (const IU08 a, const IU08 b);
 
 
 /**
@@ -231,7 +231,7 @@ CRUX__ResultDivIU08 CRUX_ARITH__div_iu08_iu08 (const IU08 a, const IU08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU16 CRUX_ARITH__div_iu08_iu16 (const IU08 a, const IU16 b);
+CRUX__ResultDivIU16 CRUX__div_iu08_iu16 (const IU08 a, const IU16 b);
 
 
 /**
@@ -242,7 +242,7 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu08_iu16 (const IU08 a, const IU16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_iu08_iu32 (const IU08 a, const IU32 b);
+CRUX__ResultDivIU32 CRUX__div_iu08_iu32 (const IU08 a, const IU32 b);
 
 
 /**
@@ -253,7 +253,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu08_iu32 (const IU08 a, const IU32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu08_iu64 (const IU08 a, const IU64 b);
+CRUX__ResultDivIU64 CRUX__div_iu08_iu64 (const IU08 a, const IU64 b);
 
 
 /**
@@ -264,7 +264,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu08_iu64 (const IU08 a, const IU64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU08 CRUX_ARITH__div_iu08_is08 (const IU08 a, const IS08 b);
+CRUX__ResultDivIU08 CRUX__div_iu08_is08 (const IU08 a, const IS08 b);
 
 
 /**
@@ -275,7 +275,7 @@ CRUX__ResultDivIU08 CRUX_ARITH__div_iu08_is08 (const IU08 a, const IS08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS16 CRUX_ARITH__div_iu08_is16 (const IU08 a, const IS16 b);
+CRUX__ResultDivIS16 CRUX__div_iu08_is16 (const IU08 a, const IS16 b);
 
 
 /**
@@ -286,7 +286,7 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_iu08_is16 (const IU08 a, const IS16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_iu08_is32 (const IU08 a, const IS32 b);
+CRUX__ResultDivIS32 CRUX__div_iu08_is32 (const IU08 a, const IS32 b);
 
 
 /**
@@ -297,7 +297,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_iu08_is32 (const IU08 a, const IS32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_iu08_is64 (const IU08 a, const IS64 b);
+CRUX__ResultDivIS64 CRUX__div_iu08_is64 (const IU08 a, const IS64 b);
 
 
 /**
@@ -308,7 +308,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_iu08_is64 (const IU08 a, const IS64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_iu08 (const IU16 a, const IU08 b);
+CRUX__ResultDivIU16 CRUX__div_iu16_iu08 (const IU16 a, const IU08 b);
 
 
 /**
@@ -319,7 +319,7 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_iu08 (const IU16 a, const IU08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_iu16 (const IU16 a, const IU16 b);
+CRUX__ResultDivIU16 CRUX__div_iu16_iu16 (const IU16 a, const IU16 b);
 
 
 /**
@@ -330,7 +330,7 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_iu16 (const IU16 a, const IU16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_iu16_iu32 (const IU16 a, const IU32 b);
+CRUX__ResultDivIU32 CRUX__div_iu16_iu32 (const IU16 a, const IU32 b);
 
 
 /**
@@ -341,7 +341,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu16_iu32 (const IU16 a, const IU32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu16_iu64 (const IU16 a, const IU64 b);
+CRUX__ResultDivIU64 CRUX__div_iu16_iu64 (const IU16 a, const IU64 b);
 
 
 /**
@@ -352,7 +352,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu16_iu64 (const IU16 a, const IU64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_is08 (const IU16 a, const IS08 b);
+CRUX__ResultDivIU16 CRUX__div_iu16_is08 (const IU16 a, const IS08 b);
 
 
 /**
@@ -363,7 +363,7 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_is08 (const IU16 a, const IS08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_is16 (const IU16 a, const IS16 b);
+CRUX__ResultDivIU16 CRUX__div_iu16_is16 (const IU16 a, const IS16 b);
 
 
 /**
@@ -374,7 +374,7 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_iu16_is16 (const IU16 a, const IS16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_iu16_is32 (const IU16 a, const IS32 b);
+CRUX__ResultDivIS32 CRUX__div_iu16_is32 (const IU16 a, const IS32 b);
 
 
 /**
@@ -385,7 +385,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_iu16_is32 (const IU16 a, const IS32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_iu16_is64 (const IU16 a, const IS64 b);
+CRUX__ResultDivIS64 CRUX__div_iu16_is64 (const IU16 a, const IS64 b);
 
 
 /**
@@ -396,7 +396,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_iu16_is64 (const IU16 a, const IS64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu08 (const IU32 a, const IU08 b);
+CRUX__ResultDivIU32 CRUX__div_iu32_iu08 (const IU32 a, const IU08 b);
 
 
 /**
@@ -407,7 +407,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu08 (const IU32 a, const IU08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu16 (const IU32 a, const IU16 b);
+CRUX__ResultDivIU32 CRUX__div_iu32_iu16 (const IU32 a, const IU16 b);
 
 
 /**
@@ -418,7 +418,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu16 (const IU32 a, const IU16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu32 (const IU32 a, const IU32 b);
+CRUX__ResultDivIU32 CRUX__div_iu32_iu32 (const IU32 a, const IU32 b);
 
 
 /**
@@ -429,7 +429,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_iu32 (const IU32 a, const IU32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu32_iu64 (const IU32 a, const IU64 b);
+CRUX__ResultDivIU64 CRUX__div_iu32_iu64 (const IU32 a, const IU64 b);
 
 
 /**
@@ -440,7 +440,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu32_iu64 (const IU32 a, const IU64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is08 (const IU32 a, const IS08 b);
+CRUX__ResultDivIU32 CRUX__div_iu32_is08 (const IU32 a, const IS08 b);
 
 
 /**
@@ -451,7 +451,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is08 (const IU32 a, const IS08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is16 (const IU32 a, const IS16 b);
+CRUX__ResultDivIU32 CRUX__div_iu32_is16 (const IU32 a, const IS16 b);
 
 
 /**
@@ -462,7 +462,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is16 (const IU32 a, const IS16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is32 (const IU32 a, const IS32 b);
+CRUX__ResultDivIU32 CRUX__div_iu32_is32 (const IU32 a, const IS32 b);
 
 
 /**
@@ -473,7 +473,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_iu32_is32 (const IU32 a, const IS32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_iu32_is64 (const IU32 a, const IS64 b);
+CRUX__ResultDivIS64 CRUX__div_iu32_is64 (const IU32 a, const IS64 b);
 
 
 /**
@@ -484,7 +484,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_iu32_is64 (const IU32 a, const IS64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu08 (const IU64 a, const IU08 b);
+CRUX__ResultDivIU64 CRUX__div_iu64_iu08 (const IU64 a, const IU08 b);
 
 
 /**
@@ -495,7 +495,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu08 (const IU64 a, const IU08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu16 (const IU64 a, const IU16 b);
+CRUX__ResultDivIU64 CRUX__div_iu64_iu16 (const IU64 a, const IU16 b);
 
 
 /**
@@ -506,7 +506,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu16 (const IU64 a, const IU16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu32 (const IU64 a, const IU32 b);
+CRUX__ResultDivIU64 CRUX__div_iu64_iu32 (const IU64 a, const IU32 b);
 
 
 /**
@@ -517,7 +517,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu32 (const IU64 a, const IU32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu64 (const IU64 a, const IU64 b);
+CRUX__ResultDivIU64 CRUX__div_iu64_iu64 (const IU64 a, const IU64 b);
 
 
 /**
@@ -528,7 +528,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_iu64 (const IU64 a, const IU64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is08 (const IU64 a, const IS08 b);
+CRUX__ResultDivIU64 CRUX__div_iu64_is08 (const IU64 a, const IS08 b);
 
 
 /**
@@ -539,7 +539,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is08 (const IU64 a, const IS08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is16 (const IU64 a, const IS16 b);
+CRUX__ResultDivIU64 CRUX__div_iu64_is16 (const IU64 a, const IS16 b);
 
 
 /**
@@ -550,7 +550,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is16 (const IU64 a, const IS16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is32 (const IU64 a, const IS32 b);
+CRUX__ResultDivIU64 CRUX__div_iu64_is32 (const IU64 a, const IS32 b);
 
 
 /**
@@ -561,7 +561,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is32 (const IU64 a, const IS32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is64 (const IU64 a, const IS64 b);
+CRUX__ResultDivIU64 CRUX__div_iu64_is64 (const IU64 a, const IS64 b);
 
 
 /**
@@ -572,7 +572,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_iu64_is64 (const IU64 a, const IS64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU08 CRUX_ARITH__div_is08_iu08 (const IS08 a, const IU08 b);
+CRUX__ResultDivIU08 CRUX__div_is08_iu08 (const IS08 a, const IU08 b);
 
 
 /**
@@ -583,7 +583,7 @@ CRUX__ResultDivIU08 CRUX_ARITH__div_is08_iu08 (const IS08 a, const IU08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU16 CRUX_ARITH__div_is08_iu16 (const IS08 a, const IU16 b);
+CRUX__ResultDivIU16 CRUX__div_is08_iu16 (const IS08 a, const IU16 b);
 
 
 /**
@@ -594,7 +594,7 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_is08_iu16 (const IS08 a, const IU16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_is08_iu32 (const IS08 a, const IU32 b);
+CRUX__ResultDivIU32 CRUX__div_is08_iu32 (const IS08 a, const IU32 b);
 
 
 /**
@@ -605,7 +605,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_is08_iu32 (const IS08 a, const IU32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_is08_iu64 (const IS08 a, const IU64 b);
+CRUX__ResultDivIU64 CRUX__div_is08_iu64 (const IS08 a, const IU64 b);
 
 
 /**
@@ -616,7 +616,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_is08_iu64 (const IS08 a, const IU64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS08 CRUX_ARITH__div_is08_is08 (const IS08 a, const IS08 b);
+CRUX__ResultDivIS08 CRUX__div_is08_is08 (const IS08 a, const IS08 b);
 
 
 /**
@@ -627,7 +627,7 @@ CRUX__ResultDivIS08 CRUX_ARITH__div_is08_is08 (const IS08 a, const IS08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS16 CRUX_ARITH__div_is08_is16 (const IS08 a, const IS16 b);
+CRUX__ResultDivIS16 CRUX__div_is08_is16 (const IS08 a, const IS16 b);
 
 
 /**
@@ -638,7 +638,7 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_is08_is16 (const IS08 a, const IS16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_is08_is32 (const IS08 a, const IS32 b);
+CRUX__ResultDivIS32 CRUX__div_is08_is32 (const IS08 a, const IS32 b);
 
 
 /**
@@ -649,7 +649,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is08_is32 (const IS08 a, const IS32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is08_is64 (const IS08 a, const IS64 b);
+CRUX__ResultDivIS64 CRUX__div_is08_is64 (const IS08 a, const IS64 b);
 
 
 /**
@@ -660,7 +660,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is08_is64 (const IS08 a, const IS64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS16 CRUX_ARITH__div_is16_iu08 (const IS16 a, const IU08 b);
+CRUX__ResultDivIS16 CRUX__div_is16_iu08 (const IS16 a, const IU08 b);
 
 
 /**
@@ -671,7 +671,7 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_is16_iu08 (const IS16 a, const IU08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU16 CRUX_ARITH__div_is16_iu16 (const IS16 a, const IU16 b);
+CRUX__ResultDivIU16 CRUX__div_is16_iu16 (const IS16 a, const IU16 b);
 
 
 /**
@@ -682,7 +682,7 @@ CRUX__ResultDivIU16 CRUX_ARITH__div_is16_iu16 (const IS16 a, const IU16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_is16_iu32 (const IS16 a, const IU32 b);
+CRUX__ResultDivIU32 CRUX__div_is16_iu32 (const IS16 a, const IU32 b);
 
 
 /**
@@ -693,7 +693,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_is16_iu32 (const IS16 a, const IU32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_is16_iu64 (const IS16 a, const IU64 b);
+CRUX__ResultDivIU64 CRUX__div_is16_iu64 (const IS16 a, const IU64 b);
 
 
 /**
@@ -704,7 +704,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_is16_iu64 (const IS16 a, const IU64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS16 CRUX_ARITH__div_is16_is08 (const IS16 a, const IS08 b);
+CRUX__ResultDivIS16 CRUX__div_is16_is08 (const IS16 a, const IS08 b);
 
 
 /**
@@ -715,7 +715,7 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_is16_is08 (const IS16 a, const IS08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS16 CRUX_ARITH__div_is16_is16 (const IS16 a, const IS16 b);
+CRUX__ResultDivIS16 CRUX__div_is16_is16 (const IS16 a, const IS16 b);
 
 
 /**
@@ -726,7 +726,7 @@ CRUX__ResultDivIS16 CRUX_ARITH__div_is16_is16 (const IS16 a, const IS16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_is16_is32 (const IS16 a, const IS32 b);
+CRUX__ResultDivIS32 CRUX__div_is16_is32 (const IS16 a, const IS32 b);
 
 
 /**
@@ -737,7 +737,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is16_is32 (const IS16 a, const IS32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is16_is64 (const IS16 a, const IS64 b);
+CRUX__ResultDivIS64 CRUX__div_is16_is64 (const IS16 a, const IS64 b);
 
 
 /**
@@ -748,7 +748,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is16_is64 (const IS16 a, const IS64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_is32_iu08 (const IS32 a, const IU08 b);
+CRUX__ResultDivIS32 CRUX__div_is32_iu08 (const IS32 a, const IU08 b);
 
 
 /**
@@ -759,7 +759,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_iu08 (const IS32 a, const IU08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_is32_iu16 (const IS32 a, const IU16 b);
+CRUX__ResultDivIS32 CRUX__div_is32_iu16 (const IS32 a, const IU16 b);
 
 
 /**
@@ -770,7 +770,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_iu16 (const IS32 a, const IU16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU32 CRUX_ARITH__div_is32_iu32 (const IS32 a, const IU32 b);
+CRUX__ResultDivIU32 CRUX__div_is32_iu32 (const IS32 a, const IU32 b);
 
 
 /**
@@ -781,7 +781,7 @@ CRUX__ResultDivIU32 CRUX_ARITH__div_is32_iu32 (const IS32 a, const IU32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_is32_iu64 (const IS32 a, const IU64 b);
+CRUX__ResultDivIU64 CRUX__div_is32_iu64 (const IS32 a, const IU64 b);
 
 
 /**
@@ -792,7 +792,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_is32_iu64 (const IS32 a, const IU64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is08 (const IS32 a, const IS08 b);
+CRUX__ResultDivIS32 CRUX__div_is32_is08 (const IS32 a, const IS08 b);
 
 
 /**
@@ -803,7 +803,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is08 (const IS32 a, const IS08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is16 (const IS32 a, const IS16 b);
+CRUX__ResultDivIS32 CRUX__div_is32_is16 (const IS32 a, const IS16 b);
 
 
 /**
@@ -814,7 +814,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is16 (const IS32 a, const IS16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is32 (const IS32 a, const IS32 b);
+CRUX__ResultDivIS32 CRUX__div_is32_is32 (const IS32 a, const IS32 b);
 
 
 /**
@@ -825,7 +825,7 @@ CRUX__ResultDivIS32 CRUX_ARITH__div_is32_is32 (const IS32 a, const IS32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is32_is64 (const IS32 a, const IS64 b);
+CRUX__ResultDivIS64 CRUX__div_is32_is64 (const IS32 a, const IS64 b);
 
 
 /**
@@ -836,7 +836,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is32_is64 (const IS32 a, const IS64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu08 (const IS64 a, const IU08 b);
+CRUX__ResultDivIS64 CRUX__div_is64_iu08 (const IS64 a, const IU08 b);
 
 
 /**
@@ -847,7 +847,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu08 (const IS64 a, const IU08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu16 (const IS64 a, const IU16 b);
+CRUX__ResultDivIS64 CRUX__div_is64_iu16 (const IS64 a, const IU16 b);
 
 
 /**
@@ -858,7 +858,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu16 (const IS64 a, const IU16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu32 (const IS64 a, const IU32 b);
+CRUX__ResultDivIS64 CRUX__div_is64_iu32 (const IS64 a, const IU32 b);
 
 
 /**
@@ -869,7 +869,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_iu32 (const IS64 a, const IU32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIU64 CRUX_ARITH__div_is64_iu64 (const IS64 a, const IU64 b);
+CRUX__ResultDivIU64 CRUX__div_is64_iu64 (const IS64 a, const IU64 b);
 
 
 /**
@@ -880,7 +880,7 @@ CRUX__ResultDivIU64 CRUX_ARITH__div_is64_iu64 (const IS64 a, const IU64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is08 (const IS64 a, const IS08 b);
+CRUX__ResultDivIS64 CRUX__div_is64_is08 (const IS64 a, const IS08 b);
 
 
 /**
@@ -891,7 +891,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is08 (const IS64 a, const IS08 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is16 (const IS64 a, const IS16 b);
+CRUX__ResultDivIS64 CRUX__div_is64_is16 (const IS64 a, const IS16 b);
 
 
 /**
@@ -902,7 +902,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is16 (const IS64 a, const IS16 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is32 (const IS64 a, const IS32 b);
+CRUX__ResultDivIS64 CRUX__div_is64_is32 (const IS64 a, const IS32 b);
 
 
 /**
@@ -913,7 +913,7 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is32 (const IS64 a, const IS32 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is64 (const IS64 a, const IS64 b);
+CRUX__ResultDivIS64 CRUX__div_is64_is64 (const IS64 a, const IS64 b);
 
 
 /**
@@ -924,12 +924,12 @@ CRUX__ResultDivIS64 CRUX_ARITH__div_is64_is64 (const IS64 a, const IS64 b);
  * @return the result of division of a and b.
  *
  */
-CRUX__ResultDivSize CRUX_ARITH__div_size_size (const Size a, const Size b);
+CRUX__ResultDivSize CRUX__div_size_size (const Size a, const Size b);
 
 
 
 
-#define CRUX_ARITH__div_overflow(a, b) (_Generic(a, \
+#define CRUX__div_overflow(a, b) (_Generic(a, \
   IU08 : _Generic(b,                                \
     IU08 : CRUX__is_zero(b),                        \
     default : assert(0)),                           \
@@ -960,76 +960,76 @@ CRUX__ResultDivSize CRUX_ARITH__div_size_size (const Size a, const Size b);
     default : assert(0))))
 
 
-#define CRUX_ARITH__div(a, b) _Generic(a,    \
+#define CRUX__div(a, b) _Generic(a,    \
   IU08 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__div_iu08_iu08(a, b),  \
-    IU16 : CRUX_ARITH__div_iu08_iu16(a, b),  \
-    IU32 : CRUX_ARITH__div_iu08_iu32(a, b),  \
-    IU64 : CRUX_ARITH__div_iu08_iu64(a, b),  \
-    IS08 : CRUX_ARITH__div_iu08_is08(a, b),  \
-    IS16 : CRUX_ARITH__div_iu08_is16(a, b),  \
-    IS32 : CRUX_ARITH__div_iu08_is32(a, b),  \
-    IS64 : CRUX_ARITH__div_iu08_is64(a, b)), \
+    IU08 : CRUX__div_iu08_iu08(a, b),  \
+    IU16 : CRUX__div_iu08_iu16(a, b),  \
+    IU32 : CRUX__div_iu08_iu32(a, b),  \
+    IU64 : CRUX__div_iu08_iu64(a, b),  \
+    IS08 : CRUX__div_iu08_is08(a, b),  \
+    IS16 : CRUX__div_iu08_is16(a, b),  \
+    IS32 : CRUX__div_iu08_is32(a, b),  \
+    IS64 : CRUX__div_iu08_is64(a, b)), \
   IU16 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__div_iu16_iu08(a, b),  \
-    IU16 : CRUX_ARITH__div_iu16_iu16(a, b),  \
-    IU32 : CRUX_ARITH__div_iu16_iu32(a, b),  \
-    IU64 : CRUX_ARITH__div_iu16_iu64(a, b),  \
-    IS08 : CRUX_ARITH__div_iu16_is08(a, b),  \
-    IS16 : CRUX_ARITH__div_iu16_is16(a, b),  \
-    IS32 : CRUX_ARITH__div_iu16_is32(a, b),  \
-    IS64 : CRUX_ARITH__div_iu16_is64(a, b)), \
+    IU08 : CRUX__div_iu16_iu08(a, b),  \
+    IU16 : CRUX__div_iu16_iu16(a, b),  \
+    IU32 : CRUX__div_iu16_iu32(a, b),  \
+    IU64 : CRUX__div_iu16_iu64(a, b),  \
+    IS08 : CRUX__div_iu16_is08(a, b),  \
+    IS16 : CRUX__div_iu16_is16(a, b),  \
+    IS32 : CRUX__div_iu16_is32(a, b),  \
+    IS64 : CRUX__div_iu16_is64(a, b)), \
   IU32 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__div_iu32_iu08(a, b),  \
-    IU16 : CRUX_ARITH__div_iu32_iu16(a, b),  \
-    IU32 : CRUX_ARITH__div_iu32_iu32(a, b),  \
-    IU64 : CRUX_ARITH__div_iu32_iu64(a, b),  \
-    IS08 : CRUX_ARITH__div_iu32_is08(a, b),  \
-    IS16 : CRUX_ARITH__div_iu32_is16(a, b),  \
-    IS32 : CRUX_ARITH__div_iu32_is32(a, b),  \
-    IS64 : CRUX_ARITH__div_iu32_is64(a, b)), \
+    IU08 : CRUX__div_iu32_iu08(a, b),  \
+    IU16 : CRUX__div_iu32_iu16(a, b),  \
+    IU32 : CRUX__div_iu32_iu32(a, b),  \
+    IU64 : CRUX__div_iu32_iu64(a, b),  \
+    IS08 : CRUX__div_iu32_is08(a, b),  \
+    IS16 : CRUX__div_iu32_is16(a, b),  \
+    IS32 : CRUX__div_iu32_is32(a, b),  \
+    IS64 : CRUX__div_iu32_is64(a, b)), \
   IU64 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__div_iu64_iu08(a, b),  \
-    IU16 : CRUX_ARITH__div_iu64_iu16(a, b),  \
-    IU32 : CRUX_ARITH__div_iu64_iu32(a, b),  \
-    IU64 : CRUX_ARITH__div_iu64_iu64(a, b),  \
-    IS08 : CRUX_ARITH__div_iu64_is08(a, b),  \
-    IS16 : CRUX_ARITH__div_iu64_is16(a, b),  \
-    IS32 : CRUX_ARITH__div_iu64_is32(a, b),  \
-    IS64 : CRUX_ARITH__div_iu64_is64(a, b)), \
+    IU08 : CRUX__div_iu64_iu08(a, b),  \
+    IU16 : CRUX__div_iu64_iu16(a, b),  \
+    IU32 : CRUX__div_iu64_iu32(a, b),  \
+    IU64 : CRUX__div_iu64_iu64(a, b),  \
+    IS08 : CRUX__div_iu64_is08(a, b),  \
+    IS16 : CRUX__div_iu64_is16(a, b),  \
+    IS32 : CRUX__div_iu64_is32(a, b),  \
+    IS64 : CRUX__div_iu64_is64(a, b)), \
   IS08 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__div_is08_iu08(a, b),  \
-    IU16 : CRUX_ARITH__div_is08_iu16(a, b),  \
-    IU32 : CRUX_ARITH__div_is08_iu32(a, b),  \
-    IU64 : CRUX_ARITH__div_is08_iu64(a, b),  \
-    IS08 : CRUX_ARITH__div_is08_is08(a, b),  \
-    IS16 : CRUX_ARITH__div_is08_is16(a, b),  \
-    IS32 : CRUX_ARITH__div_is08_is32(a, b),  \
-    IS64 : CRUX_ARITH__div_is08_is64(a, b)), \
+    IU08 : CRUX__div_is08_iu08(a, b),  \
+    IU16 : CRUX__div_is08_iu16(a, b),  \
+    IU32 : CRUX__div_is08_iu32(a, b),  \
+    IU64 : CRUX__div_is08_iu64(a, b),  \
+    IS08 : CRUX__div_is08_is08(a, b),  \
+    IS16 : CRUX__div_is08_is16(a, b),  \
+    IS32 : CRUX__div_is08_is32(a, b),  \
+    IS64 : CRUX__div_is08_is64(a, b)), \
   IS16 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__div_is16_iu08(a, b),  \
-    IU16 : CRUX_ARITH__div_is16_iu16(a, b),  \
-    IU32 : CRUX_ARITH__div_is16_iu32(a, b),  \
-    IU64 : CRUX_ARITH__div_is16_iu64(a, b),  \
-    IS08 : CRUX_ARITH__div_is16_is08(a, b),  \
-    IS16 : CRUX_ARITH__div_is16_is16(a, b),  \
-    IS32 : CRUX_ARITH__div_is16_is32(a, b),  \
-    IS64 : CRUX_ARITH__div_is16_is64(a, b)), \
+    IU08 : CRUX__div_is16_iu08(a, b),  \
+    IU16 : CRUX__div_is16_iu16(a, b),  \
+    IU32 : CRUX__div_is16_iu32(a, b),  \
+    IU64 : CRUX__div_is16_iu64(a, b),  \
+    IS08 : CRUX__div_is16_is08(a, b),  \
+    IS16 : CRUX__div_is16_is16(a, b),  \
+    IS32 : CRUX__div_is16_is32(a, b),  \
+    IS64 : CRUX__div_is16_is64(a, b)), \
   IS32 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__div_is32_iu08(a, b),  \
-    IU16 : CRUX_ARITH__div_is32_iu16(a, b),  \
-    IU32 : CRUX_ARITH__div_is32_iu32(a, b),  \
-    IU64 : CRUX_ARITH__div_is32_iu64(a, b),  \
-    IS08 : CRUX_ARITH__div_is32_is08(a, b),  \
-    IS16 : CRUX_ARITH__div_is32_is16(a, b),  \
-    IS32 : CRUX_ARITH__div_is32_is32(a, b),  \
-    IS64 : CRUX_ARITH__div_is32_is64(a, b)), \
+    IU08 : CRUX__div_is32_iu08(a, b),  \
+    IU16 : CRUX__div_is32_iu16(a, b),  \
+    IU32 : CRUX__div_is32_iu32(a, b),  \
+    IU64 : CRUX__div_is32_iu64(a, b),  \
+    IS08 : CRUX__div_is32_is08(a, b),  \
+    IS16 : CRUX__div_is32_is16(a, b),  \
+    IS32 : CRUX__div_is32_is32(a, b),  \
+    IS64 : CRUX__div_is32_is64(a, b)), \
   IS64 : _Generic(b,                        \
-    IU08 : CRUX_ARITH__div_is64_iu08(a, b),  \
-    IU16 : CRUX_ARITH__div_is64_iu16(a, b),  \
-    IU32 : CRUX_ARITH__div_is64_iu32(a, b),  \
-    IU64 : CRUX_ARITH__div_is64_iu64(a, b),  \
-    IS08 : CRUX_ARITH__div_is64_is08(a, b),  \
-    IS16 : CRUX_ARITH__div_is64_is16(a, b),  \
-    IS32 : CRUX_ARITH__div_is64_is32(a, b),  \
-    IS64 : CRUX_ARITH__div_is64_is64(a, b)))
+    IU08 : CRUX__div_is64_iu08(a, b),  \
+    IU16 : CRUX__div_is64_iu16(a, b),  \
+    IU32 : CRUX__div_is64_iu32(a, b),  \
+    IU64 : CRUX__div_is64_iu64(a, b),  \
+    IS08 : CRUX__div_is64_is08(a, b),  \
+    IS16 : CRUX__div_is64_is16(a, b),  \
+    IS32 : CRUX__div_is64_is32(a, b),  \
+    IS64 : CRUX__div_is64_is64(a, b)))
