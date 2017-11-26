@@ -863,75 +863,129 @@ CRUX__ResultOrder CRUX__compare_addr_size(
 
 
 
-#define CRUX__is_less(a, b) (_Generic((a),  \
-  Char: CRUX__is_less_char(a, b),           \
-  IU08: CRUX__is_less_iu08(a, b),           \
-  IU16: CRUX__is_less_iu16(a, b),           \
-  IU32: CRUX__is_less_iu32(a, b),           \
-  IU64: CRUX__is_less_iu64(a, b),           \
-  IS08: CRUX__is_less_is08(a, b),           \
-  IS16: CRUX__is_less_is16(a, b),           \
-  IS32: CRUX__is_less_is32(a, b),           \
-  IS64: CRUX__is_less_is64(a, b)))
+#define CRUX__is_less(a, b) (_Generic(a,                    \
+  Char : _Generic(b,                                        \
+    Char : CRUX__is_less_char(a, b), default : assert(0)),  \
+  IU08 : _Generic(b,                                        \
+    IU08 : CRUX__is_less_iu08(a, b), default : assert(0)),  \
+  IU16 : _Generic(b,                                        \
+    IU16 : CRUX__is_less_iu16(a, b), default : assert(0)),  \
+  IU32 : _Generic(b,                                        \
+    IU32 : CRUX__is_less_iu32(a, b), default : assert(0)),  \
+  IU64 : _Generic(b,                                        \
+    IU64 : CRUX__is_less_iu64(a, b), default : assert(0)),  \
+  IS08 : _Generic(b,                                        \
+    IS08 : CRUX__is_less_is08(a, b), default : assert(0)),  \
+  IS16 : _Generic(b,                                        \
+    IS16 : CRUX__is_less_is16(a, b), default : assert(0)),  \
+  IS32 : _Generic(b,                                        \
+    IS32 : CRUX__is_less_is32(a, b), default : assert(0)),  \
+  IS64 : _Generic(b,                                        \
+    IS64 : CRUX__is_less_is64(a, b), default : assert(0))))
 
 
-#define CRUX__is_less_equal(a, b) (_Generic((a),  \
-  Char: CRUX__is_less_equal_char(a, b),           \
-  IU08: CRUX__is_less_equal_iu08(a, b),           \
-  IU16: CRUX__is_less_equal_iu16(a, b),           \
-  IU32: CRUX__is_less_equal_iu32(a, b),           \
-  IU64: CRUX__is_less_equal_iu64(a, b),           \
-  IS08: CRUX__is_less_equal_is08(a, b),           \
-  IS16: CRUX__is_less_equal_is16(a, b),           \
-  IS32: CRUX__is_less_equal_is32(a, b),           \
-  IS64: CRUX__is_less_equal_is64(a, b)))
+#define CRUX__is_less_equal(a, b) (_Generic(a,                    \
+  Char : _Generic(b,                                              \
+    Char : CRUX__is_less_equal_char(a, b), default : assert(0)),  \
+  IU08 : _Generic(b,                                              \
+    IU08 : CRUX__is_less_equal_iu08(a, b), default : assert(0)),  \
+  IU16 : _Generic(b,                                              \
+    IU16 : CRUX__is_less_equal_iu16(a, b), default : assert(0)),  \
+  IU32 : _Generic(b,                                              \
+    IU32 : CRUX__is_less_equal_iu32(a, b), default : assert(0)),  \
+  IU64 : _Generic(b,                                              \
+    IU64 : CRUX__is_less_equal_iu64(a, b), default : assert(0)),  \
+  IS08 : _Generic(b,                                              \
+    IS08 : CRUX__is_less_equal_is08(a, b), default : assert(0)),  \
+  IS16 : _Generic(b,                                              \
+    IS16 : CRUX__is_less_equal_is16(a, b), default : assert(0)),  \
+  IS32 : _Generic(b,                                              \
+    IS32 : CRUX__is_less_equal_is32(a, b), default : assert(0)),  \
+  IS64 : _Generic(b,                                              \
+    IS64 : CRUX__is_less_equal_is64(a, b), default : assert(0))))
 
 
-#define CRUX__is_equal(a, b) (_Generic((a), \
-  Char: CRUX__is_equal_char(a, b),          \
-  IU08: CRUX__is_equal_iu08(a, b),          \
-  IU16: CRUX__is_equal_iu16(a, b),          \
-  IU32: CRUX__is_equal_iu32(a, b),          \
-  IU64: CRUX__is_equal_iu64(a, b),          \
-  IS08: CRUX__is_equal_is08(a, b),          \
-  IS16: CRUX__is_equal_is16(a, b),          \
-  IS32: CRUX__is_equal_is32(a, b),          \
-  IS64: CRUX__is_equal_is64(a, b)))
+#define CRUX__is_equal(a, b) (_Generic(a,                   \
+  Char : _Generic(b,                                        \
+    Char : CRUX__is_equal_char(a, b), default : assert(0)), \
+  IU08 : _Generic(b,                                        \
+    IU08 : CRUX__is_equal_iu08(a, b), default : assert(0)), \
+  IU16 : _Generic(b,                                        \
+    IU16 : CRUX__is_equal_iu16(a, b), default : assert(0)), \
+  IU32 : _Generic(b,                                        \
+    IU32 : CRUX__is_equal_iu32(a, b), default : assert(0)), \
+  IU64 : _Generic(b,                                        \
+    IU64 : CRUX__is_equal_iu64(a, b), default : assert(0)), \
+  IS08 : _Generic(b,                                        \
+    IS08 : CRUX__is_equal_is08(a, b), default : assert(0)), \
+  IS16 : _Generic(b,                                        \
+    IS16 : CRUX__is_equal_is16(a, b), default : assert(0)), \
+  IS32 : _Generic(b,                                        \
+    IS32 : CRUX__is_equal_is32(a, b), default : assert(0)), \
+  IS64 : _Generic(b,                                        \
+    IS64 : CRUX__is_equal_is64(a, b), default : assert(0))))
 
 
-#define CRUX__is_greater_equal(a, b) (_Generic((a), \
-  Char: CRUX__is_greater_equal_char(a, b),          \
-  IU08: CRUX__is_greater_equal_iu08(a, b),          \
-  IU16: CRUX__is_greater_equal_iu16(a, b),          \
-  IU32: CRUX__is_greater_equal_iu32(a, b),          \
-  IU64: CRUX__is_greater_equal_iu64(a, b),          \
-  IS08: CRUX__is_greater_equal_is08(a, b),          \
-  IS16: CRUX__is_greater_equal_is16(a, b),          \
-  IS32: CRUX__is_greater_equal_is32(a, b),          \
-  IS64: CRUX__is_greater_equal_is64(a, b)))
+#define CRUX__is_greater_equal(a, b) (_Generic(a,                   \
+  Char : _Generic(b,                                                \
+    Char : CRUX__is_greater_equal_char(a, b), default : assert(0)), \
+  IU08 : _Generic(b,                                                \
+    IU08 : CRUX__is_greater_equal_iu08(a, b), default : assert(0)), \
+  IU16 : _Generic(b,                                                \
+    IU16 : CRUX__is_greater_equal_iu16(a, b), default : assert(0)), \
+  IU32 : _Generic(b,                                                \
+    IU32 : CRUX__is_greater_equal_iu32(a, b), default : assert(0)), \
+  IU64 : _Generic(b,                                                \
+    IU64 : CRUX__is_greater_equal_iu64(a, b), default : assert(0)), \
+  IS08 : _Generic(b,                                                \
+    IS08 : CRUX__is_greater_equal_is08(a, b), default : assert(0)), \
+  IS16 : _Generic(b,                                                \
+    IS16 : CRUX__is_greater_equal_is16(a, b), default : assert(0)), \
+  IS32 : _Generic(b,                                                \
+    IS32 : CRUX__is_greater_equal_is32(a, b), default : assert(0)), \
+  IS64 : _Generic(b,                                                \
+    IS64 : CRUX__is_greater_equal_is64(a, b), default : assert(0))))
 
 
-#define CRUX__is_greater(a, b) (_Generic((a), \
-  Char: CRUX__is_greater_char(a, b),          \
-  IU08: CRUX__is_greater_iu08(a, b),          \
-  IU16: CRUX__is_greater_iu16(a, b),          \
-  IU32: CRUX__is_greater_iu32(a, b),          \
-  IU64: CRUX__is_greater_iu64(a, b),          \
-  IS08: CRUX__is_greater_is08(a, b),          \
-  IS16: CRUX__is_greater_is16(a, b),          \
-  IS32: CRUX__is_greater_is32(a, b),          \
-  IS64: CRUX__is_greater_is64(a, b)))
+#define CRUX__is_greater(a, b) (_Generic(a,                   \
+  Char : _Generic(b,                                          \
+    Char : CRUX__is_greater_char(a, b), default : assert(0)), \
+  IU08 : _Generic(b,                                          \
+    IU08 : CRUX__is_greater_iu08(a, b), default : assert(0)), \
+  IU16 : _Generic(b,                                          \
+    IU16 : CRUX__is_greater_iu16(a, b), default : assert(0)), \
+  IU32 : _Generic(b,                                          \
+    IU32 : CRUX__is_greater_iu32(a, b), default : assert(0)), \
+  IU64 : _Generic(b,                                          \
+    IU64 : CRUX__is_greater_iu64(a, b), default : assert(0)), \
+  IS08 : _Generic(b,                                          \
+    IS08 : CRUX__is_greater_is08(a, b), default : assert(0)), \
+  IS16 : _Generic(b,                                          \
+    IS16 : CRUX__is_greater_is16(a, b), default : assert(0)), \
+  IS32 : _Generic(b,                                          \
+    IS32 : CRUX__is_greater_is32(a, b), default : assert(0)), \
+  IS64 : _Generic(b,                                          \
+    IS64 : CRUX__is_greater_is64(a, b), default : assert(0)))) 
 
 
-#define CRUX__compare(a, b) (_Generic((a),  \
-  Char: CRUX__compare_char(a, b),           \
-  IU08: CRUX__compare_iu08(a, b),           \
-  IU16: CRUX__compare_iu16(a, b),           \
-  IU32: CRUX__compare_iu32(a, b),           \
-  IU64: CRUX__compare_iu64(a, b),           \
-  IS08: CRUX__compare_is08(a, b),           \
-  IS16: CRUX__compare_is16(a, b),           \
-  IS32: CRUX__compare_is32(a, b),           \
-  IS64: CRUX__compare_is64(a, b)))
+#define CRUX__compare(a, b) (_Generic(a,                    \
+  Char : _Generic(b,                                        \
+    Char : CRUX__compare_char(a, b), default : assert(0)),  \
+  IU08 : _Generic(b,                                        \
+    IU08 : CRUX__compare_iu08(a, b), default : assert(0)),  \
+  IU16 : _Generic(b,                                        \
+    IU16 : CRUX__compare_iu16(a, b), default : assert(0)),  \
+  IU32 : _Generic(b,                                        \
+    IU32 : CRUX__compare_iu32(a, b), default : assert(0)),  \
+  IU64 : _Generic(b,                                        \
+    IU64 : CRUX__compare_iu64(a, b), default : assert(0)),  \
+  IS08 : _Generic(b,                                        \
+    IS08 : CRUX__compare_is08(a, b), default : assert(0)),  \
+  IS16 : _Generic(b,                                        \
+    IS16 : CRUX__compare_is16(a, b), default : assert(0)),  \
+  IS32 : _Generic(b,                                        \
+    IS32 : CRUX__compare_is32(a, b), default : assert(0)),  \
+  IS64 : _Generic(b,                                        \
+    IS64 : CRUX__compare_is64(a, b), default : assert(0))))
 
 
