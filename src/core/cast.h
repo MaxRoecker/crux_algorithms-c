@@ -759,21 +759,21 @@ CRUX__ResultSize CRUX__cast_size_is64 (const IS64 value);
 
 #define CRUX__is_above_size(value) (_Generic(value, \
   IU08 : CRUX__is_ranked_below(((Size) 0), value)   \
-    && CRUX__is_greater(value, ((IU08) SIZE_MAX)),  \
+    && (value < ((IU08) SIZE_MAX)),                 \
   IU16 : CRUX__is_ranked_below(((Size) 0), value)   \
-    && CRUX__is_greater(value, ((IU16) SIZE_MAX)),  \
+    && (value < ((IU16) SIZE_MAX)),                 \
   IU32 : CRUX__is_ranked_below(((Size) 0), value)   \
-    && CRUX__is_greater(value, ((IU32) SIZE_MAX)),  \
+    && (value < ((IU32) SIZE_MAX)),                 \
   IU64 : CRUX__is_ranked_below(((Size) 0), value)   \
-    && CRUX__is_greater(value, ((IU64) SIZE_MAX)),  \
+    && (value < ((IU64) SIZE_MAX)),                 \
   IS08 : CRUX__is_ranked_below(((Size) 0), value)   \
-    && CRUX__is_greater(value, ((IS08) SIZE_MAX)),  \
+    && (value < ((IS08) SIZE_MAX)),                 \
   IS16 : CRUX__is_ranked_below(((Size) 0), value)   \
-    && CRUX__is_greater(value, ((IS16) SIZE_MAX)),  \
+    && (value < ((IS16) SIZE_MAX)),                 \
   IS32 : CRUX__is_ranked_below(((Size) 0), value)   \
-    && CRUX__is_greater(value, ((IS32) SIZE_MAX)),  \
+    && (value < ((IS32) SIZE_MAX)),                 \
   IS64 : CRUX__is_ranked_below(((Size) 0), value)   \
-    && CRUX__is_greater(value, ((IS64) SIZE_MAX))))
+    && (value < ((IS64) SIZE_MAX))))
 
 
 
@@ -782,40 +782,40 @@ CRUX__ResultSize CRUX__cast_size_is64 (const IS64 value);
   IU16 : false,                                     \
   IU32 : false,                                     \
   IU64 : false,                                     \
-  IS08 : CRUX__is_less(value, IU08_MIN),            \
-  IS16 : CRUX__is_less(value, IU08_MIN),            \
-  IS32 : CRUX__is_less(value, IU08_MIN),            \
-  IS64 : CRUX__is_less(value, IU08_MIN)))
+  IS08 : CRUX__is_less(value, ((IS08) IU08_MIN)),   \
+  IS16 : CRUX__is_less(value, ((IS16) IU08_MIN)),   \
+  IS32 : CRUX__is_less(value, ((IS32) IU08_MIN)),   \
+  IS64 : CRUX__is_less(value, ((IS64) IU08_MIN))))
 
 
 #define CRUX__is_below_iu16(value) (_Generic(value, \
   IU08 : false,                                     \
   IU32 : false,                                     \
   IU64 : false,                                     \
-  IS08 : CRUX__is_less(value, IU16_MIN),            \
-  IS16 : CRUX__is_less(value, IU16_MIN),            \
-  IS32 : CRUX__is_less(value, IU16_MIN),            \
-  IS64 : CRUX__is_less(value, IU16_MIN)))
+  IS08 : CRUX__is_less(value, ((IS08) IU16_MIN)),   \
+  IS16 : CRUX__is_less(value, ((IS16) IU16_MIN)),   \
+  IS32 : CRUX__is_less(value, ((IS32) IU16_MIN)),   \
+  IS64 : CRUX__is_less(value, ((IS64) IU16_MIN))))
 
 
 #define CRUX__is_below_iu32(value) (_Generic(value, \
   IU08 : false,                                     \
   IU16 : false,                                     \
   IU64 : false,                                     \
-  IS08 : CRUX__is_less(value, IU32_MIN),            \
-  IS16 : CRUX__is_less(value, IU32_MIN),            \
-  IS32 : CRUX__is_less(value, IU32_MIN),            \
-  IS64 : CRUX__is_less(value, IU32_MIN)))
+  IS08 : CRUX__is_less(value, ((IS08) IU32_MIN)),   \
+  IS16 : CRUX__is_less(value, ((IS16) IU32_MIN)),   \
+  IS32 : CRUX__is_less(value, ((IS32) IU32_MIN)),   \
+  IS64 : CRUX__is_less(value, ((IS64) IU32_MIN))))
 
 
 #define CRUX__is_below_iu64(value) (_Generic(value, \
   IU08 : false,                                     \
   IU16 : false,                                     \
   IU32 : false,                                     \
-  IS08 : CRUX__is_less(value, IU64_MIN),            \
-  IS16 : CRUX__is_less(value, IU64_MIN),            \
-  IS32 : CRUX__is_less(value, IU64_MIN),            \
-  IS64 : CRUX__is_less(value, IU64_MIN)))
+  IS08 : CRUX__is_less(value, ((IS08) IU64_MIN)),   \
+  IS16 : CRUX__is_less(value, ((IS16) IU64_MIN)),   \
+  IS32 : CRUX__is_less(value, ((IS32) IU64_MIN)),   \
+  IS64 : CRUX__is_less(value, ((IS64) IU64_MIN))))
 
 
 #define CRUX__is_below_is08(value) (_Generic(value, \
@@ -823,9 +823,9 @@ CRUX__ResultSize CRUX__cast_size_is64 (const IS64 value);
   IU16 : false,                                     \
   IU32 : false,                                     \
   IU64 : false,                                     \
-  IS16 : CRUX__is_less(value, IS08_MIN),            \
-  IS32 : CRUX__is_less(value, IS08_MIN),            \
-  IS64 : CRUX__is_less(value, IS08_MIN)))
+  IS16 : CRUX__is_less(value, ((IS16) IS08_MIN)),   \
+  IS32 : CRUX__is_less(value, ((IS32) IS08_MIN)),   \
+  IS64 : CRUX__is_less(value, ((IS64) IS08_MIN))))
 
 
 #define CRUX__is_below_is16(value) (_Generic(value, \
@@ -833,9 +833,9 @@ CRUX__ResultSize CRUX__cast_size_is64 (const IS64 value);
   IU16 : false,                                     \
   IU32 : false,                                     \
   IU64 : false,                                     \
-  IS08 : CRUX__is_less(value, IS16_MIN),            \
-  IS32 : CRUX__is_less(value, IS16_MIN),            \
-  IS64 : CRUX__is_less(value, IS16_MIN)))
+  IS08 : CRUX__is_less(value, ((IS08) IS16_MIN)),   \
+  IS32 : CRUX__is_less(value, ((IS32) IS16_MIN)),   \
+  IS64 : CRUX__is_less(value, ((IS64) IS16_MIN))))
 
 
 #define CRUX__is_below_is32(value) (_Generic(value, \
@@ -843,9 +843,9 @@ CRUX__ResultSize CRUX__cast_size_is64 (const IS64 value);
   IU16 : false,                                     \
   IU32 : false,                                     \
   IU64 : false,                                     \
-  IS08 : CRUX__is_less(value, IS32_MIN),            \
-  IS16 : CRUX__is_less(value, IS32_MIN),            \
-  IS64 : CRUX__is_less(value, IS32_MIN)))
+  IS08 : CRUX__is_less(value, ((IS08) IS32_MIN)),   \
+  IS16 : CRUX__is_less(value, ((IS16) IS32_MIN)),   \
+  IS64 : CRUX__is_less(value, ((IS64) IS32_MIN))))
 
 
 #define CRUX__is_below_is64(value) (_Generic(value, \
@@ -853,9 +853,9 @@ CRUX__ResultSize CRUX__cast_size_is64 (const IS64 value);
   IU16 : false,                                     \
   IU32 : false,                                     \
   IU64 : false,                                     \
-  IS08 : CRUX__is_less(value, IS64_MIN),            \
-  IS16 : CRUX__is_less(value, IS64_MIN),            \
-  IS32 : CRUX__is_less(value, IS64_MIN)))
+  IS08 : CRUX__is_less(value, ((IS08) IS64_MIN)),   \
+  IS16 : CRUX__is_less(value, ((IS16) IS64_MIN)),   \
+  IS32 : CRUX__is_less(value, ((IS32) IS64_MIN))))
 
 
 #define CRUX__is_below_size(value) (_Generic(value, \
