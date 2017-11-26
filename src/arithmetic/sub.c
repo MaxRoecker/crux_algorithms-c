@@ -11,7 +11,7 @@ CRUX__ResultIU08 CRUX__sub_iu08_iu08 (
     const IU08 a, const IU08 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IU08 subtraction = CRUX__as_iu08(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -44,7 +44,7 @@ CRUX__ResultIU16 CRUX__sub_iu08_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -78,7 +78,7 @@ CRUX__ResultIU32 CRUX__sub_iu08_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-  if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+  if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -112,7 +112,7 @@ CRUX__ResultIU64 CRUX__sub_iu08_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-  if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+  if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -146,7 +146,7 @@ CRUX__ResultIU08 CRUX__sub_iu08_is08 (
   } else {
     const IU08 a_promo = a;
     const IU08 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -180,7 +180,7 @@ CRUX__ResultIS16 CRUX__sub_iu08_is16 (
   } else {
     const IS16 a_promo = promo_result.value;
     const IS16 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -214,7 +214,7 @@ CRUX__ResultIS32 CRUX__sub_iu08_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -248,7 +248,7 @@ CRUX__ResultIS64 CRUX__sub_iu08_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -282,7 +282,7 @@ CRUX__ResultIU16 CRUX__sub_iu16_iu08 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -303,7 +303,7 @@ CRUX__ResultIU16 CRUX__sub_iu16_iu16 (
     const IU16 a, const IU16 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IU16 subtraction = CRUX__as_iu16(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -336,7 +336,7 @@ CRUX__ResultIU32 CRUX__sub_iu16_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -370,7 +370,7 @@ CRUX__ResultIU64 CRUX__sub_iu16_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -404,7 +404,7 @@ CRUX__ResultIU16 CRUX__sub_iu16_is08 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -438,7 +438,7 @@ CRUX__ResultIU16 CRUX__sub_iu16_is16 (
   } else {
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -472,7 +472,7 @@ CRUX__ResultIS32 CRUX__sub_iu16_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -543,7 +543,7 @@ CRUX__ResultIU32 CRUX__sub_iu32_iu08 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -577,7 +577,7 @@ CRUX__ResultIU32 CRUX__sub_iu32_iu16 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -598,7 +598,7 @@ CRUX__ResultIU32 CRUX__sub_iu32_iu32 (
     const IU32 a, const IU32 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IU32 subtraction = CRUX__as_iu32(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -631,7 +631,7 @@ CRUX__ResultIU64 CRUX__sub_iu32_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -665,7 +665,7 @@ CRUX__ResultIU32 CRUX__sub_iu32_is08 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -699,7 +699,7 @@ CRUX__ResultIU32 CRUX__sub_iu32_is16 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -733,7 +733,7 @@ CRUX__ResultIU32 CRUX__sub_iu32_is32 (
   } else {
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -767,7 +767,7 @@ CRUX__ResultIS64 CRUX__sub_iu32_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -801,7 +801,7 @@ CRUX__ResultIU64 CRUX__sub_iu64_iu08 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -835,7 +835,7 @@ CRUX__ResultIU64 CRUX__sub_iu64_iu16 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -869,7 +869,7 @@ CRUX__ResultIU64 CRUX__sub_iu64_iu32 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -890,7 +890,7 @@ CRUX__ResultIU64 CRUX__sub_iu64_iu64 (
     const IU64 a, const IU64 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IU64 subtraction = CRUX__as_iu64(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -923,7 +923,7 @@ CRUX__ResultIU64 CRUX__sub_iu64_is08 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -957,7 +957,7 @@ CRUX__ResultIU64 CRUX__sub_iu64_is16 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -991,7 +991,7 @@ CRUX__ResultIU64 CRUX__sub_iu64_is32 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1025,7 +1025,7 @@ CRUX__ResultIU64 CRUX__sub_iu64_is64 (
   } else {
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1059,7 +1059,7 @@ CRUX__ResultIU08 CRUX__sub_is08_iu08 (
   } else {
     const IU08 a_promo = promo_result.value;
     const IU08 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1093,7 +1093,7 @@ CRUX__ResultIU16 CRUX__sub_is08_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1127,7 +1127,7 @@ CRUX__ResultIU32 CRUX__sub_is08_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1161,7 +1161,7 @@ CRUX__ResultIU64 CRUX__sub_is08_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1182,7 +1182,7 @@ CRUX__ResultIS08 CRUX__sub_is08_is08 (
     const IS08 a, const IS08 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IS08 subtraction = CRUX__as_is08(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -1215,7 +1215,7 @@ CRUX__ResultIS16 CRUX__sub_is08_is16 (
   } else {
     const IS16 a_promo = promo_result.value;
     const IS16 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1249,7 +1249,7 @@ CRUX__ResultIS32 CRUX__sub_is08_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1283,7 +1283,7 @@ CRUX__ResultIS64 CRUX__sub_is08_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1317,7 +1317,7 @@ CRUX__ResultIS16 CRUX__sub_is16_iu08 (
   } else {
     const IS16 a_promo = a;
     const IS16 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1351,7 +1351,7 @@ CRUX__ResultIU16 CRUX__sub_is16_iu16 (
   } else {
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1385,7 +1385,7 @@ CRUX__ResultIU32 CRUX__sub_is16_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1419,7 +1419,7 @@ CRUX__ResultIU64 CRUX__sub_is16_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1453,7 +1453,7 @@ CRUX__ResultIS16 CRUX__sub_is16_is08 (
   } else {
     const IS16 a_promo = a;
     const IS16 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1474,7 +1474,7 @@ CRUX__ResultIS16 CRUX__sub_is16_is16 (
     const IS16 a, const IS16 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IS16 subtraction = CRUX__as_is16(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -1507,7 +1507,7 @@ CRUX__ResultIS32 CRUX__sub_is16_is32 (
   } else {
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1541,7 +1541,7 @@ CRUX__ResultIS64 CRUX__sub_is16_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1575,7 +1575,7 @@ CRUX__ResultIS32 CRUX__sub_is32_iu08 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1609,7 +1609,7 @@ CRUX__ResultIS32 CRUX__sub_is32_iu16 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1643,7 +1643,7 @@ CRUX__ResultIU32 CRUX__sub_is32_iu32 (
   } else {
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1677,7 +1677,7 @@ CRUX__ResultIU64 CRUX__sub_is32_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1711,7 +1711,7 @@ CRUX__ResultIS32 CRUX__sub_is32_is08 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1745,7 +1745,7 @@ CRUX__ResultIS32 CRUX__sub_is32_is16 (
   } else {
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1766,7 +1766,7 @@ CRUX__ResultIS32 CRUX__sub_is32_is32 (
     const IS32 a, const IS32 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IS32 subtraction = CRUX__as_is32(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -1799,7 +1799,7 @@ CRUX__ResultIS64 CRUX__sub_is32_is64 (
   } else {
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1833,7 +1833,7 @@ CRUX__ResultIS64 CRUX__sub_is64_iu08 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1867,7 +1867,7 @@ CRUX__ResultIS64 CRUX__sub_is64_iu16 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1901,7 +1901,7 @@ CRUX__ResultIS64 CRUX__sub_is64_iu32 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1935,7 +1935,7 @@ CRUX__ResultIU64 CRUX__sub_is64_iu64 (
   } else {
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -1969,7 +1969,7 @@ CRUX__ResultIS64 CRUX__sub_is64_is08 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2003,7 +2003,7 @@ CRUX__ResultIS64 CRUX__sub_is64_is16 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2037,7 +2037,7 @@ CRUX__ResultIS64 CRUX__sub_is64_is32 (
   } else {
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
-    if (CRUX__sub_has_overflow(a_promo, b_promo)) {
+    if (CRUX__sub_has_error(a_promo, b_promo)) {
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
@@ -2058,7 +2058,7 @@ CRUX__ResultIS64 CRUX__sub_is64_is64 (
     const IS64 a, const IS64 b) {
   CRUX__Trace trace = CRUX__trace_create();
   IS64 subtraction = CRUX__as_is64(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
@@ -2078,7 +2078,7 @@ CRUX__ResultSize CRUX__sub_size_size (
     const Size a, const Size b) {
   CRUX__Trace trace = CRUX__trace_create();
   Size subtraction = CRUX__as_size(0);
-  if (CRUX__sub_has_overflow(a, b)) {
+  if (CRUX__sub_has_error(a, b)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,

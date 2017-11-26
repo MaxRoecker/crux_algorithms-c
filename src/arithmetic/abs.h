@@ -99,7 +99,7 @@ CRUX__ResultSize CRUX__abs_size (const Size value);
 
 
 
-#define CRUX__abs_has_overflow(value) (_Generic(value,  \
+#define CRUX__abs_has_error(value) (_Generic(value,  \
   IU08 : false,                                               \
   IU16 : false,                                               \
   IU32 : false,                                               \

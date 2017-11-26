@@ -929,7 +929,7 @@ CRUX__ResultDivSize CRUX__div_size_size (const Size a, const Size b);
 
 
 
-#define CRUX__div_overflow(a, b) (_Generic(a, \
+#define CRUX__div_has_error(a, b) (_Generic(a, \
   IU08 : _Generic(b,                                \
     IU08 : CRUX__is_zero(b),                        \
     default : assert(0)),                           \

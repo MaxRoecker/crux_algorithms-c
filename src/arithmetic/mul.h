@@ -728,7 +728,7 @@ CRUX__ResultSize CRUX__mul_size_size (const Size a, const Size b);
 
 
 
-#define CRUX__mul_has_overflow(a, b) (_Generic(a,             \
+#define CRUX__mul_has_error(a, b) (_Generic(a,             \
   IU08 : _Generic(b,                                                \
     IU08 : (b != 0) && (a > (IU08_MAX / b)),                        \
     default : assert(0)),                                           \
