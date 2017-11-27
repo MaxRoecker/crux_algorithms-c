@@ -381,7 +381,7 @@ CRUX__ResultOrder CRUX__compare_addr_char(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const Char one_value = *((const Char *) one);
@@ -403,7 +403,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu08(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IU08 one_value = *((const IU08 *) one);
@@ -425,7 +425,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu16(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IU16 one_value = *((const IU16 *) one);
@@ -447,7 +447,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu32(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IU32 one_value = *((const IU32 *) one);
@@ -469,7 +469,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu64(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IU64 one_value = *((const IU64 *) one);
@@ -491,7 +491,7 @@ CRUX__ResultOrder CRUX__compare_addr_is08(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IS08 one_value = *((const IS08 *) one);
@@ -513,7 +513,7 @@ CRUX__ResultOrder CRUX__compare_addr_is16(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IS16 one_value = *((const IS16 *) one);
@@ -535,7 +535,7 @@ CRUX__ResultOrder CRUX__compare_addr_is32(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IS32 one_value = *((const IS32 *) one);
@@ -557,7 +557,7 @@ CRUX__ResultOrder CRUX__compare_addr_is64(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IS64 one_value = *((const IS64 *) one);
@@ -579,7 +579,7 @@ CRUX__ResultOrder CRUX__compare_addr_size(
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const Size one_value = *((const Size *) one);

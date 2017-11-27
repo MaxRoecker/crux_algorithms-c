@@ -59,4 +59,13 @@ Bool CRUX__fault_equals (
  * @param[in] fault   The fault where info will be placed.
  * @param[in] format  The formated string.
  */
-#define CRUX__fault_infoprintf(fault, format, ...) snprintf(fault.info, CRUX__FAULT_FILEPATH_SIZE, format, __VA_ARGS__);
+#define CRUX__fault_infoprintf(fault, format, ...) \
+  snprintf(fault.info, CRUX__FAULT_FILEPATH_SIZE, format, __VA_ARGS__);
+
+
+/**
+ * @brief Returns the absolute line from the current line offset.
+ * 
+ * @param[in] offset  The offset of the current line. 
+ */
+#define CRUX__fault_line(offset) (((IU32) __LINE__) + CRUX__as_iu32(offset))

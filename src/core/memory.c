@@ -8,7 +8,7 @@ CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_MEMORY,
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     const char info_fmt[] = "There is no %"SIZE_FMT" bytes available.";
     CRUX__fault_infoprintf(fault, info_fmt, size);
     CRUX__trace_push(&trace, fault);
@@ -40,7 +40,7 @@ CRUX__ResultAddr CRUX__alloc_context_into (const void *context) {
       .error = CRUX__ERROR_MEMORY,
       .info = "There is no space available for new context",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   }
   CRUX__ResultAddr result = {.trace = trace, .value = address};
@@ -79,14 +79,14 @@ CRUX__ResultVoid CRUX__alloc_free (void **context) {
       .error = CRUX__ERROR_VALUE,
       .info = "Invalid nil argument value.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else if (is_nil(*context, void)) {
     const CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "It's not possible to free a nil context.",
       .filepath = __FILE__,
-      .line = (((IU32) __LINE__) - CRUX__as_iu32(5))};
+      .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
     const IS32 success = talloc_free(*context);
@@ -95,7 +95,7 @@ CRUX__ResultVoid CRUX__alloc_free (void **context) {
         .error = CRUX__ERROR_MEMORY,
         .info = "This context is not valid or doesn't exists.",
         .filepath = __FILE__,
-        .line = (((IU32) __LINE__) - CRUX__as_iu32(6))};
+        .line = CRUX__fault_line(-6)};
       CRUX__trace_push(&trace, fault);
     } else {
       *context = nil(void);

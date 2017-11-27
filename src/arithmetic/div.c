@@ -15,7 +15,7 @@ CRUX__ResultDivIU08 CRUX__div_iu08_iu08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(IU08_FMT, IU08_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
@@ -37,7 +37,7 @@ CRUX__ResultDivIU16 CRUX__div_iu08_iu16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -49,7 +49,7 @@ CRUX__ResultDivIU16 CRUX__div_iu08_iu16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU08_FMT, IU16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -72,7 +72,7 @@ CRUX__ResultDivIU32 CRUX__div_iu08_iu32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -84,7 +84,7 @@ CRUX__ResultDivIU32 CRUX__div_iu08_iu32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU08_FMT, IU32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -107,7 +107,7 @@ CRUX__ResultDivIU64 CRUX__div_iu08_iu64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -119,7 +119,7 @@ CRUX__ResultDivIU64 CRUX__div_iu08_iu64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU08_FMT, IU64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -142,7 +142,7 @@ CRUX__ResultDivIU08 CRUX__div_iu08_is08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -154,7 +154,7 @@ CRUX__ResultDivIU08 CRUX__div_iu08_is08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU08_FMT, IS08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -177,7 +177,7 @@ CRUX__ResultDivIS16 CRUX__div_iu08_is16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -189,7 +189,7 @@ CRUX__ResultDivIS16 CRUX__div_iu08_is16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU08_FMT, IS16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -212,7 +212,7 @@ CRUX__ResultDivIS32 CRUX__div_iu08_is32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -224,7 +224,7 @@ CRUX__ResultDivIS32 CRUX__div_iu08_is32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU08_FMT, IS32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -247,7 +247,7 @@ CRUX__ResultDivIS64 CRUX__div_iu08_is64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -259,7 +259,7 @@ CRUX__ResultDivIS64 CRUX__div_iu08_is64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU08_FMT, IS64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -282,7 +282,7 @@ CRUX__ResultDivIU16 CRUX__div_iu16_iu08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -294,7 +294,7 @@ CRUX__ResultDivIU16 CRUX__div_iu16_iu08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU16_FMT, IU08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -316,7 +316,7 @@ CRUX__ResultDivIU16 CRUX__div_iu16_iu16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(IU16_FMT, IU16_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
@@ -338,7 +338,7 @@ CRUX__ResultDivIU32 CRUX__div_iu16_iu32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU16_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -350,7 +350,7 @@ CRUX__ResultDivIU32 CRUX__div_iu16_iu32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU16_FMT, IU32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -373,7 +373,7 @@ CRUX__ResultDivIU64 CRUX__div_iu16_iu64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU16_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -385,7 +385,7 @@ CRUX__ResultDivIU64 CRUX__div_iu16_iu64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU16_FMT, IU64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -408,7 +408,7 @@ CRUX__ResultDivIU16 CRUX__div_iu16_is08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -420,7 +420,7 @@ CRUX__ResultDivIU16 CRUX__div_iu16_is08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU16_FMT, IS08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -443,7 +443,7 @@ CRUX__ResultDivIU16 CRUX__div_iu16_is16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -455,7 +455,7 @@ CRUX__ResultDivIU16 CRUX__div_iu16_is16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU16_FMT, IS16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -478,7 +478,7 @@ CRUX__ResultDivIS32 CRUX__div_iu16_is32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU16_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -490,7 +490,7 @@ CRUX__ResultDivIS32 CRUX__div_iu16_is32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU16_FMT, IS32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -513,7 +513,7 @@ CRUX__ResultDivIS64 CRUX__div_iu16_is64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU16_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -525,7 +525,7 @@ CRUX__ResultDivIS64 CRUX__div_iu16_is64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU16_FMT, IS64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -548,7 +548,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_iu08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -560,7 +560,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_iu08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU32_FMT, IU08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -583,7 +583,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_iu16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU16_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -595,7 +595,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_iu16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU32_FMT, IU16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -617,7 +617,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_iu32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(IU32_FMT, IU32_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
@@ -639,7 +639,7 @@ CRUX__ResultDivIU64 CRUX__div_iu32_iu64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU32_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -651,7 +651,7 @@ CRUX__ResultDivIU64 CRUX__div_iu32_iu64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU32_FMT, IU64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -674,7 +674,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_is08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -686,7 +686,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_is08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU32_FMT, IS08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -709,7 +709,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_is16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -721,7 +721,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_is16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU32_FMT, IS16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -744,7 +744,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_is32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS32_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -756,7 +756,7 @@ CRUX__ResultDivIU32 CRUX__div_iu32_is32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU32_FMT, IS32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -779,7 +779,7 @@ CRUX__ResultDivIS64 CRUX__div_iu32_is64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU32_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -791,7 +791,7 @@ CRUX__ResultDivIS64 CRUX__div_iu32_is64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU32_FMT, IS64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -814,7 +814,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_iu08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -826,7 +826,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_iu08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU64_FMT, IU08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -849,7 +849,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_iu16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU16_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -861,7 +861,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_iu16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU64_FMT, IU16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -884,7 +884,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_iu32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU32_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -896,7 +896,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_iu32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU64_FMT, IU32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -918,7 +918,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_iu64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(IU64_FMT, IU64_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
@@ -940,7 +940,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_is08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -952,7 +952,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_is08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU64_FMT, IS08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -975,7 +975,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_is16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -987,7 +987,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_is16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU64_FMT, IS16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1010,7 +1010,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_is32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS32_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1022,7 +1022,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_is32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU64_FMT, IS32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1045,7 +1045,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_is64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS64_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1057,7 +1057,7 @@ CRUX__ResultDivIU64 CRUX__div_iu64_is64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IU64_FMT, IS64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1080,7 +1080,7 @@ CRUX__ResultDivIU08 CRUX__div_is08_iu08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IU08");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1092,7 +1092,7 @@ CRUX__ResultDivIU08 CRUX__div_is08_iu08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS08_FMT, IU08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1115,7 +1115,7 @@ CRUX__ResultDivIU16 CRUX__div_is08_iu16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1127,7 +1127,7 @@ CRUX__ResultDivIU16 CRUX__div_is08_iu16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS08_FMT, IU16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1150,7 +1150,7 @@ CRUX__ResultDivIU32 CRUX__div_is08_iu32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1162,7 +1162,7 @@ CRUX__ResultDivIU32 CRUX__div_is08_iu32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS08_FMT, IU32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1185,7 +1185,7 @@ CRUX__ResultDivIU64 CRUX__div_is08_iu64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1197,7 +1197,7 @@ CRUX__ResultDivIU64 CRUX__div_is08_iu64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS08_FMT, IU64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1219,7 +1219,7 @@ CRUX__ResultDivIS08 CRUX__div_is08_is08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(IS08_FMT, IS08_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
@@ -1241,7 +1241,7 @@ CRUX__ResultDivIS16 CRUX__div_is08_is16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1253,7 +1253,7 @@ CRUX__ResultDivIS16 CRUX__div_is08_is16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS08_FMT, IS16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1276,7 +1276,7 @@ CRUX__ResultDivIS32 CRUX__div_is08_is32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1288,7 +1288,7 @@ CRUX__ResultDivIS32 CRUX__div_is08_is32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS08_FMT, IS32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1311,7 +1311,7 @@ CRUX__ResultDivIS64 CRUX__div_is08_is64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1323,7 +1323,7 @@ CRUX__ResultDivIS64 CRUX__div_is08_is64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS08_FMT, IS64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1346,7 +1346,7 @@ CRUX__ResultDivIS16 CRUX__div_is16_iu08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1358,7 +1358,7 @@ CRUX__ResultDivIS16 CRUX__div_is16_iu08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS16_FMT, IU08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1381,7 +1381,7 @@ CRUX__ResultDivIU16 CRUX__div_is16_iu16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IU16");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1393,7 +1393,7 @@ CRUX__ResultDivIU16 CRUX__div_is16_iu16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS16_FMT, IU16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1416,7 +1416,7 @@ CRUX__ResultDivIU32 CRUX__div_is16_iu32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1428,7 +1428,7 @@ CRUX__ResultDivIU32 CRUX__div_is16_iu32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS16_FMT, IU32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1451,7 +1451,7 @@ CRUX__ResultDivIU64 CRUX__div_is16_iu64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1463,7 +1463,7 @@ CRUX__ResultDivIU64 CRUX__div_is16_iu64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS16_FMT, IU64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1486,7 +1486,7 @@ CRUX__ResultDivIS16 CRUX__div_is16_is08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IS16");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1498,7 +1498,7 @@ CRUX__ResultDivIS16 CRUX__div_is16_is08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS16_FMT, IS08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1520,7 +1520,7 @@ CRUX__ResultDivIS16 CRUX__div_is16_is16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(IS16_FMT, IS16_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
@@ -1542,7 +1542,7 @@ CRUX__ResultDivIS32 CRUX__div_is16_is32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1554,7 +1554,7 @@ CRUX__ResultDivIS32 CRUX__div_is16_is32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS16_FMT, IS32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1577,7 +1577,7 @@ CRUX__ResultDivIS64 CRUX__div_is16_is64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1589,7 +1589,7 @@ CRUX__ResultDivIS64 CRUX__div_is16_is64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS16_FMT, IS64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1612,7 +1612,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_iu08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1624,7 +1624,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_iu08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS32_FMT, IU08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1647,7 +1647,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_iu16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU16_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1659,7 +1659,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_iu16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS32_FMT, IU16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1682,7 +1682,7 @@ CRUX__ResultDivIU32 CRUX__div_is32_iu32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS32_FMT, "IU32");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1694,7 +1694,7 @@ CRUX__ResultDivIU32 CRUX__div_is32_iu32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS32_FMT, IU32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1717,7 +1717,7 @@ CRUX__ResultDivIU64 CRUX__div_is32_iu64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS32_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1729,7 +1729,7 @@ CRUX__ResultDivIU64 CRUX__div_is32_iu64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS32_FMT, IU64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1752,7 +1752,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_is08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1764,7 +1764,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_is08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS32_FMT, IS08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1787,7 +1787,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_is16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IS32");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1799,7 +1799,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_is16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS32_FMT, IS16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1821,7 +1821,7 @@ CRUX__ResultDivIS32 CRUX__div_is32_is32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(IS32_FMT, IS32_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
@@ -1843,7 +1843,7 @@ CRUX__ResultDivIS64 CRUX__div_is32_is64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS32_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1855,7 +1855,7 @@ CRUX__ResultDivIS64 CRUX__div_is32_is64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS32_FMT, IS64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1878,7 +1878,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_iu08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU08_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1890,7 +1890,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_iu08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS64_FMT, IU08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1913,7 +1913,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_iu16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU16_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1925,7 +1925,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_iu16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS64_FMT, IU16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1948,7 +1948,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_iu32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IU32_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1960,7 +1960,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_iu32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS64_FMT, IU32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -1983,7 +1983,7 @@ CRUX__ResultDivIU64 CRUX__div_is64_iu64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS64_FMT, "IU64");
     CRUX__fault_infoprintf(fault, fmt, a);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -1995,7 +1995,7 @@ CRUX__ResultDivIU64 CRUX__div_is64_iu64 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS64_FMT, IU64_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -2018,7 +2018,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_is08 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS08_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -2030,7 +2030,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_is08 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS64_FMT, IS08_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -2053,7 +2053,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_is16 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS16_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -2065,7 +2065,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_is16 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS64_FMT, IS16_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -2088,7 +2088,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_is32 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) - CRUX__as_iu32(6)};
+      .line = CRUX__fault_line(-6)};
     const Char fmt[] = CRUX__info_promo(IS32_FMT, "IS64");
     CRUX__fault_infoprintf(fault, fmt, b);
     CRUX__trace_move(&trace, &promo_result.trace);
@@ -2100,7 +2100,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_is32 (
       CRUX__Fault fault = {
         .error = CRUX__ERROR_ARITHMETIC,
         .filepath = __FILE__,
-        .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+        .line = CRUX__fault_line(5)};
       const Char fmt[] = CRUX__info_division(IS64_FMT, IS32_FMT);
       CRUX__fault_infoprintf(fault, fmt, a, b);
       CRUX__trace_push(&trace, fault);
@@ -2122,7 +2122,7 @@ CRUX__ResultDivIS64 CRUX__div_is64_is64 (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(IS64_FMT, IS64_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
@@ -2143,7 +2143,7 @@ CRUX__ResultDivSize CRUX__div_size_size (
     CRUX__Fault fault = {
       .error = CRUX__ERROR_ARITHMETIC,
       .filepath = __FILE__,
-      .line = ((IU32) __LINE__) + CRUX__as_iu32(5)};
+      .line = CRUX__fault_line(5)};
     const Char fmt[] = CRUX__info_division(SIZE_FMT, SIZE_FMT);
     CRUX__fault_infoprintf(fault, fmt, a, b);
     CRUX__trace_push(&trace, fault);
