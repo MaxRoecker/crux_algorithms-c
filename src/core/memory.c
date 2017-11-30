@@ -104,3 +104,13 @@ CRUX__ResultVoid CRUX__alloc_free (void **context) {
   CRUX__ResultVoid result = {.trace = trace};
   return result;
 }
+
+
+void CRUX__alloc_quiet_free (void **context) {
+  if (!is_nil(context, void)) {
+    if (!is_nil(*context, void)) {
+      talloc_free(*context);
+      *context = nil(void);
+    }
+  }
+}

@@ -89,3 +89,13 @@ CRUX__ResultAddr CRUX__alloc_move (const void *new_context, void **address);
  *
  */
 CRUX__ResultVoid CRUX__alloc_free (void **context);
+
+
+/**
+ * @brief Free the context and all of its children and sets it to nil. This
+ * method does not warn when the context can not be freed.
+ *
+ * @param[in] context the context to be freed;
+ *
+ */
+void CRUX__alloc_quiet_free (void **context);
