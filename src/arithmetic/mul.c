@@ -42,6 +42,7 @@ CRUX__ResultIU16 CRUX__mul_iu08_iu16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -76,6 +77,7 @@ CRUX__ResultIU32 CRUX__mul_iu08_iu32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -110,6 +112,7 @@ CRUX__ResultIU64 CRUX__mul_iu08_iu64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -144,6 +147,7 @@ CRUX__ResultIU08 CRUX__mul_iu08_is08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU08 a_promo = a;
     const IU08 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -178,6 +182,7 @@ CRUX__ResultIS16 CRUX__mul_iu08_is16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS16 a_promo = promo_result.value;
     const IS16 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -212,6 +217,7 @@ CRUX__ResultIS32 CRUX__mul_iu08_is32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -246,6 +252,7 @@ CRUX__ResultIS64 CRUX__mul_iu08_is64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -280,6 +287,7 @@ CRUX__ResultIU16 CRUX__mul_iu16_iu08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -334,6 +342,7 @@ CRUX__ResultIU32 CRUX__mul_iu16_iu32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -368,6 +377,7 @@ CRUX__ResultIU64 CRUX__mul_iu16_iu64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -402,6 +412,7 @@ CRUX__ResultIU16 CRUX__mul_iu16_is08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -436,6 +447,7 @@ CRUX__ResultIU16 CRUX__mul_iu16_is16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU16 a_promo = a;
     const IU16 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -470,6 +482,7 @@ CRUX__ResultIS32 CRUX__mul_iu16_is32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -504,6 +517,7 @@ CRUX__ResultIS64 CRUX__mul_iu16_is64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -538,6 +552,7 @@ CRUX__ResultIU32 CRUX__mul_iu32_iu08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -572,6 +587,7 @@ CRUX__ResultIU32 CRUX__mul_iu32_iu16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -626,6 +642,7 @@ CRUX__ResultIU64 CRUX__mul_iu32_iu64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -660,6 +677,7 @@ CRUX__ResultIU32 CRUX__mul_iu32_is08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -694,6 +712,7 @@ CRUX__ResultIU32 CRUX__mul_iu32_is16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -728,6 +747,7 @@ CRUX__ResultIU32 CRUX__mul_iu32_is32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = a;
     const IU32 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -762,6 +782,7 @@ CRUX__ResultIS64 CRUX__mul_iu32_is64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -796,6 +817,7 @@ CRUX__ResultIU64 CRUX__mul_iu64_iu08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -830,6 +852,7 @@ CRUX__ResultIU64 CRUX__mul_iu64_iu16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -864,6 +887,7 @@ CRUX__ResultIU64 CRUX__mul_iu64_iu32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -919,6 +943,7 @@ CRUX__ResultIU64 CRUX__mul_iu64_is08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -953,6 +978,7 @@ CRUX__ResultIU64 CRUX__mul_iu64_is16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -987,6 +1013,7 @@ CRUX__ResultIU64 CRUX__mul_iu64_is32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1021,6 +1048,7 @@ CRUX__ResultIU64 CRUX__mul_iu64_is64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = a;
     const IU64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1055,6 +1083,7 @@ CRUX__ResultIU08 CRUX__mul_is08_iu08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU08 a_promo = promo_result.value;
     const IU08 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1089,6 +1118,7 @@ CRUX__ResultIU16 CRUX__mul_is08_iu16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1123,6 +1153,7 @@ CRUX__ResultIU32 CRUX__mul_is08_iu32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1157,6 +1188,7 @@ CRUX__ResultIU64 CRUX__mul_is08_iu64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1211,6 +1243,7 @@ CRUX__ResultIS16 CRUX__mul_is08_is16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS16 a_promo = promo_result.value;
     const IS16 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1245,6 +1278,7 @@ CRUX__ResultIS32 CRUX__mul_is08_is32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1279,6 +1313,7 @@ CRUX__ResultIS64 CRUX__mul_is08_is64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1313,6 +1348,7 @@ CRUX__ResultIS16 CRUX__mul_is16_iu08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS16 a_promo = a;
     const IS16 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1347,6 +1383,7 @@ CRUX__ResultIU16 CRUX__mul_is16_iu16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU16 a_promo = promo_result.value;
     const IU16 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1381,6 +1418,7 @@ CRUX__ResultIU32 CRUX__mul_is16_iu32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1415,6 +1453,7 @@ CRUX__ResultIU64 CRUX__mul_is16_iu64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1449,6 +1488,7 @@ CRUX__ResultIS16 CRUX__mul_is16_is08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS16 a_promo = a;
     const IS16 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1503,6 +1543,7 @@ CRUX__ResultIS32 CRUX__mul_is16_is32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS32 a_promo = promo_result.value;
     const IS32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1537,6 +1578,7 @@ CRUX__ResultIS64 CRUX__mul_is16_is64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1605,6 +1647,7 @@ CRUX__ResultIS32 CRUX__mul_is32_iu16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1639,6 +1682,7 @@ CRUX__ResultIU32 CRUX__mul_is32_iu32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU32 a_promo = promo_result.value;
     const IU32 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1673,6 +1717,7 @@ CRUX__ResultIU64 CRUX__mul_is32_iu64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1707,6 +1752,7 @@ CRUX__ResultIS32 CRUX__mul_is32_is08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1741,6 +1787,7 @@ CRUX__ResultIS32 CRUX__mul_is32_is16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS32 a_promo = a;
     const IS32 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1795,6 +1842,7 @@ CRUX__ResultIS64 CRUX__mul_is32_is64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = promo_result.value;
     const IS64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1829,6 +1877,7 @@ CRUX__ResultIS64 CRUX__mul_is64_iu08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1863,6 +1912,7 @@ CRUX__ResultIS64 CRUX__mul_is64_iu16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1897,6 +1947,7 @@ CRUX__ResultIS64 CRUX__mul_is64_iu32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1931,6 +1982,7 @@ CRUX__ResultIU64 CRUX__mul_is64_iu64 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IU64 a_promo = promo_result.value;
     const IU64 b_promo = b;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1965,6 +2017,7 @@ CRUX__ResultIS64 CRUX__mul_is64_is08 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -1999,6 +2052,7 @@ CRUX__ResultIS64 CRUX__mul_is64_is16 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
@@ -2033,6 +2087,7 @@ CRUX__ResultIS64 CRUX__mul_is64_is32 (
     CRUX__trace_move(&trace, &promo_result.trace);
     CRUX__trace_push(&trace, fault);
   } else {
+    CRUX__trace_clean(&promo_result.trace);
     const IS64 a_promo = a;
     const IS64 b_promo = promo_result.value;
     if (CRUX__mul_has_error(a_promo, b_promo)) {
