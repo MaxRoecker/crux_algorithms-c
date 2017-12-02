@@ -95,6 +95,39 @@ arithmetic_arithmetic_dependencies	= arithmetic_error $(arithmetic_error_depende
 																			arithmetic_div $(arithmetic_div_dependencies)
 
 
+# Structures package
+struct_package = $(SRC)/struct
+
+struct_error_module									= $(struct_package)/error.c
+struct_error_object									= $(BIN)/struct_error.o
+struct_error_dependencies						= arithmetic_arithmetic $(arithmetic_arithmetic_dependencies)
+
+struct_element_module								= $(struct_package)/element.c
+struct_element_object								= $(BIN)/struct_element.o
+struct_element_dependencies					= struct_error $(struct_error_dependencies)
+
+struct_indexable_module							= $(struct_package)/indexable.c
+struct_indexable_object							= $(BIN)/struct_indexable.o
+struct_indexable_dependencies				= struct_element $(struct_element_dependencies)
+
+struct_iterable_module							= $(struct_package)/iterable.c
+struct_iterable_object							= $(BIN)/struct_iterable.o
+struct_iterable_dependencies				= struct_element $(struct_element_dependencies)
+
+# Sequences subpackage
+struct_linear_package = $(struct_package)/linear
+
+struct_linear_error_module					= $(struct_linear_package)/error.c
+struct_linear_error_object					= $(BIN)/struct_linear_error.o
+struct_linear_error_dependencies		= struct_iterable $(struct_iterable_dependencies)
+
+struct_linear_array_module					= $(struct_linear_package)/array.c
+struct_linear_array_object					= $(BIN)/struct_linear_array.o
+struct_linear_array_dependencies		= struct_linear_error $(struct_linear_error_dependencies)
+
+
+
+
 # Macros
 compile = $(CC) $(CFLAGS) -c -o $($(1)_object) $($(1)_module)
 
