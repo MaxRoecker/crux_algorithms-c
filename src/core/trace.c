@@ -5,7 +5,7 @@ static const Size POOL_SIZE = CRUX__as_size(16) * sizeof(CRUX__Fault);
 static const void *CRUX__TRACE_POOL = nil(const void);
 
 
-CRUX__Trace CRUX__trace_create (void) {
+inline CRUX__Trace CRUX__trace_create (void) {
   CRUX__Fault *const top = nil(CRUX__Fault);
   if (is_nil(CRUX__TRACE_POOL, const void)) {
     CRUX__TRACE_POOL = (const void *) talloc_pool(nil(void), POOL_SIZE);
@@ -16,13 +16,13 @@ CRUX__Trace CRUX__trace_create (void) {
 }
 
 
-Bool CRUX__trace_check(const CRUX__Trace trace) {
+inline Bool CRUX__trace_check(const CRUX__Trace trace) {
   const Bool has_fault = is_nil(trace.top, CRUX__Fault);
   return has_fault;
 }
 
 
-void CRUX__trace_push (
+inline void CRUX__trace_push (
     CRUX__Trace *restrict const trace,
     const CRUX__Fault fault) {
   assert(!is_nil(trace, CRUX__Trace));
@@ -34,7 +34,7 @@ void CRUX__trace_push (
 }
 
 
-void CRUX__trace_move (
+inline void CRUX__trace_move (
     CRUX__Trace *restrict const target,
     CRUX__Trace *restrict const source) {
   assert(!is_nil(target, CRUX__Trace));
@@ -47,7 +47,7 @@ void CRUX__trace_move (
 }
 
 
-void CRUX__trace_clean (CRUX__Trace *restrict const trace) {
+inline void CRUX__trace_clean (CRUX__Trace *restrict const trace) {
   if (!is_nil(trace, CRUX__Trace)) {
     if (!is_nil(trace->context, void)) {
       talloc_free(trace->context);
