@@ -1,11 +1,11 @@
 #include "./array.h"
 
 
-CRUX__ResultAddr CRUX__array_get(
+CRUX__ResultElement CRUX__array_get(
     const CRUX__Array array,
     const IU16 index) {
   CRUX__Trace trace = CRUX__trace_create();
-  void *element_addr = nil(void);
+  CRUX__Element element = CRUX__element_nil();
   if (index >= array.length) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
@@ -18,18 +18,20 @@ CRUX__ResultAddr CRUX__array_get(
     const Size element_offset = index_as_size * array.element_size;
     const uintptr_t addr_as_uint = (uintptr_t) array.addr;
     const uintptr_t element_addr_as_uint = addr_as_uint + element_offset;
-    element_addr = (void *) element_addr_as_uint;
+    element.size = array.element_size;
+    element.addr = (void *) element_addr_as_uint;
   }
-  CRUX__ResultAddr result = {.trace = trace, .value = element_addr};
+  CRUX__ResultElement result = {.trace = trace, .value = element};
   return result;
 }
 
 
-CRUX__ResultVoid CRUX__array_put (
+CRUX__ResultElement CRUX__array_put (
     const CRUX__Array array,
     const IU16 index,
     void *restrict const element_addr) {
   CRUX__Trace trace = CRUX__trace_create();
+  CRUX__Element element = CRUX__element_nil();
   if (CRUX__is_greater_equal(index, array.length)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
@@ -44,8 +46,10 @@ CRUX__ResultVoid CRUX__array_put (
     const uintptr_t uint_array_element_addr = uint_addr + element_offset;
     void *const array_element_addr = (void *) uint_array_element_addr;
     memcpy(array_element_addr, element_addr, array.element_size);
+    element.size = array.element_size;
+    element.addr = array_element_addr;
   }
-  CRUX__ResultVoid result = {.trace = trace};
+  CRUX__ResultElement result = {.trace = trace, .value = element};
   return result;
 }
 
@@ -199,6 +203,7 @@ CRUX__ResultIterator CRUX__array_iterator_create(const CRUX__Array array) {
       CRUX__ArrayIteratorSettings *settings_addr = 
         (CRUX__ArrayIteratorSettings *) settings_addr_result.value;
       settings_addr->array = array;
+      settings_addr->inverse = false;
       settings_addr->context = context;
       settings_addr->start = CRUX__as_iu16(0);
       settings_addr->end = array.length;
@@ -216,22 +221,28 @@ CRUX__ResultIterator CRUX__array_iterator_create(const CRUX__Array array) {
 
 
 CRUX__Element CRUX__array_iterator_get(void *const settings) {
-  CRUX__ArrayIteratorSettings *const tsettings =
-    (CRUX__ArrayIteratorSettings *) settings;
-  assert(CRUX__is_less(tsettings->current, tsettings->end));
-  assert(CRUX__is_greater_equal(tsettings->current, tsettings->start));
-  CRUX__ResultAddr element_result = CRUX__array_get(
-    tsettings->array, tsettings->current);
+  assert(!is_nil(settings, void));
+  CRUX__ArrayIteratorSettings *const array_iterator_settings = 
+    ((CRUX__ArrayIteratorSettings *) settings);
+  const Bool inverse = array_iterator_settings->inverse; 
+  const IU16 start = array_iterator_settings->start;
+  const IU16 end = array_iterator_settings->end;
+  const IU16 step = array_iterator_settings->step;
+  const IU16 current = array_iterator_settings->current;
+  const CRUX__Array array = array_iterator_settings->array;
+  assert(CRUX__is_greater_equal(current, start));
+  assert(CRUX__is_less(current, end));
+  CRUX__ResultElement element_result = CRUX__array_get(array, current);
+  assert(CRUX__trace_check(element_result.trace));
   CRUX__trace_clean(&element_result.trace);
-  tsettings->current = (IU16) tsettings->current + tsettings->step;
-  const CRUX__Element element = {
-    .addr = (void *) element_result.value,
-    .size = tsettings->array.element_size};
+  array_iterator_settings->current = ((IU16) current + step);
+  const CRUX__Element element = element_result.value;
   return element;
 }
 
 
 Bool CRUX__array_iterator_has_next(void *const settings) {
+  assert(!is_nil(settings, void));
   CRUX__ArrayIteratorSettings *const tsettings =
     (CRUX__ArrayIteratorSettings *) settings;
   return CRUX__is_less(tsettings->current, tsettings->end);
@@ -239,6 +250,8 @@ Bool CRUX__array_iterator_has_next(void *const settings) {
 
 
 void CRUX__array_iterator_finalize(void **settings) {
+  assert(!is_nil(settings, void *));
+  assert(!is_nil(*settings, void));
   CRUX__ArrayIteratorSettings tsettings =
     *((CRUX__ArrayIteratorSettings *) (*settings));
   CRUX__alloc_quiet_free(&tsettings.context);
@@ -249,6 +262,7 @@ void CRUX__array_iterator_finalize(void **settings) {
 CRUX__ArrayIteratorSettings CRUX__array_iterator_nil (void) {
   CRUX__ArrayIteratorSettings array_iterator = {
     .context = nil(void),
+    .inverse = false,
     .start = CRUX__as_iu16(0),
     .end = CRUX__as_iu16(0),
     .step = CRUX__as_iu16(0),

@@ -25,12 +25,12 @@ typedef struct CRUX__ResultArray_Struct {
 
 
 
-CRUX__ResultAddr CRUX__array_get (
+CRUX__ResultElement CRUX__array_get (
   const CRUX__Array array,
   const IU16 index);
 
 
-CRUX__ResultVoid CRUX__array_put (
+CRUX__ResultElement CRUX__array_put (
   const CRUX__Array array,
   const IU16 index,
   void *restrict const element_addr);
@@ -70,6 +70,7 @@ CRUX__Array CRUX__array_nil (void);
 
 typedef struct CRUX__ArrayIteratorSettings_Struct {
   void *context;
+  Bool inverse;
   IU16 start;
   IU16 end;
   IU16 step;
