@@ -20,3 +20,13 @@ typedef struct CRUX__ResultElement_Struct {
   CRUX__Trace trace;
   const CRUX__Element value;
 } CRUX__ResultElement;
+
+
+
+
+CRUX__Element CRUX__element_nil (void);
+
+
+Bool CRUX__element_equals (
+  const CRUX__Element a,
+  const CRUX__Element b);
