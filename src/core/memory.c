@@ -1,7 +1,7 @@
 #include "./memory.h"
 
 
-CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size) {
+CRUX__ResultAddr CRUX__alloc_into (void *const context, const Size size) {
   CRUX__Trace trace = CRUX__trace_create();
   const void *address = talloc_zero_size(context, size);
   if (is_nil(address, void)) {
@@ -19,22 +19,22 @@ CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size) {
 
 
 CRUX__ResultAddr CRUX__alloc (const IU64 size) {
-  const void *context = nil(void);
+  void *const context = nil(void);
   CRUX__ResultAddr result = CRUX__alloc_into(context, size);
   return result;
 }
 
 
 CRUX__ResultAddr CRUX__alloc_context (void) {
-  const void *context = nil(void);
+  void *const context = nil(void);
   CRUX__ResultAddr result = CRUX__alloc_context_into(context);
   return result;
 }
 
 
-CRUX__ResultAddr CRUX__alloc_context_into (const void *context) {
+CRUX__ResultAddr CRUX__alloc_context_into (void *const context) {
   CRUX__Trace trace = CRUX__trace_create();
-  const void *address = talloc_new(context);
+  void *const address = talloc_new(context);
   if (is_nil(address, void)) {
     CRUX__Fault fault = {
       .error = CRUX__ERROR_MEMORY,
@@ -48,7 +48,7 @@ CRUX__ResultAddr CRUX__alloc_context_into (const void *context) {
 }
 
 
-CRUX__ResultSize CRUX__alloc_get_size (const void *context) {
+CRUX__ResultSize CRUX__alloc_get_size (void *const context) {
   CRUX__Trace trace = CRUX__trace_create();
   const Size size = talloc_get_size(context);
   CRUX__ResultSize result = {.trace = trace, .value = size};
@@ -56,7 +56,7 @@ CRUX__ResultSize CRUX__alloc_get_size (const void *context) {
 }
 
 
-CRUX__ResultSize CRUX__alloc_get_total_size (const void *context) {
+CRUX__ResultSize CRUX__alloc_get_total_size (void *const context) {
   CRUX__Trace trace = CRUX__trace_create();
   const Size size = talloc_total_size(context);
   CRUX__ResultSize result = {.trace = trace, .value = size};
@@ -64,9 +64,9 @@ CRUX__ResultSize CRUX__alloc_get_total_size (const void *context) {
 }
 
 
-CRUX__ResultAddr CRUX__alloc_move (const void *new_context, void **address) {
+CRUX__ResultAddr CRUX__alloc_move (void *const new_context, void **address) {
   CRUX__Trace trace = CRUX__trace_create();
-  const void *new_address = talloc_move(new_context, address);
+  void *const new_address = talloc_move(new_context, address);
   CRUX__ResultAddr result = {.trace = trace, .value = new_address};
   return result;
 }

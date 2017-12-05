@@ -28,7 +28,7 @@ CRUX__ResultAddr CRUX__alloc (const Size size);
  * @return the address of the memory allocation.
  *
  */
-CRUX__ResultAddr CRUX__alloc_into (const void *context, const Size size);
+CRUX__ResultAddr CRUX__alloc_into (void *const context, const Size size);
 
 
 /**
@@ -47,7 +47,7 @@ CRUX__ResultAddr CRUX__alloc_context (void);
  * @return the address of the context.
  *
  */
-CRUX__ResultAddr CRUX__alloc_context_into (const void *context);
+CRUX__ResultAddr CRUX__alloc_context_into (void *const context);
 
 
 /**
@@ -57,7 +57,7 @@ CRUX__ResultAddr CRUX__alloc_context_into (const void *context);
  * @return the size of the context only.
  *
  */
-CRUX__ResultSize CRUX__alloc_get_size (const void *context);
+CRUX__ResultSize CRUX__alloc_get_size (void *const context);
 
 
 /**
@@ -67,7 +67,7 @@ CRUX__ResultSize CRUX__alloc_get_size (const void *context);
  * @return the size of the context and its children.
  *
  */
-CRUX__ResultSize CRUX__alloc_get_total_size (const void *context);
+CRUX__ResultSize CRUX__alloc_get_total_size (void *const context);
 
 
 /**
@@ -78,7 +78,7 @@ CRUX__ResultSize CRUX__alloc_get_total_size (const void *context);
  * @return a new contextualized address
  *
  */
-CRUX__ResultAddr CRUX__alloc_move (const void *new_context, void **address);
+CRUX__ResultAddr CRUX__alloc_move (void *const new_context, void **address);
 
 
 /**
