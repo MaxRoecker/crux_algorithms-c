@@ -90,3 +90,12 @@ void CRUX__iterator_finalize (
 
 CRUX__Iterator CRUX__iterator_nil (void);
 
+
+IU16 CRUX__iterator_real_end (
+  const IU16 start,
+  const IU16 end,
+  const IU16 step);
+
+
+
+

@@ -27,3 +27,33 @@ CRUX__Iterator CRUX__iterator_nil (void) {
     .finalize = ((CRUX__IterableFinalizeFunction) 0)};
   return iterator;
 }
+
+
+IU16 CRUX__iterator_real_end (
+    const IU16 start,
+    const IU16 end,
+    const IU16 step) {
+  IU16 real_end = as_iu16(0); 
+  if (CRUX__is_less_equal(start, end)) {
+    const IU16 len = end - start;
+    CRUX__ResultDivIU16 div_result = CRUX__div(len, step);
+    if (!CRUX__trace_check(div_result.trace)) {
+      real_end = start;
+    } else {
+      const CRUX__DivIU16 div = div_result.value;
+      real_end = start + ((IU16) div.quo * step);
+    }
+    CRUX__trace_clean(&div_result.trace);
+  } else {
+    const IU16 len = start - end;
+    CRUX__ResultDivIU16 div_result = CRUX__div(len, step);
+    if (!CRUX__trace_check(div_result.trace)) {
+      real_end = start;
+    } else {
+      const CRUX__DivIU16 div = div_result.value;
+      real_end = start - ((IU16) div.quo * step);
+    }
+    CRUX__trace_clean(&div_result.trace);
+  }
+  return real_end;
+}
