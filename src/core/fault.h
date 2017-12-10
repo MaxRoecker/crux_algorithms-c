@@ -69,3 +69,10 @@ Bool CRUX__fault_equals (
  * @param[in] offset  The offset of the current line. 
  */
 #define CRUX__fault_line(offset) (((IU32) __LINE__) + as_iu32(offset))
+
+
+/**
+ * @brief Returns the current file absolute path.
+ * 
+ */
+#define CRUX__fault_filepath() (__FILE__)

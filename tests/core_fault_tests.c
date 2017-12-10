@@ -7,18 +7,18 @@ void CRUX__fault_equals_tests (void) {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_GENERIC,
     .info = "I don't know anymore information",
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__Fault fault_1 = {
     .cause = &fault_0,
     .error = CRUX__ERROR_VALUE,
     .info = "I don't know anymore information",
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__Fault fault_2 = {
     .cause = &fault_1,
     .error = CRUX__ERROR_MEMORY,
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__fault_infoprintf(fault_2, "I don't know %s", "anymore information");
   

@@ -7,18 +7,18 @@ void CRUX__trace_push_move_clean_tests (void) {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_GENERIC,
     .info = "I don't know anymore information",
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__Fault fault_1 = {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_VALUE,
     .info = "I don't know anymore information",
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__Fault fault_2 = {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_MEMORY,
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__Trace trace_0 = CRUX__trace_create();
   CRUX__Trace trace_1 = CRUX__trace_create();
@@ -56,18 +56,18 @@ void CRUX__trace_print_tests (void) {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_GENERIC,
     .info = "I don't know anymore information",
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__Fault fault_1 = {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_VALUE,
     .info = "I don't know anymore information",
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__Fault fault_2 = {
     .cause = nil(CRUX__Fault),
     .error = CRUX__ERROR_MEMORY,
-    .filepath = __FILE__,
+    .filepath = CRUX__fault_filepath(),
     .line = __LINE__};
   CRUX__fault_infoprintf(fault_2, "I don't know %s", "anymore information");
   CRUX__trace_push(&trace, fault_0);

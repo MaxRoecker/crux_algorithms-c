@@ -380,7 +380,7 @@ CRUX__ResultOrder CRUX__compare_addr_char(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -402,7 +402,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu08(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -424,7 +424,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu16(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -446,7 +446,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu32(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -468,7 +468,7 @@ CRUX__ResultOrder CRUX__compare_addr_iu64(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -490,7 +490,7 @@ CRUX__ResultOrder CRUX__compare_addr_is08(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -512,7 +512,7 @@ CRUX__ResultOrder CRUX__compare_addr_is16(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -534,7 +534,7 @@ CRUX__ResultOrder CRUX__compare_addr_is32(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -556,7 +556,7 @@ CRUX__ResultOrder CRUX__compare_addr_is64(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
@@ -578,7 +578,7 @@ CRUX__ResultOrder CRUX__compare_addr_size(
     CRUX__Fault fault = {
       .error = CRUX__ERROR_VALUE,
       .info = "The addresses to be compared are nil.",
-      .filepath = __FILE__,
+      .filepath = CRUX__fault_filepath(),
       .line = CRUX__fault_line(-5)};
     CRUX__trace_push(&trace, fault);
   } else {
