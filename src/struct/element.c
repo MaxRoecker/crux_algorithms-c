@@ -4,7 +4,7 @@
 inline CRUX__Element CRUX__element_nil (void) {
   const CRUX__Element element = {
     .addr = nil(void),
-    .size = CRUX__as_size(0)};
+    .size = as_size(0)};
   return element;
 }
 

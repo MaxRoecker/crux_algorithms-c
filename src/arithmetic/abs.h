@@ -99,15 +99,15 @@ CRUX__ResultSize CRUX__abs_size (const Size value);
 
 
 
-#define CRUX__abs_has_error(value) (_Generic(value,  \
-  IU08 : false,                                               \
-  IU16 : false,                                               \
-  IU32 : false,                                               \
-  IU64 : false,                                               \
-  IS08 : CRUX__is_min(value),                                 \
-  IS16 : CRUX__is_min(value),                                 \
-  IS32 : CRUX__is_min(value),                                 \
-  IS64 : CRUX__is_min(value)))
+#define CRUX__abs_has_error(value) (_Generic(value, \
+  IU08 : false,                                     \
+  IU16 : false,                                     \
+  IU32 : false,                                     \
+  IU64 : false,                                     \
+  IS08 : is_min(value),                             \
+  IS16 : is_min(value),                             \
+  IS32 : is_min(value),                             \
+  IS64 : is_min(value)))
 
 
 

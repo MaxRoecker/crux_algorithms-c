@@ -5,7 +5,7 @@
 
 
 CRUX__ResultIU08 CRUX__cast_iu08_iu16 (const IU16 value) {
-  IU08 casted = CRUX__as_iu08(0);
+  IU08 casted = as_iu08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu08(value)) {
     CRUX__Fault fault = {
@@ -24,7 +24,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_iu16 (const IU16 value) {
 
 
 CRUX__ResultIU08 CRUX__cast_iu08_iu32 (const IU32 value) {
-  IU08 casted = CRUX__as_iu08(0);
+  IU08 casted = as_iu08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu08(value)) {
     CRUX__Fault fault = {
@@ -43,7 +43,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_iu32 (const IU32 value) {
 
 
 CRUX__ResultIU08 CRUX__cast_iu08_iu64 (const IU64 value) {
-  IU08 casted = CRUX__as_iu08(0);
+  IU08 casted = as_iu08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu08(value)) {
     CRUX__Fault fault = {
@@ -62,7 +62,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_iu64 (const IU64 value) {
 
 
 CRUX__ResultIU08 CRUX__cast_iu08_is08 (const IS08 value) {
-  IU08 casted = CRUX__as_iu08(0);
+  IU08 casted = as_iu08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu08(value)) {
     CRUX__Fault fault = {
@@ -81,7 +81,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_is08 (const IS08 value) {
 
 
 CRUX__ResultIU08 CRUX__cast_iu08_is16 (const IS16 value) {
-  IU08 casted = CRUX__as_iu08(0);
+  IU08 casted = as_iu08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu08(value)) {
     CRUX__Fault fault = {
@@ -100,7 +100,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_is16 (const IS16 value) {
 
 
 CRUX__ResultIU08 CRUX__cast_iu08_is32 (const IS32 value) {
-  IU08 casted = CRUX__as_iu08(0);
+  IU08 casted = as_iu08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu08(value)) {
     CRUX__Fault fault = {
@@ -119,7 +119,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_is32 (const IS32 value) {
 
 
 CRUX__ResultIU08 CRUX__cast_iu08_is64 (const IS64 value) {
-  IU08 casted = CRUX__as_iu08(0);
+  IU08 casted = as_iu08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu08(value)) {
     CRUX__Fault fault = {
@@ -138,7 +138,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_is64 (const IS64 value) {
 
 
 CRUX__ResultIU16 CRUX__cast_iu16_iu08 (const IU08 value) {
-  IU16 casted = CRUX__as_iu16(0);
+  IU16 casted = as_iu16(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IU16) value;
   CRUX__ResultIU16 result = {.trace = trace, .value = casted};
@@ -147,7 +147,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_iu08 (const IU08 value) {
 
 
 CRUX__ResultIU16 CRUX__cast_iu16_iu32 (const IU32 value) {
-  IU16 casted = CRUX__as_iu16(0);
+  IU16 casted = as_iu16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu16(value)) {
     CRUX__Fault fault = {
@@ -166,7 +166,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_iu32 (const IU32 value) {
 
 
 CRUX__ResultIU16 CRUX__cast_iu16_iu64 (const IU64 value) {
-  IU16 casted = CRUX__as_iu16(0);
+  IU16 casted = as_iu16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu16(value)) {
     CRUX__Fault fault = {
@@ -185,7 +185,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_iu64 (const IU64 value) {
 
 
 CRUX__ResultIU16 CRUX__cast_iu16_is08 (const IS08 value) {
-  IU16 casted = CRUX__as_iu16(0);
+  IU16 casted = as_iu16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu16(value)) {
     CRUX__Fault fault = {
@@ -204,7 +204,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_is08 (const IS08 value) {
 
 
 CRUX__ResultIU16 CRUX__cast_iu16_is16 (const IS16 value) {
-  IU16 casted = CRUX__as_iu16(0);
+  IU16 casted = as_iu16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu16(value)) {
     CRUX__Fault fault = {
@@ -223,7 +223,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_is16 (const IS16 value) {
 
 
 CRUX__ResultIU16 CRUX__cast_iu16_is32 (const IS32 value) {
-  IU16 casted = CRUX__as_iu16(0);
+  IU16 casted = as_iu16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu16(value)) {
     CRUX__Fault fault = {
@@ -242,7 +242,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_is32 (const IS32 value) {
 
 
 CRUX__ResultIU16 CRUX__cast_iu16_is64 (const IS64 value) {
-  IU16 casted = CRUX__as_iu16(0);
+  IU16 casted = as_iu16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu16(value)) {
     CRUX__Fault fault = {
@@ -261,7 +261,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_is64 (const IS64 value) {
 
 
 CRUX__ResultIU32 CRUX__cast_iu32_iu08 (const IU08 value) {
-  IU32 casted = CRUX__as_iu32(0);
+  IU32 casted = as_iu32(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IU32) value;
   CRUX__ResultIU32 result = {.trace = trace, .value = casted};
@@ -270,7 +270,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_iu08 (const IU08 value) {
 
 
 CRUX__ResultIU32 CRUX__cast_iu32_iu16 (const IU16 value) {
-  IU32 casted = CRUX__as_iu32(0);
+  IU32 casted = as_iu32(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IU32) value;
   CRUX__ResultIU32 result = {.trace = trace, .value = casted};
@@ -279,7 +279,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_iu16 (const IU16 value) {
 
 
 CRUX__ResultIU32 CRUX__cast_iu32_iu64 (const IU64 value) {
-  IU32 casted = CRUX__as_iu32(0);
+  IU32 casted = as_iu32(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu32(value)) {
     CRUX__Fault fault = {
@@ -298,7 +298,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_iu64 (const IU64 value) {
 
 
 CRUX__ResultIU32 CRUX__cast_iu32_is08 (const IS08 value) {
-  IU32 casted = CRUX__as_iu32(0);
+  IU32 casted = as_iu32(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu32(value)) {
     CRUX__Fault fault = {
@@ -317,7 +317,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_is08 (const IS08 value) {
 
 
 CRUX__ResultIU32 CRUX__cast_iu32_is16 (const IS16 value) {
-  IU32 casted = CRUX__as_iu32(0);
+  IU32 casted = as_iu32(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu32(value)) {
     CRUX__Fault fault = {
@@ -336,7 +336,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_is16 (const IS16 value) {
 
 
 CRUX__ResultIU32 CRUX__cast_iu32_is32 (const IS32 value) {
-  IU32 casted = CRUX__as_iu32(0);
+  IU32 casted = as_iu32(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu32(value)) {
     CRUX__Fault fault = {
@@ -355,7 +355,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_is32 (const IS32 value) {
 
 
 CRUX__ResultIU32 CRUX__cast_iu32_is64 (const IS64 value) {
-  IU32 casted = CRUX__as_iu32(0);
+  IU32 casted = as_iu32(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu32(value)) {
     CRUX__Fault fault = {
@@ -374,7 +374,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_is64 (const IS64 value) {
 
 
 CRUX__ResultIU64 CRUX__cast_iu64_iu08 (const IU08 value) {
-  IU64 casted = CRUX__as_iu64(0);
+  IU64 casted = as_iu64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IU64) value;
   CRUX__ResultIU64 result = {.trace = trace, .value = casted};
@@ -383,7 +383,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_iu08 (const IU08 value) {
 
 
 CRUX__ResultIU64 CRUX__cast_iu64_iu16 (const IU16 value) {
-  IU64 casted = CRUX__as_iu64(0);
+  IU64 casted = as_iu64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IU64) value;
   CRUX__ResultIU64 result = {.trace = trace, .value = casted};
@@ -392,7 +392,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_iu16 (const IU16 value) {
 
 
 CRUX__ResultIU64 CRUX__cast_iu64_iu32 (const IU32 value) {
-  IU64 casted = CRUX__as_iu64(0);
+  IU64 casted = as_iu64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IU64) value;
   CRUX__ResultIU64 result = {.trace = trace, .value = casted};
@@ -401,7 +401,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_iu32 (const IU32 value) {
 
 
 CRUX__ResultIU64 CRUX__cast_iu64_is08 (const IS08 value) {
-  IU64 casted = CRUX__as_iu64(0);
+  IU64 casted = as_iu64(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu64(value)) {
     CRUX__Fault fault = {
@@ -420,7 +420,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_is08 (const IS08 value) {
 
 
 CRUX__ResultIU64 CRUX__cast_iu64_is16 (const IS16 value) {
-  IU64 casted = CRUX__as_iu64(0);
+  IU64 casted = as_iu64(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu64(value)) {
     CRUX__Fault fault = {
@@ -439,7 +439,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_is16 (const IS16 value) {
 
 
 CRUX__ResultIU64 CRUX__cast_iu64_is32 (const IS32 value) {
-  IU64 casted = CRUX__as_iu64(0);
+  IU64 casted = as_iu64(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu64(value)) {
     CRUX__Fault fault = {
@@ -458,7 +458,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_is32 (const IS32 value) {
 
 
 CRUX__ResultIU64 CRUX__cast_iu64_is64 (const IS64 value) {
-  IU64 casted = CRUX__as_iu64(0);
+  IU64 casted = as_iu64(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_iu64(value)) {
     CRUX__Fault fault = {
@@ -477,7 +477,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_is64 (const IS64 value) {
 
 
 CRUX__ResultIS08 CRUX__cast_is08_iu08 (const IU08 value) {
-  IS08 casted = CRUX__as_is08(0);
+  IS08 casted = as_is08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is08(value)) {
     CRUX__Fault fault = {
@@ -496,7 +496,7 @@ CRUX__ResultIS08 CRUX__cast_is08_iu08 (const IU08 value) {
 
 
 CRUX__ResultIS08 CRUX__cast_is08_iu16 (const IU16 value) {
-  IS08 casted = CRUX__as_is08(0);
+  IS08 casted = as_is08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is08(value)) {
     CRUX__Fault fault = {
@@ -515,7 +515,7 @@ CRUX__ResultIS08 CRUX__cast_is08_iu16 (const IU16 value) {
 
 
 CRUX__ResultIS08 CRUX__cast_is08_iu32 (const IU32 value) {
-  IS08 casted = CRUX__as_is08(0);
+  IS08 casted = as_is08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is08(value)) {
     CRUX__Fault fault = {
@@ -534,7 +534,7 @@ CRUX__ResultIS08 CRUX__cast_is08_iu32 (const IU32 value) {
 
 
 CRUX__ResultIS08 CRUX__cast_is08_iu64 (const IU64 value) {
-  IS08 casted = CRUX__as_is08(0);
+  IS08 casted = as_is08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is08(value)) {
     CRUX__Fault fault = {
@@ -553,7 +553,7 @@ CRUX__ResultIS08 CRUX__cast_is08_iu64 (const IU64 value) {
 
 
 CRUX__ResultIS08 CRUX__cast_is08_is16 (const IS16 value) {
-  IS08 casted = CRUX__as_is08(0);
+  IS08 casted = as_is08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is08(value)) {
     CRUX__Fault fault = {
@@ -572,7 +572,7 @@ CRUX__ResultIS08 CRUX__cast_is08_is16 (const IS16 value) {
 
 
 CRUX__ResultIS08 CRUX__cast_is08_is32 (const IS32 value) {
-  IS08 casted = CRUX__as_is08(0);
+  IS08 casted = as_is08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is08(value)) {
     CRUX__Fault fault = {
@@ -591,7 +591,7 @@ CRUX__ResultIS08 CRUX__cast_is08_is32 (const IS32 value) {
 
 
 CRUX__ResultIS08 CRUX__cast_is08_is64 (const IS64 value) {
-  IS08 casted = CRUX__as_is08(0);
+  IS08 casted = as_is08(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is08(value)) {
     CRUX__Fault fault = {
@@ -610,7 +610,7 @@ CRUX__ResultIS08 CRUX__cast_is08_is64 (const IS64 value) {
 
 
 CRUX__ResultIS16 CRUX__cast_is16_iu08 (const IU08 value) {
-  IS16 casted = CRUX__as_is16(0);
+  IS16 casted = as_is16(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS16) value;
   CRUX__ResultIS16 result = {.trace = trace, .value = casted};
@@ -619,7 +619,7 @@ CRUX__ResultIS16 CRUX__cast_is16_iu08 (const IU08 value) {
 
 
 CRUX__ResultIS16 CRUX__cast_is16_iu16 (const IU16 value) {
-  IS16 casted = CRUX__as_is16(0);
+  IS16 casted = as_is16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is16(value)) {
     CRUX__Fault fault = {
@@ -638,7 +638,7 @@ CRUX__ResultIS16 CRUX__cast_is16_iu16 (const IU16 value) {
 
 
 CRUX__ResultIS16 CRUX__cast_is16_iu32 (const IU32 value) {
-  IS16 casted = CRUX__as_is16(0);
+  IS16 casted = as_is16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is16(value)) {
     CRUX__Fault fault = {
@@ -657,7 +657,7 @@ CRUX__ResultIS16 CRUX__cast_is16_iu32 (const IU32 value) {
 
 
 CRUX__ResultIS16 CRUX__cast_is16_iu64 (const IU64 value) {
-  IS16 casted = CRUX__as_is16(0);
+  IS16 casted = as_is16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is16(value)) {
     CRUX__Fault fault = {
@@ -676,7 +676,7 @@ CRUX__ResultIS16 CRUX__cast_is16_iu64 (const IU64 value) {
 
 
 CRUX__ResultIS16 CRUX__cast_is16_is08 (const IS08 value) {
-  IS16 casted = CRUX__as_is16(0);
+  IS16 casted = as_is16(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS16) value;
   CRUX__ResultIS16 result = {.trace = trace, .value = casted};
@@ -685,7 +685,7 @@ CRUX__ResultIS16 CRUX__cast_is16_is08 (const IS08 value) {
 
 
 CRUX__ResultIS16 CRUX__cast_is16_is32 (const IS32 value) {
-  IS16 casted = CRUX__as_is16(0);
+  IS16 casted = as_is16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is16(value)) {
     CRUX__Fault fault = {
@@ -704,7 +704,7 @@ CRUX__ResultIS16 CRUX__cast_is16_is32 (const IS32 value) {
 
 
 CRUX__ResultIS16 CRUX__cast_is16_is64 (const IS64 value) {
-  IS16 casted = CRUX__as_is16(0);
+  IS16 casted = as_is16(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is16(value)) {
     CRUX__Fault fault = {
@@ -723,7 +723,7 @@ CRUX__ResultIS16 CRUX__cast_is16_is64 (const IS64 value) {
 
 
 CRUX__ResultIS32 CRUX__cast_is32_iu08 (const IU08 value) {
-  IS32 casted = CRUX__as_is32(0);
+  IS32 casted = as_is32(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS32) value;
   CRUX__ResultIS32 result = {.trace = trace, .value = casted};
@@ -732,7 +732,7 @@ CRUX__ResultIS32 CRUX__cast_is32_iu08 (const IU08 value) {
 
 
 CRUX__ResultIS32 CRUX__cast_is32_iu16 (const IU16 value) {
-  IS32 casted = CRUX__as_is32(0);
+  IS32 casted = as_is32(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS32) value;
   CRUX__ResultIS32 result = {.trace = trace, .value = casted};
@@ -741,7 +741,7 @@ CRUX__ResultIS32 CRUX__cast_is32_iu16 (const IU16 value) {
 
 
 CRUX__ResultIS32 CRUX__cast_is32_iu32 (const IU32 value) {
-  IS32 casted = CRUX__as_is32(0);
+  IS32 casted = as_is32(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is32(value)) {
     CRUX__Fault fault = {
@@ -760,7 +760,7 @@ CRUX__ResultIS32 CRUX__cast_is32_iu32 (const IU32 value) {
 
 
 CRUX__ResultIS32 CRUX__cast_is32_iu64 (const IU64 value) {
-  IS32 casted = CRUX__as_is32(0);
+  IS32 casted = as_is32(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is32(value)) {
     CRUX__Fault fault = {
@@ -779,7 +779,7 @@ CRUX__ResultIS32 CRUX__cast_is32_iu64 (const IU64 value) {
 
 
 CRUX__ResultIS32 CRUX__cast_is32_is08 (const IS08 value) {
-  IS32 casted = CRUX__as_is32(0);
+  IS32 casted = as_is32(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS32) value;
   CRUX__ResultIS32 result = {.trace = trace, .value = casted};
@@ -788,7 +788,7 @@ CRUX__ResultIS32 CRUX__cast_is32_is08 (const IS08 value) {
 
 
 CRUX__ResultIS32 CRUX__cast_is32_is16 (const IS16 value) {
-  IS32 casted = CRUX__as_is32(0);
+  IS32 casted = as_is32(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS32) value;
   CRUX__ResultIS32 result = {.trace = trace, .value = casted};
@@ -797,7 +797,7 @@ CRUX__ResultIS32 CRUX__cast_is32_is16 (const IS16 value) {
 
 
 CRUX__ResultIS32 CRUX__cast_is32_is64 (const IS64 value) {
-  IS32 casted = CRUX__as_is32(0);
+  IS32 casted = as_is32(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is32(value)) {
     CRUX__Fault fault = {
@@ -816,7 +816,7 @@ CRUX__ResultIS32 CRUX__cast_is32_is64 (const IS64 value) {
 
 
 CRUX__ResultIS64 CRUX__cast_is64_iu08 (const IU08 value) {
-  IS64 casted = CRUX__as_is64(0);
+  IS64 casted = as_is64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS64) value;
   CRUX__ResultIS64 result = {.trace = trace, .value = casted};
@@ -825,7 +825,7 @@ CRUX__ResultIS64 CRUX__cast_is64_iu08 (const IU08 value) {
 
 
 CRUX__ResultIS64 CRUX__cast_is64_iu16 (const IU16 value) {
-  IS64 casted = CRUX__as_is64(0);
+  IS64 casted = as_is64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS64) value;
   CRUX__ResultIS64 result = {.trace = trace, .value = casted};
@@ -834,7 +834,7 @@ CRUX__ResultIS64 CRUX__cast_is64_iu16 (const IU16 value) {
 
 
 CRUX__ResultIS64 CRUX__cast_is64_iu32 (const IU32 value) {
-  IS64 casted = CRUX__as_is64(0);
+  IS64 casted = as_is64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS64) value;
   CRUX__ResultIS64 result = {.trace = trace, .value = casted};
@@ -843,7 +843,7 @@ CRUX__ResultIS64 CRUX__cast_is64_iu32 (const IU32 value) {
 
 
 CRUX__ResultIS64 CRUX__cast_is64_iu64 (const IU64 value) {
-  IS64 casted = CRUX__as_is64(0);
+  IS64 casted = as_is64(0);
   CRUX__Trace trace = CRUX__trace_create();
   if (!CRUX__is_in_range_is64(value)) {
     CRUX__Fault fault = {
@@ -862,7 +862,7 @@ CRUX__ResultIS64 CRUX__cast_is64_iu64 (const IU64 value) {
 
 
 CRUX__ResultIS64 CRUX__cast_is64_is08 (const IS08 value) {
-  IS64 casted = CRUX__as_is64(0);
+  IS64 casted = as_is64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS64) value;
   CRUX__ResultIS64 result = {.trace = trace, .value = casted};
@@ -871,7 +871,7 @@ CRUX__ResultIS64 CRUX__cast_is64_is08 (const IS08 value) {
 
 
 CRUX__ResultIS64 CRUX__cast_is64_is16 (const IS16 value) {
-  IS64 casted = CRUX__as_is64(0);
+  IS64 casted = as_is64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS64) value;
   CRUX__ResultIS64 result = {.trace = trace, .value = casted};
@@ -880,7 +880,7 @@ CRUX__ResultIS64 CRUX__cast_is64_is16 (const IS16 value) {
 
 
 CRUX__ResultIS64 CRUX__cast_is64_is32 (const IS32 value) {
-  IS64 casted = CRUX__as_is64(0);
+  IS64 casted = as_is64(0);
   CRUX__Trace trace = CRUX__trace_create();
   casted = (IS64) value;
   CRUX__ResultIS64 result = {.trace = trace, .value = casted};
@@ -890,7 +890,7 @@ CRUX__ResultIS64 CRUX__cast_is64_is32 (const IS32 value) {
 
 CRUX__ResultIU08 CRUX__cast_iu08_size (const Size value) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU08 casted = CRUX__as_iu08(0);
+  IU08 casted = as_iu08(0);
   const Bool is_above =
     CRUX__is_less(IU08_INT_PRECISION, SIZE_INT_PRECISION)
     && CRUX__is_greater(value, ((Size) IU08_MAX));
@@ -912,7 +912,7 @@ CRUX__ResultIU08 CRUX__cast_iu08_size (const Size value) {
 
 CRUX__ResultIU16 CRUX__cast_iu16_size (const Size value) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU16 casted = CRUX__as_iu16(0);
+  IU16 casted = as_iu16(0);
   const Bool is_above =
     CRUX__is_less(IU16_INT_PRECISION, SIZE_INT_PRECISION)
     && CRUX__is_greater(value, ((Size) IU16_MAX));
@@ -934,7 +934,7 @@ CRUX__ResultIU16 CRUX__cast_iu16_size (const Size value) {
 
 CRUX__ResultIU32 CRUX__cast_iu32_size (const Size value) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU32 casted = CRUX__as_iu32(0);
+  IU32 casted = as_iu32(0);
   const Bool is_above =
     CRUX__is_less(IU32_INT_PRECISION, SIZE_INT_PRECISION)
     && CRUX__is_greater(value, ((Size) IU32_MAX));
@@ -956,7 +956,7 @@ CRUX__ResultIU32 CRUX__cast_iu32_size (const Size value) {
 
 CRUX__ResultIU64 CRUX__cast_iu64_size (const Size value) {
   CRUX__Trace trace = CRUX__trace_create();
-  IU64 casted = CRUX__as_iu64(0);
+  IU64 casted = as_iu64(0);
   const Bool is_above =
     CRUX__is_less(IU64_INT_PRECISION, SIZE_INT_PRECISION)
     && CRUX__is_greater(value, ((Size) IU64_MAX));
@@ -978,7 +978,7 @@ CRUX__ResultIU64 CRUX__cast_iu64_size (const Size value) {
 
 CRUX__ResultIS08 CRUX__cast_is08_size (const Size value) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS08 casted = CRUX__as_is08(0);
+  IS08 casted = as_is08(0);
   const Bool is_above =
     CRUX__is_less(IS08_INT_PRECISION, SIZE_INT_PRECISION)
     && CRUX__is_greater(value, ((Size) IS08_MAX));
@@ -1000,7 +1000,7 @@ CRUX__ResultIS08 CRUX__cast_is08_size (const Size value) {
 
 CRUX__ResultIS16 CRUX__cast_is16_size (const Size value) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS16 casted = CRUX__as_is16(0);
+  IS16 casted = as_is16(0);
   const Bool is_above =
     CRUX__is_less(IS16_INT_PRECISION, SIZE_INT_PRECISION)
     && CRUX__is_greater(value, ((Size) IS16_MAX));
@@ -1022,7 +1022,7 @@ CRUX__ResultIS16 CRUX__cast_is16_size (const Size value) {
 
 CRUX__ResultIS32 CRUX__cast_is32_size (const Size value) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS32 casted = CRUX__as_is32(0);
+  IS32 casted = as_is32(0);
   const Bool is_above =
     CRUX__is_less(IS32_INT_PRECISION, SIZE_INT_PRECISION)
     && CRUX__is_greater(value, ((Size) IS32_MAX));
@@ -1044,7 +1044,7 @@ CRUX__ResultIS32 CRUX__cast_is32_size (const Size value) {
 
 CRUX__ResultIS64 CRUX__cast_is64_size (const Size value) {
   CRUX__Trace trace = CRUX__trace_create();
-  IS64 casted = CRUX__as_is64(0);
+  IS64 casted = as_is64(0);
   const Bool is_above =
     CRUX__is_less(IS64_INT_PRECISION, SIZE_INT_PRECISION)
     && CRUX__is_greater(value, ((Size) IS64_MAX));

@@ -68,4 +68,4 @@ Bool CRUX__fault_equals (
  * 
  * @param[in] offset  The offset of the current line. 
  */
-#define CRUX__fault_line(offset) (((IU32) __LINE__) + CRUX__as_iu32(offset))
+#define CRUX__fault_line(offset) (((IU32) __LINE__) + as_iu32(offset))

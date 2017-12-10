@@ -2,17 +2,17 @@
 
 
 const CRUX__Error CRUX__ERROR_GENERIC = {
-  .code = CRUX__as_iu32(0x00010000),
+  .code = as_iu32(0x00010000),
   .name = "Generic Error"};
 
 
 const CRUX__Error CRUX__ERROR_VALUE = {
-  .code = CRUX__as_iu32(0x00010001),
+  .code = as_iu32(0x00010001),
   .name = "Value Error"};
 
 
 const CRUX__Error CRUX__ERROR_MEMORY = {
-  .code = CRUX__as_iu32(0x00010002),
+  .code = as_iu32(0x00010002),
   .name = "Memory Error"};
 
 

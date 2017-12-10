@@ -758,21 +758,21 @@ CRUX__ResultSize CRUX__cast_size_is64 (const IS64 value);
 
 
 #define CRUX__is_above_size(value) (_Generic(value, \
-  IU08 : CRUX__is_ranked_below(((Size) 0), value)   \
+  IU08 : is_ranked_below(((Size) 0), value)         \
     && (value < ((IU08) SIZE_MAX)),                 \
-  IU16 : CRUX__is_ranked_below(((Size) 0), value)   \
+  IU16 : is_ranked_below(((Size) 0), value)         \
     && (value < ((IU16) SIZE_MAX)),                 \
-  IU32 : CRUX__is_ranked_below(((Size) 0), value)   \
+  IU32 : is_ranked_below(((Size) 0), value)         \
     && (value < ((IU32) SIZE_MAX)),                 \
-  IU64 : CRUX__is_ranked_below(((Size) 0), value)   \
+  IU64 : is_ranked_below(((Size) 0), value)         \
     && (value < ((IU64) SIZE_MAX)),                 \
-  IS08 : CRUX__is_ranked_below(((Size) 0), value)   \
+  IS08 : is_ranked_below(((Size) 0), value)         \
     && (value < ((IS08) SIZE_MAX)),                 \
-  IS16 : CRUX__is_ranked_below(((Size) 0), value)   \
+  IS16 : is_ranked_below(((Size) 0), value)         \
     && (value < ((IS16) SIZE_MAX)),                 \
-  IS32 : CRUX__is_ranked_below(((Size) 0), value)   \
+  IS32 : is_ranked_below(((Size) 0), value)         \
     && (value < ((IS32) SIZE_MAX)),                 \
-  IS64 : CRUX__is_ranked_below(((Size) 0), value)   \
+  IS64 : is_ranked_below(((Size) 0), value)         \
     && (value < ((IS64) SIZE_MAX))))
 
 

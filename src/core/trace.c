@@ -1,7 +1,7 @@
 #include "./trace.h"
 
 
-static const Size POOL_SIZE = CRUX__as_size(16) * sizeof(CRUX__Fault);
+static const Size POOL_SIZE = as_size(16) * sizeof(CRUX__Fault);
 static const void *CRUX__TRACE_POOL = nil(const void);
 
 

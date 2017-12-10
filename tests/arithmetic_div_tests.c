@@ -7,12 +7,12 @@
 void CRUX__div_iu08_iu08_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = CRUX__as_iu08(0);
-  const IU08 a_one = CRUX__as_iu08(1);
+  const IU08 a_nil = as_iu08(0);
+  const IU08 a_one = as_iu08(1);
   const IU08 b_max = IU08_MAX;
   const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = CRUX__as_iu08(0);
-  const IU08 b_one = CRUX__as_iu08(1);
+  const IU08 b_nil = as_iu08(0);
+  const IU08 b_one = as_iu08(1);
   CRUX__ResultDivIU08 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU08 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU08 max_nil = CRUX__div(a_max, b_nil);
@@ -67,12 +67,12 @@ void CRUX__div_iu08_iu08_tests (void) {
 void CRUX__div_iu08_iu16_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = CRUX__as_iu08(0);
-  const IU08 a_one = CRUX__as_iu08(1);
+  const IU08 a_nil = as_iu08(0);
+  const IU08 a_one = as_iu08(1);
   const IU16 b_max = IU16_MAX;
   const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = CRUX__as_iu16(0);
-  const IU16 b_one = CRUX__as_iu16(1);
+  const IU16 b_nil = as_iu16(0);
+  const IU16 b_one = as_iu16(1);
   CRUX__ResultDivIU16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU16 max_nil = CRUX__div(a_max, b_nil);
@@ -127,12 +127,12 @@ void CRUX__div_iu08_iu16_tests (void) {
 void CRUX__div_iu08_iu32_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = CRUX__as_iu08(0);
-  const IU08 a_one = CRUX__as_iu08(1);
+  const IU08 a_nil = as_iu08(0);
+  const IU08 a_one = as_iu08(1);
   const IU32 b_max = IU32_MAX;
   const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = CRUX__as_iu32(0);
-  const IU32 b_one = CRUX__as_iu32(1);
+  const IU32 b_nil = as_iu32(0);
+  const IU32 b_one = as_iu32(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -187,12 +187,12 @@ void CRUX__div_iu08_iu32_tests (void) {
 void CRUX__div_iu08_iu64_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = CRUX__as_iu08(0);
-  const IU08 a_one = CRUX__as_iu08(1);
+  const IU08 a_nil = as_iu08(0);
+  const IU08 a_one = as_iu08(1);
   const IU64 b_max = IU64_MAX;
   const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = CRUX__as_iu64(0);
-  const IU64 b_one = CRUX__as_iu64(1);
+  const IU64 b_nil = as_iu64(0);
+  const IU64 b_one = as_iu64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -247,12 +247,12 @@ void CRUX__div_iu08_iu64_tests (void) {
 void CRUX__div_iu08_is08_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = CRUX__as_iu08(0);
-  const IU08 a_one = CRUX__as_iu08(1);
+  const IU08 a_nil = as_iu08(0);
+  const IU08 a_one = as_iu08(1);
   const IS08 b_max = IS08_MAX;
   const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = CRUX__as_is08(0);
-  const IS08 b_one = CRUX__as_is08(1);
+  const IS08 b_nil = as_is08(0);
+  const IS08 b_one = as_is08(1);
   CRUX__ResultDivIU08 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU08 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU08 max_nil = CRUX__div(a_max, b_nil);
@@ -307,12 +307,12 @@ void CRUX__div_iu08_is08_tests (void) {
 void CRUX__div_iu08_is16_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = CRUX__as_iu08(0);
-  const IU08 a_one = CRUX__as_iu08(1);
+  const IU08 a_nil = as_iu08(0);
+  const IU08 a_one = as_iu08(1);
   const IS16 b_max = IS16_MAX;
   const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = CRUX__as_is16(0);
-  const IS16 b_one = CRUX__as_is16(1);
+  const IS16 b_nil = as_is16(0);
+  const IS16 b_one = as_is16(1);
   CRUX__ResultDivIS16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS16 max_nil = CRUX__div(a_max, b_nil);
@@ -367,12 +367,12 @@ void CRUX__div_iu08_is16_tests (void) {
 void CRUX__div_iu08_is32_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = CRUX__as_iu08(0);
-  const IU08 a_one = CRUX__as_iu08(1);
+  const IU08 a_nil = as_iu08(0);
+  const IU08 a_one = as_iu08(1);
   const IS32 b_max = IS32_MAX;
   const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = CRUX__as_is32(0);
-  const IS32 b_one = CRUX__as_is32(1);
+  const IS32 b_nil = as_is32(0);
+  const IS32 b_one = as_is32(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -427,12 +427,12 @@ void CRUX__div_iu08_is32_tests (void) {
 void CRUX__div_iu08_is64_tests (void) {
   const IU08 a_max = IU08_MAX;
   const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = CRUX__as_iu08(0);
-  const IU08 a_one = CRUX__as_iu08(1);
+  const IU08 a_nil = as_iu08(0);
+  const IU08 a_one = as_iu08(1);
   const IS64 b_max = IS64_MAX;
   const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = CRUX__as_is64(0);
-  const IS64 b_one = CRUX__as_is64(1);
+  const IS64 b_nil = as_is64(0);
+  const IS64 b_one = as_is64(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -487,12 +487,12 @@ void CRUX__div_iu08_is64_tests (void) {
 void CRUX__div_iu16_iu08_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = CRUX__as_iu16(0);
-  const IU16 a_one = CRUX__as_iu16(1);
+  const IU16 a_nil = as_iu16(0);
+  const IU16 a_one = as_iu16(1);
   const IU08 b_max = IU08_MAX;
   const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = CRUX__as_iu08(0);
-  const IU08 b_one = CRUX__as_iu08(1);
+  const IU08 b_nil = as_iu08(0);
+  const IU08 b_one = as_iu08(1);
   CRUX__ResultDivIU16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU16 max_nil = CRUX__div(a_max, b_nil);
@@ -547,12 +547,12 @@ void CRUX__div_iu16_iu08_tests (void) {
 void CRUX__div_iu16_iu16_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = CRUX__as_iu16(0);
-  const IU16 a_one = CRUX__as_iu16(1);
+  const IU16 a_nil = as_iu16(0);
+  const IU16 a_one = as_iu16(1);
   const IU16 b_max = IU16_MAX;
   const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = CRUX__as_iu16(0);
-  const IU16 b_one = CRUX__as_iu16(1);
+  const IU16 b_nil = as_iu16(0);
+  const IU16 b_one = as_iu16(1);
   CRUX__ResultDivIU16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU16 max_nil = CRUX__div(a_max, b_nil);
@@ -607,12 +607,12 @@ void CRUX__div_iu16_iu16_tests (void) {
 void CRUX__div_iu16_iu32_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = CRUX__as_iu16(0);
-  const IU16 a_one = CRUX__as_iu16(1);
+  const IU16 a_nil = as_iu16(0);
+  const IU16 a_one = as_iu16(1);
   const IU32 b_max = IU32_MAX;
   const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = CRUX__as_iu32(0);
-  const IU32 b_one = CRUX__as_iu32(1);
+  const IU32 b_nil = as_iu32(0);
+  const IU32 b_one = as_iu32(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -667,12 +667,12 @@ void CRUX__div_iu16_iu32_tests (void) {
 void CRUX__div_iu16_iu64_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = CRUX__as_iu16(0);
-  const IU16 a_one = CRUX__as_iu16(1);
+  const IU16 a_nil = as_iu16(0);
+  const IU16 a_one = as_iu16(1);
   const IU64 b_max = IU64_MAX;
   const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = CRUX__as_iu64(0);
-  const IU64 b_one = CRUX__as_iu64(1);
+  const IU64 b_nil = as_iu64(0);
+  const IU64 b_one = as_iu64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -727,12 +727,12 @@ void CRUX__div_iu16_iu64_tests (void) {
 void CRUX__div_iu16_is08_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = CRUX__as_iu16(0);
-  const IU16 a_one = CRUX__as_iu16(1);
+  const IU16 a_nil = as_iu16(0);
+  const IU16 a_one = as_iu16(1);
   const IS08 b_max = IS08_MAX;
   const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = CRUX__as_is08(0);
-  const IS08 b_one = CRUX__as_is08(1);
+  const IS08 b_nil = as_is08(0);
+  const IS08 b_one = as_is08(1);
   CRUX__ResultDivIU16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU16 max_nil = CRUX__div(a_max, b_nil);
@@ -787,12 +787,12 @@ void CRUX__div_iu16_is08_tests (void) {
 void CRUX__div_iu16_is16_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = CRUX__as_iu16(0);
-  const IU16 a_one = CRUX__as_iu16(1);
+  const IU16 a_nil = as_iu16(0);
+  const IU16 a_one = as_iu16(1);
   const IS16 b_max = IS16_MAX;
   const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = CRUX__as_is16(0);
-  const IS16 b_one = CRUX__as_is16(1);
+  const IS16 b_nil = as_is16(0);
+  const IS16 b_one = as_is16(1);
   CRUX__ResultDivIU16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU16 max_nil = CRUX__div(a_max, b_nil);
@@ -847,12 +847,12 @@ void CRUX__div_iu16_is16_tests (void) {
 void CRUX__div_iu16_is32_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = CRUX__as_iu16(0);
-  const IU16 a_one = CRUX__as_iu16(1);
+  const IU16 a_nil = as_iu16(0);
+  const IU16 a_one = as_iu16(1);
   const IS32 b_max = IS32_MAX;
   const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = CRUX__as_is32(0);
-  const IS32 b_one = CRUX__as_is32(1);
+  const IS32 b_nil = as_is32(0);
+  const IS32 b_one = as_is32(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -907,12 +907,12 @@ void CRUX__div_iu16_is32_tests (void) {
 void CRUX__div_iu16_is64_tests (void) {
   const IU16 a_max = IU16_MAX;
   const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = CRUX__as_iu16(0);
-  const IU16 a_one = CRUX__as_iu16(1);
+  const IU16 a_nil = as_iu16(0);
+  const IU16 a_one = as_iu16(1);
   const IS64 b_max = IS64_MAX;
   const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = CRUX__as_is64(0);
-  const IS64 b_one = CRUX__as_is64(1);
+  const IS64 b_nil = as_is64(0);
+  const IS64 b_one = as_is64(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -967,12 +967,12 @@ void CRUX__div_iu16_is64_tests (void) {
 void CRUX__div_iu32_iu08_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = CRUX__as_iu32(0);
-  const IU32 a_one = CRUX__as_iu32(1);
+  const IU32 a_nil = as_iu32(0);
+  const IU32 a_one = as_iu32(1);
   const IU08 b_max = IU08_MAX;
   const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = CRUX__as_iu08(0);
-  const IU08 b_one = CRUX__as_iu08(1);
+  const IU08 b_nil = as_iu08(0);
+  const IU08 b_one = as_iu08(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -1027,12 +1027,12 @@ void CRUX__div_iu32_iu08_tests (void) {
 void CRUX__div_iu32_iu16_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = CRUX__as_iu32(0);
-  const IU32 a_one = CRUX__as_iu32(1);
+  const IU32 a_nil = as_iu32(0);
+  const IU32 a_one = as_iu32(1);
   const IU16 b_max = IU16_MAX;
   const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = CRUX__as_iu16(0);
-  const IU16 b_one = CRUX__as_iu16(1);
+  const IU16 b_nil = as_iu16(0);
+  const IU16 b_one = as_iu16(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -1087,12 +1087,12 @@ void CRUX__div_iu32_iu16_tests (void) {
 void CRUX__div_iu32_iu32_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = CRUX__as_iu32(0);
-  const IU32 a_one = CRUX__as_iu32(1);
+  const IU32 a_nil = as_iu32(0);
+  const IU32 a_one = as_iu32(1);
   const IU32 b_max = IU32_MAX;
   const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = CRUX__as_iu32(0);
-  const IU32 b_one = CRUX__as_iu32(1);
+  const IU32 b_nil = as_iu32(0);
+  const IU32 b_one = as_iu32(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -1147,12 +1147,12 @@ void CRUX__div_iu32_iu32_tests (void) {
 void CRUX__div_iu32_iu64_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = CRUX__as_iu32(0);
-  const IU32 a_one = CRUX__as_iu32(1);
+  const IU32 a_nil = as_iu32(0);
+  const IU32 a_one = as_iu32(1);
   const IU64 b_max = IU64_MAX;
   const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = CRUX__as_iu64(0);
-  const IU64 b_one = CRUX__as_iu64(1);
+  const IU64 b_nil = as_iu64(0);
+  const IU64 b_one = as_iu64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1207,12 +1207,12 @@ void CRUX__div_iu32_iu64_tests (void) {
 void CRUX__div_iu32_is08_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = CRUX__as_iu32(0);
-  const IU32 a_one = CRUX__as_iu32(1);
+  const IU32 a_nil = as_iu32(0);
+  const IU32 a_one = as_iu32(1);
   const IS08 b_max = IS08_MAX;
   const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = CRUX__as_is08(0);
-  const IS08 b_one = CRUX__as_is08(1);
+  const IS08 b_nil = as_is08(0);
+  const IS08 b_one = as_is08(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -1267,12 +1267,12 @@ void CRUX__div_iu32_is08_tests (void) {
 void CRUX__div_iu32_is16_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = CRUX__as_iu32(0);
-  const IU32 a_one = CRUX__as_iu32(1);
+  const IU32 a_nil = as_iu32(0);
+  const IU32 a_one = as_iu32(1);
   const IS16 b_max = IS16_MAX;
   const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = CRUX__as_is16(0);
-  const IS16 b_one = CRUX__as_is16(1);
+  const IS16 b_nil = as_is16(0);
+  const IS16 b_one = as_is16(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -1327,12 +1327,12 @@ void CRUX__div_iu32_is16_tests (void) {
 void CRUX__div_iu32_is32_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = CRUX__as_iu32(0);
-  const IU32 a_one = CRUX__as_iu32(1);
+  const IU32 a_nil = as_iu32(0);
+  const IU32 a_one = as_iu32(1);
   const IS32 b_max = IS32_MAX;
   const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = CRUX__as_is32(0);
-  const IS32 b_one = CRUX__as_is32(1);
+  const IS32 b_nil = as_is32(0);
+  const IS32 b_one = as_is32(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -1387,12 +1387,12 @@ void CRUX__div_iu32_is32_tests (void) {
 void CRUX__div_iu32_is64_tests (void) {
   const IU32 a_max = IU32_MAX;
   const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = CRUX__as_iu32(0);
-  const IU32 a_one = CRUX__as_iu32(1);
+  const IU32 a_nil = as_iu32(0);
+  const IU32 a_one = as_iu32(1);
   const IS64 b_max = IS64_MAX;
   const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = CRUX__as_is64(0);
-  const IS64 b_one = CRUX__as_is64(1);
+  const IS64 b_nil = as_is64(0);
+  const IS64 b_one = as_is64(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -1447,12 +1447,12 @@ void CRUX__div_iu32_is64_tests (void) {
 void CRUX__div_iu64_iu08_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = CRUX__as_iu64(0);
-  const IU64 a_one = CRUX__as_iu64(1);
+  const IU64 a_nil = as_iu64(0);
+  const IU64 a_one = as_iu64(1);
   const IU08 b_max = IU08_MAX;
   const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = CRUX__as_iu08(0);
-  const IU08 b_one = CRUX__as_iu08(1);
+  const IU08 b_nil = as_iu08(0);
+  const IU08 b_one = as_iu08(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1507,12 +1507,12 @@ void CRUX__div_iu64_iu08_tests (void) {
 void CRUX__div_iu64_iu16_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = CRUX__as_iu64(0);
-  const IU64 a_one = CRUX__as_iu64(1);
+  const IU64 a_nil = as_iu64(0);
+  const IU64 a_one = as_iu64(1);
   const IU16 b_max = IU16_MAX;
   const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = CRUX__as_iu16(0);
-  const IU16 b_one = CRUX__as_iu16(1);
+  const IU16 b_nil = as_iu16(0);
+  const IU16 b_one = as_iu16(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1567,12 +1567,12 @@ void CRUX__div_iu64_iu16_tests (void) {
 void CRUX__div_iu64_iu32_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = CRUX__as_iu64(0);
-  const IU64 a_one = CRUX__as_iu64(1);
+  const IU64 a_nil = as_iu64(0);
+  const IU64 a_one = as_iu64(1);
   const IU32 b_max = IU32_MAX;
   const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = CRUX__as_iu32(0);
-  const IU32 b_one = CRUX__as_iu32(1);
+  const IU32 b_nil = as_iu32(0);
+  const IU32 b_one = as_iu32(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1627,12 +1627,12 @@ void CRUX__div_iu64_iu32_tests (void) {
 void CRUX__div_iu64_iu64_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = CRUX__as_iu64(0);
-  const IU64 a_one = CRUX__as_iu64(1);
+  const IU64 a_nil = as_iu64(0);
+  const IU64 a_one = as_iu64(1);
   const IU64 b_max = IU64_MAX;
   const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = CRUX__as_iu64(0);
-  const IU64 b_one = CRUX__as_iu64(1);
+  const IU64 b_nil = as_iu64(0);
+  const IU64 b_one = as_iu64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1687,12 +1687,12 @@ void CRUX__div_iu64_iu64_tests (void) {
 void CRUX__div_iu64_is08_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = CRUX__as_iu64(0);
-  const IU64 a_one = CRUX__as_iu64(1);
+  const IU64 a_nil = as_iu64(0);
+  const IU64 a_one = as_iu64(1);
   const IS08 b_max = IS08_MAX;
   const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = CRUX__as_is08(0);
-  const IS08 b_one = CRUX__as_is08(1);
+  const IS08 b_nil = as_is08(0);
+  const IS08 b_one = as_is08(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1747,12 +1747,12 @@ void CRUX__div_iu64_is08_tests (void) {
 void CRUX__div_iu64_is16_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = CRUX__as_iu64(0);
-  const IU64 a_one = CRUX__as_iu64(1);
+  const IU64 a_nil = as_iu64(0);
+  const IU64 a_one = as_iu64(1);
   const IS16 b_max = IS16_MAX;
   const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = CRUX__as_is16(0);
-  const IS16 b_one = CRUX__as_is16(1);
+  const IS16 b_nil = as_is16(0);
+  const IS16 b_one = as_is16(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1807,12 +1807,12 @@ void CRUX__div_iu64_is16_tests (void) {
 void CRUX__div_iu64_is32_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = CRUX__as_iu64(0);
-  const IU64 a_one = CRUX__as_iu64(1);
+  const IU64 a_nil = as_iu64(0);
+  const IU64 a_one = as_iu64(1);
   const IS32 b_max = IS32_MAX;
   const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = CRUX__as_is32(0);
-  const IS32 b_one = CRUX__as_is32(1);
+  const IS32 b_nil = as_is32(0);
+  const IS32 b_one = as_is32(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1867,12 +1867,12 @@ void CRUX__div_iu64_is32_tests (void) {
 void CRUX__div_iu64_is64_tests (void) {
   const IU64 a_max = IU64_MAX;
   const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = CRUX__as_iu64(0);
-  const IU64 a_one = CRUX__as_iu64(1);
+  const IU64 a_nil = as_iu64(0);
+  const IU64 a_one = as_iu64(1);
   const IS64 b_max = IS64_MAX;
   const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = CRUX__as_is64(0);
-  const IS64 b_one = CRUX__as_is64(1);
+  const IS64 b_nil = as_is64(0);
+  const IS64 b_one = as_is64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -1927,12 +1927,12 @@ void CRUX__div_iu64_is64_tests (void) {
 void CRUX__div_is08_iu08_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = CRUX__as_is08(0);
-  const IS08 a_one = CRUX__as_is08(1);
+  const IS08 a_nil = as_is08(0);
+  const IS08 a_one = as_is08(1);
   const IU08 b_max = IU08_MAX;
   const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = CRUX__as_iu08(0);
-  const IU08 b_one = CRUX__as_iu08(1);
+  const IU08 b_nil = as_iu08(0);
+  const IU08 b_one = as_iu08(1);
   CRUX__ResultDivIU08 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU08 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU08 max_nil = CRUX__div(a_max, b_nil);
@@ -1987,12 +1987,12 @@ void CRUX__div_is08_iu08_tests (void) {
 void CRUX__div_is08_iu16_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = CRUX__as_is08(0);
-  const IS08 a_one = CRUX__as_is08(1);
+  const IS08 a_nil = as_is08(0);
+  const IS08 a_one = as_is08(1);
   const IU16 b_max = IU16_MAX;
   const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = CRUX__as_iu16(0);
-  const IU16 b_one = CRUX__as_iu16(1);
+  const IU16 b_nil = as_iu16(0);
+  const IU16 b_one = as_iu16(1);
   CRUX__ResultDivIU16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU16 max_nil = CRUX__div(a_max, b_nil);
@@ -2047,12 +2047,12 @@ void CRUX__div_is08_iu16_tests (void) {
 void CRUX__div_is08_iu32_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = CRUX__as_is08(0);
-  const IS08 a_one = CRUX__as_is08(1);
+  const IS08 a_nil = as_is08(0);
+  const IS08 a_one = as_is08(1);
   const IU32 b_max = IU32_MAX;
   const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = CRUX__as_iu32(0);
-  const IU32 b_one = CRUX__as_iu32(1);
+  const IU32 b_nil = as_iu32(0);
+  const IU32 b_one = as_iu32(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -2107,12 +2107,12 @@ void CRUX__div_is08_iu32_tests (void) {
 void CRUX__div_is08_iu64_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = CRUX__as_is08(0);
-  const IS08 a_one = CRUX__as_is08(1);
+  const IS08 a_nil = as_is08(0);
+  const IS08 a_one = as_is08(1);
   const IU64 b_max = IU64_MAX;
   const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = CRUX__as_iu64(0);
-  const IU64 b_one = CRUX__as_iu64(1);
+  const IU64 b_nil = as_iu64(0);
+  const IU64 b_one = as_iu64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -2167,12 +2167,12 @@ void CRUX__div_is08_iu64_tests (void) {
 void CRUX__div_is08_is08_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = CRUX__as_is08(0);
-  const IS08 a_one = CRUX__as_is08(1);
+  const IS08 a_nil = as_is08(0);
+  const IS08 a_one = as_is08(1);
   const IS08 b_max = IS08_MAX;
   const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = CRUX__as_is08(0);
-  const IS08 b_one = CRUX__as_is08(1);
+  const IS08 b_nil = as_is08(0);
+  const IS08 b_one = as_is08(1);
   CRUX__ResultDivIS08 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS08 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS08 max_nil = CRUX__div(a_max, b_nil);
@@ -2227,12 +2227,12 @@ void CRUX__div_is08_is08_tests (void) {
 void CRUX__div_is08_is16_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = CRUX__as_is08(0);
-  const IS08 a_one = CRUX__as_is08(1);
+  const IS08 a_nil = as_is08(0);
+  const IS08 a_one = as_is08(1);
   const IS16 b_max = IS16_MAX;
   const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = CRUX__as_is16(0);
-  const IS16 b_one = CRUX__as_is16(1);
+  const IS16 b_nil = as_is16(0);
+  const IS16 b_one = as_is16(1);
   CRUX__ResultDivIS16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS16 max_nil = CRUX__div(a_max, b_nil);
@@ -2287,12 +2287,12 @@ void CRUX__div_is08_is16_tests (void) {
 void CRUX__div_is08_is32_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = CRUX__as_is08(0);
-  const IS08 a_one = CRUX__as_is08(1);
+  const IS08 a_nil = as_is08(0);
+  const IS08 a_one = as_is08(1);
   const IS32 b_max = IS32_MAX;
   const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = CRUX__as_is32(0);
-  const IS32 b_one = CRUX__as_is32(1);
+  const IS32 b_nil = as_is32(0);
+  const IS32 b_one = as_is32(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -2347,12 +2347,12 @@ void CRUX__div_is08_is32_tests (void) {
 void CRUX__div_is08_is64_tests (void) {
   const IS08 a_max = IS08_MAX;
   const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = CRUX__as_is08(0);
-  const IS08 a_one = CRUX__as_is08(1);
+  const IS08 a_nil = as_is08(0);
+  const IS08 a_one = as_is08(1);
   const IS64 b_max = IS64_MAX;
   const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = CRUX__as_is64(0);
-  const IS64 b_one = CRUX__as_is64(1);
+  const IS64 b_nil = as_is64(0);
+  const IS64 b_one = as_is64(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -2407,12 +2407,12 @@ void CRUX__div_is08_is64_tests (void) {
 void CRUX__div_is16_iu08_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = CRUX__as_is16(0);
-  const IS16 a_one = CRUX__as_is16(1);
+  const IS16 a_nil = as_is16(0);
+  const IS16 a_one = as_is16(1);
   const IU08 b_max = IU08_MAX;
   const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = CRUX__as_iu08(0);
-  const IU08 b_one = CRUX__as_iu08(1);
+  const IU08 b_nil = as_iu08(0);
+  const IU08 b_one = as_iu08(1);
   CRUX__ResultDivIS16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS16 max_nil = CRUX__div(a_max, b_nil);
@@ -2467,12 +2467,12 @@ void CRUX__div_is16_iu08_tests (void) {
 void CRUX__div_is16_iu16_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = CRUX__as_is16(0);
-  const IS16 a_one = CRUX__as_is16(1);
+  const IS16 a_nil = as_is16(0);
+  const IS16 a_one = as_is16(1);
   const IU16 b_max = IU16_MAX;
   const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = CRUX__as_iu16(0);
-  const IU16 b_one = CRUX__as_iu16(1);
+  const IU16 b_nil = as_iu16(0);
+  const IU16 b_one = as_iu16(1);
   CRUX__ResultDivIU16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU16 max_nil = CRUX__div(a_max, b_nil);
@@ -2527,12 +2527,12 @@ void CRUX__div_is16_iu16_tests (void) {
 void CRUX__div_is16_iu32_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = CRUX__as_is16(0);
-  const IS16 a_one = CRUX__as_is16(1);
+  const IS16 a_nil = as_is16(0);
+  const IS16 a_one = as_is16(1);
   const IU32 b_max = IU32_MAX;
   const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = CRUX__as_iu32(0);
-  const IU32 b_one = CRUX__as_iu32(1);
+  const IU32 b_nil = as_iu32(0);
+  const IU32 b_one = as_iu32(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -2587,12 +2587,12 @@ void CRUX__div_is16_iu32_tests (void) {
 void CRUX__div_is16_iu64_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = CRUX__as_is16(0);
-  const IS16 a_one = CRUX__as_is16(1);
+  const IS16 a_nil = as_is16(0);
+  const IS16 a_one = as_is16(1);
   const IU64 b_max = IU64_MAX;
   const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = CRUX__as_iu64(0);
-  const IU64 b_one = CRUX__as_iu64(1);
+  const IU64 b_nil = as_iu64(0);
+  const IU64 b_one = as_iu64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -2647,12 +2647,12 @@ void CRUX__div_is16_iu64_tests (void) {
 void CRUX__div_is16_is08_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = CRUX__as_is16(0);
-  const IS16 a_one = CRUX__as_is16(1);
+  const IS16 a_nil = as_is16(0);
+  const IS16 a_one = as_is16(1);
   const IS08 b_max = IS08_MAX;
   const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = CRUX__as_is08(0);
-  const IS08 b_one = CRUX__as_is08(1);
+  const IS08 b_nil = as_is08(0);
+  const IS08 b_one = as_is08(1);
   CRUX__ResultDivIS16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS16 max_nil = CRUX__div(a_max, b_nil);
@@ -2707,12 +2707,12 @@ void CRUX__div_is16_is08_tests (void) {
 void CRUX__div_is16_is16_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = CRUX__as_is16(0);
-  const IS16 a_one = CRUX__as_is16(1);
+  const IS16 a_nil = as_is16(0);
+  const IS16 a_one = as_is16(1);
   const IS16 b_max = IS16_MAX;
   const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = CRUX__as_is16(0);
-  const IS16 b_one = CRUX__as_is16(1);
+  const IS16 b_nil = as_is16(0);
+  const IS16 b_one = as_is16(1);
   CRUX__ResultDivIS16 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS16 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS16 max_nil = CRUX__div(a_max, b_nil);
@@ -2767,12 +2767,12 @@ void CRUX__div_is16_is16_tests (void) {
 void CRUX__div_is16_is32_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = CRUX__as_is16(0);
-  const IS16 a_one = CRUX__as_is16(1);
+  const IS16 a_nil = as_is16(0);
+  const IS16 a_one = as_is16(1);
   const IS32 b_max = IS32_MAX;
   const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = CRUX__as_is32(0);
-  const IS32 b_one = CRUX__as_is32(1);
+  const IS32 b_nil = as_is32(0);
+  const IS32 b_one = as_is32(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -2827,12 +2827,12 @@ void CRUX__div_is16_is32_tests (void) {
 void CRUX__div_is16_is64_tests (void) {
   const IS16 a_max = IS16_MAX;
   const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = CRUX__as_is16(0);
-  const IS16 a_one = CRUX__as_is16(1);
+  const IS16 a_nil = as_is16(0);
+  const IS16 a_one = as_is16(1);
   const IS64 b_max = IS64_MAX;
   const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = CRUX__as_is64(0);
-  const IS64 b_one = CRUX__as_is64(1);
+  const IS64 b_nil = as_is64(0);
+  const IS64 b_one = as_is64(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -2887,12 +2887,12 @@ void CRUX__div_is16_is64_tests (void) {
 void CRUX__div_is32_iu08_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = CRUX__as_is32(0);
-  const IS32 a_one = CRUX__as_is32(1);
+  const IS32 a_nil = as_is32(0);
+  const IS32 a_one = as_is32(1);
   const IU08 b_max = IU08_MAX;
   const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = CRUX__as_iu08(0);
-  const IU08 b_one = CRUX__as_iu08(1);
+  const IU08 b_nil = as_iu08(0);
+  const IU08 b_one = as_iu08(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -2947,12 +2947,12 @@ void CRUX__div_is32_iu08_tests (void) {
 void CRUX__div_is32_iu16_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = CRUX__as_is32(0);
-  const IS32 a_one = CRUX__as_is32(1);
+  const IS32 a_nil = as_is32(0);
+  const IS32 a_one = as_is32(1);
   const IU16 b_max = IU16_MAX;
   const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = CRUX__as_iu16(0);
-  const IU16 b_one = CRUX__as_iu16(1);
+  const IU16 b_nil = as_iu16(0);
+  const IU16 b_one = as_iu16(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -3007,12 +3007,12 @@ void CRUX__div_is32_iu16_tests (void) {
 void CRUX__div_is32_iu32_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = CRUX__as_is32(0);
-  const IS32 a_one = CRUX__as_is32(1);
+  const IS32 a_nil = as_is32(0);
+  const IS32 a_one = as_is32(1);
   const IU32 b_max = IU32_MAX;
   const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = CRUX__as_iu32(0);
-  const IU32 b_one = CRUX__as_iu32(1);
+  const IU32 b_nil = as_iu32(0);
+  const IU32 b_one = as_iu32(1);
   CRUX__ResultDivIU32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU32 max_nil = CRUX__div(a_max, b_nil);
@@ -3067,12 +3067,12 @@ void CRUX__div_is32_iu32_tests (void) {
 void CRUX__div_is32_iu64_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = CRUX__as_is32(0);
-  const IS32 a_one = CRUX__as_is32(1);
+  const IS32 a_nil = as_is32(0);
+  const IS32 a_one = as_is32(1);
   const IU64 b_max = IU64_MAX;
   const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = CRUX__as_iu64(0);
-  const IU64 b_one = CRUX__as_iu64(1);
+  const IU64 b_nil = as_iu64(0);
+  const IU64 b_one = as_iu64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -3127,12 +3127,12 @@ void CRUX__div_is32_iu64_tests (void) {
 void CRUX__div_is32_is08_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = CRUX__as_is32(0);
-  const IS32 a_one = CRUX__as_is32(1);
+  const IS32 a_nil = as_is32(0);
+  const IS32 a_one = as_is32(1);
   const IS08 b_max = IS08_MAX;
   const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = CRUX__as_is08(0);
-  const IS08 b_one = CRUX__as_is08(1);
+  const IS08 b_nil = as_is08(0);
+  const IS08 b_one = as_is08(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -3187,12 +3187,12 @@ void CRUX__div_is32_is08_tests (void) {
 void CRUX__div_is32_is16_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = CRUX__as_is32(0);
-  const IS32 a_one = CRUX__as_is32(1);
+  const IS32 a_nil = as_is32(0);
+  const IS32 a_one = as_is32(1);
   const IS16 b_max = IS16_MAX;
   const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = CRUX__as_is16(0);
-  const IS16 b_one = CRUX__as_is16(1);
+  const IS16 b_nil = as_is16(0);
+  const IS16 b_one = as_is16(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -3247,12 +3247,12 @@ void CRUX__div_is32_is16_tests (void) {
 void CRUX__div_is32_is32_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = CRUX__as_is32(0);
-  const IS32 a_one = CRUX__as_is32(1);
+  const IS32 a_nil = as_is32(0);
+  const IS32 a_one = as_is32(1);
   const IS32 b_max = IS32_MAX;
   const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = CRUX__as_is32(0);
-  const IS32 b_one = CRUX__as_is32(1);
+  const IS32 b_nil = as_is32(0);
+  const IS32 b_one = as_is32(1);
   CRUX__ResultDivIS32 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS32 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS32 max_nil = CRUX__div(a_max, b_nil);
@@ -3307,12 +3307,12 @@ void CRUX__div_is32_is32_tests (void) {
 void CRUX__div_is32_is64_tests (void) {
   const IS32 a_max = IS32_MAX;
   const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = CRUX__as_is32(0);
-  const IS32 a_one = CRUX__as_is32(1);
+  const IS32 a_nil = as_is32(0);
+  const IS32 a_one = as_is32(1);
   const IS64 b_max = IS64_MAX;
   const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = CRUX__as_is64(0);
-  const IS64 b_one = CRUX__as_is64(1);
+  const IS64 b_nil = as_is64(0);
+  const IS64 b_one = as_is64(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -3367,12 +3367,12 @@ void CRUX__div_is32_is64_tests (void) {
 void CRUX__div_is64_iu08_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = CRUX__as_is64(0);
-  const IS64 a_one = CRUX__as_is64(1);
+  const IS64 a_nil = as_is64(0);
+  const IS64 a_one = as_is64(1);
   const IU08 b_max = IU08_MAX;
   const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = CRUX__as_iu08(0);
-  const IU08 b_one = CRUX__as_iu08(1);
+  const IU08 b_nil = as_iu08(0);
+  const IU08 b_one = as_iu08(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -3427,12 +3427,12 @@ void CRUX__div_is64_iu08_tests (void) {
 void CRUX__div_is64_iu16_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = CRUX__as_is64(0);
-  const IS64 a_one = CRUX__as_is64(1);
+  const IS64 a_nil = as_is64(0);
+  const IS64 a_one = as_is64(1);
   const IU16 b_max = IU16_MAX;
   const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = CRUX__as_iu16(0);
-  const IU16 b_one = CRUX__as_iu16(1);
+  const IU16 b_nil = as_iu16(0);
+  const IU16 b_one = as_iu16(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -3487,12 +3487,12 @@ void CRUX__div_is64_iu16_tests (void) {
 void CRUX__div_is64_iu32_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = CRUX__as_is64(0);
-  const IS64 a_one = CRUX__as_is64(1);
+  const IS64 a_nil = as_is64(0);
+  const IS64 a_one = as_is64(1);
   const IU32 b_max = IU32_MAX;
   const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = CRUX__as_iu32(0);
-  const IU32 b_one = CRUX__as_iu32(1);
+  const IU32 b_nil = as_iu32(0);
+  const IU32 b_one = as_iu32(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -3547,12 +3547,12 @@ void CRUX__div_is64_iu32_tests (void) {
 void CRUX__div_is64_iu64_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = CRUX__as_is64(0);
-  const IS64 a_one = CRUX__as_is64(1);
+  const IS64 a_nil = as_is64(0);
+  const IS64 a_one = as_is64(1);
   const IU64 b_max = IU64_MAX;
   const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = CRUX__as_iu64(0);
-  const IU64 b_one = CRUX__as_iu64(1);
+  const IU64 b_nil = as_iu64(0);
+  const IU64 b_one = as_iu64(1);
   CRUX__ResultDivIU64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIU64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIU64 max_nil = CRUX__div(a_max, b_nil);
@@ -3607,12 +3607,12 @@ void CRUX__div_is64_iu64_tests (void) {
 void CRUX__div_is64_is08_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = CRUX__as_is64(0);
-  const IS64 a_one = CRUX__as_is64(1);
+  const IS64 a_nil = as_is64(0);
+  const IS64 a_one = as_is64(1);
   const IS08 b_max = IS08_MAX;
   const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = CRUX__as_is08(0);
-  const IS08 b_one = CRUX__as_is08(1);
+  const IS08 b_nil = as_is08(0);
+  const IS08 b_one = as_is08(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -3667,12 +3667,12 @@ void CRUX__div_is64_is08_tests (void) {
 void CRUX__div_is64_is16_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = CRUX__as_is64(0);
-  const IS64 a_one = CRUX__as_is64(1);
+  const IS64 a_nil = as_is64(0);
+  const IS64 a_one = as_is64(1);
   const IS16 b_max = IS16_MAX;
   const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = CRUX__as_is16(0);
-  const IS16 b_one = CRUX__as_is16(1);
+  const IS16 b_nil = as_is16(0);
+  const IS16 b_one = as_is16(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -3727,12 +3727,12 @@ void CRUX__div_is64_is16_tests (void) {
 void CRUX__div_is64_is32_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = CRUX__as_is64(0);
-  const IS64 a_one = CRUX__as_is64(1);
+  const IS64 a_nil = as_is64(0);
+  const IS64 a_one = as_is64(1);
   const IS32 b_max = IS32_MAX;
   const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = CRUX__as_is32(0);
-  const IS32 b_one = CRUX__as_is32(1);
+  const IS32 b_nil = as_is32(0);
+  const IS32 b_one = as_is32(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -3787,12 +3787,12 @@ void CRUX__div_is64_is32_tests (void) {
 void CRUX__div_is64_is64_tests (void) {
   const IS64 a_max = IS64_MAX;
   const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = CRUX__as_is64(0);
-  const IS64 a_one = CRUX__as_is64(1);
+  const IS64 a_nil = as_is64(0);
+  const IS64 a_one = as_is64(1);
   const IS64 b_max = IS64_MAX;
   const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = CRUX__as_is64(0);
-  const IS64 b_one = CRUX__as_is64(1);
+  const IS64 b_nil = as_is64(0);
+  const IS64 b_one = as_is64(1);
   CRUX__ResultDivIS64 max_max = CRUX__div(a_max, b_max);
   CRUX__ResultDivIS64 max_min = CRUX__div(a_max, b_min);
   CRUX__ResultDivIS64 max_nil = CRUX__div(a_max, b_nil);
@@ -3847,12 +3847,12 @@ void CRUX__div_is64_is64_tests (void) {
 void CRUX__div_size_size_tests (void) {
   const Size a_max = SIZE_MAX;
   const Size a_min = SIZE_MIN;
-  const Size a_nil = CRUX__as_size(0);
-  const Size a_one = CRUX__as_size(1);
+  const Size a_nil = as_size(0);
+  const Size a_one = as_size(1);
   const Size b_max = SIZE_MAX;
   const Size b_min = SIZE_MIN;
-  const Size b_nil = CRUX__as_size(0);
-  const Size b_one = CRUX__as_size(1);
+  const Size b_nil = as_size(0);
+  const Size b_one = as_size(1);
   CRUX__ResultDivSize max_max = CRUX__div_size_size(a_max, b_max);
   CRUX__ResultDivSize max_min = CRUX__div_size_size(a_max, b_min);
   CRUX__ResultDivSize max_nil = CRUX__div_size_size(a_max, b_nil);

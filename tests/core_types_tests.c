@@ -171,22 +171,22 @@ void CRUX__null_of_tests (void) {
 
 
 void CRUX__int_precision_tests (void) {
-  const IU08 unsigned_integer_08 = CRUX__as_iu08(0);
-  const IU16 unsigned_integer_16 = CRUX__as_iu16(0);
-  const IU32 unsigned_integer_32 = CRUX__as_iu32(0);
-  const IU64 unsigned_integer_64 = CRUX__as_iu64(0);
-  const IS08 signed_integer_08 = CRUX__as_is08(0);
-  const IS16 signed_integer_16 = CRUX__as_is16(0);
-  const IS32 signed_integer_32 = CRUX__as_is32(0);
-  const IS64 signed_integer_64 = CRUX__as_is64(0);
-  ok((CRUX__get_int_precision(unsigned_integer_08) == 8), "Must has precision equals to %d.", 8);
-  ok((CRUX__get_int_precision(unsigned_integer_16) == 16), "Must has precision equals to %d.", 16);
-  ok((CRUX__get_int_precision(unsigned_integer_32) == 32), "Must has precision equals to %d.", 32);
-  ok((CRUX__get_int_precision(unsigned_integer_64) == 64), "Must has precision equals to %d.", 64);
-  ok((CRUX__get_int_precision(signed_integer_08) == 7), "Must has precision equals to %d.", 7);
-  ok((CRUX__get_int_precision(signed_integer_16) == 15), "Must has precision equals to %d.", 15);
-  ok((CRUX__get_int_precision(signed_integer_32) == 31), "Must has precision equals to %d.", 31);
-  ok((CRUX__get_int_precision(signed_integer_64) == 63), "Must has precision equals to %d.", 63);
+  const IU08 unsigned_integer_08 = as_iu08(0);
+  const IU16 unsigned_integer_16 = as_iu16(0);
+  const IU32 unsigned_integer_32 = as_iu32(0);
+  const IU64 unsigned_integer_64 = as_iu64(0);
+  const IS08 signed_integer_08 = as_is08(0);
+  const IS16 signed_integer_16 = as_is16(0);
+  const IS32 signed_integer_32 = as_is32(0);
+  const IS64 signed_integer_64 = as_is64(0);
+  ok((int_precision(unsigned_integer_08) == 8), "Must has precision equals to %d.", 8);
+  ok((int_precision(unsigned_integer_16) == 16), "Must has precision equals to %d.", 16);
+  ok((int_precision(unsigned_integer_32) == 32), "Must has precision equals to %d.", 32);
+  ok((int_precision(unsigned_integer_64) == 64), "Must has precision equals to %d.", 64);
+  ok((int_precision(signed_integer_08) == 7), "Must has precision equals to %d.", 7);
+  ok((int_precision(signed_integer_16) == 15), "Must has precision equals to %d.", 15);
+  ok((int_precision(signed_integer_32) == 31), "Must has precision equals to %d.", 31);
+  ok((int_precision(signed_integer_64) == 63), "Must has precision equals to %d.", 63);
 }
 
 

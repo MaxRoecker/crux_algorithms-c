@@ -90,7 +90,7 @@ CRUX__ResultVoid CRUX__alloc_free (void **context) {
     CRUX__trace_push(&trace, fault);
   } else {
     const IS32 success = talloc_free(*context);
-    if (CRUX__is_equal(success, CRUX__as_is32(-1))) {
+    if (CRUX__is_equal(success, as_is32(-1))) {
       const CRUX__Fault fault = {
         .error = CRUX__ERROR_MEMORY,
         .info = "This context is not valid or doesn't exists.",

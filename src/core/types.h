@@ -130,122 +130,122 @@ Size CRUX__popcount (uintmax_t value);
 #define IS64_FMT PRId64
 
 
-#define CRUX__as_iu08(integer) ((IU08) UINT8_C(integer))
-#define CRUX__as_iu16(integer) ((IU16) UINT16_C(integer))
-#define CRUX__as_iu32(integer) ((IU32) UINT32_C(integer))
-#define CRUX__as_iu64(integer) ((IU64) UINT64_C(integer))
-#define CRUX__as_is08(integer) ((IS08) INT8_C(integer))
-#define CRUX__as_is16(integer) ((IS16) INT16_C(integer))
-#define CRUX__as_is32(integer) ((IS32) INT32_C(integer))
-#define CRUX__as_is64(integer) ((IS64) INT64_C(integer))
-#define CRUX__as_size(integer) ((Size) integer)
+#define as_iu08(integer) ((IU08) UINT8_C(integer))
+#define as_iu16(integer) ((IU16) UINT16_C(integer))
+#define as_iu32(integer) ((IU32) UINT32_C(integer))
+#define as_iu64(integer) ((IU64) UINT64_C(integer))
+#define as_is08(integer) ((IS08) INT8_C(integer))
+#define as_is16(integer) ((IS16) INT16_C(integer))
+#define as_is32(integer) ((IS32) INT32_C(integer))
+#define as_is64(integer) ((IS64) INT64_C(integer))
+#define as_size(integer) ((Size) integer)
 
 
-#define CRUX__get_int_precision(value) _Generic(value,  \
-  Bool : BOOL_INT_PRECISION,                            \
-  Char : CHAR_INT_PRECISION,                            \
-  IU08 : IU08_INT_PRECISION,                            \
-  IU16 : IU16_INT_PRECISION,                            \
-  IU32 : IU32_INT_PRECISION,                            \
-  IU64 : IU64_INT_PRECISION,                            \
-  IS08 : IS08_INT_PRECISION,                            \
-  IS16 : IS16_INT_PRECISION,                            \
-  IS32 : IS32_INT_PRECISION,                            \
+#define int_precision(value) _Generic(value,  \
+  Bool : BOOL_INT_PRECISION,                  \
+  Char : CHAR_INT_PRECISION,                  \
+  IU08 : IU08_INT_PRECISION,                  \
+  IU16 : IU16_INT_PRECISION,                  \
+  IU32 : IU32_INT_PRECISION,                  \
+  IU64 : IU64_INT_PRECISION,                  \
+  IS08 : IS08_INT_PRECISION,                  \
+  IS16 : IS16_INT_PRECISION,                  \
+  IS32 : IS32_INT_PRECISION,                  \
   IS64 : IS64_INT_PRECISION)
 
 
-#define CRUX__get_max_of(value) _Generic(value, \
-  Bool : BOOL_MAX,                              \
-  Char : CHAR_MAX,                              \
-  IU08 : IU08_MAX,                              \
-  IU16 : IU16_MAX,                              \
-  IU32 : IU32_MAX,                              \
-  IU64 : IU64_MAX,                              \
-  IS08 : IS08_MAX,                              \
-  IS16 : IS16_MAX,                              \
-  IS32 : IS32_MAX,                              \
+#define max_of(value) _Generic(value, \
+  Bool : BOOL_MAX,                    \
+  Char : CHAR_MAX,                    \
+  IU08 : IU08_MAX,                    \
+  IU16 : IU16_MAX,                    \
+  IU32 : IU32_MAX,                    \
+  IU64 : IU64_MAX,                    \
+  IS08 : IS08_MAX,                    \
+  IS16 : IS16_MAX,                    \
+  IS32 : IS32_MAX,                    \
   IS64 : IS64_MAX)
 
 
-#define CRUX__get_min_of(value) _Generic(value, \
-  Bool : BOOL_MIN,                              \
-  Char : CHAR_MIN,                              \
-  IU08 : IU08_MIN,                              \
-  IU16 : IU16_MIN,                              \
-  IU32 : IU32_MIN,                              \
-  IU64 : IU64_MIN,                              \
-  IS08 : IS08_MIN,                              \
-  IS16 : IS16_MIN,                              \
-  IS32 : IS32_MIN,                              \
+#define min_of(value) _Generic(value, \
+  Bool : BOOL_MIN,                    \
+  Char : CHAR_MIN,                    \
+  IU08 : IU08_MIN,                    \
+  IU16 : IU16_MIN,                    \
+  IU32 : IU32_MIN,                    \
+  IU64 : IU64_MIN,                    \
+  IS08 : IS08_MIN,                    \
+  IS16 : IS16_MIN,                    \
+  IS32 : IS32_MIN,                    \
   IS64 : IS64_MIN)
 
 
-#define CRUX__get_magnitude_max_of(value) _Generic(value, \
-  Bool : BOOL_MAGNITUDE_MAX,                              \
-  Char : CHAR_MAGNITUDE_MAX,                              \
-  IU08 : IU08_MAGNITUDE_MAX,                              \
-  IU16 : IU16_MAGNITUDE_MAX,                              \
-  IU32 : IU32_MAGNITUDE_MAX,                              \
-  IU64 : IU64_MAGNITUDE_MAX,                              \
-  IS08 : IS08_MAGNITUDE_MAX,                              \
-  IS16 : IS16_MAGNITUDE_MAX,                              \
-  IS32 : IS32_MAGNITUDE_MAX,                              \
+#define magnitude_max_of(value) _Generic(value, \
+  Bool : BOOL_MAGNITUDE_MAX,                    \
+  Char : CHAR_MAGNITUDE_MAX,                    \
+  IU08 : IU08_MAGNITUDE_MAX,                    \
+  IU16 : IU16_MAGNITUDE_MAX,                    \
+  IU32 : IU32_MAGNITUDE_MAX,                    \
+  IU64 : IU64_MAGNITUDE_MAX,                    \
+  IS08 : IS08_MAGNITUDE_MAX,                    \
+  IS16 : IS16_MAGNITUDE_MAX,                    \
+  IS32 : IS32_MAGNITUDE_MAX,                    \
   IS64 : IS64_MAGNITUDE_MAX)
 
 
-#define CRUX__get_magnitude_min_of(value) _Generic(value, \
-  Bool : BOOL_MAGNITUDE_MIN,                              \
-  Char : CHAR_MAGNITUDE_MIN,                              \
-  IU08 : IU08_MAGNITUDE_MIN,                              \
-  IU16 : IU16_MAGNITUDE_MIN,                              \
-  IU32 : IU32_MAGNITUDE_MIN,                              \
-  IU64 : IU64_MAGNITUDE_MIN,                              \
-  IS08 : IS08_MAGNITUDE_MIN,                              \
-  IS16 : IS16_MAGNITUDE_MIN,                              \
-  IS32 : IS32_MAGNITUDE_MIN,                              \
+#define magnitude_min_of(value) _Generic(value, \
+  Bool : BOOL_MAGNITUDE_MIN,                    \
+  Char : CHAR_MAGNITUDE_MIN,                    \
+  IU08 : IU08_MAGNITUDE_MIN,                    \
+  IU16 : IU16_MAGNITUDE_MIN,                    \
+  IU32 : IU32_MAGNITUDE_MIN,                    \
+  IU64 : IU64_MAGNITUDE_MIN,                    \
+  IS08 : IS08_MAGNITUDE_MIN,                    \
+  IS16 : IS16_MAGNITUDE_MIN,                    \
+  IS32 : IS32_MAGNITUDE_MIN,                    \
   IS64 : IS64_MAGNITUDE_MIN)
 
 
-#define CRUX__get_fmt_of(value) _Generic(value, \
-  Bool : BOOL_FMT,                              \
-  Char : CHAR_FMT,                              \
-  IU08 : IU08_FMT,                              \
-  IU16 : IU16_FMT,                              \
-  IU32 : IU32_FMT,                              \
-  IU64 : IU64_FMT,                              \
-  IS08 : IS08_FMT,                              \
-  IS16 : IS16_FMT,                              \
-  IS32 : IS32_FMT,                              \
+#define fmt_of(value) _Generic(value, \
+  Bool : BOOL_FMT,                    \
+  Char : CHAR_FMT,                    \
+  IU08 : IU08_FMT,                    \
+  IU16 : IU16_FMT,                    \
+  IU32 : IU32_FMT,                    \
+  IU64 : IU64_FMT,                    \
+  IS08 : IS08_FMT,                    \
+  IS16 : IS16_FMT,                    \
+  IS32 : IS32_FMT,                    \
   IS64 : IS64_FMT)
 
 
-#define CRUX__is_max(value) (_Generic(value, \
-  Bool : value == BOOL_MAX,                  \
-  Char : value == CHAR_MAX,                  \
-  IU08 : value == IU08_MAX,                  \
-  IU16 : value == IU16_MAX,                  \
-  IU32 : value == IU32_MAX,                  \
-  IU64 : value == IU64_MAX,                  \
-  IS08 : value == IS08_MAX,                  \
-  IS16 : value == IS16_MAX,                  \
-  IS32 : value == IS32_MAX,                  \
+#define is_max(value) (_Generic(value,  \
+  Bool : value == BOOL_MAX,             \
+  Char : value == CHAR_MAX,             \
+  IU08 : value == IU08_MAX,             \
+  IU16 : value == IU16_MAX,             \
+  IU32 : value == IU32_MAX,             \
+  IU64 : value == IU64_MAX,             \
+  IS08 : value == IS08_MAX,             \
+  IS16 : value == IS16_MAX,             \
+  IS32 : value == IS32_MAX,             \
   IS64 : value == IS64_MAX))
 
 
-#define CRUX__is_min(value) (_Generic(value, \
-  Bool : value == BOOL_MIN,                  \
-  Char : value == CHAR_MIN,                  \
-  IU08 : value == IU08_MIN,                  \
-  IU16 : value == IU16_MIN,                  \
-  IU32 : value == IU32_MIN,                  \
-  IU64 : value == IU64_MIN,                  \
-  IS08 : value == IS08_MIN,                  \
-  IS16 : value == IS16_MIN,                  \
-  IS32 : value == IS32_MIN,                  \
+#define is_min(value) (_Generic(value,  \
+  Bool : value == BOOL_MIN,             \
+  Char : value == CHAR_MIN,             \
+  IU08 : value == IU08_MIN,             \
+  IU16 : value == IU16_MIN,             \
+  IU32 : value == IU32_MIN,             \
+  IU64 : value == IU64_MIN,             \
+  IS08 : value == IS08_MIN,             \
+  IS16 : value == IS16_MIN,             \
+  IS32 : value == IS32_MIN,             \
   IS64 : value == IS64_MIN))
 
 
-#define CRUX__is_ranked_above(a, b) (_Generic(a,      \
+#define is_ranked_above(a, b) (_Generic(a,            \
   Bool : _Generic(b,                                  \
     Bool : BOOL_INT_PRECISION > BOOL_INT_PRECISION,   \
     Char : BOOL_INT_PRECISION > CHAR_INT_PRECISION,   \
@@ -358,7 +358,7 @@ Size CRUX__popcount (uintmax_t value);
     IS64 : IS64_INT_PRECISION > IS64_INT_PRECISION)))
 
 
-#define CRUX__is_ranked_below(a, b) (_Generic(a,      \
+#define is_ranked_below(a, b) (_Generic(a,            \
   Bool : _Generic(b,                                  \
     Bool : BOOL_INT_PRECISION < BOOL_INT_PRECISION,   \
     Char : BOOL_INT_PRECISION < CHAR_INT_PRECISION,   \
@@ -471,7 +471,7 @@ Size CRUX__popcount (uintmax_t value);
     IS64 : IS64_INT_PRECISION < IS64_INT_PRECISION)))
 
 
-#define CRUX__is_ranked_equal(a, b) (_Generic(a,      \
+#define is_ranked_equal(a, b) (_Generic(a,            \
   Bool : _Generic(b,                                  \
     Bool : BOOL_INT_PRECISION == BOOL_INT_PRECISION,  \
     Char : BOOL_INT_PRECISION == CHAR_INT_PRECISION,  \

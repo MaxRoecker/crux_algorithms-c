@@ -68,7 +68,7 @@ void CRUX__abs_iu64_test (void) {
 
 void CRUX__abs_is08_test (void) {
   const IS08 max = IS08_MAX;
-  const IS08 negative = IS08_MIN + CRUX__as_is08(1);
+  const IS08 negative = IS08_MIN + as_is08(1);
   const IS08 min = IS08_MIN;
   const IS08 max_abs = IS08_MAX;
   const IS08 negative_abs = IS08_MAX;
@@ -88,7 +88,7 @@ void CRUX__abs_is08_test (void) {
 
 void CRUX__abs_is16_test (void) {
   const IS16 max = IS16_MAX;
-  const IS16 negative = IS16_MIN + CRUX__as_is16(1);
+  const IS16 negative = IS16_MIN + as_is16(1);
   const IS16 min = IS16_MIN;
   const IS16 max_abs = IS16_MAX;
   const IS16 negative_abs = IS16_MAX;
@@ -108,7 +108,7 @@ void CRUX__abs_is16_test (void) {
 
 void CRUX__abs_is32_test (void) {
   const IS32 max = IS32_MAX;
-  const IS32 negative = IS32_MIN + CRUX__as_is32(1);
+  const IS32 negative = IS32_MIN + as_is32(1);
   const IS32 min = IS32_MIN;
   const IS32 max_abs = IS32_MAX;
   const IS32 negative_abs = IS32_MAX;
@@ -128,7 +128,7 @@ void CRUX__abs_is32_test (void) {
 
 void CRUX__abs_is64_test (void) {
   const IS64 max = IS64_MAX;
-  const IS64 negative = IS64_MIN + CRUX__as_is64(1);
+  const IS64 negative = IS64_MIN + as_is64(1);
   const IS64 min = IS64_MIN;
   const IS64 max_abs = IS64_MAX;
   const IS64 negative_abs = IS64_MAX;
@@ -162,14 +162,14 @@ void CRUX__abs_size_test (void) {
 }
 
 void CRUX__abs_test (void) {
-  const IU08 iu08_value = CRUX__as_iu08(0);
-  const IU16 iu16_value = CRUX__as_iu16(0);
-  const IU32 iu32_value = CRUX__as_iu32(0);
-  const IU64 iu64_value = CRUX__as_iu64(0);
-  const IS08 is08_value = CRUX__as_is08(0);
-  const IS16 is16_value = CRUX__as_is16(0);
-  const IS32 is32_value = CRUX__as_is32(0);
-  const IS64 is64_value = CRUX__as_is64(0);
+  const IU08 iu08_value = as_iu08(0);
+  const IU16 iu16_value = as_iu16(0);
+  const IU32 iu32_value = as_iu32(0);
+  const IU64 iu64_value = as_iu64(0);
+  const IS08 is08_value = as_is08(0);
+  const IS16 is16_value = as_is16(0);
+  const IS32 is32_value = as_is32(0);
+  const IS64 is64_value = as_is64(0);
   CRUX__ResultIU08 iu08_result = CRUX__abs(iu08_value);
   CRUX__ResultIU16 iu16_result = CRUX__abs(iu16_value);
   CRUX__ResultIU32 iu32_result = CRUX__abs(iu32_value);
@@ -179,21 +179,21 @@ void CRUX__abs_test (void) {
   CRUX__ResultIS32 is32_result = CRUX__abs(is32_value);
   CRUX__ResultIS64 is64_result = CRUX__abs(is64_value);
   ok(CRUX__trace_check(iu08_result.trace), "Must not have an error.");
-  ok((iu08_result.value == CRUX__as_iu08(0)), "Must be equal to 0.");
+  ok((iu08_result.value == as_iu08(0)), "Must be equal to 0.");
   ok(CRUX__trace_check(iu16_result.trace), "Must not have an error.");
-  ok((iu16_result.value == CRUX__as_iu16(0)), "Must be equal to 0.");
+  ok((iu16_result.value == as_iu16(0)), "Must be equal to 0.");
   ok(CRUX__trace_check(iu32_result.trace), "Must not have an error.");
-  ok((iu32_result.value == CRUX__as_iu32(0)), "Must be equal to 0.");
+  ok((iu32_result.value == as_iu32(0)), "Must be equal to 0.");
   ok(CRUX__trace_check(iu64_result.trace), "Must not have an error.");
-  ok((iu64_result.value == CRUX__as_iu64(0)), "Must be equal to 0.");
+  ok((iu64_result.value == as_iu64(0)), "Must be equal to 0.");
   ok(CRUX__trace_check(is08_result.trace), "Must not have an error.");
-  ok((is08_result.value == CRUX__as_is08(0)), "Must be equal to 0.");
+  ok((is08_result.value == as_is08(0)), "Must be equal to 0.");
   ok(CRUX__trace_check(is16_result.trace), "Must not have an error.");
-  ok((is16_result.value == CRUX__as_is16(0)), "Must be equal to 0.");
+  ok((is16_result.value == as_is16(0)), "Must be equal to 0.");
   ok(CRUX__trace_check(is32_result.trace), "Must not have an error.");
-  ok((is32_result.value == CRUX__as_is32(0)), "Must be equal to 0.");
+  ok((is32_result.value == as_is32(0)), "Must be equal to 0.");
   ok(CRUX__trace_check(is64_result.trace), "Must not have an error.");
-  ok((is64_result.value == CRUX__as_is64(0)), "Must be equal to 0.");
+  ok((is64_result.value == as_is64(0)), "Must be equal to 0.");
   CRUX__trace_clean(&iu08_result.trace);
   CRUX__trace_clean(&iu16_result.trace);
   CRUX__trace_clean(&iu32_result.trace);
