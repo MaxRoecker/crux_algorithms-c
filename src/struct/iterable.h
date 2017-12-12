@@ -15,7 +15,7 @@
  * 
  */
 typedef CRUX__Element (*CRUX__IterableGetFunction)(
-  void *const settings);
+  void *const iterator_state);
 
 
 /**
@@ -23,7 +23,7 @@ typedef CRUX__Element (*CRUX__IterableGetFunction)(
  * 
  */
 typedef Bool (*CRUX__IterableHasNextFunction)(
-  void *const settings);
+  void *const iterator_state);
 
 
 /**
@@ -31,7 +31,7 @@ typedef Bool (*CRUX__IterableHasNextFunction)(
  * 
  */
 typedef void (*CRUX__IterableFinalizeFunction)(
-  void **settings);
+  void **iterator_state);
 
 
 /**
@@ -40,7 +40,7 @@ typedef void (*CRUX__IterableFinalizeFunction)(
  *
  */
 typedef struct CRUX__Iterator_Struct {
-  void *settings;
+  void *state;
   CRUX__IterableGetFunction get;
   CRUX__IterableHasNextFunction has_next;
   CRUX__IterableFinalizeFunction finalize;

@@ -5,10 +5,10 @@
 
 
 void CRUX__array_create_tests (void) {
-  const IU16 len_nil = CRUX__as_iu16(0);
-  const IU16 len_val = CRUX__as_iu16(32);
+  const IU16 len_nil = as_iu16(0);
+  const IU16 len_val = as_iu16(32);
   const IU16 len_max = IU16_MAX;
-  const Size elemsize_nil = CRUX__as_size(0);
+  const Size elemsize_nil = as_size(0);
   const Size elemsize_val = sizeof(IU08);
   const Size elemsize_max = SIZE_MAX;
   CRUX__ResultArray nil_nil_result = CRUX__array_create(len_nil, elemsize_nil);
@@ -43,12 +43,12 @@ void CRUX__array_create_tests (void) {
   CRUX__ResultSize val_val_size_result = CRUX__alloc_get_size(val_val.addr);
   CRUX__ResultSize max_nil_size_result = CRUX__alloc_get_size(max_nil.addr);
   CRUX__ResultSize max_val_size_result = CRUX__alloc_get_size(max_val.addr);
-  const Size nil_nil_size = CRUX__as_size(0);
-  const Size nil_val_size = CRUX__as_size(0);
-  const Size nil_max_size = CRUX__as_size(0);
-  const Size val_nil_size = CRUX__as_size(0);
-  const Size val_val_size = CRUX__as_size(32);
-  const Size max_nil_size = CRUX__as_size(0);
+  const Size nil_nil_size = as_size(0);
+  const Size nil_val_size = as_size(0);
+  const Size nil_max_size = as_size(0);
+  const Size val_nil_size = as_size(0);
+  const Size val_val_size = as_size(32);
+  const Size max_nil_size = as_size(0);
   const Size max_val_size = (Size) IU16_MAX;
   ok(nil_nil_size_result.value == nil_nil_size, "Must be equal to %"SIZE_FMT".", nil_nil_size);
   ok(nil_val_size_result.value == nil_val_size, "Must be equal to %"SIZE_FMT".", nil_val_size);
@@ -91,11 +91,11 @@ void CRUX__array_create_tests (void) {
 
 
 void CRUX__array_get_put_tests () {
-  const IS32 val_0 = CRUX__as_is32(IS08_MIN);
-  const IS32 val_1 = CRUX__as_is32(IS08_MAX);
-  const IS32 val_2 = CRUX__as_is32(IS16_MIN);
-  const IS32 val_3 = CRUX__as_is32(IU16_MAX);
-  const IS32 val_4 = CRUX__as_is32(IS32_MAX);
+  const IS32 val_0 = as_is32(IS08_MIN);
+  const IS32 val_1 = as_is32(IS08_MAX);
+  const IS32 val_2 = as_is32(IS16_MIN);
+  const IS32 val_3 = as_is32(IU16_MAX);
+  const IS32 val_4 = as_is32(IS32_MAX);
   CRUX__ResultArray array_result = CRUX__array_create(5, sizeof(IS32));
   CRUX__Array array = array_result.value;
   CRUX__ResultElement put_0_result = CRUX__array_put(array, 0, (void *) &val_0);
@@ -154,7 +154,7 @@ void CRUX__array_get_put_tests () {
 
 
 void CRUX__array_iterator_tests () {
-  const IU16 len = CRUX__as_iu16(8);
+  const IU16 len = as_iu16(8);
   const Size elem_size = sizeof(IS32);
   CRUX__ResultArray array_result = CRUX__array_create(len, elem_size);
   CRUX__trace_clean(&array_result.trace);
@@ -162,7 +162,7 @@ void CRUX__array_iterator_tests () {
   CRUX__ResultIterator put_iterator_result = CRUX__array_iterator_create(array);
   ok(CRUX__trace_check(put_iterator_result.trace), "Must not have an error.");
   CRUX__Iterator put_iterator = put_iterator_result.value;
-  IS32 put_counter = CRUX__as_is32(0);
+  IS32 put_counter = as_is32(0);
   while (CRUX__iterator_has_next(put_iterator)) {
     CRUX__Element array_element = CRUX__iterator_next(put_iterator);
     IS32 *elem_value = (IS32 *) array_element.addr;
@@ -173,7 +173,7 @@ void CRUX__array_iterator_tests () {
   CRUX__ResultIterator get_iterator_result = CRUX__array_iterator_create(array);
   ok(CRUX__trace_check(get_iterator_result.trace), "Must not have an error.");
   CRUX__Iterator get_iterator = get_iterator_result.value;
-  IS32 get_counter = CRUX__as_is32(0);
+  IS32 get_counter = as_is32(0);
   while (CRUX__iterator_has_next(get_iterator)) {
     CRUX__Element array_element = CRUX__iterator_next(get_iterator);
     IS32 *elem_value = (IS32 *) array_element.addr;
@@ -185,8 +185,8 @@ void CRUX__array_iterator_tests () {
   CRUX__trace_clean(&get_iterator_result.trace);
   CRUX__iterator_finalize(&put_iterator);  
   CRUX__iterator_finalize(&get_iterator);
-  ok(is_nil(put_iterator.settings, void), "Must be nil.");
-  ok(is_nil(get_iterator.settings, void), "Must be nil.");
+  ok(is_nil(put_iterator.state, void), "Must be nil.");
+  ok(is_nil(get_iterator.state, void), "Must be nil.");
 }
 
 

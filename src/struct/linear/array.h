@@ -54,7 +54,7 @@ CRUX__ResultArray CRUX__array_create (
 
 
 CRUX__ResultArray CRUX__array_create_into (
-  const void *const context,
+  void *const context,
   const IU16 length,
   const Size element_size);
 
@@ -68,32 +68,44 @@ CRUX__Array CRUX__array_nil (void);
 
 
 
-typedef struct CRUX__ArrayIteratorSettings_Struct {
+typedef struct CRUX__ArrayIterState_Struct {
   void *context;
   Bool inverse;
   IU16 start;
   IU16 end;
   IU16 step;
-  IU16 current;
+  IU16 last;
   CRUX__Array array;
-} CRUX__ArrayIteratorSettings;
+} CRUX__ArrayIterState;
 
 
-CRUX__ResultIterator CRUX__array_iterator_create(
+CRUX__ResultIterator CRUX__array_iterator_create_with (
+  void *const context,
+  const CRUX__Array array,
+  const IU16 start,
+  const IU16 end,
+  const IU16 step);
+
+CRUX__ResultIterator CRUX__array_iterator_create_at (
+  const CRUX__Array array,
+  const IU16 start,
+  const IU16 end);
+
+CRUX__ResultIterator CRUX__array_iterator_create (
   const CRUX__Array array);
 
 
 CRUX__Element CRUX__array_iterator_get(
-  void *const settings);
+  void *const iterator_state);
 
 
 Bool CRUX__array_iterator_has_next(
-  void *const settings);
+  void *const iterator_state);
 
 
 void CRUX__array_iterator_finalize(
-  void **settings);
+  void **iterator_state);
 
 
-CRUX__ArrayIteratorSettings CRUX__array_iterator_nil (void);
+CRUX__ArrayIterState CRUX__array_iterator_nil (void);
 
