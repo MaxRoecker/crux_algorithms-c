@@ -101,16 +101,16 @@ CRUX__ResultIS64 CRUX__mod_is64 (const IS64 a, const IS64 b);
 
 #define CRUX__mod_has_error(a, b) (_Generic(a,  \
   IU08 : _Generic(b,                            \
-    IU08 : CRUX__is_zero(b),                    \
+    IU08 : CRUX__is_less_equal(b, as_iu08(0)),  \
     default : assert(0)),                       \
   IU16 : _Generic(b,                            \
-    IU16 : CRUX__is_zero(b),                    \
+    IU16 : CRUX__is_less_equal(b, as_iu16(0)),  \
     default : assert(0)),                       \
   IU32 : _Generic(b,                            \
-    IU32 : CRUX__is_zero(b),                    \
+    IU32 : CRUX__is_less_equal(b, as_iu32(0)),  \
     default : assert(0)),                       \
   IU64 : _Generic(b,                            \
-    IU64 : CRUX__is_zero(b),                    \
+    IU64 : CRUX__is_less_equal(b, as_iu64(0)),  \
     default : assert(0)),                       \
   IS08 : _Generic(b,                            \
     IS08 : CRUX__is_less_equal(b, as_is08(0)),  \
