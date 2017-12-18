@@ -84,6 +84,10 @@ arithmetic_div_module								= $(arithmetic_package)/div.c
 arithmetic_div_object								= $(BIN)/arithmetic_div.o
 arithmetic_div_dependencies					= arithmetic_signal $(arithmetic_signal_dependencies)
 
+arithmetic_mod_module								= $(arithmetic_package)/mod.c
+arithmetic_mod_object								= $(BIN)/arithmetic_mod.o
+arithmetic_mod_dependencies					= arithmetic_signal $(arithmetic_signal_dependencies)
+
 arithmetic_arithmetic_module				= $(arithmetic_package)/arithmetic.c
 arithmetic_arithmetic_object				= $(BIN)/arithmetic_arithmetic.o
 arithmetic_arithmetic_dependencies	= arithmetic_error $(arithmetic_error_dependencies) \
