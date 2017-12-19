@@ -3,543 +3,305 @@
 
 
 void CRUX__mod_iu08_tests (void) {
-  const IU08 max = IU08_MAX;
-  const IU08 min = IU08_MIN;
-  const IU08 nil = as_iu08(0);
-  const IU08 one = as_iu08(1);
-  CRUX__ResultIU08 max_max = CRUX__mod(max, max);
-  CRUX__ResultIU08 max_min = CRUX__mod(max, min);
-  CRUX__ResultIU08 max_nil = CRUX__mod(max, nil);
-  CRUX__ResultIU08 max_one = CRUX__mod(max, one);
-  CRUX__ResultIU08 min_max = CRUX__mod(min, max);
-  CRUX__ResultIU08 min_min = CRUX__mod(min, min);
-  CRUX__ResultIU08 min_nil = CRUX__mod(min, nil);
-  CRUX__ResultIU08 min_one = CRUX__mod(min, one);
-  CRUX__ResultIU08 nil_max = CRUX__mod(nil, max);
-  CRUX__ResultIU08 nil_min = CRUX__mod(nil, min);
-  CRUX__ResultIU08 nil_nil = CRUX__mod(nil, nil);
-  CRUX__ResultIU08 nil_one = CRUX__mod(nil, one);
-  CRUX__ResultIU08 one_max = CRUX__mod(one, max);
-  CRUX__ResultIU08 one_min = CRUX__mod(one, min);
-  CRUX__ResultIU08 one_nil = CRUX__mod(one, nil);
-  CRUX__ResultIU08 one_one = CRUX__mod(one, one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(max_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  ok(CRUX__is_equal(max_max.value, nil), "Must be equal to %"IU08_FMT".", nil);
-  ok(CRUX__is_equal(max_one.value, nil), "Must be equal to %"IU08_FMT".", nil);
-  ok(CRUX__is_equal(min_max.value, nil), "Must be equal to %"IU08_FMT".", nil);
-  ok(CRUX__is_equal(min_one.value, nil), "Must be equal to %"IU08_FMT".", nil);
-  ok(CRUX__is_equal(nil_max.value, nil), "Must be equal to %"IU08_FMT".", nil);
-  ok(CRUX__is_equal(nil_one.value, nil), "Must be equal to %"IU08_FMT".", nil);
-  ok(CRUX__is_equal(one_max.value, one), "Must be equal to %"IU08_FMT".", one);
-  ok(CRUX__is_equal(one_one.value, nil), "Must be equal to %"IU08_FMT".", nil);
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
+  const Char has_error_fmt[] = "mod(%"IU08_FMT", %"IU08_FMT") must have an error.";
+  const Char not_error_fmt[] = "mod(%"IU08_FMT", %"IU08_FMT") must not have an error.";
+  const Char result_fmt[] = "mod(%"IU08_FMT", %"IU08_FMT") must equal to %"IU08_FMT".";
+  const IU08 values[4] = {IU08_MIN, IU08_MIN + 1, IU08_MAX - 1, IU08_MAX};
+  const Bool checks[4][4] = {
+    {false, false, false, false},
+    {true, true, true, true},
+    {true, true, true, true},
+    {true, true, true, true}};
+  const IU08 results[4][4] = {
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {0, 1, 0, 1},
+    {0, 1, IU08_MAX - 1, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const IU08 a = values[j];
+      const IU08 b = values[i];
+      const IU08 result = results[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIU08 mod_result = CRUX__mod(a, b);
+      if (check) {
+        ok((CRUX__trace_check(mod_result.trace) == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(mod_result.value, result), result_fmt, a, b, result);
+      } else {
+        ok((CRUX__trace_check(mod_result.trace) == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&mod_result.trace);
+    }
+  }
 }
 
 
 void CRUX__mod_iu16_tests (void) {
-  const IU16 max = IU16_MAX;
-  const IU16 min = IU16_MIN;
-  const IU16 nil = as_iu16(0);
-  const IU16 one = as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX__mod(max, max);
-  CRUX__ResultIU16 max_min = CRUX__mod(max, min);
-  CRUX__ResultIU16 max_nil = CRUX__mod(max, nil);
-  CRUX__ResultIU16 max_one = CRUX__mod(max, one);
-  CRUX__ResultIU16 min_max = CRUX__mod(min, max);
-  CRUX__ResultIU16 min_min = CRUX__mod(min, min);
-  CRUX__ResultIU16 min_nil = CRUX__mod(min, nil);
-  CRUX__ResultIU16 min_one = CRUX__mod(min, one);
-  CRUX__ResultIU16 nil_max = CRUX__mod(nil, max);
-  CRUX__ResultIU16 nil_min = CRUX__mod(nil, min);
-  CRUX__ResultIU16 nil_nil = CRUX__mod(nil, nil);
-  CRUX__ResultIU16 nil_one = CRUX__mod(nil, one);
-  CRUX__ResultIU16 one_max = CRUX__mod(one, max);
-  CRUX__ResultIU16 one_min = CRUX__mod(one, min);
-  CRUX__ResultIU16 one_nil = CRUX__mod(one, nil);
-  CRUX__ResultIU16 one_one = CRUX__mod(one, one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(max_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  ok(CRUX__is_equal(max_max.value, nil), "Must be equal to %"IU16_FMT".", nil);
-  ok(CRUX__is_equal(max_one.value, nil), "Must be equal to %"IU16_FMT".", nil);
-  ok(CRUX__is_equal(min_max.value, nil), "Must be equal to %"IU16_FMT".", nil);
-  ok(CRUX__is_equal(min_one.value, nil), "Must be equal to %"IU16_FMT".", nil);
-  ok(CRUX__is_equal(nil_max.value, nil), "Must be equal to %"IU16_FMT".", nil);
-  ok(CRUX__is_equal(nil_one.value, nil), "Must be equal to %"IU16_FMT".", nil);
-  ok(CRUX__is_equal(one_max.value, one), "Must be equal to %"IU16_FMT".", one);
-  ok(CRUX__is_equal(one_one.value, nil), "Must be equal to %"IU16_FMT".", nil);
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
+  const Char has_error_fmt[] = "mod(%"IU16_FMT", %"IU16_FMT") must have an error.";
+  const Char not_error_fmt[] = "mod(%"IU16_FMT", %"IU16_FMT") must not have an error.";
+  const Char result_fmt[] = "mod(%"IU16_FMT", %"IU16_FMT") must equal to %"IU16_FMT".";
+  const IU16 values[4] = {IU16_MIN, IU16_MIN + 1, IU16_MAX - 1, IU16_MAX};
+  const Bool checks[4][4] = {
+    {false, false, false, false},
+    {true, true, true, true},
+    {true, true, true, true},
+    {true, true, true, true}};
+  const IU16 results[4][4] = {
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {0, 1, 0, 1},
+    {0, 1, IU16_MAX - 1, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const IU16 a = values[j];
+      const IU16 b = values[i];
+      const IU16 result = results[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIU16 mod_result = CRUX__mod(a, b);
+      if (check) {
+        ok((CRUX__trace_check(mod_result.trace) == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(mod_result.value, result), result_fmt, a, b, result);
+      } else {
+        ok((CRUX__trace_check(mod_result.trace) == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&mod_result.trace);
+    }
+  }
 }
 
 
 void CRUX__mod_iu32_tests (void) {
-  const IU32 max = IU32_MAX;
-  const IU32 min = IU32_MIN;
-  const IU32 nil = as_iu32(0);
-  const IU32 one = as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX__mod(max, max);
-  CRUX__ResultIU32 max_min = CRUX__mod(max, min);
-  CRUX__ResultIU32 max_nil = CRUX__mod(max, nil);
-  CRUX__ResultIU32 max_one = CRUX__mod(max, one);
-  CRUX__ResultIU32 min_max = CRUX__mod(min, max);
-  CRUX__ResultIU32 min_min = CRUX__mod(min, min);
-  CRUX__ResultIU32 min_nil = CRUX__mod(min, nil);
-  CRUX__ResultIU32 min_one = CRUX__mod(min, one);
-  CRUX__ResultIU32 nil_max = CRUX__mod(nil, max);
-  CRUX__ResultIU32 nil_min = CRUX__mod(nil, min);
-  CRUX__ResultIU32 nil_nil = CRUX__mod(nil, nil);
-  CRUX__ResultIU32 nil_one = CRUX__mod(nil, one);
-  CRUX__ResultIU32 one_max = CRUX__mod(one, max);
-  CRUX__ResultIU32 one_min = CRUX__mod(one, min);
-  CRUX__ResultIU32 one_nil = CRUX__mod(one, nil);
-  CRUX__ResultIU32 one_one = CRUX__mod(one, one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(max_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  ok(CRUX__is_equal(max_max.value, nil), "Must be equal to %"IU32_FMT".", nil);
-  ok(CRUX__is_equal(max_one.value, nil), "Must be equal to %"IU32_FMT".", nil);
-  ok(CRUX__is_equal(min_max.value, nil), "Must be equal to %"IU32_FMT".", nil);
-  ok(CRUX__is_equal(min_one.value, nil), "Must be equal to %"IU32_FMT".", nil);
-  ok(CRUX__is_equal(nil_max.value, nil), "Must be equal to %"IU32_FMT".", nil);
-  ok(CRUX__is_equal(nil_one.value, nil), "Must be equal to %"IU32_FMT".", nil);
-  ok(CRUX__is_equal(one_max.value, one), "Must be equal to %"IU32_FMT".", one);
-  ok(CRUX__is_equal(one_one.value, nil), "Must be equal to %"IU32_FMT".", nil);
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
+  const Char has_error_fmt[] = "mod(%"IU32_FMT", %"IU32_FMT") must have an error.";
+  const Char not_error_fmt[] = "mod(%"IU32_FMT", %"IU32_FMT") must not have an error.";
+  const Char result_fmt[] = "mod(%"IU32_FMT", %"IU32_FMT") must equal to %"IU32_FMT".";
+  const IU32 values[4] = {IU32_MIN, IU32_MIN + 1, IU32_MAX - 1, IU32_MAX};
+  const Bool checks[4][4] = {
+    {false, false, false, false},
+    {true, true, true, true},
+    {true, true, true, true},
+    {true, true, true, true}};
+  const IU32 results[4][4] = {
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {0, 1, 0, 1},
+    {0, 1, IU32_MAX - 1, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const IU32 a = values[j];
+      const IU32 b = values[i];
+      const IU32 result = results[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIU32 mod_result = CRUX__mod(a, b);
+      if (check) {
+        ok((CRUX__trace_check(mod_result.trace) == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(mod_result.value, result), result_fmt, a, b, result);
+      } else {
+        ok((CRUX__trace_check(mod_result.trace) == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&mod_result.trace);
+    }
+  }
 }
 
 
 void CRUX__mod_iu64_tests (void) {
-  const IU64 max = IU64_MAX;
-  const IU64 min = IU64_MIN;
-  const IU64 nil = as_iu64(0);
-  const IU64 one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__mod(max, max);
-  CRUX__ResultIU64 max_min = CRUX__mod(max, min);
-  CRUX__ResultIU64 max_nil = CRUX__mod(max, nil);
-  CRUX__ResultIU64 max_one = CRUX__mod(max, one);
-  CRUX__ResultIU64 min_max = CRUX__mod(min, max);
-  CRUX__ResultIU64 min_min = CRUX__mod(min, min);
-  CRUX__ResultIU64 min_nil = CRUX__mod(min, nil);
-  CRUX__ResultIU64 min_one = CRUX__mod(min, one);
-  CRUX__ResultIU64 nil_max = CRUX__mod(nil, max);
-  CRUX__ResultIU64 nil_min = CRUX__mod(nil, min);
-  CRUX__ResultIU64 nil_nil = CRUX__mod(nil, nil);
-  CRUX__ResultIU64 nil_one = CRUX__mod(nil, one);
-  CRUX__ResultIU64 one_max = CRUX__mod(one, max);
-  CRUX__ResultIU64 one_min = CRUX__mod(one, min);
-  CRUX__ResultIU64 one_nil = CRUX__mod(one, nil);
-  CRUX__ResultIU64 one_one = CRUX__mod(one, one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(max_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  ok(CRUX__is_equal(max_max.value, nil), "Must be equal to %"IU64_FMT".", nil);
-  ok(CRUX__is_equal(max_one.value, nil), "Must be equal to %"IU64_FMT".", nil);
-  ok(CRUX__is_equal(min_max.value, nil), "Must be equal to %"IU64_FMT".", nil);
-  ok(CRUX__is_equal(min_one.value, nil), "Must be equal to %"IU64_FMT".", nil);
-  ok(CRUX__is_equal(nil_max.value, nil), "Must be equal to %"IU64_FMT".", nil);
-  ok(CRUX__is_equal(nil_one.value, nil), "Must be equal to %"IU64_FMT".", nil);
-  ok(CRUX__is_equal(one_max.value, one), "Must be equal to %"IU64_FMT".", one);
-  ok(CRUX__is_equal(one_one.value, nil), "Must be equal to %"IU64_FMT".", nil);
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
+  const Char has_error_fmt[] = "mod(%"IU64_FMT", %"IU64_FMT") must have an error.";
+  const Char not_error_fmt[] = "mod(%"IU64_FMT", %"IU64_FMT") must not have an error.";
+  const Char result_fmt[] = "mod(%"IU64_FMT", %"IU64_FMT") must equal to %"IU64_FMT".";
+  const IU64 values[4] = {IU64_MIN, IU64_MIN + 1, IU64_MAX - 1, IU64_MAX};
+  const Bool checks[4][4] = {
+    {false, false, false, false},
+    {true, true, true, true},
+    {true, true, true, true},
+    {true, true, true, true}};
+  const IU64 results[4][4] = {
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    {0, 1, 0, 1},
+    {0, 1, IU64_MAX - 1, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const IU64 a = values[j];
+      const IU64 b = values[i];
+      const IU64 result = results[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIU64 mod_result = CRUX__mod(a, b);
+      if (check) {
+        ok((CRUX__trace_check(mod_result.trace) == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(mod_result.value, result), result_fmt, a, b, result);
+      } else {
+        ok((CRUX__trace_check(mod_result.trace) == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&mod_result.trace);
+    }
+  }
 }
 
 
 void CRUX__mod_is08_tests (void) {
-  const IS08 max = IS08_MAX;
-  const IS08 min = IS08_MIN;
-  const IS08 nil = as_is08(0);
-  const IS08 one = as_is08(1);
-  const IS08 neg = as_is08(-1);
-  const IS08 foo = (IS08)(IS08_MAX - 1);
-  CRUX__ResultIS08 max_max = CRUX__mod(max, max);
-  CRUX__ResultIS08 min_max = CRUX__mod(min, max);
-  CRUX__ResultIS08 nil_max = CRUX__mod(nil, max);
-  CRUX__ResultIS08 one_max = CRUX__mod(one, max);
-  CRUX__ResultIS08 neg_max = CRUX__mod(neg, max);
-  CRUX__ResultIS08 max_min = CRUX__mod(max, min);
-  CRUX__ResultIS08 min_min = CRUX__mod(min, min);
-  CRUX__ResultIS08 nil_min = CRUX__mod(nil, min);
-  CRUX__ResultIS08 one_min = CRUX__mod(one, min);
-  CRUX__ResultIS08 neg_min = CRUX__mod(neg, min);
-  CRUX__ResultIS08 max_nil = CRUX__mod(max, nil);
-  CRUX__ResultIS08 min_nil = CRUX__mod(min, nil);
-  CRUX__ResultIS08 nil_nil = CRUX__mod(nil, nil);
-  CRUX__ResultIS08 one_nil = CRUX__mod(one, nil);
-  CRUX__ResultIS08 neg_nil = CRUX__mod(neg, nil);
-  CRUX__ResultIS08 max_one = CRUX__mod(max, one);
-  CRUX__ResultIS08 min_one = CRUX__mod(min, one);
-  CRUX__ResultIS08 nil_one = CRUX__mod(nil, one);
-  CRUX__ResultIS08 one_one = CRUX__mod(one, one);
-  CRUX__ResultIS08 neg_one = CRUX__mod(neg, one);
-  CRUX__ResultIS08 max_neg = CRUX__mod(max, neg);
-  CRUX__ResultIS08 min_neg = CRUX__mod(min, neg);
-  CRUX__ResultIS08 nil_neg = CRUX__mod(nil, neg);
-  CRUX__ResultIS08 one_neg = CRUX__mod(one, neg);
-  CRUX__ResultIS08 neg_neg = CRUX__mod(neg, neg);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(neg_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(max_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(neg_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_neg.trace), "Must have an error.");
-  ok(CRUX__is_equal(max_max.value, nil), "Must be equal to %"IS08_FMT".", nil);
-  ok(CRUX__is_equal(min_max.value, foo), "Must be equal to %"IS08_FMT".", foo);
-  ok(CRUX__is_equal(nil_max.value, nil), "Must be equal to %"IS08_FMT".", nil);
-  ok(CRUX__is_equal(one_max.value, one), "Must be equal to %"IS08_FMT".", one);
-  ok(CRUX__is_equal(neg_max.value, foo), "Must be equal to %"IS08_FMT".", foo);
-  ok(CRUX__is_equal(max_one.value, nil), "Must be equal to %"IS08_FMT".", nil);
-  ok(CRUX__is_equal(min_one.value, nil), "Must be equal to %"IS08_FMT".", nil);
-  ok(CRUX__is_equal(nil_one.value, nil), "Must be equal to %"IS08_FMT".", nil);
-  ok(CRUX__is_equal(one_one.value, nil), "Must be equal to %"IS08_FMT".", nil);
-  ok(CRUX__is_equal(neg_one.value, nil), "Must be equal to %"IS08_FMT".", nil);
+  const Char has_error_fmt[] = "mod(%"IS08_FMT", %"IS08_FMT") must have an error.";
+  const Char not_error_fmt[] = "mod(%"IS08_FMT", %"IS08_FMT") must not have an error.";
+  const Char result_fmt[] = "mod(%"IS08_FMT", %"IS08_FMT") must equal to %"IS08_FMT".";
+  const IS08 values[7] = {IS08_MIN, IS08_MIN + 1, -1, 0, 1, IS08_MAX - 1, IS08_MAX};
+  const Bool checks[7][7] = {
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    { true,  true,  true,  true,  true,  true,  true},
+    { true,  true,  true,  true,  true,  true,  true},
+    { true,  true,  true,  true,  true,  true,  true}};
+  const IS08 results[7][7] = {
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {IS08_MAX - 3, IS08_MAX - 2, IS08_MAX - 2, 0, 1, 0, 1},
+    {IS08_MAX - 1, 0, IS08_MAX - 1, 0, 1, IS08_MAX - 1, 0}};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+      const IS08 a = values[j];
+      const IS08 b = values[i];
+      const IS08 result = results[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIS08 mod_result = CRUX__mod(a, b);
+      if (check) {
+        ok((CRUX__trace_check(mod_result.trace) == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(mod_result.value, result), result_fmt, a, b, result);
+      } else {
+        ok((CRUX__trace_check(mod_result.trace) == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&mod_result.trace);
+    }
+  }
 }
 
 
 void CRUX__mod_is16_tests (void) {
-  const IS16 max = IS16_MAX;
-  const IS16 min = IS16_MIN;
-  const IS16 nil = as_is16(0);
-  const IS16 one = as_is16(1);
-  const IS16 neg = as_is16(-1);
-  const IS16 foo = (IS16)(IS16_MAX - 1);
-  CRUX__ResultIS16 max_max = CRUX__mod(max, max);
-  CRUX__ResultIS16 min_max = CRUX__mod(min, max);
-  CRUX__ResultIS16 nil_max = CRUX__mod(nil, max);
-  CRUX__ResultIS16 one_max = CRUX__mod(one, max);
-  CRUX__ResultIS16 neg_max = CRUX__mod(neg, max);
-  CRUX__ResultIS16 max_min = CRUX__mod(max, min);
-  CRUX__ResultIS16 min_min = CRUX__mod(min, min);
-  CRUX__ResultIS16 nil_min = CRUX__mod(nil, min);
-  CRUX__ResultIS16 one_min = CRUX__mod(one, min);
-  CRUX__ResultIS16 neg_min = CRUX__mod(neg, min);
-  CRUX__ResultIS16 max_nil = CRUX__mod(max, nil);
-  CRUX__ResultIS16 min_nil = CRUX__mod(min, nil);
-  CRUX__ResultIS16 nil_nil = CRUX__mod(nil, nil);
-  CRUX__ResultIS16 one_nil = CRUX__mod(one, nil);
-  CRUX__ResultIS16 neg_nil = CRUX__mod(neg, nil);
-  CRUX__ResultIS16 max_one = CRUX__mod(max, one);
-  CRUX__ResultIS16 min_one = CRUX__mod(min, one);
-  CRUX__ResultIS16 nil_one = CRUX__mod(nil, one);
-  CRUX__ResultIS16 one_one = CRUX__mod(one, one);
-  CRUX__ResultIS16 neg_one = CRUX__mod(neg, one);
-  CRUX__ResultIS16 max_neg = CRUX__mod(max, neg);
-  CRUX__ResultIS16 min_neg = CRUX__mod(min, neg);
-  CRUX__ResultIS16 nil_neg = CRUX__mod(nil, neg);
-  CRUX__ResultIS16 one_neg = CRUX__mod(one, neg);
-  CRUX__ResultIS16 neg_neg = CRUX__mod(neg, neg);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(neg_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(max_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(neg_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_neg.trace), "Must have an error.");
-  ok(CRUX__is_equal(max_max.value, nil), "Must be equal to %"IS16_FMT".", nil);
-  ok(CRUX__is_equal(min_max.value, foo), "Must be equal to %"IS16_FMT".", foo);
-  ok(CRUX__is_equal(nil_max.value, nil), "Must be equal to %"IS16_FMT".", nil);
-  ok(CRUX__is_equal(one_max.value, one), "Must be equal to %"IS16_FMT".", one);
-  ok(CRUX__is_equal(neg_max.value, foo), "Must be equal to %"IS16_FMT".", foo);
-  ok(CRUX__is_equal(max_one.value, nil), "Must be equal to %"IS16_FMT".", nil);
-  ok(CRUX__is_equal(min_one.value, nil), "Must be equal to %"IS16_FMT".", nil);
-  ok(CRUX__is_equal(nil_one.value, nil), "Must be equal to %"IS16_FMT".", nil);
-  ok(CRUX__is_equal(one_one.value, nil), "Must be equal to %"IS16_FMT".", nil);
-  ok(CRUX__is_equal(neg_one.value, nil), "Must be equal to %"IS16_FMT".", nil);
+  const Char has_error_fmt[] = "mod(%"IS16_FMT", %"IS16_FMT") must have an error.";
+  const Char not_error_fmt[] = "mod(%"IS16_FMT", %"IS16_FMT") must not have an error.";
+  const Char result_fmt[] = "mod(%"IS16_FMT", %"IS16_FMT") must equal to %"IS16_FMT".";
+  const IS16 values[7] = {IS16_MIN, IS16_MIN + 1, -1, 0, 1, IS16_MAX - 1, IS16_MAX};
+  const Bool checks[7][7] = {
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    { true,  true,  true,  true,  true,  true,  true},
+    { true,  true,  true,  true,  true,  true,  true},
+    { true,  true,  true,  true,  true,  true,  true}};
+  const IS16 results[7][7] = {
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {IS16_MAX - 3, IS16_MAX - 2, IS16_MAX - 2, 0, 1, 0, 1},
+    {IS16_MAX - 1, 0, IS16_MAX - 1, 0, 1, IS16_MAX - 1, 0}};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+      const IS16 a = values[j];
+      const IS16 b = values[i];
+      const IS16 result = results[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIS16 mod_result = CRUX__mod(a, b);
+      if (check) {
+        ok((CRUX__trace_check(mod_result.trace) == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(mod_result.value, result), result_fmt, a, b, result);
+      } else {
+        ok((CRUX__trace_check(mod_result.trace) == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&mod_result.trace);
+    }
+  }
 }
 
 
 void CRUX__mod_is32_tests (void) {
-  const IS32 max = IS32_MAX;
-  const IS32 min = IS32_MIN;
-  const IS32 nil = as_is32(0);
-  const IS32 one = as_is32(1);
-  const IS32 neg = as_is32(-1);
-  const IS32 foo = (IS32)(IS32_MAX - 1);
-  CRUX__ResultIS32 max_max = CRUX__mod(max, max);
-  CRUX__ResultIS32 min_max = CRUX__mod(min, max);
-  CRUX__ResultIS32 nil_max = CRUX__mod(nil, max);
-  CRUX__ResultIS32 one_max = CRUX__mod(one, max);
-  CRUX__ResultIS32 neg_max = CRUX__mod(neg, max);
-  CRUX__ResultIS32 max_min = CRUX__mod(max, min);
-  CRUX__ResultIS32 min_min = CRUX__mod(min, min);
-  CRUX__ResultIS32 nil_min = CRUX__mod(nil, min);
-  CRUX__ResultIS32 one_min = CRUX__mod(one, min);
-  CRUX__ResultIS32 neg_min = CRUX__mod(neg, min);
-  CRUX__ResultIS32 max_nil = CRUX__mod(max, nil);
-  CRUX__ResultIS32 min_nil = CRUX__mod(min, nil);
-  CRUX__ResultIS32 nil_nil = CRUX__mod(nil, nil);
-  CRUX__ResultIS32 one_nil = CRUX__mod(one, nil);
-  CRUX__ResultIS32 neg_nil = CRUX__mod(neg, nil);
-  CRUX__ResultIS32 max_one = CRUX__mod(max, one);
-  CRUX__ResultIS32 min_one = CRUX__mod(min, one);
-  CRUX__ResultIS32 nil_one = CRUX__mod(nil, one);
-  CRUX__ResultIS32 one_one = CRUX__mod(one, one);
-  CRUX__ResultIS32 neg_one = CRUX__mod(neg, one);
-  CRUX__ResultIS32 max_neg = CRUX__mod(max, neg);
-  CRUX__ResultIS32 min_neg = CRUX__mod(min, neg);
-  CRUX__ResultIS32 nil_neg = CRUX__mod(nil, neg);
-  CRUX__ResultIS32 one_neg = CRUX__mod(one, neg);
-  CRUX__ResultIS32 neg_neg = CRUX__mod(neg, neg);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(neg_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(max_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(neg_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_neg.trace), "Must have an error.");
-  ok(CRUX__is_equal(max_max.value, nil), "Must be equal to %"IS32_FMT".", nil);
-  ok(CRUX__is_equal(min_max.value, foo), "Must be equal to %"IS32_FMT".", foo);
-  ok(CRUX__is_equal(nil_max.value, nil), "Must be equal to %"IS32_FMT".", nil);
-  ok(CRUX__is_equal(one_max.value, one), "Must be equal to %"IS32_FMT".", one);
-  ok(CRUX__is_equal(neg_max.value, foo), "Must be equal to %"IS32_FMT".", foo);
-  ok(CRUX__is_equal(max_one.value, nil), "Must be equal to %"IS32_FMT".", nil);
-  ok(CRUX__is_equal(min_one.value, nil), "Must be equal to %"IS32_FMT".", nil);
-  ok(CRUX__is_equal(nil_one.value, nil), "Must be equal to %"IS32_FMT".", nil);
-  ok(CRUX__is_equal(one_one.value, nil), "Must be equal to %"IS32_FMT".", nil);
-  ok(CRUX__is_equal(neg_one.value, nil), "Must be equal to %"IS32_FMT".", nil);
+  const Char has_error_fmt[] = "mod(%"IS32_FMT", %"IS32_FMT") must have an error.";
+  const Char not_error_fmt[] = "mod(%"IS32_FMT", %"IS32_FMT") must not have an error.";
+  const Char result_fmt[] = "mod(%"IS32_FMT", %"IS32_FMT") must equal to %"IS32_FMT".";
+  const IS32 values[7] = {IS32_MIN, IS32_MIN + 1, -1, 0, 1, IS32_MAX - 1, IS32_MAX};
+  const Bool checks[7][7] = {
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    { true,  true,  true,  true,  true,  true,  true},
+    { true,  true,  true,  true,  true,  true,  true},
+    { true,  true,  true,  true,  true,  true,  true}};
+  const IS32 results[7][7] = {
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {IS32_MAX - 3, IS32_MAX - 2, IS32_MAX - 2, 0, 1, 0, 1},
+    {IS32_MAX - 1, 0, IS32_MAX - 1, 0, 1, IS32_MAX - 1, 0}};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+      const IS32 a = values[j];
+      const IS32 b = values[i];
+      const IS32 result = results[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIS32 mod_result = CRUX__mod(a, b);
+      if (check) {
+        ok((CRUX__trace_check(mod_result.trace) == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(mod_result.value, result), result_fmt, a, b, result);
+      } else {
+        ok((CRUX__trace_check(mod_result.trace) == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&mod_result.trace);
+    }
+  }
 }
 
 
 void CRUX__mod_is64_tests (void) {
-  const IS64 max = IS64_MAX;
-  const IS64 min = IS64_MIN;
-  const IS64 nil = as_is64(0);
-  const IS64 one = as_is64(1);
-  const IS64 neg = as_is64(-1);
-  const IS64 foo = (IS64)(IS64_MAX - 1);
-  CRUX__ResultIS64 max_max = CRUX__mod(max, max);
-  CRUX__ResultIS64 min_max = CRUX__mod(min, max);
-  CRUX__ResultIS64 nil_max = CRUX__mod(nil, max);
-  CRUX__ResultIS64 one_max = CRUX__mod(one, max);
-  CRUX__ResultIS64 neg_max = CRUX__mod(neg, max);
-  CRUX__ResultIS64 max_min = CRUX__mod(max, min);
-  CRUX__ResultIS64 min_min = CRUX__mod(min, min);
-  CRUX__ResultIS64 nil_min = CRUX__mod(nil, min);
-  CRUX__ResultIS64 one_min = CRUX__mod(one, min);
-  CRUX__ResultIS64 neg_min = CRUX__mod(neg, min);
-  CRUX__ResultIS64 max_nil = CRUX__mod(max, nil);
-  CRUX__ResultIS64 min_nil = CRUX__mod(min, nil);
-  CRUX__ResultIS64 nil_nil = CRUX__mod(nil, nil);
-  CRUX__ResultIS64 one_nil = CRUX__mod(one, nil);
-  CRUX__ResultIS64 neg_nil = CRUX__mod(neg, nil);
-  CRUX__ResultIS64 max_one = CRUX__mod(max, one);
-  CRUX__ResultIS64 min_one = CRUX__mod(min, one);
-  CRUX__ResultIS64 nil_one = CRUX__mod(nil, one);
-  CRUX__ResultIS64 one_one = CRUX__mod(one, one);
-  CRUX__ResultIS64 neg_one = CRUX__mod(neg, one);
-  CRUX__ResultIS64 max_neg = CRUX__mod(max, neg);
-  CRUX__ResultIS64 min_neg = CRUX__mod(min, neg);
-  CRUX__ResultIS64 nil_neg = CRUX__mod(nil, neg);
-  CRUX__ResultIS64 one_neg = CRUX__mod(one, neg);
-  CRUX__ResultIS64 neg_neg = CRUX__mod(neg, neg);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(neg_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(max_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_nil.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(neg_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_neg.trace), "Must have an error.");
-  ok(!CRUX__trace_check(neg_neg.trace), "Must have an error.");
-  ok(CRUX__is_equal(max_max.value, nil), "Must be equal to %"IS64_FMT".", nil);
-  ok(CRUX__is_equal(min_max.value, foo), "Must be equal to %"IS64_FMT".", foo);
-  ok(CRUX__is_equal(nil_max.value, nil), "Must be equal to %"IS64_FMT".", nil);
-  ok(CRUX__is_equal(one_max.value, one), "Must be equal to %"IS64_FMT".", one);
-  ok(CRUX__is_equal(neg_max.value, foo), "Must be equal to %"IS64_FMT".", foo);
-  ok(CRUX__is_equal(max_one.value, nil), "Must be equal to %"IS64_FMT".", nil);
-  ok(CRUX__is_equal(min_one.value, nil), "Must be equal to %"IS64_FMT".", nil);
-  ok(CRUX__is_equal(nil_one.value, nil), "Must be equal to %"IS64_FMT".", nil);
-  ok(CRUX__is_equal(one_one.value, nil), "Must be equal to %"IS64_FMT".", nil);
-  ok(CRUX__is_equal(neg_one.value, nil), "Must be equal to %"IS64_FMT".", nil);
+  const Char has_error_fmt[] = "mod(%"IS64_FMT", %"IS64_FMT") must have an error.";
+  const Char not_error_fmt[] = "mod(%"IS64_FMT", %"IS64_FMT") must not have an error.";
+  const Char result_fmt[] = "mod(%"IS64_FMT", %"IS64_FMT") must equal to %"IS64_FMT".";
+  const IS64 values[7] = {IS64_MIN, IS64_MIN + 1, -1, 0, 1, IS64_MAX - 1, IS64_MAX};
+  const Bool checks[7][7] = {
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    {false, false, false, false, false, false, false},
+    { true,  true,  true,  true,  true,  true,  true},
+    { true,  true,  true,  true,  true,  true,  true},
+    { true,  true,  true,  true,  true,  true,  true}};
+  const IS64 results[7][7] = {
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0},
+    {IS64_MAX - 3, IS64_MAX - 2, IS64_MAX - 2, 0, 1, 0, 1},
+    {IS64_MAX - 1, 0, IS64_MAX - 1, 0, 1, IS64_MAX - 1, 0}};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+      const IS64 a = values[j];
+      const IS64 b = values[i];
+      const IS64 result = results[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIS64 mod_result = CRUX__mod(a, b);
+      if (check) {
+        ok((CRUX__trace_check(mod_result.trace) == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(mod_result.value, result), result_fmt, a, b, result);
+      } else {
+        ok((CRUX__trace_check(mod_result.trace) == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&mod_result.trace);
+    }
+  }
 }
 
 
+
+
 int main (int argc, char *argv[]) {
-  plan(236);
+  plan(392);
   CRUX__mod_iu08_tests();
   CRUX__mod_iu16_tests();
   CRUX__mod_iu32_tests();
