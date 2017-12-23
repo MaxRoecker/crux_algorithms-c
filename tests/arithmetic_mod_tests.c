@@ -3,9 +3,9 @@
 
 
 void CRUX__mod_iu08_tests (void) {
-  const Char has_error_fmt[] = "mod(%"IU08_FMT", %"IU08_FMT") must have an error.";
-  const Char not_error_fmt[] = "mod(%"IU08_FMT", %"IU08_FMT") must not have an error.";
-  const Char result_fmt[] = "mod(%"IU08_FMT", %"IU08_FMT") must equal to %"IU08_FMT".";
+  const Char has_error_fmt[] = "%"IU08_FMT" mod %"IU08_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IU08_FMT" mod %"IU08_FMT" must not have an error.";
+  const Char result_fmt[] = "%"IU08_FMT" mod %"IU08_FMT" must equal to %"IU08_FMT".";
   const IU08 values[4] = {IU08_MIN, IU08_MIN + 1, IU08_MAX - 1, IU08_MAX};
   const Bool checks[4][4] = {
     {false, false, false, false},
@@ -37,9 +37,9 @@ void CRUX__mod_iu08_tests (void) {
 
 
 void CRUX__mod_iu16_tests (void) {
-  const Char has_error_fmt[] = "mod(%"IU16_FMT", %"IU16_FMT") must have an error.";
-  const Char not_error_fmt[] = "mod(%"IU16_FMT", %"IU16_FMT") must not have an error.";
-  const Char result_fmt[] = "mod(%"IU16_FMT", %"IU16_FMT") must equal to %"IU16_FMT".";
+  const Char has_error_fmt[] = "%"IU16_FMT" mod %"IU16_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IU16_FMT" mod %"IU16_FMT" must not have an error.";
+  const Char result_fmt[] = "%"IU16_FMT" mod %"IU16_FMT" must equal to %"IU16_FMT".";
   const IU16 values[4] = {IU16_MIN, IU16_MIN + 1, IU16_MAX - 1, IU16_MAX};
   const Bool checks[4][4] = {
     {false, false, false, false},
@@ -71,9 +71,9 @@ void CRUX__mod_iu16_tests (void) {
 
 
 void CRUX__mod_iu32_tests (void) {
-  const Char has_error_fmt[] = "mod(%"IU32_FMT", %"IU32_FMT") must have an error.";
-  const Char not_error_fmt[] = "mod(%"IU32_FMT", %"IU32_FMT") must not have an error.";
-  const Char result_fmt[] = "mod(%"IU32_FMT", %"IU32_FMT") must equal to %"IU32_FMT".";
+  const Char has_error_fmt[] = "%"IU32_FMT" mod %"IU32_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IU32_FMT" mod %"IU32_FMT" must not have an error.";
+  const Char result_fmt[] = "%"IU32_FMT" mod %"IU32_FMT" must equal to %"IU32_FMT".";
   const IU32 values[4] = {IU32_MIN, IU32_MIN + 1, IU32_MAX - 1, IU32_MAX};
   const Bool checks[4][4] = {
     {false, false, false, false},
@@ -105,9 +105,9 @@ void CRUX__mod_iu32_tests (void) {
 
 
 void CRUX__mod_iu64_tests (void) {
-  const Char has_error_fmt[] = "mod(%"IU64_FMT", %"IU64_FMT") must have an error.";
-  const Char not_error_fmt[] = "mod(%"IU64_FMT", %"IU64_FMT") must not have an error.";
-  const Char result_fmt[] = "mod(%"IU64_FMT", %"IU64_FMT") must equal to %"IU64_FMT".";
+  const Char has_error_fmt[] = "%"IU64_FMT" mod %"IU64_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IU64_FMT" mod %"IU64_FMT" must not have an error.";
+  const Char result_fmt[] = "%"IU64_FMT" mod %"IU64_FMT" must equal to %"IU64_FMT".";
   const IU64 values[4] = {IU64_MIN, IU64_MIN + 1, IU64_MAX - 1, IU64_MAX};
   const Bool checks[4][4] = {
     {false, false, false, false},
@@ -139,9 +139,9 @@ void CRUX__mod_iu64_tests (void) {
 
 
 void CRUX__mod_is08_tests (void) {
-  const Char has_error_fmt[] = "mod(%"IS08_FMT", %"IS08_FMT") must have an error.";
-  const Char not_error_fmt[] = "mod(%"IS08_FMT", %"IS08_FMT") must not have an error.";
-  const Char result_fmt[] = "mod(%"IS08_FMT", %"IS08_FMT") must equal to %"IS08_FMT".";
+  const Char has_error_fmt[] = "%"IS08_FMT" mod %"IS08_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IS08_FMT" mod %"IS08_FMT" must not have an error.";
+  const Char result_fmt[] = "%"IS08_FMT" mod %"IS08_FMT" must equal to %"IS08_FMT".";
   const IS08 values[7] = {IS08_MIN, IS08_MIN + 1, -1, 0, 1, IS08_MAX - 1, IS08_MAX};
   const Bool checks[7][7] = {
     {false, false, false, false, false, false, false},
@@ -179,9 +179,9 @@ void CRUX__mod_is08_tests (void) {
 
 
 void CRUX__mod_is16_tests (void) {
-  const Char has_error_fmt[] = "mod(%"IS16_FMT", %"IS16_FMT") must have an error.";
-  const Char not_error_fmt[] = "mod(%"IS16_FMT", %"IS16_FMT") must not have an error.";
-  const Char result_fmt[] = "mod(%"IS16_FMT", %"IS16_FMT") must equal to %"IS16_FMT".";
+  const Char has_error_fmt[] = "%"IS16_FMT" mod %"IS16_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IS16_FMT" mod %"IS16_FMT" must not have an error.";
+  const Char result_fmt[] = "%"IS16_FMT" mod %"IS16_FMT" must equal to %"IS16_FMT".";
   const IS16 values[7] = {IS16_MIN, IS16_MIN + 1, -1, 0, 1, IS16_MAX - 1, IS16_MAX};
   const Bool checks[7][7] = {
     {false, false, false, false, false, false, false},
@@ -219,9 +219,9 @@ void CRUX__mod_is16_tests (void) {
 
 
 void CRUX__mod_is32_tests (void) {
-  const Char has_error_fmt[] = "mod(%"IS32_FMT", %"IS32_FMT") must have an error.";
-  const Char not_error_fmt[] = "mod(%"IS32_FMT", %"IS32_FMT") must not have an error.";
-  const Char result_fmt[] = "mod(%"IS32_FMT", %"IS32_FMT") must equal to %"IS32_FMT".";
+  const Char has_error_fmt[] = "%"IS32_FMT" mod %"IS32_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IS32_FMT" mod %"IS32_FMT" must not have an error.";
+  const Char result_fmt[] = "%"IS32_FMT" mod %"IS32_FMT" must equal to %"IS32_FMT".";
   const IS32 values[7] = {IS32_MIN, IS32_MIN + 1, -1, 0, 1, IS32_MAX - 1, IS32_MAX};
   const Bool checks[7][7] = {
     {false, false, false, false, false, false, false},
@@ -259,9 +259,9 @@ void CRUX__mod_is32_tests (void) {
 
 
 void CRUX__mod_is64_tests (void) {
-  const Char has_error_fmt[] = "mod(%"IS64_FMT", %"IS64_FMT") must have an error.";
-  const Char not_error_fmt[] = "mod(%"IS64_FMT", %"IS64_FMT") must not have an error.";
-  const Char result_fmt[] = "mod(%"IS64_FMT", %"IS64_FMT") must equal to %"IS64_FMT".";
+  const Char has_error_fmt[] = "%"IS64_FMT" mod %"IS64_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IS64_FMT" mod %"IS64_FMT" must not have an error.";
+  const Char result_fmt[] = "%"IS64_FMT" mod %"IS64_FMT" must equal to %"IS64_FMT".";
   const IS64 values[7] = {IS64_MIN, IS64_MIN + 1, -1, 0, 1, IS64_MAX - 1, IS64_MAX};
   const Bool checks[7][7] = {
     {false, false, false, false, false, false, false},
