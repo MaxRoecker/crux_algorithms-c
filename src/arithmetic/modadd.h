@@ -18,7 +18,10 @@
  * @return the result of (a + b) over modulus.
  * 
  */
-CRUX__ResultIU08 CRUX__modadd_iu08 (const IU08 a, const IU08 b, const IU08 modulus);
+CRUX__ResultIU08 CRUX__modadd_iu08 (
+  const IU08 a,
+  const IU08 b,
+  const IU08 modulus);
 
 /**
  * @brief Returns a modular addition of two IU16 values over an IU16 modulus.
@@ -29,7 +32,10 @@ CRUX__ResultIU08 CRUX__modadd_iu08 (const IU08 a, const IU08 b, const IU08 modul
  * @return the result of (a + b) over modulus.
  * 
  */
-CRUX__ResultIU16 CRUX__modadd_iu16 (const IU16 a, const IU16 b, const IU16 modulus);
+CRUX__ResultIU16 CRUX__modadd_iu16 (
+  const IU16 a,
+  const IU16 b,
+  const IU16 modulus);
 
 /**
  * @brief Returns a modular addition of two IU32 values over an IU32 modulus.
@@ -40,7 +46,10 @@ CRUX__ResultIU16 CRUX__modadd_iu16 (const IU16 a, const IU16 b, const IU16 modul
  * @return the result of (a + b) over modulus.
  * 
  */
-CRUX__ResultIU32 CRUX__modadd_iu32 (const IU32 a, const IU32 b, const IU32 modulus);
+CRUX__ResultIU32 CRUX__modadd_iu32 (
+  const IU32 a,
+  const IU32 b,
+  const IU32 modulus);
 
 /**
  * @brief Returns a modular addition of two IU64 values over an IU64 modulus.
@@ -51,7 +60,10 @@ CRUX__ResultIU32 CRUX__modadd_iu32 (const IU32 a, const IU32 b, const IU32 modul
  * @return the result of (a + b) over modulus.
  * 
  */
-CRUX__ResultIU64 CRUX__modadd_iu64 (const IU64 a, const IU64 b, const IU64 modulus);
+CRUX__ResultIU64 CRUX__modadd_iu64 (
+  const IU64 a,
+  const IU64 b,
+  const IU64 modulus);
 
 /**
  * @brief Returns a modular addition of two IS08 values over an IS08 modulus.
@@ -62,7 +74,10 @@ CRUX__ResultIU64 CRUX__modadd_iu64 (const IU64 a, const IU64 b, const IU64 modul
  * @return the result of (a + b) over modulus.
  * 
  */
-CRUX__ResultIS08 CRUX__modadd_is08 (const IS08 a, const IS08 b, const IS08 modulus);
+CRUX__ResultIS08 CRUX__modadd_is08 (
+  const IS08 a,
+  const IS08 b,
+  const IS08 modulus);
 
 /**
  * @brief Returns a modular addition of two IS16 values over an IS16 modulus.
@@ -73,7 +88,10 @@ CRUX__ResultIS08 CRUX__modadd_is08 (const IS08 a, const IS08 b, const IS08 modul
  * @return the result of (a + b) over modulus.
  * 
  */
-CRUX__ResultIS16 CRUX__modadd_is16 (const IS16 a, const IS16 b, const IS16 modulus);
+CRUX__ResultIS16 CRUX__modadd_is16 (
+  const IS16 a,
+  const IS16 b,
+  const IS16 modulus);
 
 /**
  * @brief Returns a modular addition of two IS32 values over an IS32 modulus.
@@ -84,7 +102,10 @@ CRUX__ResultIS16 CRUX__modadd_is16 (const IS16 a, const IS16 b, const IS16 modul
  * @return the result of (a + b) over modulus.
  * 
  */
-CRUX__ResultIS32 CRUX__modadd_is32 (const IS32 a, const IS32 b, const IS32 modulus);
+CRUX__ResultIS32 CRUX__modadd_is32 (
+  const IS32 a,
+  const IS32 b,
+  const IS32 modulus);
 
 /**
  * @brief Returns a modular addition of two IS64 values over an IS64 modulus.
@@ -95,7 +116,10 @@ CRUX__ResultIS32 CRUX__modadd_is32 (const IS32 a, const IS32 b, const IS32 modul
  * @return the result of (a + b) over modulus.
  * 
  */
-CRUX__ResultIS64 CRUX__modadd_is64 (const IS64 a, const IS64 b, const IS64 modulus);
+CRUX__ResultIS64 CRUX__modadd_is64 (
+  const IS64 a,
+  const IS64 b,
+  const IS64 modulus);
 
 
 
