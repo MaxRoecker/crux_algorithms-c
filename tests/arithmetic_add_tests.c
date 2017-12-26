@@ -5,9 +5,9 @@
 
 
 void CRUX__add_char_tests (void) {
-  const Char has_error_fmt[] = "'%d' + '%d' must have an error.";
-  const Char not_error_fmt[] = "'%d' + '%d' must not have an error.";
-  const Char value_fmt[] = "'%d' + '%d' must equal to '%d'.";
+  const Char has_error_fmt[] = "%d + %d must have an error.";
+  const Char not_error_fmt[] = "%d + %d must not have an error.";
+  const Char value_fmt[] = "%d + %d must equal to %d.";
   if (CRUX__is_char_signed()) {
     const Char inputs[7] = {CHAR_MIN, CHAR_MIN + 1, -1, 0, 1, CHAR_MAX - 1, CHAR_MAX};
     const Bool checks[7][7] = {

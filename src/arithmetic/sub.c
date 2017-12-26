@@ -9,7 +9,8 @@
 inline Bool CRUX__sub_char_has_error (const Char a, const Char b) {
   Bool has_error = false;
   if (CRUX__is_char_signed()) {
-    has_error = (Bool)((CRUX__is_positive(b) && (a < (CHAR_MIN + b))) \
+    has_error = (Bool)(
+      (CRUX__is_positive(b) && (a < (CHAR_MIN + b)))
       || (CRUX__is_negative(b) && (a > (CHAR_MAX + b))));
   } else {
     has_error = (Bool)(a < b);
@@ -49,7 +50,7 @@ inline Bool CRUX__sub_iu64_has_error (const IU64 a, const IU64 b) {
 
 inline Bool CRUX__sub_is08_has_error (const IS08 a, const IS08 b) {
   const Bool has_error = (Bool)(
-    (CRUX__is_positive(b) && (a < (IS08_MIN + b))) \
+    (CRUX__is_positive(b) && (a < (IS08_MIN + b)))
     || (CRUX__is_negative(b) && (a > (IS08_MAX + b))));
   return has_error;
 }

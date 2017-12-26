@@ -9,7 +9,8 @@
 inline Bool CRUX__add_char_has_error (const Char a, const Char b) {
   Bool has_error = false;
   if (CRUX__is_char_signed()) {
-    has_error = (Bool)((CRUX__is_positive(b) && (a > (CHAR_MAX - b)))
+    has_error = (Bool)(
+      (CRUX__is_positive(b) && (a > (CHAR_MAX - b)))
       || (CRUX__is_negative(b) && (a < (CHAR_MIN - b))));
   } else {
     has_error = (Bool)((CHAR_MAX - a) < b);
