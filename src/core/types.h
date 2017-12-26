@@ -49,6 +49,15 @@ typedef int64_t IS64;
 Size CRUX__popcount (uintmax_t value);
 
 
+/**
+ * @brief Checks the sign of the Char type.
+ *
+ * @return true if Char is signed, false otherwise.
+ *
+ */
+Bool CRUX__is_char_signed (void);
+
+
 
 
 #define nil(type) ((type *) 0)
@@ -130,6 +139,8 @@ Size CRUX__popcount (uintmax_t value);
 #define IS64_FMT PRId64
 
 
+#define as_char(integer) ((Char) integer)
+#define as_size(integer) ((Size) integer)
 #define as_iu08(integer) ((IU08) UINT8_C(integer))
 #define as_iu16(integer) ((IU16) UINT16_C(integer))
 #define as_iu32(integer) ((IU32) UINT32_C(integer))
@@ -138,7 +149,6 @@ Size CRUX__popcount (uintmax_t value);
 #define as_is16(integer) ((IS16) INT16_C(integer))
 #define as_is32(integer) ((IS32) INT32_C(integer))
 #define as_is64(integer) ((IS64) INT64_C(integer))
-#define as_size(integer) ((Size) integer)
 
 
 #define int_precision(value) _Generic(value,  \

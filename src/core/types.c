@@ -11,3 +11,9 @@ Size CRUX__popcount (uintmax_t value) {
   }
   return precision;
 }
+
+
+inline Bool CRUX__is_char_signed (void) {
+  const Bool is_signed = (CHAR_MIN != as_char(0)) ? true : false;
+  return is_signed;
+}
