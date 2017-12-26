@@ -4,3975 +4,440 @@
 
 
 
-void CRUX__sub_iu08_iu08_tests (void) {
-  const IU08 a_max = IU08_MAX;
-  const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = as_iu08(0);
-  const IU08 a_one = as_iu08(1);
-  const IU08 b_max = IU08_MAX;
-  const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = as_iu08(0);
-  const IU08 b_one = as_iu08(1);
-  CRUX__ResultIU08 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU08 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU08 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU08 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU08 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU08 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU08 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU08 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU08 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU08 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU08 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU08 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU08 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU08 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU08 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU08 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
+void CRUX__sub_char_tests (void) {
+  const Char has_error_fmt[] = "'%d' + '%d' must have an error.";
+  const Char not_error_fmt[] = "'%d' + '%d' must not have an error.";
+  const Char value_fmt[] = "'%d' + '%d' must equal to '%d'.";
+  if (CRUX__is_char_signed()) {
+    const Char inputs[7] = {CHAR_MIN, CHAR_MIN + 1, -1, 0, 1, CHAR_MAX - 1, CHAR_MAX};
+    const Bool checks[7][7] = {
+      { true,  true,  true, false, false, false, false},
+      { true,  true,  true,  true, false, false, false},
+      { true,  true,  true,  true,  true,  true, false},
+      { true,  true,  true,  true,  true,  true,  true},
+      {false,  true,  true,  true,  true,  true,  true},
+      {false, false,  true,  true,  true,  true,  true},
+      {false, false,  true,  true,  true,  true,  true}};
+    const Char values[7][7] = {
+      {0, 1, CHAR_MAX, 0, 0, 0, 0},
+      {-1, 0, CHAR_MAX - 1, CHAR_MAX, 0, 0, 0},
+      {CHAR_MIN + 1, CHAR_MIN + 2, 0, 1, 2, CHAR_MAX, 0},
+      {CHAR_MIN, CHAR_MIN + 1, -1, 0, 1, CHAR_MAX - 1, CHAR_MAX},
+      {0, CHAR_MIN, -2, -1, 0, CHAR_MAX - 2, CHAR_MAX - 1},
+      {0, 0, CHAR_MIN + 1, CHAR_MIN + 2, CHAR_MIN + 3, 0, 1},
+      {0, 0, CHAR_MIN, CHAR_MIN + 1, CHAR_MIN + 2, -1, 0}};
+    for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+      for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+        const Char a = inputs[j];
+        const Char b = inputs[i];
+        const Char value = values[i][j];
+        const Bool check = checks[i][j];
+        CRUX__ResultChar result = CRUX__sub_char(a, b);
+        const Bool actual_check = CRUX__trace_check(result.trace);
+        const Char actual_value = result.value;
+        if (check) {
+          ok((actual_check == check), not_error_fmt, a, b);
+          ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+        } else {
+          ok((actual_check == check), has_error_fmt, a, b);
+        }
+        CRUX__trace_clean(&result.trace);
+      }
+    }
+  } else {
+    const Char inputs[4] = {CHAR_MIN, CHAR_MIN + 1, CHAR_MAX - 1, CHAR_MAX};
+    const Bool checks[4][4] = {
+      { true,  true,  true, true},
+      {false,  true,  true, true},
+      {false, false,  true, true},
+      {false, false, false, true}};
+    const Char values[4][4] = {
+      {CHAR_MIN, CHAR_MIN + 1, CHAR_MAX - 1, CHAR_MAX},
+      {0, 0, CHAR_MAX - 2, CHAR_MAX - 1},
+      {0, 0, 0, 1},
+      {0, 0, 0, 0}};
+    for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+      for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+        const Char a = inputs[j];
+        const Char b = inputs[i];
+        const Char value = values[i][j];
+        const Bool check = checks[i][j];
+        CRUX__ResultChar result = CRUX__sub_char(a, b);
+        const Bool actual_check = CRUX__trace_check(result.trace);
+        const Char actual_value = result.value;
+        if (check) {
+          ok((actual_check == check), not_error_fmt, a, b);
+          ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+        } else {
+          ok((actual_check == check), has_error_fmt, a, b);
+        }
+        CRUX__trace_clean(&result.trace);
+      }
+    }
+  }
+}
+
+
+void CRUX__sub_size_tests (void) {
+  const Char has_error_fmt[] = "%"SIZE_FMT" - %"SIZE_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"SIZE_FMT" - %"SIZE_FMT" must not have an error.";
+  const Char value_fmt[] = "%"SIZE_FMT" - %"SIZE_FMT" must equal to %"SIZE_FMT".";
+  const Size inputs[4] = {SIZE_MIN, SIZE_MIN + 1, SIZE_MAX - 1, SIZE_MAX};
+  const Bool checks[4][4] = {
+    { true,  true,  true, true},
+    {false,  true,  true, true},
+    {false, false,  true, true},
+    {false, false, false, true}};
+  const Size values[4][4] = {
+    {SIZE_MIN, SIZE_MIN + 1, SIZE_MAX - 1, SIZE_MAX},
+    {0, 0, SIZE_MAX - 2, SIZE_MAX - 1},
+    {0, 0, 0, 1},
+    {0, 0, 0, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const Size a = inputs[j];
+      const Size b = inputs[i];
+      const Size value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultSize result = CRUX__sub_size(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const Size actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
+}
+
+
+void CRUX__sub_iu08_tests (void) {
+  const Char has_error_fmt[] = "%"IU08_FMT" - %"IU08_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IU08_FMT" - %"IU08_FMT" must not have an error.";
+  const Char value_fmt[] = "%"IU08_FMT" - %"IU08_FMT" must equal to %"IU08_FMT".";
+  const IU08 inputs[4] = {IU08_MIN, IU08_MIN + 1, IU08_MAX - 1, IU08_MAX};
+  const Bool checks[4][4] = {
+    { true,  true,  true, true},
+    {false,  true,  true, true},
+    {false, false,  true, true},
+    {false, false, false, true}};
+  const IU08 values[4][4] = {
+    {IU08_MIN, IU08_MIN + 1, IU08_MAX - 1, IU08_MAX},
+    {0, 0, IU08_MAX - 2, IU08_MAX - 1},
+    {0, 0, 0, 1},
+    {0, 0, 0, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const IU08 a = inputs[j];
+      const IU08 b = inputs[i];
+      const IU08 value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIU08 result = CRUX__sub(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const IU08 actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
+}
+
+
+void CRUX__sub_iu16_tests (void) {
+  const Char has_error_fmt[] = "%"IU16_FMT" - %"IU16_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IU16_FMT" - %"IU16_FMT" must not have an error.";
+  const Char value_fmt[] = "%"IU16_FMT" - %"IU16_FMT" must equal to %"IU16_FMT".";
+  const IU16 inputs[4] = {IU16_MIN, IU16_MIN + 1, IU16_MAX - 1, IU16_MAX};
+  const Bool checks[4][4] = {
+    { true,  true,  true, true},
+    {false,  true,  true, true},
+    {false, false,  true, true},
+    {false, false, false, true}};
+  const IU16 values[4][4] = {
+    {IU16_MIN, IU16_MIN + 1, IU16_MAX - 1, IU16_MAX},
+    {0, 0, IU16_MAX - 2, IU16_MAX - 1},
+    {0, 0, 0, 1},
+    {0, 0, 0, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const IU16 a = inputs[j];
+      const IU16 b = inputs[i];
+      const IU16 value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIU16 result = CRUX__sub(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const IU16 actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
+}
+
+
+void CRUX__sub_iu32_tests (void) {
+  const Char has_error_fmt[] = "%"IU32_FMT" - %"IU32_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IU32_FMT" - %"IU32_FMT" must not have an error.";
+  const Char value_fmt[] = "%"IU32_FMT" - %"IU32_FMT" must equal to %"IU32_FMT".";
+  const IU32 inputs[4] = {IU32_MIN, IU32_MIN + 1, IU32_MAX - 1, IU32_MAX};
+  const Bool checks[4][4] = {
+    { true,  true,  true, true},
+    {false,  true,  true, true},
+    {false, false,  true, true},
+    {false, false, false, true}};
+  const IU32 values[4][4] = {
+    {IU32_MIN, IU32_MIN + 1, IU32_MAX - 1, IU32_MAX},
+    {0, 0, IU32_MAX - 2, IU32_MAX - 1},
+    {0, 0, 0, 1},
+    {0, 0, 0, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const IU32 a = inputs[j];
+      const IU32 b = inputs[i];
+      const IU32 value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIU32 result = CRUX__sub(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const IU32 actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
+}
+
+
+void CRUX__sub_iu64_tests (void) {
+  const Char has_error_fmt[] = "%"IU64_FMT" - %"IU64_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IU64_FMT" - %"IU64_FMT" must not have an error.";
+  const Char value_fmt[] = "%"IU64_FMT" - %"IU64_FMT" must equal to %"IU64_FMT".";
+  const IU64 inputs[4] = {IU64_MIN, IU64_MIN + 1, IU64_MAX - 1, IU64_MAX};
+  const Bool checks[4][4] = {
+    { true,  true,  true, true},
+    {false,  true,  true, true},
+    {false, false,  true, true},
+    {false, false, false, true}};
+  const IU64 values[4][4] = {
+    {IU64_MIN, IU64_MIN + 1, IU64_MAX - 1, IU64_MAX},
+    {0, 0, IU64_MAX - 2, IU64_MAX - 1},
+    {0, 0, 0, 1},
+    {0, 0, 0, 0}};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(4); j += as_size(1)) {
+      const IU64 a = inputs[j];
+      const IU64 b = inputs[i];
+      const IU64 value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIU64 result = CRUX__sub(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const IU64 actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
+}
+
+
+void CRUX__sub_is08_tests (void) {
+  const Char has_error_fmt[] = "%"IS08_FMT" - %"IS08_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IS08_FMT" - %"IS08_FMT" must not have an error.";
+  const Char value_fmt[] = "%"IS08_FMT" - %"IS08_FMT" must equal to %"IS08_FMT".";
+  const IS08 inputs[7] = {IS08_MIN, IS08_MIN + 1, -1, 0, 1, IS08_MAX - 1, IS08_MAX};
+  const Bool checks[7][7] = {
+    { true,  true,  true, false, false, false, false},
+    { true,  true,  true,  true, false, false, false},
+    { true,  true,  true,  true,  true,  true, false},
+    { true,  true,  true,  true,  true,  true,  true},
+    {false,  true,  true,  true,  true,  true,  true},
+    {false, false,  true,  true,  true,  true,  true},
+    {false, false,  true,  true,  true,  true,  true}};
+  const IS08 values[7][7] = {
+    {0, 1, IS08_MAX, 0, 0, 0, 0},
+    {-1, 0, IS08_MAX - 1, IS08_MAX, 0, 0, 0},
+    {IS08_MIN + 1, IS08_MIN + 2, 0, 1, 2, IS08_MAX, 0},
+    {IS08_MIN, IS08_MIN + 1, -1, 0, 1, IS08_MAX - 1, IS08_MAX},
+    {0, IS08_MIN, -2, -1, 0, IS08_MAX - 2, IS08_MAX - 1},
+    {0, 0, IS08_MIN + 1, IS08_MIN + 2, IS08_MIN + 3, 0, 1},
+    {0, 0, IS08_MIN, IS08_MIN + 1, IS08_MIN + 2, -1, 0}};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+      const IS08 a = inputs[j];
+      const IS08 b = inputs[i];
+      const IS08 value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIS08 result = CRUX__sub(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const IS08 actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
+}
+
+
+void CRUX__sub_is16_tests (void) {
+  const Char has_error_fmt[] = "%"IS16_FMT" - %"IS16_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IS16_FMT" - %"IS16_FMT" must not have an error.";
+  const Char value_fmt[] = "%"IS16_FMT" - %"IS16_FMT" must equal to %"IS16_FMT".";
+  const IS16 inputs[7] = {IS16_MIN, IS16_MIN + 1, -1, 0, 1, IS16_MAX - 1, IS16_MAX};
+  const Bool checks[7][7] = {
+    { true,  true,  true, false, false, false, false},
+    { true,  true,  true,  true, false, false, false},
+    { true,  true,  true,  true,  true,  true, false},
+    { true,  true,  true,  true,  true,  true,  true},
+    {false,  true,  true,  true,  true,  true,  true},
+    {false, false,  true,  true,  true,  true,  true},
+    {false, false,  true,  true,  true,  true,  true}};
+  const IS16 values[7][7] = {
+    {0, 1, IS16_MAX, 0, 0, 0, 0},
+    {-1, 0, IS16_MAX - 1, IS16_MAX, 0, 0, 0},
+    {IS16_MIN + 1, IS16_MIN + 2, 0, 1, 2, IS16_MAX, 0},
+    {IS16_MIN, IS16_MIN + 1, -1, 0, 1, IS16_MAX - 1, IS16_MAX},
+    {0, IS16_MIN, -2, -1, 0, IS16_MAX - 2, IS16_MAX - 1},
+    {0, 0, IS16_MIN + 1, IS16_MIN + 2, IS16_MIN + 3, 0, 1},
+    {0, 0, IS16_MIN, IS16_MIN + 1, IS16_MIN + 2, -1, 0}};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+      const IS16 a = inputs[j];
+      const IS16 b = inputs[i];
+      const IS16 value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIS16 result = CRUX__sub(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const IS16 actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
+}
+
+
+void CRUX__sub_is32_tests (void) {
+  const Char has_error_fmt[] = "%"IS32_FMT" - %"IS32_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IS32_FMT" - %"IS32_FMT" must not have an error.";
+  const Char value_fmt[] = "%"IS32_FMT" - %"IS32_FMT" must equal to %"IS32_FMT".";
+  const IS32 inputs[7] = {IS32_MIN, IS32_MIN + 1, -1, 0, 1, IS32_MAX - 1, IS32_MAX};
+  const Bool checks[7][7] = {
+    { true,  true,  true, false, false, false, false},
+    { true,  true,  true,  true, false, false, false},
+    { true,  true,  true,  true,  true,  true, false},
+    { true,  true,  true,  true,  true,  true,  true},
+    {false,  true,  true,  true,  true,  true,  true},
+    {false, false,  true,  true,  true,  true,  true},
+    {false, false,  true,  true,  true,  true,  true}};
+  const IS32 values[7][7] = {
+    {0, 1, IS32_MAX, 0, 0, 0, 0},
+    {-1, 0, IS32_MAX - 1, IS32_MAX, 0, 0, 0},
+    {IS32_MIN + 1, IS32_MIN + 2, 0, 1, 2, IS32_MAX, 0},
+    {IS32_MIN, IS32_MIN + 1, -1, 0, 1, IS32_MAX - 1, IS32_MAX},
+    {0, IS32_MIN, -2, -1, 0, IS32_MAX - 2, IS32_MAX - 1},
+    {0, 0, IS32_MIN + 1, IS32_MIN + 2, IS32_MIN + 3, 0, 1},
+    {0, 0, IS32_MIN, IS32_MIN + 1, IS32_MIN + 2, -1, 0}};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+      const IS32 a = inputs[j];
+      const IS32 b = inputs[i];
+      const IS32 value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIS32 result = CRUX__sub(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const IS32 actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
+}
+
+
+void CRUX__sub_is64_tests (void) {
+  const Char has_error_fmt[] = "%"IS64_FMT" - %"IS64_FMT" must have an error.";
+  const Char not_error_fmt[] = "%"IS64_FMT" - %"IS64_FMT" must not have an error.";
+  const Char value_fmt[] = "%"IS64_FMT" - %"IS64_FMT" must equal to %"IS64_FMT".";
+  const IS64 inputs[7] = {IS64_MIN, IS64_MIN + 1, -1, 0, 1, IS64_MAX - 1, IS64_MAX};
+  const Bool checks[7][7] = {
+    { true,  true,  true, false, false, false, false},
+    { true,  true,  true,  true, false, false, false},
+    { true,  true,  true,  true,  true,  true, false},
+    { true,  true,  true,  true,  true,  true,  true},
+    {false,  true,  true,  true,  true,  true,  true},
+    {false, false,  true,  true,  true,  true,  true},
+    {false, false,  true,  true,  true,  true,  true}};
+  const IS64 values[7][7] = {
+    {0, 1, IS64_MAX, 0, 0, 0, 0},
+    {-1, 0, IS64_MAX - 1, IS64_MAX, 0, 0, 0},
+    {IS64_MIN + 1, IS64_MIN + 2, 0, 1, 2, IS64_MAX, 0},
+    {IS64_MIN, IS64_MIN + 1, -1, 0, 1, IS64_MAX - 1, IS64_MAX},
+    {0, IS64_MIN, -2, -1, 0, IS64_MAX - 2, IS64_MAX - 1},
+    {0, 0, IS64_MIN + 1, IS64_MIN + 2, IS64_MIN + 3, 0, 1},
+    {0, 0, IS64_MIN, IS64_MIN + 1, IS64_MIN + 2, -1, 0}};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    for (Size j = as_size(0); j < as_size(7); j += as_size(1)) {
+      const IS64 a = inputs[j];
+      const IS64 b = inputs[i];
+      const IS64 value = values[i][j];
+      const Bool check = checks[i][j];
+      CRUX__ResultIS64 result = CRUX__sub(a, b);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const IS64 actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, a, b);
+        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, a, b);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
 }
-
-
-void CRUX__sub_iu08_iu16_tests (void) {
-  const IU08 a_max = IU08_MAX;
-  const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = as_iu08(0);
-  const IU08 a_one = as_iu08(1);
-  const IU16 b_max = IU16_MAX;
-  const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = as_iu16(0);
-  const IU16 b_one = as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu08_iu32_tests (void) {
-  const IU08 a_max = IU08_MAX;
-  const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = as_iu08(0);
-  const IU08 a_one = as_iu08(1);
-  const IU32 b_max = IU32_MAX;
-  const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = as_iu32(0);
-  const IU32 b_one = as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu08_iu64_tests (void) {
-  const IU08 a_max = IU08_MAX;
-  const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = as_iu08(0);
-  const IU08 a_one = as_iu08(1);
-  const IU64 b_max = IU64_MAX;
-  const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = as_iu64(0);
-  const IU64 b_one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu08_is08_tests (void) {
-  const IU08 a_max = IU08_MAX;
-  const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = as_iu08(0);
-  const IU08 a_one = as_iu08(1);
-  const IS08 b_max = IS08_MAX;
-  const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = as_is08(0);
-  const IS08 b_one = as_is08(1);
-  CRUX__ResultIU08 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU08 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU08 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU08 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU08 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU08 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU08 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU08 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU08 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU08 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU08 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU08 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU08 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU08 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU08 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU08 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu08_is16_tests (void) {
-  const IU08 a_max = IU08_MAX;
-  const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = as_iu08(0);
-  const IU08 a_one = as_iu08(1);
-  const IS16 b_max = IS16_MAX;
-  const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = as_is16(0);
-  const IS16 b_one = as_is16(1);
-  CRUX__ResultIS16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu08_is32_tests (void) {
-  const IU08 a_max = IU08_MAX;
-  const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = as_iu08(0);
-  const IU08 a_one = as_iu08(1);
-  const IS32 b_max = IS32_MAX;
-  const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = as_is32(0);
-  const IS32 b_one = as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu08_is64_tests (void) {
-  const IU08 a_max = IU08_MAX;
-  const IU08 a_min = IU08_MIN;
-  const IU08 a_nil = as_iu08(0);
-  const IU08 a_one = as_iu08(1);
-  const IS64 b_max = IS64_MAX;
-  const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = as_is64(0);
-  const IS64 b_one = as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu16_iu08_tests (void) {
-  const IU16 a_max = IU16_MAX;
-  const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = as_iu16(0);
-  const IU16 a_one = as_iu16(1);
-  const IU08 b_max = IU08_MAX;
-  const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = as_iu08(0);
-  const IU08 b_one = as_iu08(1);
-  CRUX__ResultIU16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu16_iu16_tests (void) {
-  const IU16 a_max = IU16_MAX;
-  const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = as_iu16(0);
-  const IU16 a_one = as_iu16(1);
-  const IU16 b_max = IU16_MAX;
-  const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = as_iu16(0);
-  const IU16 b_one = as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu16_iu32_tests (void) {
-  const IU16 a_max = IU16_MAX;
-  const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = as_iu16(0);
-  const IU16 a_one = as_iu16(1);
-  const IU32 b_max = IU32_MAX;
-  const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = as_iu32(0);
-  const IU32 b_one = as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu16_iu64_tests (void) {
-  const IU16 a_max = IU16_MAX;
-  const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = as_iu16(0);
-  const IU16 a_one = as_iu16(1);
-  const IU64 b_max = IU64_MAX;
-  const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = as_iu64(0);
-  const IU64 b_one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu16_is08_tests (void) {
-  const IU16 a_max = IU16_MAX;
-  const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = as_iu16(0);
-  const IU16 a_one = as_iu16(1);
-  const IS08 b_max = IS08_MAX;
-  const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = as_is08(0);
-  const IS08 b_one = as_is08(1);
-  CRUX__ResultIU16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu16_is16_tests (void) {
-  const IU16 a_max = IU16_MAX;
-  const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = as_iu16(0);
-  const IU16 a_one = as_iu16(1);
-  const IS16 b_max = IS16_MAX;
-  const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = as_is16(0);
-  const IS16 b_one = as_is16(1);
-  CRUX__ResultIU16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu16_is32_tests (void) {
-  const IU16 a_max = IU16_MAX;
-  const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = as_iu16(0);
-  const IU16 a_one = as_iu16(1);
-  const IS32 b_max = IS32_MAX;
-  const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = as_is32(0);
-  const IS32 b_one = as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu16_is64_tests (void) {
-  const IU16 a_max = IU16_MAX;
-  const IU16 a_min = IU16_MIN;
-  const IU16 a_nil = as_iu16(0);
-  const IU16 a_one = as_iu16(1);
-  const IS64 b_max = IS64_MAX;
-  const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = as_is64(0);
-  const IS64 b_one = as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu32_iu08_tests (void) {
-  const IU32 a_max = IU32_MAX;
-  const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = as_iu32(0);
-  const IU32 a_one = as_iu32(1);
-  const IU08 b_max = IU08_MAX;
-  const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = as_iu08(0);
-  const IU08 b_one = as_iu08(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu32_iu16_tests (void) {
-  const IU32 a_max = IU32_MAX;
-  const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = as_iu32(0);
-  const IU32 a_one = as_iu32(1);
-  const IU16 b_max = IU16_MAX;
-  const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = as_iu16(0);
-  const IU16 b_one = as_iu16(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu32_iu32_tests (void) {
-  const IU32 a_max = IU32_MAX;
-  const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = as_iu32(0);
-  const IU32 a_one = as_iu32(1);
-  const IU32 b_max = IU32_MAX;
-  const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = as_iu32(0);
-  const IU32 b_one = as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu32_iu64_tests (void) {
-  const IU32 a_max = IU32_MAX;
-  const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = as_iu32(0);
-  const IU32 a_one = as_iu32(1);
-  const IU64 b_max = IU64_MAX;
-  const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = as_iu64(0);
-  const IU64 b_one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu32_is08_tests (void) {
-  const IU32 a_max = IU32_MAX;
-  const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = as_iu32(0);
-  const IU32 a_one = as_iu32(1);
-  const IS08 b_max = IS08_MAX;
-  const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = as_is08(0);
-  const IS08 b_one = as_is08(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu32_is16_tests (void) {
-  const IU32 a_max = IU32_MAX;
-  const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = as_iu32(0);
-  const IU32 a_one = as_iu32(1);
-  const IS16 b_max = IS16_MAX;
-  const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = as_is16(0);
-  const IS16 b_one = as_is16(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu32_is32_tests (void) {
-  const IU32 a_max = IU32_MAX;
-  const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = as_iu32(0);
-  const IU32 a_one = as_iu32(1);
-  const IS32 b_max = IS32_MAX;
-  const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = as_is32(0);
-  const IS32 b_one = as_is32(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu32_is64_tests (void) {
-  const IU32 a_max = IU32_MAX;
-  const IU32 a_min = IU32_MIN;
-  const IU32 a_nil = as_iu32(0);
-  const IU32 a_one = as_iu32(1);
-  const IS64 b_max = IS64_MAX;
-  const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = as_is64(0);
-  const IS64 b_one = as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu64_iu08_tests (void) {
-  const IU64 a_max = IU64_MAX;
-  const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = as_iu64(0);
-  const IU64 a_one = as_iu64(1);
-  const IU08 b_max = IU08_MAX;
-  const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = as_iu08(0);
-  const IU08 b_one = as_iu08(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu64_iu16_tests (void) {
-  const IU64 a_max = IU64_MAX;
-  const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = as_iu64(0);
-  const IU64 a_one = as_iu64(1);
-  const IU16 b_max = IU16_MAX;
-  const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = as_iu16(0);
-  const IU16 b_one = as_iu16(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu64_iu32_tests (void) {
-  const IU64 a_max = IU64_MAX;
-  const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = as_iu64(0);
-  const IU64 a_one = as_iu64(1);
-  const IU32 b_max = IU32_MAX;
-  const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = as_iu32(0);
-  const IU32 b_one = as_iu32(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu64_iu64_tests (void) {
-  const IU64 a_max = IU64_MAX;
-  const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = as_iu64(0);
-  const IU64 a_one = as_iu64(1);
-  const IU64 b_max = IU64_MAX;
-  const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = as_iu64(0);
-  const IU64 b_one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu64_is08_tests (void) {
-  const IU64 a_max = IU64_MAX;
-  const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = as_iu64(0);
-  const IU64 a_one = as_iu64(1);
-  const IS08 b_max = IS08_MAX;
-  const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = as_is08(0);
-  const IS08 b_one = as_is08(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu64_is16_tests (void) {
-  const IU64 a_max = IU64_MAX;
-  const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = as_iu64(0);
-  const IU64 a_one = as_iu64(1);
-  const IS16 b_max = IS16_MAX;
-  const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = as_is16(0);
-  const IS16 b_one = as_is16(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu64_is32_tests (void) {
-  const IU64 a_max = IU64_MAX;
-  const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = as_iu64(0);
-  const IU64 a_one = as_iu64(1);
-  const IS32 b_max = IS32_MAX;
-  const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = as_is32(0);
-  const IS32 b_one = as_is32(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_iu64_is64_tests (void) {
-  const IU64 a_max = IU64_MAX;
-  const IU64 a_min = IU64_MIN;
-  const IU64 a_nil = as_iu64(0);
-  const IU64 a_one = as_iu64(1);
-  const IS64 b_max = IS64_MAX;
-  const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = as_is64(0);
-  const IS64 b_one = as_is64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is08_iu08_tests (void) {
-  const IS08 a_max = IS08_MAX;
-  const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = as_is08(0);
-  const IS08 a_one = as_is08(1);
-  const IU08 b_max = IU08_MAX;
-  const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = as_iu08(0);
-  const IU08 b_one = as_iu08(1);
-  CRUX__ResultIU08 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU08 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU08 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU08 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU08 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU08 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU08 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU08 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU08 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU08 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU08 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU08 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU08 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU08 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU08 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU08 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is08_iu16_tests (void) {
-  const IS08 a_max = IS08_MAX;
-  const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = as_is08(0);
-  const IS08 a_one = as_is08(1);
-  const IU16 b_max = IU16_MAX;
-  const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = as_iu16(0);
-  const IU16 b_one = as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is08_iu32_tests (void) {
-  const IS08 a_max = IS08_MAX;
-  const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = as_is08(0);
-  const IS08 a_one = as_is08(1);
-  const IU32 b_max = IU32_MAX;
-  const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = as_iu32(0);
-  const IU32 b_one = as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is08_iu64_tests (void) {
-  const IS08 a_max = IS08_MAX;
-  const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = as_is08(0);
-  const IS08 a_one = as_is08(1);
-  const IU64 b_max = IU64_MAX;
-  const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = as_iu64(0);
-  const IU64 b_one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is08_is08_tests (void) {
-  const IS08 a_max = IS08_MAX;
-  const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = as_is08(0);
-  const IS08 a_one = as_is08(1);
-  const IS08 b_max = IS08_MAX;
-  const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = as_is08(0);
-  const IS08 b_one = as_is08(1);
-  CRUX__ResultIS08 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS08 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS08 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS08 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS08 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS08 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS08 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS08 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS08 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS08 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS08 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS08 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS08 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS08 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS08 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS08 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is08_is16_tests (void) {
-  const IS08 a_max = IS08_MAX;
-  const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = as_is08(0);
-  const IS08 a_one = as_is08(1);
-  const IS16 b_max = IS16_MAX;
-  const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = as_is16(0);
-  const IS16 b_one = as_is16(1);
-  CRUX__ResultIS16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is08_is32_tests (void) {
-  const IS08 a_max = IS08_MAX;
-  const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = as_is08(0);
-  const IS08 a_one = as_is08(1);
-  const IS32 b_max = IS32_MAX;
-  const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = as_is32(0);
-  const IS32 b_one = as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is08_is64_tests (void) {
-  const IS08 a_max = IS08_MAX;
-  const IS08 a_min = IS08_MIN;
-  const IS08 a_nil = as_is08(0);
-  const IS08 a_one = as_is08(1);
-  const IS64 b_max = IS64_MAX;
-  const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = as_is64(0);
-  const IS64 b_one = as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is16_iu08_tests (void) {
-  const IS16 a_max = IS16_MAX;
-  const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = as_is16(0);
-  const IS16 a_one = as_is16(1);
-  const IU08 b_max = IU08_MAX;
-  const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = as_iu08(0);
-  const IU08 b_one = as_iu08(1);
-  CRUX__ResultIS16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is16_iu16_tests (void) {
-  const IS16 a_max = IS16_MAX;
-  const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = as_is16(0);
-  const IS16 a_one = as_is16(1);
-  const IU16 b_max = IU16_MAX;
-  const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = as_iu16(0);
-  const IU16 b_one = as_iu16(1);
-  CRUX__ResultIU16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU16 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is16_iu32_tests (void) {
-  const IS16 a_max = IS16_MAX;
-  const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = as_is16(0);
-  const IS16 a_one = as_is16(1);
-  const IU32 b_max = IU32_MAX;
-  const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = as_iu32(0);
-  const IU32 b_one = as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is16_iu64_tests (void) {
-  const IS16 a_max = IS16_MAX;
-  const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = as_is16(0);
-  const IS16 a_one = as_is16(1);
-  const IU64 b_max = IU64_MAX;
-  const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = as_iu64(0);
-  const IU64 b_one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is16_is08_tests (void) {
-  const IS16 a_max = IS16_MAX;
-  const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = as_is16(0);
-  const IS16 a_one = as_is16(1);
-  const IS08 b_max = IS08_MAX;
-  const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = as_is08(0);
-  const IS08 b_one = as_is08(1);
-  CRUX__ResultIS16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is16_is16_tests (void) {
-  const IS16 a_max = IS16_MAX;
-  const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = as_is16(0);
-  const IS16 a_one = as_is16(1);
-  const IS16 b_max = IS16_MAX;
-  const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = as_is16(0);
-  const IS16 b_one = as_is16(1);
-  CRUX__ResultIS16 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS16 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS16 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS16 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS16 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS16 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS16 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS16 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS16 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS16 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS16 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS16 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS16 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS16 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS16 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS16 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is16_is32_tests (void) {
-  const IS16 a_max = IS16_MAX;
-  const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = as_is16(0);
-  const IS16 a_one = as_is16(1);
-  const IS32 b_max = IS32_MAX;
-  const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = as_is32(0);
-  const IS32 b_one = as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is16_is64_tests (void) {
-  const IS16 a_max = IS16_MAX;
-  const IS16 a_min = IS16_MIN;
-  const IS16 a_nil = as_is16(0);
-  const IS16 a_one = as_is16(1);
-  const IS64 b_max = IS64_MAX;
-  const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = as_is64(0);
-  const IS64 b_one = as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is32_iu08_tests (void) {
-  const IS32 a_max = IS32_MAX;
-  const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = as_is32(0);
-  const IS32 a_one = as_is32(1);
-  const IU08 b_max = IU08_MAX;
-  const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = as_iu08(0);
-  const IU08 b_one = as_iu08(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is32_iu16_tests (void) {
-  const IS32 a_max = IS32_MAX;
-  const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = as_is32(0);
-  const IS32 a_one = as_is32(1);
-  const IU16 b_max = IU16_MAX;
-  const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = as_iu16(0);
-  const IU16 b_one = as_iu16(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is32_iu32_tests (void) {
-  const IS32 a_max = IS32_MAX;
-  const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = as_is32(0);
-  const IS32 a_one = as_is32(1);
-  const IU32 b_max = IU32_MAX;
-  const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = as_iu32(0);
-  const IU32 b_one = as_iu32(1);
-  CRUX__ResultIU32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU32 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is32_iu64_tests (void) {
-  const IS32 a_max = IS32_MAX;
-  const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = as_is32(0);
-  const IS32 a_one = as_is32(1);
-  const IU64 b_max = IU64_MAX;
-  const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = as_iu64(0);
-  const IU64 b_one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is32_is08_tests (void) {
-  const IS32 a_max = IS32_MAX;
-  const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = as_is32(0);
-  const IS32 a_one = as_is32(1);
-  const IS08 b_max = IS08_MAX;
-  const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = as_is08(0);
-  const IS08 b_one = as_is08(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is32_is16_tests (void) {
-  const IS32 a_max = IS32_MAX;
-  const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = as_is32(0);
-  const IS32 a_one = as_is32(1);
-  const IS16 b_max = IS16_MAX;
-  const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = as_is16(0);
-  const IS16 b_one = as_is16(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is32_is32_tests (void) {
-  const IS32 a_max = IS32_MAX;
-  const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = as_is32(0);
-  const IS32 a_one = as_is32(1);
-  const IS32 b_max = IS32_MAX;
-  const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = as_is32(0);
-  const IS32 b_one = as_is32(1);
-  CRUX__ResultIS32 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS32 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS32 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS32 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS32 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS32 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS32 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS32 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS32 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS32 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS32 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS32 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS32 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS32 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS32 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS32 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is32_is64_tests (void) {
-  const IS32 a_max = IS32_MAX;
-  const IS32 a_min = IS32_MIN;
-  const IS32 a_nil = as_is32(0);
-  const IS32 a_one = as_is32(1);
-  const IS64 b_max = IS64_MAX;
-  const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = as_is64(0);
-  const IS64 b_one = as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is64_iu08_tests (void) {
-  const IS64 a_max = IS64_MAX;
-  const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = as_is64(0);
-  const IS64 a_one = as_is64(1);
-  const IU08 b_max = IU08_MAX;
-  const IU08 b_min = IU08_MIN;
-  const IU08 b_nil = as_iu08(0);
-  const IU08 b_one = as_iu08(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is64_iu16_tests (void) {
-  const IS64 a_max = IS64_MAX;
-  const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = as_is64(0);
-  const IS64 a_one = as_is64(1);
-  const IU16 b_max = IU16_MAX;
-  const IU16 b_min = IU16_MIN;
-  const IU16 b_nil = as_iu16(0);
-  const IU16 b_one = as_iu16(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is64_iu32_tests (void) {
-  const IS64 a_max = IS64_MAX;
-  const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = as_is64(0);
-  const IS64 a_one = as_is64(1);
-  const IU32 b_max = IU32_MAX;
-  const IU32 b_min = IU32_MIN;
-  const IU32 b_nil = as_iu32(0);
-  const IU32 b_one = as_iu32(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is64_iu64_tests (void) {
-  const IS64 a_max = IS64_MAX;
-  const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = as_is64(0);
-  const IS64 a_one = as_is64(1);
-  const IU64 b_max = IU64_MAX;
-  const IU64 b_min = IU64_MIN;
-  const IU64 b_nil = as_iu64(0);
-  const IU64 b_one = as_iu64(1);
-  CRUX__ResultIU64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIU64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIU64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIU64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIU64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIU64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIU64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIU64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIU64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIU64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIU64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIU64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIU64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIU64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIU64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIU64 one_one = CRUX__sub(a_one, b_one);
-  ok(!CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_min.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_nil.trace), "Must have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is64_is08_tests (void) {
-  const IS64 a_max = IS64_MAX;
-  const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = as_is64(0);
-  const IS64 a_one = as_is64(1);
-  const IS08 b_max = IS08_MAX;
-  const IS08 b_min = IS08_MIN;
-  const IS08 b_nil = as_is08(0);
-  const IS08 b_one = as_is08(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is64_is16_tests (void) {
-  const IS64 a_max = IS64_MAX;
-  const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = as_is64(0);
-  const IS64 a_one = as_is64(1);
-  const IS16 b_max = IS16_MAX;
-  const IS16 b_min = IS16_MIN;
-  const IS16 b_nil = as_is16(0);
-  const IS16 b_one = as_is16(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is64_is32_tests (void) {
-  const IS64 a_max = IS64_MAX;
-  const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = as_is64(0);
-  const IS64 a_one = as_is64(1);
-  const IS32 b_max = IS32_MAX;
-  const IS32 b_min = IS32_MIN;
-  const IS32 b_nil = as_is32(0);
-  const IS32 b_one = as_is32(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_is64_is64_tests (void) {
-  const IS64 a_max = IS64_MAX;
-  const IS64 a_min = IS64_MIN;
-  const IS64 a_nil = as_is64(0);
-  const IS64 a_one = as_is64(1);
-  const IS64 b_max = IS64_MAX;
-  const IS64 b_min = IS64_MIN;
-  const IS64 b_nil = as_is64(0);
-  const IS64 b_one = as_is64(1);
-  CRUX__ResultIS64 max_max = CRUX__sub(a_max, b_max);
-  CRUX__ResultIS64 max_min = CRUX__sub(a_max, b_min);
-  CRUX__ResultIS64 max_nil = CRUX__sub(a_max, b_nil);
-  CRUX__ResultIS64 max_one = CRUX__sub(a_max, b_one);
-  CRUX__ResultIS64 min_max = CRUX__sub(a_min, b_max);
-  CRUX__ResultIS64 min_min = CRUX__sub(a_min, b_min);
-  CRUX__ResultIS64 min_nil = CRUX__sub(a_min, b_nil);
-  CRUX__ResultIS64 min_one = CRUX__sub(a_min, b_one);
-  CRUX__ResultIS64 nil_max = CRUX__sub(a_nil, b_max);
-  CRUX__ResultIS64 nil_min = CRUX__sub(a_nil, b_min);
-  CRUX__ResultIS64 nil_nil = CRUX__sub(a_nil, b_nil);
-  CRUX__ResultIS64 nil_one = CRUX__sub(a_nil, b_one);
-  CRUX__ResultIS64 one_max = CRUX__sub(a_one, b_max);
-  CRUX__ResultIS64 one_min = CRUX__sub(a_one, b_min);
-  CRUX__ResultIS64 one_nil = CRUX__sub(a_one, b_nil);
-  CRUX__ResultIS64 one_one = CRUX__sub(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(max_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_one.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_max.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(one_min.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
-void CRUX__sub_size_size_tests (void) {
-  const Size a_max = SIZE_MAX;
-  const Size a_min = SIZE_MIN;
-  const Size a_nil = as_size(0);
-  const Size a_one = as_size(1);
-  const Size b_max = SIZE_MAX;
-  const Size b_min = SIZE_MIN;
-  const Size b_nil = as_size(0);
-  const Size b_one = as_size(1);
-  CRUX__ResultSize max_max = CRUX__sub_size_size(a_max, b_max);
-  CRUX__ResultSize max_min = CRUX__sub_size_size(a_max, b_min);
-  CRUX__ResultSize max_nil = CRUX__sub_size_size(a_max, b_nil);
-  CRUX__ResultSize max_one = CRUX__sub_size_size(a_max, b_one);
-  CRUX__ResultSize min_max = CRUX__sub_size_size(a_min, b_max);
-  CRUX__ResultSize min_min = CRUX__sub_size_size(a_min, b_min);
-  CRUX__ResultSize min_nil = CRUX__sub_size_size(a_min, b_nil);
-  CRUX__ResultSize min_one = CRUX__sub_size_size(a_min, b_one);
-  CRUX__ResultSize nil_max = CRUX__sub_size_size(a_nil, b_max);
-  CRUX__ResultSize nil_min = CRUX__sub_size_size(a_nil, b_min);
-  CRUX__ResultSize nil_nil = CRUX__sub_size_size(a_nil, b_nil);
-  CRUX__ResultSize nil_one = CRUX__sub_size_size(a_nil, b_one);
-  CRUX__ResultSize one_max = CRUX__sub_size_size(a_one, b_max);
-  CRUX__ResultSize one_min = CRUX__sub_size_size(a_one, b_min);
-  CRUX__ResultSize one_nil = CRUX__sub_size_size(a_one, b_nil);
-  CRUX__ResultSize one_one = CRUX__sub_size_size(a_one, b_one);
-  ok(CRUX__trace_check(max_max.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(max_one.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(min_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(min_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(min_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(nil_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(nil_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(nil_nil.trace), "Must not have an error.");
-  ok(!CRUX__trace_check(nil_one.trace), "Must have an error.");
-  ok(!CRUX__trace_check(one_max.trace), "Must have an error.");
-  ok(CRUX__trace_check(one_min.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_nil.trace), "Must not have an error.");
-  ok(CRUX__trace_check(one_one.trace), "Must not have an error.");
-  CRUX__trace_clean(&max_max.trace);
-  CRUX__trace_clean(&max_min.trace);
-  CRUX__trace_clean(&max_nil.trace);
-  CRUX__trace_clean(&max_one.trace);
-  CRUX__trace_clean(&min_max.trace);
-  CRUX__trace_clean(&min_min.trace);
-  CRUX__trace_clean(&min_nil.trace);
-  CRUX__trace_clean(&min_one.trace);
-  CRUX__trace_clean(&nil_max.trace);
-  CRUX__trace_clean(&nil_min.trace);
-  CRUX__trace_clean(&nil_nil.trace);
-  CRUX__trace_clean(&nil_one.trace);
-  CRUX__trace_clean(&one_max.trace);
-  CRUX__trace_clean(&one_min.trace);
-  CRUX__trace_clean(&one_nil.trace);
-  CRUX__trace_clean(&one_one.trace);
-}
-
-
 
 
 int main (int argc, char *argv[]) {
-  plan(1040);
-  CRUX__sub_iu08_iu08_tests();
-  CRUX__sub_iu08_iu16_tests();
-  CRUX__sub_iu08_iu32_tests();
-  CRUX__sub_iu08_iu64_tests();
-  CRUX__sub_iu08_is08_tests();
-  CRUX__sub_iu08_is16_tests();
-  CRUX__sub_iu08_is32_tests();
-  CRUX__sub_iu08_is64_tests();
-  CRUX__sub_iu16_iu08_tests();
-  CRUX__sub_iu16_iu16_tests();
-  CRUX__sub_iu16_iu32_tests();
-  CRUX__sub_iu16_iu64_tests();
-  CRUX__sub_iu16_is08_tests();
-  CRUX__sub_iu16_is16_tests();
-  CRUX__sub_iu16_is32_tests();
-  CRUX__sub_iu16_is64_tests();
-  CRUX__sub_iu32_iu08_tests();
-  CRUX__sub_iu32_iu16_tests();
-  CRUX__sub_iu32_iu32_tests();
-  CRUX__sub_iu32_iu64_tests();
-  CRUX__sub_iu32_is08_tests();
-  CRUX__sub_iu32_is16_tests();
-  CRUX__sub_iu32_is32_tests();
-  CRUX__sub_iu32_is64_tests();
-  CRUX__sub_iu64_iu08_tests();
-  CRUX__sub_iu64_iu16_tests();
-  CRUX__sub_iu64_iu32_tests();
-  CRUX__sub_iu64_iu64_tests();
-  CRUX__sub_iu64_is08_tests();
-  CRUX__sub_iu64_is16_tests();
-  CRUX__sub_iu64_is32_tests();
-  CRUX__sub_iu64_is64_tests();
-  CRUX__sub_is08_iu08_tests();
-  CRUX__sub_is08_iu16_tests();
-  CRUX__sub_is08_iu32_tests();
-  CRUX__sub_is08_iu64_tests();
-  CRUX__sub_is08_is08_tests();
-  CRUX__sub_is08_is16_tests();
-  CRUX__sub_is08_is32_tests();
-  CRUX__sub_is08_is64_tests();
-  CRUX__sub_is16_iu08_tests();
-  CRUX__sub_is16_iu16_tests();
-  CRUX__sub_is16_iu32_tests();
-  CRUX__sub_is16_iu64_tests();
-  CRUX__sub_is16_is08_tests();
-  CRUX__sub_is16_is16_tests();
-  CRUX__sub_is16_is32_tests();
-  CRUX__sub_is16_is64_tests();
-  CRUX__sub_is32_iu08_tests();
-  CRUX__sub_is32_iu16_tests();
-  CRUX__sub_is32_iu32_tests();
-  CRUX__sub_is32_iu64_tests();
-  CRUX__sub_is32_is08_tests();
-  CRUX__sub_is32_is16_tests();
-  CRUX__sub_is32_is32_tests();
-  CRUX__sub_is32_is64_tests();
-  CRUX__sub_is64_iu08_tests();
-  CRUX__sub_is64_iu16_tests();
-  CRUX__sub_is64_iu32_tests();
-  CRUX__sub_is64_iu64_tests();
-  CRUX__sub_is64_is08_tests();
-  CRUX__sub_is64_is16_tests();
-  CRUX__sub_is64_is32_tests();
-  CRUX__sub_is64_is64_tests();
-  CRUX__sub_size_size_tests();
+  plan(555);
+  CRUX__sub_char_tests();
+  CRUX__sub_size_tests();
+  CRUX__sub_iu08_tests();
+  CRUX__sub_iu16_tests();
+  CRUX__sub_iu32_tests();
+  CRUX__sub_iu64_tests();
+  CRUX__sub_is08_tests();
+  CRUX__sub_is16_tests();
+  CRUX__sub_is32_tests();
+  CRUX__sub_is64_tests();
   done_testing();
   return EXIT_SUCCESS;
 }
