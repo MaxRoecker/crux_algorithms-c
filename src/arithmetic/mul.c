@@ -9,83 +9,169 @@
 inline Bool CRUX__mul_char_has_error (const Char a, const Char b) {
   Bool has_error = false;
   if (CRUX__is_char_signed()) {
+    const Bool positive_positive_error = (Bool)(
+      CRUX__is_positive_char(a)
+      && CRUX__is_positive_char(b)
+      && CRUX__is_greater_char(a, IS08_MAX / b));
+    const Bool positive_negative_error = (Bool)(
+      CRUX__is_positive_char(a)
+      && CRUX__is_negative_char(b)
+      && CRUX__is_less_char(b, IS08_MIN / a));
+    const Bool negative_positive_error = (Bool)(
+      CRUX__is_negative_char(a)
+      && CRUX__is_positive_char(b)
+      && CRUX__is_less_char(a, IS08_MIN / b));
+    const Bool negative_negative_error = (Bool)(
+      CRUX__is_negative_char(a)
+      && CRUX__is_negative_char(b)
+      && CRUX__is_less_char(b, IS08_MAX / a));
     has_error = (Bool)(
-      ((a > 0) && (b > 0) && (a > (CHAR_MAX / b)))
-      || ((a > 0) && (b < 0) && (b < (CHAR_MIN / a)))
-      || ((a < 0) && (b > 0) && (a < (CHAR_MIN / b)))
-      || ((a < 0) && (b < 0) && (a != 0) && (b < (CHAR_MAX / a))));
+      positive_positive_error
+      || positive_negative_error
+      || negative_positive_error
+      || negative_negative_error);
   } else {
-    has_error = (Bool)((b != 0) && (a > (SIZE_MAX / b)));
+    has_error = (Bool)(
+      !CRUX__is_zero_char(b) && CRUX__is_greater_char(a, CHAR_MAX / b));
   }
   return has_error;
 }
 
 
 inline Bool CRUX__mul_size_has_error (const Size a, const Size b) {
-  const Bool has_error = (Bool)((b != 0) && (a > (SIZE_MAX / b)));
+  const Bool has_error = (Bool)(
+    !CRUX__is_zero_size(b) && CRUX__is_greater_size(a, SIZE_MAX / b));
   return has_error;
 }
 
 
 inline Bool CRUX__mul_iu08_has_error (const IU08 a, const IU08 b) {
-  const Bool has_error = (Bool)((b != 0) && (a > (IU08_MAX / b)));
+  const Bool has_error = (Bool)(
+    !CRUX__is_zero_iu08(b) && CRUX__is_greater_iu08(a, IU08_MAX / b));
   return has_error;
 }
 
 
 inline Bool CRUX__mul_iu16_has_error (const IU16 a, const IU16 b) {
-  const Bool has_error = (Bool)((b != 0) && (a > (IU16_MAX / b)));
+  const Bool has_error = (Bool)(
+    !CRUX__is_zero_iu16(b) && CRUX__is_greater_iu16(a, IU16_MAX / b));
   return has_error;
 }
 
 
 inline Bool CRUX__mul_iu32_has_error (const IU32 a, const IU32 b) {
-  const Bool has_error = (Bool)((b != 0) && (a > (IU32_MAX / b)));
+  const Bool has_error = (Bool)(
+    !CRUX__is_zero_iu32(b) && CRUX__is_greater_iu32(a, IU32_MAX / b));
   return has_error;
 }
 
 inline Bool CRUX__mul_iu64_has_error (const IU64 a, const IU64 b) {
-  const Bool has_error = (Bool)((b != 0) && (a > (IU64_MAX / b)));
+  const Bool has_error = (Bool)(
+    !CRUX__is_zero_iu64(b) && CRUX__is_greater_iu64(a, IU64_MAX / b));
   return has_error;
 }
 
 
 inline Bool CRUX__mul_is08_has_error (const IS08 a, const IS08 b) {
+  const Bool positive_positive_error = (Bool)(
+    CRUX__is_positive_is08(a)
+    && CRUX__is_positive_is08(b)
+    && CRUX__is_greater_is08(a, IS08_MAX / b));
+  const Bool positive_negative_error = (Bool)(
+    CRUX__is_positive_is08(a)
+    && CRUX__is_negative_is08(b)
+    && CRUX__is_less_is08(b, IS08_MIN / a));
+  const Bool negative_positive_error = (Bool)(
+    CRUX__is_negative_is08(a)
+    && CRUX__is_positive_is08(b)
+    && CRUX__is_less_is08(a, IS08_MIN / b));
+  const Bool negative_negative_error = (Bool)(
+    CRUX__is_negative_is08(a)
+    && CRUX__is_negative_is08(b)
+    && CRUX__is_less_is08(b, IS08_MAX / a));
   const Bool has_error = (Bool)(
-    ((a > 0) && (b > 0) && (a > (IS08_MAX / b)))
-    || ((a > 0) && (b < 0) && (b < (IS08_MIN / a)))
-    || ((a < 0) && (b > 0) && (a < (IS08_MIN / b)))
-    || ((a < 0) && (b < 0) && (a != 0) && (b < (IS08_MAX / a))));
+    positive_positive_error
+    || positive_negative_error
+    || negative_positive_error
+    || negative_negative_error);
   return has_error;
 }
 
 
 inline Bool CRUX__mul_is16_has_error (const IS16 a, const IS16 b) {
+  const Bool positive_positive_error = (Bool)(
+    CRUX__is_positive_is16(a)
+    && CRUX__is_positive_is16(b)
+    && CRUX__is_greater_is16(a, IS16_MAX / b));
+  const Bool positive_negative_error = (Bool)(
+    CRUX__is_positive_is16(a)
+    && CRUX__is_negative_is16(b)
+    && CRUX__is_less_is16(b, IS16_MIN / a));
+  const Bool negative_positive_error = (Bool)(
+    CRUX__is_negative_is16(a)
+    && CRUX__is_positive_is16(b)
+    && CRUX__is_less_is16(a, IS16_MIN / b));
+  const Bool negative_negative_error = (Bool)(
+    CRUX__is_negative_is16(a)
+    && CRUX__is_negative_is16(b)
+    && CRUX__is_less_is16(b, IS16_MAX / a));
   const Bool has_error = (Bool)(
-    ((a > 0) && (b > 0) && (a > (IS16_MAX / b)))
-    || ((a > 0) && (b < 0) && (b < (IS16_MIN / a)))
-    || ((a < 0) && (b > 0) && (a < (IS16_MIN / b)))
-    || ((a < 0) && (b < 0) && (a != 0) && (b < (IS16_MAX / a))));
+    positive_positive_error
+    || positive_negative_error
+    || negative_positive_error
+    || negative_negative_error);
   return has_error;
 }
 
 
 inline Bool CRUX__mul_is32_has_error (const IS32 a, const IS32 b) {
+  const Bool positive_positive_error = (Bool)(
+    CRUX__is_positive_is32(a)
+    && CRUX__is_positive_is32(b)
+    && CRUX__is_greater_is32(a, IS32_MAX / b));
+  const Bool positive_negative_error = (Bool)(
+    CRUX__is_positive_is32(a)
+    && CRUX__is_negative_is32(b)
+    && CRUX__is_less_is32(b, IS32_MIN / a));
+  const Bool negative_positive_error = (Bool)(
+    CRUX__is_negative_is32(a)
+    && CRUX__is_positive_is32(b)
+    && CRUX__is_less_is32(a, IS32_MIN / b));
+  const Bool negative_negative_error = (Bool)(
+    CRUX__is_negative_is32(a)
+    && CRUX__is_negative_is32(b)
+    && CRUX__is_less_is32(b, IS32_MAX / a));
   const Bool has_error = (Bool)(
-    ((a > 0) && (b > 0) && (a > (IS32_MAX / b)))
-    || ((a > 0) && (b < 0) && (b < (IS32_MIN / a)))
-    || ((a < 0) && (b > 0) && (a < (IS32_MIN / b)))
-    || ((a < 0) && (b < 0) && (a != 0) && (b < (IS32_MAX / a))));
+    positive_positive_error
+    || positive_negative_error
+    || negative_positive_error
+    || negative_negative_error);
   return has_error;
 }
 
 
 inline Bool CRUX__mul_is64_has_error (const IS64 a, const IS64 b) {
+  const Bool positive_positive_error = (Bool)(
+    CRUX__is_positive_is64(a)
+    && CRUX__is_positive_is64(b)
+    && CRUX__is_greater_is64(a, IS64_MAX / b));
+  const Bool positive_negative_error = (Bool)(
+    CRUX__is_positive_is64(a)
+    && CRUX__is_negative_is64(b)
+    && CRUX__is_less_is64(b, IS64_MIN / a));
+  const Bool negative_positive_error = (Bool)(
+    CRUX__is_negative_is64(a)
+    && CRUX__is_positive_is64(b)
+    && CRUX__is_less_is64(a, IS64_MIN / b));
+  const Bool negative_negative_error = (Bool)(
+    CRUX__is_negative_is64(a)
+    && CRUX__is_negative_is64(b)
+    && CRUX__is_less_is64(b, IS64_MAX / a));
   const Bool has_error = (Bool)(
-    ((a > 0) && (b > 0) && (a > (IS64_MAX / b)))
-    || ((a > 0) && (b < 0) && (b < (IS64_MIN / a)))
-    || ((a < 0) && (b > 0) && (a < (IS64_MIN / b)))
-    || ((a < 0) && (b < 0) && (a != 0) && (b < (IS64_MAX / a))));
+    positive_positive_error
+    || positive_negative_error
+    || negative_positive_error
+    || negative_negative_error);
   return has_error;
 }
 

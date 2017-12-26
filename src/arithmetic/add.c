@@ -10,8 +10,8 @@ inline Bool CRUX__add_char_has_error (const Char a, const Char b) {
   Bool has_error = false;
   if (CRUX__is_char_signed()) {
     has_error = (Bool)(
-      (CRUX__is_positive(b) && (a > (CHAR_MAX - b)))
-      || (CRUX__is_negative(b) && (a < (CHAR_MIN - b))));
+      (CRUX__is_positive_char(b) && CRUX__is_greater_is08(a, CHAR_MAX - b))
+      || (CRUX__is_negative_char(b) && CRUX__is_less_is08(a, CHAR_MIN - b)));
   } else {
     has_error = (Bool)((CHAR_MAX - a) < b);
   }
@@ -20,62 +20,62 @@ inline Bool CRUX__add_char_has_error (const Char a, const Char b) {
 
 
 inline Bool CRUX__add_size_has_error (const Size a, const Size b) {
-  const Bool has_error = (Bool)((SIZE_MAX - a) < b);
+  const Bool has_error = CRUX__is_less_size(SIZE_MAX - a, b);
   return has_error;
 }
 
 
 inline Bool CRUX__add_iu08_has_error (const IU08 a, const IU08 b) {
-  const Bool has_error = (Bool)((IU08_MAX - a) < b);
+  const Bool has_error = CRUX__is_less_iu08(IU08_MAX - a, b);
   return has_error;
 }
 
 
 inline Bool CRUX__add_iu16_has_error (const IU16 a, const IU16 b) {
-  const Bool has_error = (Bool)((IU16_MAX - a) < b);
+  const Bool has_error = CRUX__is_less_iu16(IU16_MAX - a, b);
   return has_error;
 }
 
 
 inline Bool CRUX__add_iu32_has_error (const IU32 a, const IU32 b) {
-  const Bool has_error = (Bool)((IU32_MAX - a) < b);
+  const Bool has_error = CRUX__is_less_iu32(IU32_MAX - a, b);
   return has_error;
 }
 
 inline Bool CRUX__add_iu64_has_error (const IU64 a, const IU64 b) {
-  const Bool has_error = (Bool)((IU64_MAX - a) < b);
+  const Bool has_error = CRUX__is_less_iu64(IU64_MAX - a, b);
   return has_error;
 }
 
 
 inline Bool CRUX__add_is08_has_error (const IS08 a, const IS08 b) {
   const Bool has_error = (Bool)(
-    (CRUX__is_positive(b) && (a > (IS08_MAX - b)))
-    || (CRUX__is_negative(b) && (a < (IS08_MIN - b))));
+    (CRUX__is_positive_is08(b) && CRUX__is_greater_is08(a, IS08_MAX - b))
+    || (CRUX__is_negative_is08(b) && CRUX__is_less_is08(a, IS08_MIN - b)));
   return has_error;
 }
 
 
 inline Bool CRUX__add_is16_has_error (const IS16 a, const IS16 b) {
   const Bool has_error = (Bool)(
-    (CRUX__is_positive(b) && (a > (IS16_MAX - b)))
-    || (CRUX__is_negative(b) && (a < (IS16_MIN - b))));
+    (CRUX__is_positive_is16(b) && CRUX__is_greater_is16(a, IS16_MAX - b))
+    || (CRUX__is_negative_is16(b) && CRUX__is_less_is16(a, IS16_MIN - b)));
   return has_error;
 }
 
 
 inline Bool CRUX__add_is32_has_error (const IS32 a, const IS32 b) {
   const Bool has_error = (Bool)(
-    (CRUX__is_positive(b) && (a > (IS32_MAX - b)))
-    || (CRUX__is_negative(b) && (a < (IS32_MIN - b))));
+    (CRUX__is_positive_is32(b) && CRUX__is_greater_is32(a, IS32_MAX - b))
+    || (CRUX__is_negative_is32(b) && CRUX__is_less_is32(a, IS32_MIN - b)));
   return has_error;
 }
 
 
 inline Bool CRUX__add_is64_has_error (const IS64 a, const IS64 b) {
   const Bool has_error = (Bool)(
-    (CRUX__is_positive(b) && (a > (IS64_MAX - b)))
-    || (CRUX__is_negative(b) && (a < (IS64_MIN - b))));
+    (CRUX__is_positive_is64(b) && CRUX__is_greater_is64(a, IS64_MAX - b))
+    || (CRUX__is_negative_is64(b) && CRUX__is_less_is64(a, IS64_MIN - b)));
   return has_error;
 }
 

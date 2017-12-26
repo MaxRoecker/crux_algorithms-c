@@ -2,221 +2,293 @@
 #include "./../src/arithmetic/abs.h"
 
 
-void CRUX__abs_iu08_test (void) {
-  const IU08 max = IU08_MAX;
-  const IU08 min = IU08_MIN;
-  const IU08 max_abs = IU08_MAX;
-  const IU08 min_abs = IU08_MIN;
-  CRUX__ResultIU08 max_abs_result = CRUX__abs_iu08(max);
-  CRUX__ResultIU08 min_abs_result = CRUX__abs_iu08(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IU08_FMT".", max_abs);
-  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
-  ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"IU08_FMT".", min_abs);
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+
+
+void CRUX__abs_char_tests (void) {
+  const Char has_error_fmt[] = "abs(%d) must have an error.";
+  const Char not_error_fmt[] = "abs(%d) must not have an error.";
+  const Char value_fmt[] = "abs(%d) must equal to %d.";
+  if (CRUX__is_char_signed()) {
+    const Char inputs[7] = {CHAR_MIN, CHAR_MIN + 1, -1, 0, 1, CHAR_MAX - 1, CHAR_MAX};
+    const Bool checks[7] = {false, true, true, true, true, true, true};
+    const Char values[7] = {0, CHAR_MAX, 1, 0, 1, CHAR_MAX - 1, CHAR_MAX};
+    for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+      const Char input = inputs[i];
+      const Char value = values[i];
+      const Bool check = checks[i];
+      CRUX__ResultChar result = CRUX__abs_char(input);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const Char actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, input);
+        ok(CRUX__is_equal_char(actual_value, value), value_fmt, input, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, input);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  } else {
+    const Char inputs[4] = {CHAR_MIN, CHAR_MIN + 1, CHAR_MAX - 1, CHAR_MAX};
+    const Bool checks[4] = {true,  true,  true,  true};
+    const Char values[4] = {CHAR_MIN, CHAR_MIN + 1, CHAR_MAX - 1, CHAR_MAX};
+    for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+      const Char input = inputs[i];
+      const Char value = values[i];
+      const Bool check = checks[i];
+      CRUX__ResultChar result = CRUX__abs_char(input);
+      const Bool actual_check = CRUX__trace_check(result.trace);
+      const Char actual_value = result.value;
+      if (check) {
+        ok((actual_check == check), not_error_fmt, input);
+        ok(CRUX__is_equal_char(actual_value, value), value_fmt, input, value);
+      } else {
+        ok((actual_check == check), has_error_fmt, input);
+      }
+      CRUX__trace_clean(&result.trace);
+    }
+  }
 }
 
 
-void CRUX__abs_iu16_test (void) {
-  const IU16 max = IU16_MAX;
-  const IU16 min = IU16_MIN;
-  const IU16 max_abs = IU16_MAX;
-  const IU16 min_abs = IU16_MIN;
-  CRUX__ResultIU16 max_abs_result = CRUX__abs_iu16(max);
-  CRUX__ResultIU16 min_abs_result = CRUX__abs_iu16(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IU16_FMT".", max_abs);
-  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
-  ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"IU16_FMT".", min_abs);
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+void CRUX__abs_size_tests (void) {
+  const Char has_error_fmt[] = "abs(%"SIZE_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"SIZE_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"SIZE_FMT") must equal to %"SIZE_FMT".";
+  const Size inputs[4] = {SIZE_MIN, SIZE_MIN + 1, SIZE_MAX - 1, SIZE_MAX};
+  const Bool checks[4] = {true,  true,  true,  true};
+  const Size values[4] = {SIZE_MIN, SIZE_MIN + 1, SIZE_MAX - 1, SIZE_MAX};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    const Size input = inputs[i];
+    const Size value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultSize result = CRUX__abs_size(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const Size actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
 
 
-void CRUX__abs_iu32_test (void) {
-  const IU32 max = IU32_MAX;
-  const IU32 min = IU32_MIN;
-  const IU32 max_abs = IU32_MAX;
-  const IU32 min_abs = IU32_MIN;
-  CRUX__ResultIU32 max_abs_result = CRUX__abs_iu32(max);
-  CRUX__ResultIU32 min_abs_result = CRUX__abs_iu32(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IU32_FMT".", max_abs);
-  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
-  ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"IU32_FMT".", min_abs);
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+void CRUX__abs_iu08_tests (void) {
+  const Char has_error_fmt[] = "abs(%"IU08_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"IU08_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"IU08_FMT") must equal to %"IU08_FMT".";
+  const IU08 inputs[4] = {IU08_MIN, IU08_MIN + 1, IU08_MAX - 1, IU08_MAX};
+  const Bool checks[4] = {true,  true,  true,  true};
+  const IU08 values[4] = {IU08_MIN, IU08_MIN + 1, IU08_MAX - 1, IU08_MAX};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    const IU08 input = inputs[i];
+    const IU08 value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultIU08 result = CRUX__abs(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const IU08 actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
 
 
-void CRUX__abs_iu64_test (void) {
-  const IU64 max = IU64_MAX;
-  const IU64 min = IU64_MIN;
-  const IU64 max_abs = IU64_MAX;
-  const IU64 min_abs = IU64_MIN;
-  CRUX__ResultIU64 max_abs_result = CRUX__abs_iu64(max);
-  CRUX__ResultIU64 min_abs_result = CRUX__abs_iu64(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IU64_FMT".", max_abs);
-  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
-  ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"IU64_FMT".", min_abs);
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+void CRUX__abs_iu16_tests (void) {
+  const Char has_error_fmt[] = "abs(%"IU16_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"IU16_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"IU16_FMT") must equal to %"IU16_FMT".";
+  const IU16 inputs[4] = {IU16_MIN, IU16_MIN + 1, IU16_MAX - 1, IU16_MAX};
+  const Bool checks[4] = {true,  true,  true,  true};
+  const IU16 values[4] = {IU16_MIN, IU16_MIN + 1, IU16_MAX - 1, IU16_MAX};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    const IU16 input = inputs[i];
+    const IU16 value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultIU16 result = CRUX__abs(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const IU16 actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
 
 
-void CRUX__abs_is08_test (void) {
-  const IS08 max = IS08_MAX;
-  const IS08 negative = IS08_MIN + as_is08(1);
-  const IS08 min = IS08_MIN;
-  const IS08 max_abs = IS08_MAX;
-  const IS08 negative_abs = IS08_MAX;
-  CRUX__ResultIS08 max_abs_result = CRUX__abs_is08(max);
-  CRUX__ResultIS08 negative_abs_result = CRUX__abs_is08(negative);
-  CRUX__ResultIS08 min_abs_result = CRUX__abs_is08(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IS08_FMT".", max_abs);
-  ok(CRUX__trace_check(negative_abs_result.trace), "Must not have an error.");
-  ok((negative_abs_result.value == negative_abs), "The absolute value must be equal to %"IS08_FMT".", negative_abs);
-  ok(!CRUX__trace_check(min_abs_result.trace), "Must have an error.");
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&negative_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+void CRUX__abs_iu32_tests (void) {
+  const Char has_error_fmt[] = "abs(%"IU32_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"IU32_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"IU32_FMT") must equal to %"IU32_FMT".";
+  const IU32 inputs[4] = {IU32_MIN, IU32_MIN + 1, IU32_MAX - 1, IU32_MAX};
+  const Bool checks[4] = {true,  true,  true,  true};
+  const IU32 values[4] = {IU32_MIN, IU32_MIN + 1, IU32_MAX - 1, IU32_MAX};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    const IU32 input = inputs[i];
+    const IU32 value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultIU32 result = CRUX__abs(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const IU32 actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
 
 
-void CRUX__abs_is16_test (void) {
-  const IS16 max = IS16_MAX;
-  const IS16 negative = IS16_MIN + as_is16(1);
-  const IS16 min = IS16_MIN;
-  const IS16 max_abs = IS16_MAX;
-  const IS16 negative_abs = IS16_MAX;
-  CRUX__ResultIS16 max_abs_result = CRUX__abs_is16(max);
-  CRUX__ResultIS16 negative_abs_result = CRUX__abs_is16(negative);
-  CRUX__ResultIS16 min_abs_result = CRUX__abs_is16(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IS16_FMT".", max_abs);
-  ok(CRUX__trace_check(negative_abs_result.trace), "Must not have an error.");
-  ok((negative_abs_result.value == negative_abs), "The absolute value must be equal to %"IS16_FMT".", negative_abs);
-  ok(!CRUX__trace_check(min_abs_result.trace), "Must have an error.");
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&negative_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+void CRUX__abs_iu64_tests (void) {
+  const Char has_error_fmt[] = "abs(%"IU64_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"IU64_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"IU64_FMT") must equal to %"IU64_FMT".";
+  const IU64 inputs[4] = {IU64_MIN, IU64_MIN + 1, IU64_MAX - 1, IU64_MAX};
+  const Bool checks[4] = {true,  true,  true,  true};
+  const IU64 values[4] = {IU64_MIN, IU64_MIN + 1, IU64_MAX - 1, IU64_MAX};
+  for (Size i = as_size(0); i < as_size(4); i += as_size(1)) {
+    const IU64 input = inputs[i];
+    const IU64 value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultIU64 result = CRUX__abs(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const IU64 actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
 
 
-void CRUX__abs_is32_test (void) {
-  const IS32 max = IS32_MAX;
-  const IS32 negative = IS32_MIN + as_is32(1);
-  const IS32 min = IS32_MIN;
-  const IS32 max_abs = IS32_MAX;
-  const IS32 negative_abs = IS32_MAX;
-  CRUX__ResultIS32 max_abs_result = CRUX__abs_is32(max);
-  CRUX__ResultIS32 negative_abs_result = CRUX__abs_is32(negative);
-  CRUX__ResultIS32 min_abs_result = CRUX__abs_is32(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IS32_FMT".", max_abs);
-  ok(CRUX__trace_check(negative_abs_result.trace), "Must not have an error.");
-  ok((negative_abs_result.value == negative_abs), "The absolute value must be equal to %"IS32_FMT".", negative_abs);
-  ok(!CRUX__trace_check(min_abs_result.trace), "Must have an error.");
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&negative_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+void CRUX__abs_is08_tests (void) {
+  const Char has_error_fmt[] = "abs(%"IS08_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"IS08_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"IS08_FMT") must equal to %"IS08_FMT".";
+  const IS08 inputs[7] = {IS08_MIN, IS08_MIN + 1, -1, 0, 1, IS08_MAX - 1, IS08_MAX};
+  const Bool checks[7] = {false, true, true, true, true, true, true};
+  const IS08 values[7] = {0, IS08_MAX, 1, 0, 1, IS08_MAX - 1, IS08_MAX};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    const IS08 input = inputs[i];
+    const IS08 value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultIS08 result = CRUX__abs(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const IS08 actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
 
 
-void CRUX__abs_is64_test (void) {
-  const IS64 max = IS64_MAX;
-  const IS64 negative = IS64_MIN + as_is64(1);
-  const IS64 min = IS64_MIN;
-  const IS64 max_abs = IS64_MAX;
-  const IS64 negative_abs = IS64_MAX;
-  CRUX__ResultIS64 max_abs_result = CRUX__abs_is64(max);
-  CRUX__ResultIS64 negative_abs_result = CRUX__abs_is64(negative);
-  CRUX__ResultIS64 min_abs_result = CRUX__abs_is64(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"IS64_FMT".", max_abs);
-  ok(CRUX__trace_check(negative_abs_result.trace), "Must not have an error.");
-  ok((negative_abs_result.value == negative_abs), "The absolute value must be equal to %"IS64_FMT".", negative_abs);
-  ok(!CRUX__trace_check(min_abs_result.trace), "Must have an error.");
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&negative_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+void CRUX__abs_is16_tests (void) {
+  const Char has_error_fmt[] = "abs(%"IS16_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"IS16_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"IS16_FMT") must equal to %"IS16_FMT".";
+  const IS16 inputs[7] = {IS16_MIN, IS16_MIN + 1, -1, 0, 1, IS16_MAX - 1, IS16_MAX};
+  const Bool checks[7] = {false, true, true, true, true, true, true};
+  const IS16 values[7] = {0, IS16_MAX, 1, 0, 1, IS16_MAX - 1, IS16_MAX};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    const IS16 input = inputs[i];
+    const IS16 value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultIS16 result = CRUX__abs(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const IS16 actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
 
 
-void CRUX__abs_size_test (void) {
-  const Size max = SIZE_MAX;
-  const Size min = SIZE_MIN;
-  const Size max_abs = SIZE_MAX;
-  const Size min_abs = SIZE_MIN;
-  CRUX__ResultSize max_abs_result = CRUX__abs_size(max);
-  CRUX__ResultSize min_abs_result = CRUX__abs_size(min);
-  ok(CRUX__trace_check(max_abs_result.trace), "Must not have an error.");
-  ok((max_abs_result.value == max_abs), "The absolute value must be equal to %"SIZE_FMT".", max_abs);
-  ok(CRUX__trace_check(min_abs_result.trace), "Must not have an error.");
-  ok((min_abs_result.value == min_abs), "The absolute value must be equal to %"SIZE_FMT".", min_abs);
-  CRUX__trace_clean(&max_abs_result.trace);
-  CRUX__trace_clean(&min_abs_result.trace);
+void CRUX__abs_is32_tests (void) {
+  const Char has_error_fmt[] = "abs(%"IS32_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"IS32_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"IS32_FMT") must equal to %"IS32_FMT".";
+  const IS32 inputs[7] = {IS32_MIN, IS32_MIN + 1, -1, 0, 1, IS32_MAX - 1, IS32_MAX};
+  const Bool checks[7] = {false, true, true, true, true, true, true};
+  const IS32 values[7] = {0, IS32_MAX, 1, 0, 1, IS32_MAX - 1, IS32_MAX};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    const IS32 input = inputs[i];
+    const IS32 value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultIS32 result = CRUX__abs(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const IS32 actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
 
-void CRUX__abs_test (void) {
-  const IU08 iu08_value = as_iu08(0);
-  const IU16 iu16_value = as_iu16(0);
-  const IU32 iu32_value = as_iu32(0);
-  const IU64 iu64_value = as_iu64(0);
-  const IS08 is08_value = as_is08(0);
-  const IS16 is16_value = as_is16(0);
-  const IS32 is32_value = as_is32(0);
-  const IS64 is64_value = as_is64(0);
-  CRUX__ResultIU08 iu08_result = CRUX__abs(iu08_value);
-  CRUX__ResultIU16 iu16_result = CRUX__abs(iu16_value);
-  CRUX__ResultIU32 iu32_result = CRUX__abs(iu32_value);
-  CRUX__ResultIU64 iu64_result = CRUX__abs(iu64_value);
-  CRUX__ResultIS08 is08_result = CRUX__abs(is08_value);
-  CRUX__ResultIS16 is16_result = CRUX__abs(is16_value);
-  CRUX__ResultIS32 is32_result = CRUX__abs(is32_value);
-  CRUX__ResultIS64 is64_result = CRUX__abs(is64_value);
-  ok(CRUX__trace_check(iu08_result.trace), "Must not have an error.");
-  ok((iu08_result.value == as_iu08(0)), "Must be equal to 0.");
-  ok(CRUX__trace_check(iu16_result.trace), "Must not have an error.");
-  ok((iu16_result.value == as_iu16(0)), "Must be equal to 0.");
-  ok(CRUX__trace_check(iu32_result.trace), "Must not have an error.");
-  ok((iu32_result.value == as_iu32(0)), "Must be equal to 0.");
-  ok(CRUX__trace_check(iu64_result.trace), "Must not have an error.");
-  ok((iu64_result.value == as_iu64(0)), "Must be equal to 0.");
-  ok(CRUX__trace_check(is08_result.trace), "Must not have an error.");
-  ok((is08_result.value == as_is08(0)), "Must be equal to 0.");
-  ok(CRUX__trace_check(is16_result.trace), "Must not have an error.");
-  ok((is16_result.value == as_is16(0)), "Must be equal to 0.");
-  ok(CRUX__trace_check(is32_result.trace), "Must not have an error.");
-  ok((is32_result.value == as_is32(0)), "Must be equal to 0.");
-  ok(CRUX__trace_check(is64_result.trace), "Must not have an error.");
-  ok((is64_result.value == as_is64(0)), "Must be equal to 0.");
-  CRUX__trace_clean(&iu08_result.trace);
-  CRUX__trace_clean(&iu16_result.trace);
-  CRUX__trace_clean(&iu32_result.trace);
-  CRUX__trace_clean(&iu64_result.trace);
-  CRUX__trace_clean(&is08_result.trace);
-  CRUX__trace_clean(&is16_result.trace);
-  CRUX__trace_clean(&is32_result.trace);
-  CRUX__trace_clean(&is64_result.trace);
+
+void CRUX__abs_is64_tests (void) {
+  const Char has_error_fmt[] = "abs(%"IS64_FMT") must have an error.";
+  const Char not_error_fmt[] = "abs(%"IS64_FMT") must not have an error.";
+  const Char value_fmt[] = "abs(%"IS64_FMT") must equal to %"IS64_FMT".";
+  const IS64 inputs[7] = {IS64_MIN, IS64_MIN + 1, -1, 0, 1, IS64_MAX - 1, IS64_MAX};
+  const Bool checks[7] = {false, true, true, true, true, true, true};
+  const IS64 values[7] = {0, IS64_MAX, 1, 0, 1, IS64_MAX - 1, IS64_MAX};
+  for (Size i = as_size(0); i < as_size(7); i += as_size(1)) {
+    const IS64 input = inputs[i];
+    const IS64 value = values[i];
+    const Bool check = checks[i];
+    CRUX__ResultIS64 result = CRUX__abs(input);
+    const Bool actual_check = CRUX__trace_check(result.trace);
+    const IS64 actual_value = result.value;
+    if (check) {
+      ok((actual_check == check), not_error_fmt, input);
+      ok(CRUX__is_equal(actual_value, value), value_fmt, input, value);
+    } else {
+      ok((actual_check == check), has_error_fmt, input);
+    }
+    CRUX__trace_clean(&result.trace);
+  }
 }
+
+
 
 
 int main (int argc, char *argv[]) {
-  plan(56);
-  CRUX__abs_iu08_test();
-  CRUX__abs_iu16_test();
-  CRUX__abs_iu32_test();
-  CRUX__abs_iu64_test();
-  CRUX__abs_is08_test();
-  CRUX__abs_is16_test();
-  CRUX__abs_is32_test();
-  CRUX__abs_is64_test();
-  CRUX__abs_size_test();
-  CRUX__abs_test();
+  plan(105);
+  CRUX__abs_char_tests();
+  CRUX__abs_size_tests();
+  CRUX__abs_iu08_tests();
+  CRUX__abs_iu16_tests();
+  CRUX__abs_iu32_tests();
+  CRUX__abs_iu64_tests();
+  CRUX__abs_is08_tests();
+  CRUX__abs_is16_tests();
+  CRUX__abs_is32_tests();
+  CRUX__abs_is64_tests();
   done_testing();
   return EXIT_SUCCESS;
 }

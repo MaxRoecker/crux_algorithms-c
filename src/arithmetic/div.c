@@ -1,7 +1,7 @@
 #include "div.h"
 
 
-#define __CRUX__div_info_fmt(a_fmt, b_fmt) "The division of %" a_fmt " by %" b_fmt " is invalid or causes overflow."
+#define __CRUX__div_info_fmt(a_fmt, b_fmt) "The division of %" a_fmt " by %" b_fmt " is undefined or causes overflow."
 
 
 
@@ -9,69 +9,84 @@
 inline Bool CRUX__div_char_has_error (const Char a, const Char b) {
   Bool has_error = false;
   if (CRUX__is_char_signed()) {
-    has_error = (Bool)(
-      CRUX__is_zero(b) || (is_min(a) && (b == as_char(-1))));
+    const Bool divisor_is_zero = CRUX__is_zero_char(b);
+    const Bool positive_overflow = (Bool)(
+      CRUX__is_equal_char(a, CHAR_MIN) 
+      && CRUX__is_equal_char(b, as_char(-1)));
+    has_error = (Bool)(divisor_is_zero || positive_overflow);
   } else {
-    has_error = (Bool)(CRUX__is_zero(b));
+    has_error = CRUX__is_zero_char(b);
   }
   return has_error;
 }
 
 
 inline Bool CRUX__div_size_has_error (const Size a, const Size b) {
-  const Bool has_error = (Bool)(CRUX__is_zero(b));
+  const Bool has_error = CRUX__is_zero_size(b);
   return has_error;
 }
 
 
 inline Bool CRUX__div_iu08_has_error (const IU08 a, const IU08 b) {
-  const Bool has_error = (Bool)(CRUX__is_zero(b));
+  const Bool has_error = CRUX__is_zero_iu08(b);
   return has_error;
 }
 
 
 inline Bool CRUX__div_iu16_has_error (const IU16 a, const IU16 b) {
-  const Bool has_error = (Bool)(CRUX__is_zero(b));
+  const Bool has_error = CRUX__is_zero_iu16(b);
   return has_error;
 }
 
 
 inline Bool CRUX__div_iu32_has_error (const IU32 a, const IU32 b) {
-  const Bool has_error = (Bool)(CRUX__is_zero(b));
+  const Bool has_error = CRUX__is_zero_iu32(b);
   return has_error;
 }
 
 
 inline Bool CRUX__div_iu64_has_error (const IU64 a, const IU64 b) {
-  const Bool has_error = (Bool)(CRUX__is_zero(b));
+  const Bool has_error = CRUX__is_zero_iu64(b);
   return has_error;
 }
 
 
 inline Bool CRUX__div_is08_has_error (const IS08 a, const IS08 b) {
-  const Bool has_error = (Bool)(
-    CRUX__is_zero(b) || (is_min(a) && (b == as_is08(-1))));
+  const Bool divisor_is_zero = CRUX__is_zero_is08(b);
+  const Bool positive_overflow = (Bool)(
+    CRUX__is_equal_is08(a, IS08_MIN) 
+    && CRUX__is_equal_is08(b, as_is08(-1)));
+  const Bool has_error = (Bool)(divisor_is_zero || positive_overflow);
   return has_error;
 }
 
 
 inline Bool CRUX__div_is16_has_error (const IS16 a, const IS16 b) {
-  const Bool has_error = (Bool)(
-    CRUX__is_zero(b) || (is_min(a) && (b == as_is16(-1))));
+  const Bool divisor_is_zero = CRUX__is_zero_is16(b);
+  const Bool positive_overflow = (Bool)(
+    CRUX__is_equal_is16(a, IS16_MIN) 
+    && CRUX__is_equal_is16(b, as_is16(-1)));
+  const Bool has_error = (Bool)(divisor_is_zero || positive_overflow);
   return has_error;
 }
 
 
 inline Bool CRUX__div_is32_has_error (const IS32 a, const IS32 b) {
-  const Bool has_error = (Bool)(
-    CRUX__is_zero(b) || (is_min(a) && (b == as_is32(-1))));
+  const Bool divisor_is_zero = CRUX__is_zero_is32(b);
+  const Bool positive_overflow = (Bool)(
+    CRUX__is_equal_is32(a, IS32_MIN) 
+    && CRUX__is_equal_is32(b, as_is32(-1)));
+  const Bool has_error = (Bool)(divisor_is_zero || positive_overflow);
   return has_error;
 }
 
 
 inline Bool CRUX__div_is64_has_error (const IS64 a, const IS64 b) {
-  const Bool has_error = (Bool)(
-    CRUX__is_zero(b) || (is_min(a) && (b == as_is64(-1))));
+  const Bool divisor_is_zero = CRUX__is_zero_is64(b);
+  const Bool positive_overflow = (Bool)(
+    CRUX__is_equal_is64(a, IS64_MIN) 
+    && CRUX__is_equal_is64(b, as_is64(-1)));
+  const Bool has_error = (Bool)(divisor_is_zero || positive_overflow);
   return has_error;
 }
 

@@ -48,8 +48,8 @@ void CRUX__div_char_tests (void) {
         const Char actual_rem_value = result.value.rem;
         if (check) {
           ok((actual_check == check), not_error_fmt, a, b);
-          ok(CRUX__is_equal(actual_quo_value, quo_value), quo_value_fmt, a, b, quo_value);
-          ok(CRUX__is_equal(actual_rem_value, rem_value), rem_value_fmt, a, b, rem_value);
+          ok(CRUX__is_equal_char(actual_quo_value, quo_value), quo_value_fmt, a, b, quo_value);
+          ok(CRUX__is_equal_char(actual_rem_value, rem_value), rem_value_fmt, a, b, rem_value);
         } else {
           ok((actual_check == check), has_error_fmt, a, b);
         }
@@ -86,8 +86,8 @@ void CRUX__div_char_tests (void) {
         const Char actual_rem_value = result.value.rem;
         if (check) {
           ok((actual_check == check), not_error_fmt, a, b);
-          ok(CRUX__is_equal(actual_quo_value, quo_value), quo_value_fmt, a, b, quo_value);
-          ok(CRUX__is_equal(actual_rem_value, rem_value), rem_value_fmt, a, b, rem_value);
+          ok(CRUX__is_equal_char(actual_quo_value, quo_value), quo_value_fmt, a, b, quo_value);
+          ok(CRUX__is_equal_char(actual_rem_value, rem_value), rem_value_fmt, a, b, rem_value);
         } else {
           ok((actual_check == check), has_error_fmt, a, b);
         }
@@ -132,8 +132,8 @@ void CRUX__div_size_tests (void) {
       const Size actual_rem_value = result.value.rem;
       if (check) {
         ok((actual_check == check), not_error_fmt, a, b);
-        ok(CRUX__is_equal(actual_quo_value, quo_value), quo_value_fmt, a, b, quo_value);
-        ok(CRUX__is_equal(actual_rem_value, rem_value), rem_value_fmt, a, b, rem_value);
+        ok(CRUX__is_equal_size(actual_quo_value, quo_value), quo_value_fmt, a, b, quo_value);
+        ok(CRUX__is_equal_size(actual_rem_value, rem_value), rem_value_fmt, a, b, rem_value);
       } else {
         ok((actual_check == check), has_error_fmt, a, b);
       }

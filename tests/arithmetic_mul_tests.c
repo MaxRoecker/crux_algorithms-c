@@ -37,7 +37,7 @@ void CRUX__mul_char_tests (void) {
         const Char actual_value = result.value;
         if (check) {
           ok((actual_check == check), not_error_fmt, a, b);
-          ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+          ok(CRUX__is_equal_char(actual_value, value), value_fmt, a, b, value);
         } else {
           ok((actual_check == check), has_error_fmt, a, b);
         }
@@ -67,7 +67,7 @@ void CRUX__mul_char_tests (void) {
         const Char actual_value = result.value;
         if (check) {
           ok((actual_check == check), not_error_fmt, a, b);
-          ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+          ok(CRUX__is_equal_char(actual_value, value), value_fmt, a, b, value);
         } else {
           ok((actual_check == check), has_error_fmt, a, b);
         }
@@ -104,7 +104,7 @@ void CRUX__mul_size_tests (void) {
       const Size actual_value = result.value;
       if (check) {
         ok((actual_check == check), not_error_fmt, a, b);
-        ok(CRUX__is_equal(actual_value, value), value_fmt, a, b, value);
+        ok(CRUX__is_equal_size(actual_value, value), value_fmt, a, b, value);
       } else {
         ok((actual_check == check), has_error_fmt, a, b);
       }
